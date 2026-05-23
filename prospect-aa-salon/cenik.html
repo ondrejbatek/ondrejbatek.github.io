@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceník — Salon A&A · Mánesova 94, Vinohrady</title>
+<meta name="description" content="Kompletní ceník služeb salonu A&A. Kadeřnictví, kosmetika, manikúra, pedikúra, masáže. Vinohrady, Praha 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #f9f3eb;
+    --ivory-deep: #f1e6d6;
+    --champagne: #ede0d0;
+    --mauve-soft: #d6b6c4;
+    --mauve: #a8718a;
+    --mauve-deep: #7d4a62;
+    --aubergine: #5d3848;
+    --gold: #c4a37a;
+    --gold-light: #dcc09a;
+    --plum: #3a2830;
+    --taupe: #8d7a7a;
+    --line: #e2d4c8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--plum);
+    background: var(--ivory);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(196, 163, 122, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 20% 80%, rgba(168, 113, 138, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+  .script { font-family: var(--script); font-weight: 400; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(249, 243, 235, 0.92);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: 0.02em; color: var(--mauve-deep); display: flex; align-items: center; gap: 12px; }
+  .logo-mark { width: 32px; height: 32px; background: var(--mauve-deep); color: var(--ivory); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--script); font-size: 22px; line-height: 1; padding-top: 2px; }
+  .nav-links { display: flex; gap: 36px; font-size: 14px; }
+  .nav-cta { background: var(--mauve-deep); color: var(--ivory); padding: 11px 24px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; box-shadow: 0 4px 14px rgba(125, 74, 98, 0.22); transition: all 0.3s ease; }
+  .nav-cta:hover { background: var(--aubergine); opacity: 1; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(125, 74, 98, 0.32); }
+
+  /* HEADER */
+  .page-header { padding: 180px 0 100px; text-align: center; position: relative; overflow: hidden; }
+  .page-header::before {
+    content: "";
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(168, 113, 138, 0.18) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page-header > * { position: relative; z-index: 2; }
+  .page-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: inline-flex; align-items: center; gap: 14px; justify-content: center; }
+  .page-eyebrow::before, .page-eyebrow::after {
+    content: ""; width: 36px; height: 1px; background: var(--gold);
+  }
+  .page-header h1 { font-size: clamp(48px, 7.5vw, 88px); margin-bottom: 28px; }
+  .page-header h1 em { font-style: italic; color: var(--mauve-deep); font-weight: 400; }
+  .page-lead { font-size: 18px; color: var(--taupe); max-width: 56ch; margin: 0 auto; line-height: 1.75; }
+
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; color: var(--gold); margin: 24px 0; }
+  .ornament-line { width: 64px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+  .ornament-symbol { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--gold); line-height: 1; }
+
+  /* PRICE TABLE */
+  .price-section { padding: 60px 0 100px; }
+  .price-category {
+    margin-bottom: 56px;
+    background: var(--ivory);
+    padding: 48px;
+    border-radius: 4px 80px 4px 80px;
+    border: 1px solid var(--line);
+    transition: all 0.3s ease;
+  }
+  .price-category:hover { box-shadow: 0 30px 60px rgba(125, 74, 98, 0.1); }
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .category-header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: var(--mauve-deep);
+  }
+  .category-num { font-family: var(--script); font-size: 32px; color: var(--gold); line-height: 1; }
+  .category-title { font-family: var(--serif); font-size: 36px; color: var(--plum); }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-name { font-family: var(--serif); font-size: 22px; color: var(--plum); }
+  .price-name small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--taupe);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--mauve-deep);
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* NOTE */
+  .price-note {
+    background: var(--ivory-deep);
+    border-left: 3px solid var(--gold);
+    padding: 28px 36px;
+    margin: 56px 0;
+    font-size: 15px;
+    color: var(--plum);
+    line-height: 1.75;
+    border-radius: 0 4px 4px 0;
+  }
+  .price-note strong { color: var(--mauve-deep); font-family: var(--serif); font-size: 17px; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--mauve-deep) 0%, var(--aubergine) 100%);
+    color: var(--ivory);
+    padding: 110px 0;
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: "";
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(196, 163, 122, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section::after {
+    content: "";
+    position: absolute;
+    bottom: -120px; right: -120px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(214, 182, 196, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section .container { position: relative; z-index: 2; }
+  .cta-section h2 { font-size: clamp(38px, 5.5vw, 60px); margin-bottom: 28px; color: var(--ivory); }
+  .cta-section h2 em { color: var(--gold-light); font-style: italic; font-family: var(--script); display: block; line-height: 1; margin-bottom: 8px; font-size: 1.1em; font-weight: 400; }
+  .cta-section p { color: rgba(249, 243, 235, 0.8); max-width: 50ch; margin: 0 auto 44px; font-size: 17px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 34px; border-radius: 100px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; transition: all 0.3s ease; }
+  .btn-primary { background: var(--gold); color: var(--aubergine); box-shadow: 0 6px 20px rgba(196, 163, 122, 0.4); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(196, 163, 122, 0.5); opacity: 1; }
+
+  /* FOOTER */
+  footer { background: var(--plum); color: rgba(249, 243, 235, 0.6); padding: 56px 0 36px; font-size: 14px; }
+  footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer .logo-mark { background: var(--gold); color: var(--plum); }
+  .footer-bottom-text { font-size: 12px; color: rgba(249, 243, 235, 0.5); }
+  .footer-bottom-text .script { color: var(--gold-light); font-size: 18px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    .page-header { padding: 130px 0 60px; }
+    .price-category { padding: 32px 24px; border-radius: 4px 60px 4px 60px; }
+    .price-row { grid-template-columns: 1fr; gap: 8px; }
+    .price-amount { text-align: left; }
+    .category-title { font-size: 28px; }
+    .category-num { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">A</span>
+      Salon A&A
+    </a>
+    <div class="nav-links">
+      <a href="index.html#o-nas">O nás</a>
+      <a href="index.html#sluzby">Služby</a>
+      <a href="cenik.html" style="color: var(--mauve-deep); font-weight: 500;">Ceník</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <a href="tel:+420222712583" class="nav-cta">Rezervovat</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <div class="page-eyebrow">Ceník služeb · Aktualizováno 2026</div>
+    <h1>Transparentní ceny, <em>bez překvapení.</em></h1>
+    <div class="ornament">
+      <span class="ornament-line"></span>
+      <span class="ornament-symbol">❀</span>
+      <span class="ornament-line"></span>
+    </div>
+    <p class="page-lead">Konečnou cenu vždy upřesníme po krátké konzultaci, která je u nás zdarma. Délka, hustota vlasů či typ pleti totiž ovlivňují především časovou náročnost a spotřebu materiálu.</p>
+  </div>
+</header>
+
+<section class="price-section">
+  <div class="container">
+
+    <div class="price-category">
+      <div class="category-header">
+        <div class="category-num">i.</div>
+        <h2 class="category-title">Kadeřnictví</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Dámský střih — krátké vlasy<small>Konzultace, mytí, střih, foukaná, styling</small></div>
+        <div class="price-amount">od 450 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Dámský střih — polodlouhé vlasy<small>Včetně mytí, foukané a stylingu</small></div>
+        <div class="price-amount">od 550 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Dámský střih — dlouhé vlasy<small>Včetně mytí, foukané a stylingu</small></div>
+        <div class="price-amount">od 650 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Pánský střih<small>Mytí, střih, styling</small></div>
+        <div class="price-amount">od 250 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Dětský střih (do 12 let)<small>Trpělivý přístup pro nejmenší</small></div>
+        <div class="price-amount">od 200 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Mytí + foukaná<small>Bez stříhání, jen úprava</small></div>
+        <div class="price-amount">od 250 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Společenský účes<small>Na svatbu, ples, fotografování</small></div>
+        <div class="price-amount">od 700 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-category">
+      <div class="category-header">
+        <div class="category-num">ii.</div>
+        <h2 class="category-title">Barvení vlasů</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Barvení odrostů<small>Profesionální barvy, jedna barva</small></div>
+        <div class="price-amount">od 700 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Celkové přebarvení<small>Cena dle délky a hustoty vlasů</small></div>
+        <div class="price-amount">od 1 200 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Melír<small>Klasický, foliový</small></div>
+        <div class="price-amount">od 1 400 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Balayage<small>Přírodní efekt prosvětlení</small></div>
+        <div class="price-amount">od 1 800 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Tónování<small>Osvěžení barvy mezi celkovými barveními</small></div>
+        <div class="price-amount">od 500 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-category">
+      <div class="category-header">
+        <div class="category-num">iii.</div>
+        <h2 class="category-title">Kosmetika</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Hloubkové čištění pleti<small>Včetně masky a masáže obličeje</small></div>
+        <div class="price-amount">od 600 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Kosmetické ošetření základní<small>Čištění, peeling, maska</small></div>
+        <div class="price-amount">od 450 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Anti-aging ošetření<small>Pro pleť 35+, intenzivní péče</small></div>
+        <div class="price-amount">od 850 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Depilace — horní ret<small>Voskem či cukrovou pastou</small></div>
+        <div class="price-amount">od 150 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Depilace — nohy / podpaží<small>Cena dle plochy</small></div>
+        <div class="price-amount">od 300 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-category">
+      <div class="category-header">
+        <div class="category-num">iv.</div>
+        <h2 class="category-title">Manikúra</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Klasická manikúra<small>Úprava nehtů + lakování</small></div>
+        <div class="price-amount">od 300 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Gel-lak<small>Dlouhotrvající lakování</small></div>
+        <div class="price-amount">od 450 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Modeláž nehtů (gel)<small>Vytvoření délky, plný set</small></div>
+        <div class="price-amount">od 700 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Doplnění gelu<small>Cca po 4 týdnech</small></div>
+        <div class="price-amount">od 500 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">P-shine + parafínový zábal<small>Hloubková péče o ruce a nehty</small></div>
+        <div class="price-amount">od 350 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-category">
+      <div class="category-header">
+        <div class="category-num">v.</div>
+        <h2 class="category-title">Pedikúra</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Mokrá pedikúra<small>Včetně lakování</small></div>
+        <div class="price-amount">od 400 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Pedikúra + parafínový zábal<small>Hluboce hydratuje a regeneruje</small></div>
+        <div class="price-amount">od 550 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Lékařská pedikúra<small>Pro problematické nohy, dle konzultace</small></div>
+        <div class="price-amount">individuálně</div>
+      </div>
+    </div>
+
+    <div class="price-category">
+      <div class="category-header">
+        <div class="category-num">vi.</div>
+        <h2 class="category-title">Masáže</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Klasická masáž zad a šíje<small>30 minut</small></div>
+        <div class="price-amount">od 500 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Sportovní masáž<small>45 minut, intenzivnější tlak</small></div>
+        <div class="price-amount">od 700 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Relaxační masáž celého těla<small>60 minut</small></div>
+        <div class="price-amount">od 900 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Masáž obličeje a hlavy<small>30 minut, ideální zakončení návštěvy</small></div>
+        <div class="price-amount">od 350 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-note">
+      <strong>Důležité —</strong> Uvedené ceny jsou orientační a vycházejí z průměrné délky vlasů či typu pleti. Konečnou cenu upřesníme vždy před zahájením úkonu — nikdy se nezvyšují bez vašeho souhlasu. Při první návštěvě vám rádi nabídneme krátkou bezplatnou konzultaci, abychom přesně věděli, co potřebujete.
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2><em>Patnáct procent</em>na první návštěvu.</h2>
+    <p>Nechte nám e-mail na úvodní stránce a slevový kód vám pošleme do minuty. Bez závazků, bez spamu.</p>
+    <a href="index.html#discount" class="btn btn-primary">Získat slevový kód →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo" style="color: var(--ivory);">
+      <span class="logo-mark">A</span>
+      Salon A&A
+    </div>
+    <div class="footer-bottom-text">Mánesova 1552/94, Praha 2 — Vinohrady · 222 712 583 · <span class="script">s láskou</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

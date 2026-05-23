@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon A&A — Věra Albrechtová | Mánesova 94, Vinohrady</title>
+<meta name="description" content="Kompletní salonová péče v srdci Vinohrad. Kadeřnictví, kosmetika, manikúra, pedikúra, masáže. Krok od metra Jiřího z Poděbrad. Mánesova 94, Praha 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #f9f3eb;
+    --ivory-deep: #f1e6d6;
+    --champagne: #ede0d0;
+    --mauve-soft: #d6b6c4;
+    --mauve: #a8718a;
+    --mauve-deep: #7d4a62;
+    --aubergine: #5d3848;
+    --gold: #c4a37a;
+    --gold-light: #dcc09a;
+    --plum: #3a2830;
+    --taupe: #8d7a7a;
+    --line: #e2d4c8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--plum);
+    background: var(--ivory);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(196, 163, 122, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 20% 80%, rgba(168, 113, 138, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+  .script { font-family: var(--script); font-weight: 400; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* === ORNAMENT === */
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; color: var(--gold); margin: 24px 0; }
+  .ornament-line { width: 64px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+  .ornament-symbol { font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--gold); line-height: 1; }
+
+  /* === NAV === */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(249, 243, 235, 0.92);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .logo {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    letter-spacing: 0.02em; color: var(--mauve-deep);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: var(--mauve-deep); color: var(--ivory);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--script); font-size: 22px; line-height: 1; padding-top: 2px;
+  }
+  .nav-links { display: flex; gap: 36px; font-size: 14px; }
+  .nav-cta {
+    background: var(--mauve-deep); color: var(--ivory);
+    padding: 11px 24px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(125, 74, 98, 0.22);
+  }
+  .nav-cta:hover { background: var(--aubergine); opacity: 1; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(125, 74, 98, 0.32); }
+
+  /* === HERO === */
+  .hero { padding: 200px 0 140px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: "";
+    position: absolute; top: -100px; right: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(168, 113, 138, 0.18) 0%, transparent 60%);
+    border-radius: 50%; z-index: 0;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; bottom: -200px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(196, 163, 122, 0.12) 0%, transparent 60%);
+    border-radius: 50%; z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 32px; display: inline-flex; align-items: center; gap: 14px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ""; width: 36px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    font-size: clamp(48px, 8.5vw, 104px);
+    color: var(--plum);
+    margin-bottom: 36px;
+    max-width: 14ch;
+    line-height: 1.05;
+  }
+  .hero h1 em { font-style: italic; color: var(--mauve-deep); font-weight: 400; }
+  .hero h1 .accent {
+    font-family: var(--script);
+    font-size: 0.85em;
+    color: var(--mauve);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.9;
+    display: inline-block;
+  }
+  .hero-subhead {
+    font-size: 19px; color: var(--taupe);
+    max-width: 56ch; margin-bottom: 56px; line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 17px 34px; border-radius: 100px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--mauve-deep); color: var(--ivory);
+    box-shadow: 0 6px 20px rgba(125, 74, 98, 0.22);
+  }
+  .btn-primary:hover {
+    background: var(--aubergine); opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(125, 74, 98, 0.32);
+  }
+  .btn-secondary {
+    background: transparent; color: var(--plum);
+    border-color: var(--mauve);
+  }
+  .btn-secondary:hover { background: var(--mauve); color: var(--ivory); opacity: 1; border-color: var(--mauve); }
+
+  /* Decorative iris/peony SVG */
+  .hero-floral {
+    position: absolute;
+    top: 220px;
+    right: 6%;
+    width: 260px;
+    opacity: 0.55;
+    z-index: 1;
+    animation: float 9s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(2deg); }
+  }
+
+  /* === TRUST BAR === */
+  .trust {
+    background: var(--ivory-deep);
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+  .trust-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 32px; flex-wrap: wrap;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon { width: 14px; height: 14px; color: var(--gold); }
+
+  /* === SECTIONS === */
+  section { padding: 130px 0; position: relative; }
+  .section-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .section-eyebrow::before { content: ""; width: 36px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-size: clamp(38px, 5.2vw, 60px);
+    margin-bottom: 28px; max-width: 18ch;
+  }
+  .section-title em { font-style: italic; color: var(--mauve-deep); font-weight: 400; }
+  .section-lead {
+    font-size: 18px; color: var(--taupe);
+    max-width: 56ch; line-height: 1.75;
+  }
+
+  /* === ABOUT === */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-figure {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--mauve) 0%, var(--mauve-deep) 60%, var(--aubergine) 100%);
+    border-radius: 200px 200px 8px 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(125, 74, 98, 0.25);
+  }
+  .about-figure::before {
+    content: "";
+    position: absolute; inset: 24px;
+    border: 1px solid rgba(249, 243, 235, 0.3);
+    border-radius: 180px 180px 4px 4px;
+    pointer-events: none;
+  }
+  .about-figure-monogram {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    color: rgba(249, 243, 235, 0.95);
+    text-align: center;
+  }
+  .about-figure-monogram .script-mark {
+    font-family: var(--script);
+    font-size: 160px;
+    line-height: 0.85;
+    margin-bottom: 8px;
+    color: rgba(249, 243, 235, 0.85);
+  }
+  .about-figure-monogram .role {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(249, 243, 235, 0.6);
+  }
+  .about-figure-frame {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold-light);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+  .about-quote {
+    font-family: var(--serif);
+    font-size: 32px; font-style: italic;
+    line-height: 1.4;
+    color: var(--mauve-deep);
+    margin: 0 0 32px;
+    padding-left: 24px;
+    border-left: 2px solid var(--gold);
+  }
+  .about-text p { margin-bottom: 22px; color: var(--plum); font-size: 16px; }
+  .about-signature {
+    margin-top: 40px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .about-signature .script-name {
+    font-family: var(--script);
+    font-size: 42px;
+    color: var(--mauve-deep);
+    line-height: 1;
+  }
+  .about-signature .signature-role {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    border-left: 1px solid var(--line);
+    padding-left: 16px;
+  }
+
+  /* === SERVICES === */
+  .services { background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 50%, var(--ivory) 100%); }
+  .services-header { text-align: center; margin-bottom: 80px; }
+  .services-header .section-eyebrow,
+  .services-header .section-title { margin-left: auto; margin-right: auto; }
+  .services-header .section-eyebrow { justify-content: center; }
+  .services-header .section-title { max-width: none; }
+  .services-header .section-lead { margin-left: auto; margin-right: auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    padding: 48px 36px 40px;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 4px 4px 80px 80px;
+    transition: all 0.4s ease;
+    position: relative;
+    text-align: center;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px rgba(125, 74, 98, 0.12);
+    border-color: var(--mauve-soft);
+  }
+  .service-icon {
+    width: 56px; height: 56px;
+    margin: 0 auto 24px;
+    color: var(--mauve-deep);
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); }
+  .service-num {
+    font-family: var(--script);
+    font-size: 26px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    margin-bottom: 14px;
+    color: var(--plum);
+  }
+  .service-desc {
+    font-size: 14.5px; color: var(--taupe);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+  .service-price {
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--mauve-deep);
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* === DISCOUNT EMAIL === */
+  .discount {
+    background: linear-gradient(135deg, var(--mauve-deep) 0%, var(--aubergine) 100%);
+    color: var(--ivory);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .discount::before {
+    content: "";
+    position: absolute; top: -80px; left: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(196, 163, 122, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .discount::after {
+    content: "";
+    position: absolute; bottom: -100px; right: -100px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(214, 182, 196, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .discount .container { max-width: 720px; position: relative; z-index: 2; }
+  .discount .section-eyebrow { color: var(--gold-light); justify-content: center; }
+  .discount .section-eyebrow::before,
+  .discount .section-eyebrow::after {
+    content: ""; width: 36px; height: 1px; background: var(--gold-light);
+  }
+  .discount-header { display: flex; justify-content: center; margin-bottom: 28px; }
+  .discount h2 {
+    font-size: clamp(42px, 6.5vw, 68px);
+    margin-bottom: 28px;
+    color: var(--ivory);
+  }
+  .discount h2 em {
+    color: var(--gold-light);
+    font-style: italic;
+    display: block;
+    font-family: var(--script);
+    font-size: 0.95em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .discount-lead {
+    color: rgba(249, 243, 235, 0.78);
+    font-size: 17px;
+    margin-bottom: 44px;
+    line-height: 1.7;
+  }
+  .email-form {
+    display: flex; gap: 8px;
+    max-width: 500px; margin: 0 auto;
+    background: rgba(249, 243, 235, 0.08);
+    border: 1px solid rgba(249, 243, 235, 0.18);
+    padding: 7px;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+  }
+  .email-form input {
+    flex: 1; background: transparent; border: none;
+    padding: 14px 22px;
+    color: var(--ivory);
+    font-size: 15px; font-family: inherit; outline: none;
+  }
+  .email-form input::placeholder { color: rgba(249, 243, 235, 0.5); }
+  .email-form button {
+    background: var(--gold); color: var(--aubergine);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 14px rgba(196, 163, 122, 0.4);
+  }
+  .email-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(196, 163, 122, 0.5);
+  }
+  .discount-fineprint {
+    margin-top: 24px; font-size: 12px;
+    color: rgba(249, 243, 235, 0.5); letter-spacing: 0.05em;
+  }
+
+  /* === PRICING PREVIEW === */
+  .pricing-preview { background: var(--ivory-deep); }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 80px;
+    margin-top: 64px;
+  }
+  .price-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-name { font-family: var(--serif); font-size: 22px; color: var(--plum); }
+  .price-name small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px; color: var(--taupe);
+    margin-top: 4px; font-weight: 400;
+  }
+  .price-amount {
+    font-family: var(--serif); font-size: 22px;
+    color: var(--mauve-deep); font-weight: 500; white-space: nowrap;
+  }
+  .pricing-cta { margin-top: 64px; text-align: center; }
+
+  /* === CONTACT === */
+  .contact { background: var(--ivory); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 72px;
+  }
+  .contact-card {
+    background: var(--ivory-deep);
+    padding: 48px 40px;
+    border-radius: 4px 80px 4px 80px;
+    border: 1px solid var(--line);
+  }
+  .contact-block { margin-bottom: 36px; }
+  .contact-block:last-child { margin-bottom: 0; }
+  .contact-label {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .contact-value {
+    font-family: var(--serif); font-size: 24px;
+    color: var(--plum); margin-bottom: 6px;
+    line-height: 1.4; display: block;
+  }
+  .contact-extra { color: var(--taupe); font-size: 14px; }
+  .hours-list { list-style: none; }
+  .hours-list li {
+    display: flex; justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 15px;
+  }
+  .hours-list li:last-child { border-bottom: none; }
+  .hours-day { color: var(--taupe); font-family: var(--serif); font-size: 18px; }
+  .hours-time { color: var(--plum); font-weight: 500; }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--plum);
+    color: rgba(249, 243, 235, 0.6);
+    padding: 72px 0 36px; font-size: 14px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+  footer .logo { color: var(--ivory); margin-bottom: 20px; }
+  footer .logo-mark { background: var(--gold); color: var(--plum); }
+  footer h4 {
+    color: var(--ivory);
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-bottom: 22px; font-weight: 500;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(249, 243, 235, 0.1);
+    padding-top: 32px; text-align: center;
+    font-size: 12px; color: rgba(249, 243, 235, 0.5);
+  }
+  .footer-bottom .script { color: var(--gold-light); font-size: 18px; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 0; }
+    .hero { padding: 140px 0 80px; }
+    .about { grid-template-columns: 1fr; gap: 56px; }
+    .about-figure { aspect-ratio: 4/5; max-width: 360px; margin: 0 auto; border-radius: 160px 160px 6px 6px; }
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 0; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-card { padding: 40px 28px; border-radius: 4px 60px 4px 60px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .email-form { flex-direction: column; border-radius: 16px; padding: 12px; }
+    .email-form input { text-align: center; }
+    .email-form button { width: 100%; padding: 16px; }
+    .trust-inner { justify-content: center; gap: 16px 32px; }
+    .about-quote { font-size: 24px; padding-left: 16px; }
+    .hero-floral { display: none; }
+    .about-figure-monogram .script-mark { font-size: 130px; }
+  }
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+    .about-signature .script-name { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">A</span>
+      Salon A&A
+    </a>
+    <div class="nav-links">
+      <a href="#o-nas">O nás</a>
+      <a href="#sluzby">Služby</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a href="tel:+420222712583" class="nav-cta">Rezervovat</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Decorative iris/peony -->
+  <svg class="hero-floral" viewBox="0 0 240 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#a8718a" stroke-width="1" stroke-linecap="round" fill="none">
+      <path d="M120 250 Q120 200 130 150 Q140 100 120 60"/>
+      <path d="M120 200 Q90 195 70 180" />
+      <path d="M120 200 Q150 195 170 180" />
+      <path d="M124 160 Q105 158 90 150" />
+      <path d="M126 160 Q145 158 160 150" />
+      <path d="M126 120 Q110 116 100 108" />
+      <path d="M128 120 Q144 116 154 108" />
+    </g>
+    <!-- Iris-like blossoms -->
+    <g fill="#7d4a62" opacity="0.85">
+      <path d="M68 175 Q60 168 64 160 Q72 156 76 164 Q72 172 68 175 Z"/>
+      <path d="M172 175 Q180 168 176 160 Q168 156 164 164 Q168 172 172 175 Z"/>
+    </g>
+    <g fill="#d6b6c4" opacity="0.85">
+      <path d="M88 152 Q82 145 86 138 Q92 134 96 142 Q92 148 88 152 Z"/>
+      <path d="M152 152 Q158 145 154 138 Q148 134 144 142 Q148 148 152 152 Z"/>
+      <path d="M98 110 Q94 104 98 98 Q104 96 106 102 Q104 108 98 110 Z"/>
+      <path d="M142 110 Q146 104 142 98 Q136 96 134 102 Q136 108 142 110 Z"/>
+    </g>
+    <!-- Top peony bloom -->
+    <g fill="#7d4a62">
+      <circle cx="120" cy="56" r="12"/>
+      <path d="M108 60 Q104 52 110 46 Q118 44 120 50 Q116 56 108 60 Z" opacity="0.85"/>
+      <path d="M132 60 Q136 52 130 46 Q122 44 120 50 Q124 56 132 60 Z" opacity="0.85"/>
+      <path d="M114 44 Q120 38 126 44 Q124 50 120 50 Q116 50 114 44 Z" opacity="0.85"/>
+    </g>
+    <g fill="#c4a37a">
+      <circle cx="120" cy="56" r="4"/>
+    </g>
+    <!-- Soft leaves -->
+    <g fill="#d6b6c4" opacity="0.55">
+      <ellipse cx="80" cy="172" rx="9" ry="3" transform="rotate(-30 80 172)"/>
+      <ellipse cx="160" cy="172" rx="9" ry="3" transform="rotate(30 160 172)"/>
+    </g>
+  </svg>
+
+  <div class="container hero-content">
+    <div class="hero-eyebrow">Kompletní salón krásy · Vinohrady · Praha 2</div>
+    <h1>Vše pro vaši krásu — <em>krok</em> <span class="accent">od metra.</span></h1>
+    <p class="hero-subhead">
+      Kadeřnictví, kosmetika, manikúra, pedikúra a masáže pod jednou střechou. Salon na Vinohradech, který v Mánesově ulici už léta pečuje o stálou klientelu — a kde vše vyřešíte při jedné návštěvě.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:+420222712583" class="btn btn-primary">Rezervovat termín →</a>
+      <a href="#sluzby" class="btn btn-secondary">Naše služby</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Krok od metra Jiřího z Poděbrad
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Kadeřnictví · Kosmetika · Masáže
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Manikúra · Pedikúra
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Mánesova 94, Praha 2
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="o-nas">
+  <div class="container">
+    <div class="about">
+      <div class="about-figure">
+        <div class="about-figure-monogram">
+          <div class="script-mark">A&A</div>
+          <div class="role">Věra Albrechtová · Majitelka</div>
+        </div>
+        <div class="about-figure-frame">— v srdci Vinohrad —</div>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">O salónu</div>
+        <h2 class="section-title">Salón, kterému <em>věří generace.</em></h2>
+        <p class="about-quote">
+          „Práce s vlasy a s pletí je o důvěře. Jakmile ji jednou získáme, klientky se vrací roky."
+        </p>
+        <p>
+          Salon A&A vede paní Věra Albrechtová — kadeřnice s desetiletími zkušeností, které předává i dalším generacím profesionálů v rámci našich rekvalifikačních kurzů. To, co odlišuje náš salón od ostatních, je šíře péče: na jednom místě pro vás máme kompletní kadeřnické služby, kosmetiku, masáže a péči o ruce i nohy.
+        </p>
+        <p>
+          Mánesova 94 je adresa, kterou si Vinohrady pamatují už dlouho. Klientky k nám chodí roky — a my si toho vážíme. Individuální přístup, profesionální materiály a klid, který zaslouží i váš čas pro sebe.
+        </p>
+        <div class="about-signature">
+          <div class="script-name">Věra Albrechtová</div>
+          <div class="signature-role">Majitelka<br>& kadeřnice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="sluzby" class="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-eyebrow">Naše služby</div>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-symbol">❀</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2 class="section-title">Šest oborů, <em>jedna střecha.</em></h2>
+      <p class="section-lead">Místo objíždění tří salónů uděláme všechno tady. Krátí to čas, šetří energii a výsledek bude vždy sladěný.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="14" cy="42" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="42" cy="42" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="38" x2="48" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="36" y1="38" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-num">i.</div>
+        <h3 class="service-name">Kadeřnictví</h3>
+        <p class="service-desc">Dámské, pánské i dětské stříhání. Foukaná, společenské účesy, péče o vlasy. Profesionální produkty, klidné prostředí.</p>
+        <div class="service-price">Od 250 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M16 12 L40 12 L40 36 C40 42 35 46 28 46 C21 46 16 42 16 36 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M22 22 L34 22 M22 28 L34 28 M22 34 L30 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="28" cy="8" r="3" fill="currentColor"/>
+        </svg>
+        <div class="service-num">ii.</div>
+        <h3 class="service-name">Barvení vlasů</h3>
+        <p class="service-desc">Barvení odrostů, celkové přebarvení, melír, balayage. Profesionální barvy, které šetří strukturu vlasů.</p>
+        <div class="service-price">Cena dle délky</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="26" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M21 24 Q28 18 35 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M21 32 Q28 38 35 32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="21" cy="26" r="1.5" fill="currentColor"/>
+          <circle cx="35" cy="26" r="1.5" fill="currentColor"/>
+        </svg>
+        <div class="service-num">iii.</div>
+        <h3 class="service-name">Kosmetika</h3>
+        <p class="service-desc">Hloubkové čištění pleti, ošetření, masky, depilace, péče o problematickou pleť. Pro každý typ pleti.</p>
+        <div class="service-price">Od 450 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M18 42 L18 16 Q18 8 26 8 L30 8 Q38 8 38 16 L38 42" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <ellipse cx="28" cy="16" rx="7" ry="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="16" y1="42" x2="40" y2="42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-num">iv.</div>
+        <h3 class="service-name">Manikúra</h3>
+        <p class="service-desc">Klasická manikúra, gellak, modeláž nehtů, P-shine, parafínový zábal. Pečlivá práce s důrazem na detail.</p>
+        <div class="service-price">Od 300 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M16 34 Q16 18 28 18 Q40 18 40 34 Q40 44 28 44 Q16 44 16 34 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="22" cy="24" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="24" r="1.5" fill="currentColor"/>
+          <circle cx="22" cy="34" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="34" r="1.5" fill="currentColor"/>
+          <circle cx="28" cy="29" r="1.5" fill="currentColor"/>
+        </svg>
+        <div class="service-num">v.</div>
+        <h3 class="service-name">Pedikúra</h3>
+        <p class="service-desc">Mokrá pedikúra, parafínový zábal, lakování. Kompletní péče o nohy v pohodlném prostředí.</p>
+        <div class="service-price">Od 400 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M10 28 Q10 16 22 16 L34 16 Q46 16 46 28 Q46 40 34 40 L22 40 Q10 40 10 28 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M18 26 Q28 32 38 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M18 30 Q28 24 38 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="service-num">vi.</div>
+        <h3 class="service-name">Masáže</h3>
+        <p class="service-desc">Klasická, sportovní, relaxační masáž. Pomáhá uvolnit napětí, podporuje regeneraci a celkovou pohodu.</p>
+        <div class="service-price">Od 500 Kč</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT EMAIL HOOK -->
+<section class="discount" id="discount">
+  <div class="container">
+    <div class="discount-header">
+      <div class="section-eyebrow">Pro nové klientky</div>
+    </div>
+    <h2><em>Patnáct procent</em>na vaši první návštěvu.</h2>
+    <p class="discount-lead">
+      Zanechte nám e-mail a slevový kód vám pošleme do minuty. Žádný spam — jen občasná pozvánka, když budeme mít volný termín nebo novinku, o které byste měla vědět.
+    </p>
+    <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Odesláno ✓';">
+      <input type="email" placeholder="vase@email.cz" required>
+      <button type="submit">Získat slevu</button>
+    </form>
+    <div class="discount-fineprint">Vaše údaje neukládáme nikomu třetímu. Odhlášení kdykoliv jedním klikem.</div>
+  </div>
+</section>
+
+<!-- PRICING PREVIEW -->
+<section class="pricing-preview">
+  <div class="container">
+    <div class="section-eyebrow">Ceník · Výběr</div>
+    <h2 class="section-title">Transparentní ceny, <em>bez překvapení.</em></h2>
+    <p class="section-lead">Vybrané služby. Kompletní ceník najdete na samostatné stránce.</p>
+    <div class="pricing-grid">
+      <div>
+        <div class="price-row">
+          <div class="price-name">Dámský střih<small>Konzultace, mytí, střih, foukaná</small></div>
+          <div class="price-amount">od 450 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Pánský střih<small>Mytí, střih, styling</small></div>
+          <div class="price-amount">od 250 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Kosmetické ošetření<small>Hloubkové čištění + maska</small></div>
+          <div class="price-amount">od 600 Kč</div>
+        </div>
+      </div>
+      <div>
+        <div class="price-row">
+          <div class="price-name">Manikúra<small>Klasická / gellak</small></div>
+          <div class="price-amount">od 300 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Pedikúra<small>Mokrá pedikúra + lakování</small></div>
+          <div class="price-amount">od 400 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Masáž<small>Klasická / sportovní, 30 min</small></div>
+          <div class="price-amount">od 500 Kč</div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-cta">
+      <a href="cenik.html" class="btn btn-secondary">Kompletní ceník →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="container">
+    <div class="section-eyebrow">Kde nás najdete</div>
+    <h2 class="section-title">Mánesova 94, <em>na metru Jiřího z Poděbrad.</em></h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-block">
+          <div class="contact-label">Adresa</div>
+          <div class="contact-value">Mánesova 1552/94<br>120 00 Praha 2 — Vinohrady</div>
+          <div class="contact-extra">Rohový dům na nám. Jiřího z Poděbrad, přímo u výstupu z metra (linka A)</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Telefon · Rezervace</div>
+          <a href="tel:+420222712583" class="contact-value">222 712 583</a>
+          <div class="contact-extra">Recepce — pro objednávky a dotazy</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">E-mail</div>
+          <a href="mailto:info@aasalon.cz" class="contact-value">info@aasalon.cz</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-label">Otevírací doba</div>
+        <ul class="hours-list" style="margin-top: 8px;">
+          <li><span class="hours-day">Pondělí</span><span class="hours-time">9:00 — 19:00</span></li>
+          <li><span class="hours-day">Úterý</span><span class="hours-time">9:00 — 19:00</span></li>
+          <li><span class="hours-day">Středa</span><span class="hours-time">9:00 — 19:00</span></li>
+          <li><span class="hours-day">Čtvrtek</span><span class="hours-time">9:00 — 19:00</span></li>
+          <li><span class="hours-day">Pátek</span><span class="hours-time">9:00 — 19:00</span></li>
+          <li><span class="hours-day">Sobota</span><span class="hours-time">Na objednávku</span></li>
+          <li><span class="hours-day">Neděle</span><span class="hours-time">Zavřeno</span></li>
+        </ul>
+        <div style="margin-top: 32px;">
+          <a href="tel:+420222712583" class="btn btn-primary">Rezervovat termín →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-mark">A</span>
+          Salon A&A
+        </div>
+        <p style="max-width: 36ch;">Kompletní salón krásy v srdci Vinohrad. Kadeřnictví, kosmetika, manikúra, pedikúra a masáže pod jednou střechou — na rohu Mánesovy a nám. Jiřího z Poděbrad.</p>
+      </div>
+      <div>
+        <h4>Salon</h4>
+        <ul>
+          <li><a href="#o-nas">O nás</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Mánesova 94, Praha 2</li>
+          <li><a href="tel:+420222712583">222 712 583</a></li>
+          <li><a href="mailto:info@aasalon.cz">info@aasalon.cz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Salon A&A · Mánesova 1552/94, Praha 2 — Vinohrady · Vytvořeno <span class="script">s láskou</span> pro Vinohrady
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
