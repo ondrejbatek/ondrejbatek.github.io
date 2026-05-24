@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon VLASY",
+  "place_id": "ChIJJZegleyUC0cRQX5p8y9uBg0",
+  "address": "Panská 6, 110 00 Praha 1-Nové Město, Česko",
+  "rating": 4.9,
+  "reviews": 102,
+  "website": "http://www.salonvlasy.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "773 913 123",
+  "email": "info@janholous.cz",
+  "maps_url": "https://maps.google.com/?cid=938558724579622465",
+  "priority": "medium",
+  "folder_name": "prospect-salon-vlasy",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-vlasy",
+  "template_used": "template-bold-editorial"
+}

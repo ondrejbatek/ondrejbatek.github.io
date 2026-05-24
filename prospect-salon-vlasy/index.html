@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon VLASY — Praha</title>
+<meta name="description" content="Salon VLASY — salon krasy v Praha 1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7f5;
+    --bg-deep: #eeece8;
+    --primary: #5a5a5a;
+    --primary-deep: #1a1a1a;
+    --accent: #c4a882;
+    --accent-light: #f5f3f0;
+    --text: #1a1a1a;
+    --muted: #7a7a7a;
+    --line: #ddd9d4;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body); color: var(--text); background: var(--bg);
+    line-height: 1.6; font-weight: 400; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  h1, h2, h3, .display {
+    font-family: var(--display); font-weight: 700; line-height: 0.95; letter-spacing: -0.04em;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; max-width: 1400px; margin: 0 auto; padding: 0 40px;
+  }
+  .logo {
+    font-family: var(--display); font-size: 17px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; gap: 40px; font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted);
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    border-bottom: 2px solid var(--text); padding-bottom: 4px; transition: all 0.2s ease;
+  }
+  .nav-cta:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* HERO */
+  .hero { padding: 160px 0 100px; border-bottom: 1px solid var(--line); }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+  .hero-meta {
+    display: flex; align-items: center; gap: 20px; margin-bottom: 48px;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--muted);
+  }
+  .hero-meta-line { width: 80px; height: 1px; background: var(--text); }
+  .hero-meta-num { color: var(--accent); font-family: var(--display); font-weight: 700; }
+  .hero h1 { font-size: clamp(64px,12vw,180px); color: var(--text); line-height: 0.9; }
+  .hero h1 .alt { color: var(--accent); font-style: italic; font-weight: 500; }
+  .hero-side { padding-bottom: 40px; }
+  .hero-side p { font-size: 17px; color: var(--primary); line-height: 1.65; margin-bottom: 40px; max-width: 36ch; }
+  .hero-actions { display: flex; gap: 24px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.2s ease;
+  }
+  .btn-primary { background: var(--text); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-arrow { padding: 18px 0; border-bottom: 2px solid var(--text); color: var(--text); }
+  .btn-arrow:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* STATS */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+  .stat { padding: 60px 40px; border-right: 1px solid var(--line); background: var(--bg); }
+  .stat:last-child { border-right: none; }
+  .stat:nth-child(even) { background: var(--bg-deep); }
+  .stat-num {
+    font-family: var(--display); font-size: 72px; font-weight: 700; line-height: 1;
+    color: var(--text); margin-bottom: 16px; letter-spacing: -0.04em;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+  /* ABOUT */
+  .about { padding: 140px 0; border-bottom: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .about-figure {
+    aspect-ratio: 4/5; background: var(--text); color: var(--bg); position: relative; overflow: hidden;
+  }
+  .about-figure-content {
+    position: absolute; inset: 0; padding: 40px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .about-figure-mark {
+    font-family: var(--display); font-size: 240px; font-weight: 700;
+    line-height: 0.85; color: var(--accent); letter-spacing: -0.06em; opacity: 0.85;
+  }
+  .about-figure-meta {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7;
+  }
+  .about-figure-meta strong {
+    display: block; font-size: 15px; letter-spacing: 0.08em; margin-top: 4px;
+    color: var(--bg); font-weight: 600; opacity: 1;
+  }
+  .about-content { padding-top: 20px; }
+  .section-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 32px;
+  }
+  .section-eyebrow span { color: var(--accent); font-weight: 600; }
+  .about h2 { font-size: clamp(42px,5.5vw,80px); margin-bottom: 40px; color: var(--text); }
+  .about h2 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .about-text { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .about-text p { font-size: 16px; line-height: 1.7; color: var(--primary); }
+
+  /* SERVICES */
+  .services { padding: 140px 0; }
+  .services-header { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; margin-bottom: 80px; }
+  .services-header h2 { font-size: clamp(52px,7.5vw,112px); line-height: 0.9; }
+  .services-header h2 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .services-header p { font-size: 17px; color: var(--primary); line-height: 1.7; align-self: end; padding-bottom: 12px; }
+
+  .service-row {
+    display: grid; grid-template-columns: 60px 1fr 1.4fr 140px; gap: 40px; align-items: center;
+    padding: 36px 0; border-top: 1px solid var(--line); cursor: default; transition: padding 0.3s ease;
+  }
+  .service-row:last-child { border-bottom: 1px solid var(--line); }
+  .service-row:hover { padding-left: 16px; }
+  .service-row:hover .service-name { color: var(--accent); }
+  .service-row:hover .service-arrow { transform: translateX(8px); color: var(--accent); }
+  .service-num {
+    font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--muted);
+    letter-spacing: -0.02em;
+  }
+  .service-name {
+    font-family: var(--display); font-size: clamp(26px,2.8vw,44px); font-weight: 700;
+    color: var(--text); transition: color 0.2s ease;
+  }
+  .service-desc { font-size: 15px; line-height: 1.6; color: var(--muted); }
+  .service-meta {
+    display: flex; align-items: center; justify-content: flex-end; gap: 16px;
+    font-family: var(--display); font-size: 17px; font-weight: 600; color: var(--text);
+  }
+  .service-arrow { width: 22px; height: 22px; transition: all 0.3s ease; color: var(--muted); }
+
+  /* OFFER */
+  .offer {
+    background: var(--text); color: var(--bg); padding: 120px 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .offer-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,247,245,0.6); margin-bottom: 32px; }
+  .offer-eyebrow span { color: var(--accent); font-weight: 600; }
+  .offer h2 { font-size: clamp(52px,8vw,114px); color: var(--bg); line-height: 0.9; }
+  .offer h2 .num { font-size: clamp(72px,11vw,170px); display: block; line-height: 0.88; color: var(--accent); }
+  .offer p { font-size: 18px; color: rgba(248,247,245,0.8); line-height: 1.65; margin-bottom: 32px; max-width: 38ch; }
+  .offer-form { display: flex; gap: 0; background: var(--bg); padding: 8px; max-width: 480px; }
+  .offer-form input {
+    flex: 1; background: transparent; border: none; padding: 16px 20px;
+    color: var(--text); font-size: 15px; font-family: inherit; outline: none;
+  }
+  .offer-form input::placeholder { color: var(--muted); }
+  .offer-form button {
+    background: var(--accent); color: var(--primary-deep); border: none; padding: 16px 28px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; font-family: inherit; transition: background 0.2s;
+  }
+  .offer-form button:hover { background: var(--bg-deep); }
+
+  /* CONTACT */
+  .contact { padding: 140px 0 0; }
+  .contact-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 80px; }
+  .contact-header h2 { font-size: clamp(52px,7.5vw,114px); line-height: 0.9; }
+  .contact-header h2 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .contact-block {
+    padding: 60px 40px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .contact-block:nth-child(2n) { border-right: none; }
+  .contact-block:nth-last-child(-n+2) { border-bottom: none; }
+  .contact-label {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+  }
+  .contact-value {
+    font-family: var(--display); font-size: 26px; font-weight: 600; color: var(--text);
+    display: block; margin-bottom: 8px; transition: color 0.2s;
+  }
+  .contact-value:hover { color: var(--accent); }
+  .contact-extra { color: var(--muted); font-size: 14px; }
+  .hours-table { width: 100%; }
+  .hours-table tr { border-bottom: 1px solid var(--line); }
+  .hours-table tr:last-child { border-bottom: none; }
+  .hours-table td { padding: 12px 0; font-size: 14px; }
+  .hours-table td:first-child { color: var(--muted); }
+  .hours-table td:last-child { text-align: right; font-weight: 500; font-family: var(--display); }
+  .map-frame {
+    width: 100%; aspect-ratio: 16/9; border: none;
+    border-bottom: 1px solid var(--line); filter: grayscale(0.25) contrast(1.05);
+  }
+
+  /* FOOTER */
+  footer { background: var(--primary-deep); color: var(--bg); padding: 80px 0 40px; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+  footer .logo { color: var(--bg); margin-bottom: 24px; font-size: 18px; }
+  footer .logo span { color: var(--accent); }
+  footer p { color: rgba(248,247,245,0.6); font-size: 14px; line-height: 1.7; max-width: 36ch; }
+  footer h4 {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bg); margin-bottom: 24px;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 12px; }
+  footer ul li a { color: rgba(248,247,245,0.6); font-size: 14px; }
+  footer ul li a:hover { color: var(--accent); }
+  .footer-bottom {
+    border-top: 1px solid rgba(248,247,245,0.1); padding-top: 32px;
+    display: flex; justify-content: space-between;
+    color: rgba(248,247,245,0.4); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* GALLERY */
+  .gallery { padding: 140px 0; border-bottom: 1px solid var(--line); }
+  .gallery-header { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; margin-bottom: 80px; align-items: end; }
+  .gallery-header h2 { font-size: clamp(52px,7.5vw,112px); line-height: 0.9; }
+  .gallery-header h2 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .gallery-header p { font-size: 17px; color: var(--primary); line-height: 1.7; padding-bottom: 8px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gallery-tile {
+    height: 240px; position: relative; overflow: hidden; cursor: pointer;
+  }
+  .gallery-tile:nth-child(1) { background: linear-gradient(135deg, #e8e4de 0%, #c4a882 100%); }
+  .gallery-tile:nth-child(2) { background: linear-gradient(135deg, #d4cfc8 0%, #a08862 100%); }
+  .gallery-tile:nth-child(3) { background: linear-gradient(135deg, #eeece8 0%, #c4a882 60%, #8a6848 100%); }
+  .gallery-tile:nth-child(4) { background: linear-gradient(135deg, #f8f7f5 0%, #d4cfc8 50%, #9a9088 100%); }
+  .gallery-tile:nth-child(5) { background: linear-gradient(135deg, #e0dbd4 0%, #b89870 100%); }
+  .gallery-tile:nth-child(6) { background: linear-gradient(135deg, #c8c2ba 0%, #8a7860 100%); }
+  .gallery-tile-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 16px 20px;
+    font-family: var(--display); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(26,26,26,0.5); transition: all 0.35s ease;
+  }
+  .gallery-tile-overlay {
+    position: absolute; inset: 0; background: rgba(26,26,26,0);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.35s ease;
+  }
+  .gallery-tile-overlay span {
+    font-family: var(--display); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bg); opacity: 0; transform: translateY(6px); transition: all 0.35s ease;
+  }
+  .gallery-tile:hover .gallery-tile-overlay { background: rgba(26,26,26,0.78); }
+  .gallery-tile:hover .gallery-tile-overlay span { opacity: 1; transform: translateY(0); }
+  .gallery-tile:hover .gallery-tile-label { opacity: 0; }
+  .gallery-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 48px; border-top: 1px solid var(--line); margin-top: 48px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 140px 0; background: var(--bg-deep); border-bottom: 1px solid var(--line); }
+  .testimonials-header { margin-bottom: 80px; }
+  .testimonials-header .section-eyebrow { margin-bottom: 32px; }
+  .testimonials-header h2 { font-size: clamp(52px,7.5vw,112px); line-height: 0.9; }
+  .testimonials-header h2 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+  .testimonial-card {
+    background: var(--bg); padding: 52px 40px 44px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .testimonial-header-row { display: flex; align-items: center; gap: 16px; }
+  .testimonial-avatar {
+    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-size: 18px; font-weight: 700;
+    background: var(--accent); color: var(--bg); letter-spacing: -0.02em;
+  }
+  .testimonial-name {
+    font-family: var(--display); font-size: 18px; font-weight: 700;
+    color: var(--text); letter-spacing: -0.02em;
+  }
+  .testimonial-stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; margin-top: 4px; }
+  .testimonial-quote {
+    font-size: 16px; color: var(--primary); line-height: 1.7; flex: 1;
+  }
+  .testimonial-badge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); border-top: 2px solid var(--text); padding-top: 16px; margin-top: auto;
+  }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-inner { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 120px 0 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-side { padding-bottom: 0; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 40px 24px; }
+    .stat-num { font-size: 52px; }
+    .about { padding: 80px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-figure { max-width: 320px; }
+    .about-text { grid-template-columns: 1fr; }
+    .services { padding: 80px 0; }
+    .services-header { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+    .service-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+    .service-meta { justify-content: flex-start; }
+    .offer { padding: 80px 0; }
+    .offer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .offer-form { flex-direction: column; padding: 12px; }
+    .offer-form input { text-align: center; }
+    .offer-form button { width: 100%; padding: 18px; }
+    .contact { padding: 80px 0 0; }
+    .contact-header { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-block { border-right: none; padding: 40px 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .about-figure-mark { font-size: 180px; }
+    .gallery { padding: 80px 0; }
+    .gallery-header { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+    .testimonials { padding: 80px 0; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { padding: 40px 24px; }
+  }
+  @media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">SALON VLASY<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">O mně</a>
+      <a href="#services">Služby</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+    <a href="tel:773913123" class="nav-cta">Rezervovat</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-meta">
+          <span class="hero-meta-num">01</span>
+          <span class="hero-meta-line"></span>
+          <span>STŘIHY · BARVY · SVATBY</span>
+        </div>
+        <h1>STŘIH,<br>KTERÝ <span class="alt">sedí.</span><br>BARVA,<br>KTERÁ <span class="alt">trvá.</span></h1>
+      </div>
+      <div class="hero-side">
+        <p>Salon VLASY v Praze, kde se nemusíte dívat na hodinky. Pracuji sama — takže vím, co dělám, a dělám to pro vás.</p>
+        <div class="hero-actions">
+          <a href="tel:773913123" class="btn btn-primary">Rezervovat termín</a>
+          <a href="#services" class="btn btn-arrow">Naše služby →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">5<span>,0</span></div>
+    <div class="stat-label">Hodnocení Google</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">06</div>
+    <div class="stat-label">Barevných technik</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">01</div>
+    <div class="stat-label">Kadeřnice · vše v jednom</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">P<span>R</span></div>
+    <div class="stat-label">Praha · Centrum</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-figure">
+        <div class="about-figure-content">
+          <div class="about-figure-meta">Majitelka & kadeřnice<strong>JMÉNO PŘÍJMENÍ</strong></div>
+          <div class="about-figure-mark">J.</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow"><span>O — 02</span> · O mně</div>
+        <h2>Solo kadeřnice, která <em>ví, co chce.</em></h2>
+        <div class="about-text">
+          <p>Pracuji sama — to není nevýhoda, to je záměr. Každá klientka dostane plnou pozornost od začátku do konce. Žádné přehazování mezi kolegyněmi, žádné čekání, žádné šablony.</p>
+          <p>Specializuji se na moderní barevné techniky — balayage, ombré, melíry — a na svatební účesy. Ale klidně i na klasický střih, který prostě funguje. Výsledek je vždy to, co chcete vy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-eyebrow"><span>O — 03</span> · Služby</div>
+        <h2>Co<br><em>umím.</em></h2>
+      </div>
+      <p>Střihy pro dámy, pány i děti. Moderní barevné techniky. Svatební účesy. Vše v jednom salónu, od jedné kadeřnice.</p>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">01</div>
+      <div class="service-name">Dámský střih</div>
+      <div class="service-desc">Konzultace, mytí, střih, foukaná. Výsledek, který funguje i doma.</div>
+      <div class="service-meta">od 380 Kč<svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">02</div>
+      <div class="service-name">Pánský střih</div>
+      <div class="service-desc">Klasický, moderní nebo přesně jak chcete. S mytím.</div>
+      <div class="service-meta">od 250 Kč<svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">03</div>
+      <div class="service-name">Dětský střih</div>
+      <div class="service-desc">V klidu, bez spěchu, s trpělivostí. Do 12 let.</div>
+      <div class="service-meta">od 180 Kč<svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">04</div>
+      <div class="service-name">Balayage & ombré</div>
+      <div class="service-desc">Přirozený přechod, přirozený výsledek. Bez tvrdé linie.</div>
+      <div class="service-meta">od 1 500 Kč<svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">05</div>
+      <div class="service-name">Melíry & barvení</div>
+      <div class="service-desc">Klasický melír, odrosty nebo celé barvení. Dle délky a stavu vlasů.</div>
+      <div class="service-meta">od 700 Kč<svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">06</div>
+      <div class="service-name">Svatební účes</div>
+      <div class="service-desc">Zkouška + finální účes. Účes, který vydrží celý den i noc.</div>
+      <div class="service-meta">od 1 200 Kč<svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galerie">
+  <div class="container">
+    <div class="gallery-header">
+      <div>
+        <div class="section-eyebrow"><span>O — 04</span> · Fotogalerie</div>
+        <h2>Práce,<br>která <em>mluví.</em></h2>
+      </div>
+      <p>Každý výsledek je jiný — protože každá klientka je jiná. Tady je průřez tím, co tady děláme.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile">
+        <div class="gallery-tile-label">Balayage</div>
+        <div class="gallery-tile-overlay"><span>Balayage</span></div>
+      </div>
+      <div class="gallery-tile">
+        <div class="gallery-tile-label">Střih & styling</div>
+        <div class="gallery-tile-overlay"><span>Střih & styling</span></div>
+      </div>
+      <div class="gallery-tile">
+        <div class="gallery-tile-label">Barvení</div>
+        <div class="gallery-tile-overlay"><span>Barvení</span></div>
+      </div>
+      <div class="gallery-tile">
+        <div class="gallery-tile-label">Melíry</div>
+        <div class="gallery-tile-overlay"><span>Melíry</span></div>
+      </div>
+      <div class="gallery-tile">
+        <div class="gallery-tile-label">Společenský účes</div>
+        <div class="gallery-tile-overlay"><span>Společenský účes</span></div>
+      </div>
+      <div class="gallery-tile">
+        <div class="gallery-tile-label">Péče o vlasy</div>
+        <div class="gallery-tile-overlay"><span>Péče o vlasy</span></div>
+      </div>
+    </div>
+    <div class="gallery-footer">
+      <span>Vaše vlasy, váš styl</span>
+      <a href="tel:773913123" class="btn btn-primary">Rezervovat termín</a>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer">
+  <div class="container">
+    <div class="offer-grid">
+      <div>
+        <div class="offer-eyebrow"><span>O — 04</span> · První návštěva</div>
+        <h2><span class="num">−10%</span>NA PRVNÍ STŘIH.</h2>
+      </div>
+      <div>
+        <p>Nechte mi e-mail a slevový kód přijde do minuty. Ráda vás přivítám a ukážu, co umím.</p>
+        <form class="offer-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'HOTOVO ✓';">
+          <input type="email" placeholder="info@janholous.cz" required>
+          <button type="submit">Získat slevu</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="hodnoceni">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-eyebrow"><span>O — 06</span> · Hodnocení</div>
+      <h2>Co říkají<br><em>klientky.</em></h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-header-row">
+          <div class="testimonial-avatar">K</div>
+          <div>
+            <div class="testimonial-name">Kateřina B.</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">„Konečně kadeřnice, která slyší, co chci. Balayage vyšel přesně tak přirozeně, jak jsem doufala — a výsledek hned ocenil každý doma."</p>
+        <div class="testimonial-badge">Balayage & ombré</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header-row">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Simona P.</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">„Přišla jsem se špatným střihem od jiné kadeřnice. Odešla jsem s účesem, který mi konečně sedí — a pochopila jsem, co to znamená jít ke specialistce."</p>
+        <div class="testimonial-badge">Dámský střih</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header-row">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Andrea K.</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">„Svatební účes vydržel celý den — od přípravy ráno přes obřad až po půlnoc na plese. Přesně to jsem potřebovala v ten nejdůležitější den."</p>
+        <div class="testimonial-badge">Svatební účes</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <div>
+        <div class="section-eyebrow"><span>O — 05</span> · Kontakt</div>
+        <h2>Najdete mě <em>tady.</em></h2>
+      </div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="container" style="padding: 0;">
+    <iframe class="map-frame" src="https://maps.google.com/maps?q=Panská+6,+110+00+Praha+1-Nové+Město,+Česko&output=embed" loading="lazy"></iframe>
+  </div>
+
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-block">
+        <div class="contact-label">Adresa</div>
+        <div class="contact-value">Panská 6<br>Praha</div>
+        <div class="contact-extra">Dobře dostupné MHD</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Telefon</div>
+        <a href="tel:773913123" class="contact-value">773 913 123</a>
+        <div class="contact-extra">Volejte nebo pište SMS pro termín</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">E-mail</div>
+        <a href="mailto:info@janholous.cz" class="contact-value">info@janholous.cz</a>
+        <div class="contact-extra">Odpovídám zpravidla do dne</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Otevřeno</div>
+        <table class="hours-table">
+          <tr><td>Po — Pá</td><td>9:00 — 18:00</td></tr>
+          <tr><td>So</td><td>9:00 — 14:00</td></tr>
+          <tr><td>Ne</td><td>Zavřeno</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">SALON VLASY<span>.</span></div>
+        <p>Solo salon vlasy v Praze. Střihy, balayage, ombré, svatební účesy. Vše s plnou pozorností.</p>
+      </div>
+      <div>
+        <h4>Salón</h4>
+        <ul>
+          <li><a href="#about">O mně</a></li>
+          <li><a href="#services">Služby</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:773913123">773 913 123</a></li>
+          <li><a href="mailto:info@janholous.cz">info@janholous.cz</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Adresa</h4>
+        <ul>
+          <li>Panská 6</li>
+          <li>Praha</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Salon VLASY Praha</div>
+      <div>Praha · Česká republika</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
