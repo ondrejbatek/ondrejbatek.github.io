@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon BEAUTY",
+  "place_id": "ChIJo0MjN_aTC0cRRGidAsoV2hc",
+  "address": "A. Staška 114/20, 140 00 Praha 4-Krč, Česko",
+  "rating": 4.9,
+  "reviews": 54,
+  "website": "http://salonbeauty.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "607 813 483",
+  "email": "salon-beauty@email.cz",
+  "maps_url": "https://maps.google.com/?cid=1718710165166712900",
+  "priority": "medium",
+  "folder_name": "prospect-salon-beauty",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-beauty",
+  "template_used": "template-midnight-luxe"
+}

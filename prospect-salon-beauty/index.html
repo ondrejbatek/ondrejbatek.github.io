@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon BEAUTY — Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── CSS Variables ─── */
+    :root {
+      --night: #0d0f1a;
+      --night-soft: #161825;
+      --night-card: #1e2135;
+      --gold: #c9a84c;
+      --gold-light: #e8cc80;
+      --gold-soft: rgba(201, 168, 76, 0.15);
+      --cream: #f5f0e8;
+      --cream-soft: rgba(245, 240, 232, 0.7);
+      --cream-muted: rgba(245, 240, 232, 0.45);
+      --line: rgba(201, 168, 76, 0.2);
+      --rose: #b87878;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', sans-serif;
+    }
+
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--night);
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 15% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 500px at 85% 60%, rgba(201, 168, 76, 0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 300px 300px at 50% 90%, rgba(184, 120, 120, 0.02) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ─── Section fade-in ─── */
+    section {
+      opacity: 0;
+      animation: fadeSection 0.6s ease forwards;
+    }
+
+    @keyframes fadeSection {
+      to { opacity: 1; }
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.05s; }
+    section:nth-of-type(2) { animation-delay: 0.15s; }
+    section:nth-of-type(3) { animation-delay: 0.2s; }
+    section:nth-of-type(4) { animation-delay: 0.25s; }
+    section:nth-of-type(5) { animation-delay: 0.3s; }
+    section:nth-of-type(6) { animation-delay: 0.35s; }
+    section:nth-of-type(7) { animation-delay: 0.4s; }
+    section:nth-of-type(8) { animation-delay: 0.45s; }
+
+    /* ─── Utility ─── */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* ─── Gold Rule Ornament ─── */
+    .gold-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 320px;
+      margin: 0 auto;
+      color: var(--gold);
+    }
+
+    .gold-rule span:not(.diamond) {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .gold-rule .diamond {
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    /* ─── Navigation ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 15, 26, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      opacity: 1 !important;
+      animation: none !important;
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav__logo {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22px;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+    }
+
+    .nav__logo em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+      transition: color 0.2s;
+    }
+
+    .nav__links a:hover {
+      color: var(--cream);
+    }
+
+    .nav__cta {
+      display: inline-block;
+      padding: 10px 24px;
+      background: var(--gold);
+      color: var(--night);
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav__cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ─── Gold particle stars ─── */
+    .hero__particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero__particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      animation: particleFloat linear infinite;
+    }
+
+    .hero__particle:nth-child(1)  { left: 12%;  top: 20%; animation-duration: 7s;  animation-delay: 0s;    width: 2px; height: 2px; opacity: 0; }
+    .hero__particle:nth-child(2)  { left: 25%;  top: 65%; animation-duration: 9s;  animation-delay: 1.2s;  width: 1px; height: 1px; }
+    .hero__particle:nth-child(3)  { left: 40%;  top: 15%; animation-duration: 6s;  animation-delay: 2.4s;  width: 3px; height: 3px; }
+    .hero__particle:nth-child(4)  { left: 58%;  top: 75%; animation-duration: 8s;  animation-delay: 0.6s;  width: 1px; height: 1px; }
+    .hero__particle:nth-child(5)  { left: 72%;  top: 30%; animation-duration: 10s; animation-delay: 3s;    width: 2px; height: 2px; }
+    .hero__particle:nth-child(6)  { left: 85%;  top: 55%; animation-duration: 7.5s;animation-delay: 1.8s;  width: 1px; height: 1px; }
+    .hero__particle:nth-child(7)  { left: 5%;   top: 80%; animation-duration: 11s; animation-delay: 0.3s;  width: 2px; height: 2px; }
+    .hero__particle:nth-child(8)  { left: 92%;  top: 10%; animation-duration: 8.5s;animation-delay: 4.5s;  width: 3px; height: 3px; }
+    .hero__particle:nth-child(9)  { left: 33%;  top: 45%; animation-duration: 9.5s;animation-delay: 2s;    width: 1px; height: 1px; }
+    .hero__particle:nth-child(10) { left: 67%;  top: 88%; animation-duration: 6.5s;animation-delay: 3.6s;  width: 2px; height: 2px; }
+    .hero__particle:nth-child(11) { left: 48%;  top: 60%; animation-duration: 12s; animation-delay: 1s;    width: 1px; height: 1px; }
+    .hero__particle:nth-child(12) { left: 78%;  top: 42%; animation-duration: 7s;  animation-delay: 5s;    width: 2px; height: 2px; }
+
+    @keyframes particleFloat {
+      0%   { opacity: 0;    transform: translateY(0px) scale(1); }
+      15%  { opacity: 0.6; }
+      50%  { opacity: 0.25; transform: translateY(-28px) scale(1.2); }
+      85%  { opacity: 0.5; }
+      100% { opacity: 0;    transform: translateY(-56px) scale(0.8); }
+    }
+
+    .hero__eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .hero__heading {
+      font-family: var(--serif);
+      font-size: clamp(52px, 9vw, 112px);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .hero__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero__sub {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: clamp(15px, 2vw, 19px);
+      color: var(--cream-soft);
+      max-width: 480px;
+      margin: 0 auto 56px;
+      line-height: 1.75;
+      position: relative;
+    }
+
+    .hero__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 15px 40px;
+      background: var(--gold);
+      color: var(--night);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 14px 40px;
+      background: transparent;
+      color: var(--cream-soft);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--cream);
+    }
+
+    /* ─── Trust Bar ─── */
+    .trust-bar {
+      background: var(--night-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 48px;
+    }
+
+    .trust-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 6px 40px;
+    }
+
+    .trust-item + .trust-item {
+      border-left: 1px solid var(--line);
+    }
+
+    .trust-item__dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .trust-item__text {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+      white-space: nowrap;
+    }
+
+    /* ─── Gold Rule Section Break ─── */
+    .section-break {
+      padding: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--night);
+    }
+
+    /* ─── About ─── */
+    .about {
+      padding: 112px 48px;
+      background: var(--night-soft);
+    }
+
+    .about__inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+
+    .about__figure {
+      aspect-ratio: 1 / 1;
+      background: var(--night-card);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 0 60px rgba(201, 168, 76, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about__figure::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      pointer-events: none;
+    }
+
+    .about__figure::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about__monogram {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 150px;
+      color: var(--gold);
+      line-height: 1;
+      user-select: none;
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
+      text-shadow: 0 0 60px rgba(201, 168, 76, 0.3);
+    }
+
+    .about__content {
+      padding: 20px 0;
+    }
+
+    .about__quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(22px, 2.8vw, 32px);
+      line-height: 1.35;
+      color: var(--cream);
+      margin-bottom: 36px;
+      padding-left: 24px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .about__text {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--cream-soft);
+      margin-bottom: 18px;
+    }
+
+    .about__signature {
+      margin-top: 44px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about__sig-line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .about__sig-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--gold);
+    }
+
+    .about__sig-role {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+      margin-top: 4px;
+    }
+
+    /* ─── Services ─── */
+    .services {
+      padding: 112px 48px;
+      background: var(--night);
+    }
+
+    .services__header {
+      max-width: 1180px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+
+    .services__heading {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .services__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .services__sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .services__grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--night-card);
+      border-left: 3px solid var(--gold);
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 36px 32px;
+      transition: box-shadow 0.3s, border-left-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.3), 0 8px 40px rgba(201, 168, 76, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .service-card__num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 42px;
+      color: rgba(201, 168, 76, 0.2);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .service-card__name {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .service-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .service-card__price {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 19px;
+      color: var(--gold);
+    }
+
+    /* ─── Gallery ─── */
+    .gallery {
+      padding: 112px 48px;
+      background: var(--night-soft);
+    }
+
+    .gallery__header {
+      max-width: 1180px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .gallery__heading {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .gallery__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .gallery__sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .gallery__grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-tile {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--line);
+    }
+
+    .gallery-tile:nth-child(1) { background: linear-gradient(145deg, #0d0f1a 0%, #1e2135 40%, #c9a84c22 100%); }
+    .gallery-tile:nth-child(2) { background: linear-gradient(135deg, #1e2135 0%, #2a2d45 50%, #c9a84c18 100%); }
+    .gallery-tile:nth-child(3) { background: linear-gradient(160deg, #0a0c14 0%, #161825 45%, #c9a84c20 100%); }
+    .gallery-tile:nth-child(4) { background: linear-gradient(125deg, #161825 0%, #1e2135 55%, #c9a84c15 100%); }
+    .gallery-tile:nth-child(5) { background: linear-gradient(150deg, #0d0f1a 0%, #222540 50%, #c9a84c1a 100%); }
+    .gallery-tile:nth-child(6) { background: linear-gradient(140deg, #1a1c2e 0%, #161825 45%, #c9a84c22 100%); }
+
+    .gallery-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 30%, rgba(201, 168, 76, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .gallery-tile__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13, 15, 26, 0);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px 28px;
+      transition: background 0.35s ease;
+    }
+
+    .gallery-tile:hover .gallery-tile__overlay {
+      background: rgba(13, 15, 26, 0.65);
+    }
+
+    .gallery-tile__label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      color: rgba(201, 168, 76, 0.45);
+      letter-spacing: 0.01em;
+      transition: color 0.35s ease, transform 0.35s ease;
+      transform: translateY(4px);
+    }
+
+    .gallery-tile:hover .gallery-tile__label {
+      color: var(--gold);
+      transform: translateY(0);
+    }
+
+    .gallery-tile__inner-border {
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      pointer-events: none;
+      transition: border-color 0.35s;
+    }
+
+    .gallery-tile:hover .gallery-tile__inner-border {
+      border-color: rgba(201, 168, 76, 0.22);
+    }
+
+    /* ─── Discount ─── */
+    .discount {
+      padding: 100px 48px;
+      background: linear-gradient(135deg, #c9a84c 0%, #8a6a28 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .discount::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 600px 400px at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .discount__eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(13, 15, 26, 0.65);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .discount__heading {
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 80px);
+      font-weight: 700;
+      color: var(--night);
+      line-height: 1.0;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .discount__sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(13, 15, 26, 0.7);
+      max-width: 440px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .discount__form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .discount__input {
+      flex: 1;
+      padding: 16px 22px;
+      background: rgba(13, 15, 26, 0.25);
+      border: 1px solid rgba(13, 15, 26, 0.3);
+      border-right: none;
+      color: var(--night);
+      font-family: var(--sans);
+      font-size: 14px;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .discount__input::placeholder {
+      color: rgba(13, 15, 26, 0.45);
+    }
+
+    .discount__input:focus {
+      background: rgba(13, 15, 26, 0.35);
+    }
+
+    .discount__submit {
+      padding: 16px 32px;
+      background: var(--night);
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .discount__submit:hover {
+      background: var(--night-soft);
+    }
+
+    .discount__note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: rgba(13, 15, 26, 0.45);
+      position: relative;
+    }
+
+    /* ─── Pricing ─── */
+    .pricing {
+      padding: 112px 48px;
+      background: var(--night-soft);
+    }
+
+    .pricing__header {
+      max-width: 680px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+
+    .pricing__heading {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .pricing__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .pricing__sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.75;
+    }
+
+    .pricing__table {
+      max-width: 920px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .pricing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 40px;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s;
+    }
+
+    .pricing-row:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-row:nth-child(even) {
+      background: rgba(13, 15, 26, 0.4);
+    }
+
+    .pricing-row:hover {
+      background: var(--gold-soft);
+    }
+
+    .pricing-row__name {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--cream-soft);
+    }
+
+    .pricing-row__price {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--gold);
+    }
+
+    /* ─── Testimonials ─── */
+    .testimonials {
+      padding: 112px 48px;
+      background: var(--night);
+    }
+
+    .testimonials__header {
+      max-width: 1180px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+
+    .testimonials__heading {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .testimonials__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .testimonials__sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .testimonials__grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--night-card);
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--gold);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top center, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.2), 0 8px 48px rgba(201, 168, 76, 0.06);
+      transform: translateY(-3px);
+    }
+
+    .testimonial-card__top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-card__avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 19px;
+      color: var(--night);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .testimonial-card:nth-child(1) .testimonial-card__avatar { background: linear-gradient(135deg, #c9a84c, #e8cc80); }
+    .testimonial-card:nth-child(2) .testimonial-card__avatar { background: linear-gradient(135deg, #b8943c, #c9a84c); }
+    .testimonial-card:nth-child(3) .testimonial-card__avatar { background: linear-gradient(135deg, #8a6a28, #c9a84c); }
+
+    .testimonial-card__info {
+      flex: 1;
+    }
+
+    .testimonial-card__name {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-card__stars {
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .testimonial-card__quote {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-soft);
+      line-height: 1.8;
+      font-style: italic;
+      flex: 1;
+    }
+
+    .testimonial-card__service {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    /* ─── Contact ─── */
+    .contact {
+      padding: 112px 48px;
+      background: var(--night-soft);
+    }
+
+    .contact__header {
+      max-width: 1180px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+
+    .contact__heading {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .contact__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .contact__sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream-muted);
+    }
+
+    .contact__grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--night-card);
+      border: 1px solid var(--line);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.4;
+    }
+
+    .contact-card__label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .contact-card__title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .contact-card__text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-soft);
+      line-height: 1.85;
+    }
+
+    .contact-card__link {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gold);
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .contact-card__link:hover {
+      opacity: 1;
+    }
+
+    .hours-list {
+      list-style: none;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--cream-muted);
+      font-weight: 300;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+
+    .hours-list li span:last-child {
+      color: var(--cream-soft);
+      font-weight: 400;
+    }
+
+    .contact-map {
+      background: var(--night-card);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-map::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.4;
+      z-index: 1;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      border: none;
+      display: block;
+      filter: grayscale(60%) brightness(0.7) sepia(20%);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background: var(--night);
+      border-top: 1px solid var(--line);
+      padding: 80px 48px 40px;
+    }
+
+    .footer__grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .footer__logo {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--cream);
+      margin-bottom: 18px;
+    }
+
+    .footer__logo em {
+      color: var(--gold);
+    }
+
+    .footer__tagline {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.75;
+      max-width: 280px;
+      margin-bottom: 32px;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer__social-link {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream-muted);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer__social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer__heading {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .footer__links {
+      list-style: none;
+    }
+
+    .footer__links li {
+      margin-bottom: 14px;
+    }
+
+    .footer__links a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover {
+      color: var(--cream);
+    }
+
+    .footer__contact-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .footer__contact-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      min-width: 60px;
+      padding-top: 2px;
+      opacity: 0.7;
+    }
+
+    .footer__contact-value {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.65;
+    }
+
+    .footer__bottom {
+      max-width: 1180px;
+      margin: 36px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer__copyright {
+      font-size: 12px;
+      color: rgba(245, 240, 232, 0.25);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer__legal a {
+      font-size: 12px;
+      color: rgba(245, 240, 232, 0.25);
+      transition: color 0.2s;
+    }
+
+    .footer__legal a:hover {
+      color: var(--cream-muted);
+    }
+
+    /* ─── Mobile Responsive ─── */
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 24px;
+      }
+
+      .nav__inner {
+        padding: 0 24px;
+      }
+
+      .nav__links {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 24px;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 80px;
+      }
+
+      .trust-bar {
+        padding: 16px 24px;
+      }
+
+      .trust-item + .trust-item {
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .trust-bar__inner {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .trust-item {
+        padding: 12px 0;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .about {
+        padding: 72px 24px;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+
+      .about__figure {
+        max-width: 380px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .services {
+        padding: 72px 24px;
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        padding: 72px 24px;
+      }
+
+      .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .discount {
+        padding: 72px 24px;
+      }
+
+      .discount__form {
+        flex-direction: column;
+      }
+
+      .discount__input {
+        border-right: 1px solid rgba(13, 15, 26, 0.3);
+        border-bottom: none;
+      }
+
+      .pricing {
+        padding: 72px 24px;
+      }
+
+      .pricing-row {
+        padding: 18px 24px;
+      }
+
+      .testimonials {
+        padding: 72px 24px;
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 72px 24px;
+      }
+
+      .contact__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        padding: 56px 24px 32px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__heading {
+        font-size: clamp(40px, 13vw, 56px);
+      }
+
+      .hero__buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-gold,
+      .btn-outline {
+        text-align: center;
+      }
+
+      .service-card {
+        padding: 28px 24px;
+      }
+
+      .gallery__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-tile {
+        height: 200px;
+      }
+
+      .contact-card {
+        padding: 32px 24px;
+      }
+
+      .footer__legal {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navigation ─── -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">Salon BEAUTY</a>
+        <ul class="nav__links">
+          <li><a href="#o-salonu">O salonu</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#cenik">Ceník</a></li>
+          <li><a href="#hodnoceni">Hodnocení</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a href="#kontakt" class="nav__cta">Rezervovat</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero" id="hero">
+    <div class="hero__glow"></div>
+    <!-- Gold particle stars -->
+    <div class="hero__particles">
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+      <span class="hero__particle"></span>
+    </div>
+    <p class="hero__eyebrow">Praha · Luxusní péče o vlasy</p>
+    <h1 class="hero__heading">Kde každý <em>detail</em><br>vypráví<br><em>příběh.</em></h1>
+    <p class="hero__sub">Přijďte zažít péči, kde čas plyne jinak — a odejděte jako někdo, kdo přesně ví, jak chce vypadat.</p>
+    <div class="hero__buttons">
+      <a href="#kontakt" class="btn-gold">Rezervovat termín</a>
+      <a href="#sluzby" class="btn-outline">Prohlédnout služby</a>
+    </div>
+  </section>
+
+  <!-- ─── Trust Bar ─── -->
+  <div class="trust-bar">
+    <div class="trust-bar__inner">
+      <div class="trust-item">
+        <span class="trust-item__dot"></span>
+        <span class="trust-item__text">Střihy &amp; barvení</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item__dot"></span>
+        <span class="trust-item__text">Společenské účesy</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item__dot"></span>
+        <span class="trust-item__text">Konzultace stylu</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item__dot"></span>
+        <span class="trust-item__text">A. Staška 114/20, Praha</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── About ─── -->
+  <section class="about" id="o-salonu">
+    <div class="about__inner">
+      <div class="about__figure">
+        <span class="about__monogram">S</span>
+      </div>
+      <div class="about__content">
+        <p class="section-label">O salonu</p>
+        <blockquote class="about__quote">
+          „Luxus není cena, kterou zaplatíte. Je to pocit, se kterým odejdete."
+        </blockquote>
+        <p class="about__text">
+          Salon BEAUTY je místem, kde se estetika setkává s řemeslem. Každý detail našeho prostoru — od volby hudby po teplotu zábalů — byl promyšlen tak, aby vaše návštěva byla zážitkem, ne jen službou.
+        </p>
+        <p class="about__text">
+          Naši stylisté pracují výhradně s prémiovou kosmetikou a absolvovali stáže u předních colouristů v Paříži a Miláně. Neustálé vzdělávání není pro nás povinností — je to posedlost, která se odráží na každém zákazníkovi.
+        </p>
+        <p class="about__text">
+          Reservace jsou doporučeny s předstihem. Kapacita je záměrně omezená — chceme každému klientovi věnovat plnou pozornost od prvního pohledu až po finální nástřik.
+        </p>
+        <div class="about__signature">
+          <span class="about__sig-line"></span>
+          <div>
+            <div class="about__sig-name">Barbora Nováčková</div>
+            <div class="about__sig-role">Zakladatelka &amp; kreativní ředitelka</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Section break ─── -->
+  <div class="section-break">
+    <div class="gold-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+  </div>
+
+  <!-- ─── Services ─── -->
+  <section class="services" id="sluzby">
+    <div class="services__header">
+      <p class="section-label">Naše služby</p>
+      <h2 class="services__heading">Umění péče<br>o <em>vaše vlasy</em></h2>
+      <p class="services__sub">Každá služba je více než procedura. Je to prostor, kde se věnujeme jen vám — bez spěchu, bez kompromisů.</p>
+    </div>
+    <div class="services__grid">
+
+      <div class="service-card">
+        <div class="service-card__num">01</div>
+        <h3 class="service-card__name">Dámský střih</h3>
+        <p class="service-card__desc">Precizní střih navržený přímo pro váš obličej, strukturu vlasů a životní styl. Zahrnuje konzultaci, luxusní mytí vlasové kůže a závěrečný styling s finálními produkty.</p>
+        <span class="service-card__price">od 650 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__num">02</div>
+        <h3 class="service-card__name">Barvení vlasů</h3>
+        <p class="service-card__desc">Plné nebo kořínkové barvení s prémiovými bezamoniakovými barvami. Výsledkem jsou hluboké, živé tóny s přirozeným leskem a dlouhotrvající barvou bez poškození vlasu.</p>
+        <span class="service-card__price">od 900 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__num">03</div>
+        <h3 class="service-card__name">Melíry &amp; Balayage</h3>
+        <p class="service-card__desc">Ručně malované světelné efekty pro přirozené přechody barev. Balayage nabízí efekt sluncem políbených vlasů bez ostré linie a s minimální údržbou v domácím prostředí.</p>
+        <span class="service-card__price">od 1 400 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__num">04</div>
+        <h3 class="service-card__name">Společenský účes</h3>
+        <p class="service-card__desc">Slavnostní up-do nebo vlny pro svatby, plesy a premiéry. Pracujeme s každou délkou a typem vlasů — výsledek vydrží celý večer a fotí se skvěle.</p>
+        <span class="service-card__price">od 800 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__num">05</div>
+        <h3 class="service-card__name">Foukaná</h3>
+        <p class="service-card__desc">Profesionální foukaná s tepelnou ochranou a finišovacím sérem pro dokonalý lesk. Výsledek: hladké, kontrolovatelné vlasy plné objemu, které vydrží celý den.</p>
+        <span class="service-card__price">od 450 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__num">06</div>
+        <h3 class="service-card__name">Konzultace stylu</h3>
+        <p class="service-card__desc">Individuální 45minutová relace se zkušeným stylistou. Analyzujeme váš aktuální střih, barvu, pleťový podtón a domácí rutinu — a navrhneme konkrétní proměnu s reálnými kroky.</p>
+        <span class="service-card__price">350 Kč</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Section break ─── -->
+  <div class="section-break" style="background: var(--night-soft);">
+    <div class="gold-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+  </div>
+
+  <!-- ─── Gallery ─── -->
+  <section class="gallery" id="fotogalerie">
+    <div class="gallery__header">
+      <p class="section-label">Fotogalerie prací</p>
+      <h2 class="gallery__heading">Výsledky, které<br><em>oslní.</em></h2>
+      <p class="gallery__sub">Každý zákazník je jedinečný. Naše práce mluví za vše — přijďte to zažít na vlastní kůži.</p>
+    </div>
+    <div class="gallery__grid">
+
+      <div class="gallery-tile">
+        <div class="gallery-tile__inner-border"></div>
+        <div class="gallery-tile__overlay">
+          <span class="gallery-tile__label">Balayage</span>
+        </div>
+      </div>
+
+      <div class="gallery-tile">
+        <div class="gallery-tile__inner-border"></div>
+        <div class="gallery-tile__overlay">
+          <span class="gallery-tile__label">Střih &amp; styling</span>
+        </div>
+      </div>
+
+      <div class="gallery-tile">
+        <div class="gallery-tile__inner-border"></div>
+        <div class="gallery-tile__overlay">
+          <span class="gallery-tile__label">Barvení</span>
+        </div>
+      </div>
+
+      <div class="gallery-tile">
+        <div class="gallery-tile__inner-border"></div>
+        <div class="gallery-tile__overlay">
+          <span class="gallery-tile__label">Melíry</span>
+        </div>
+      </div>
+
+      <div class="gallery-tile">
+        <div class="gallery-tile__inner-border"></div>
+        <div class="gallery-tile__overlay">
+          <span class="gallery-tile__label">Foukaná</span>
+        </div>
+      </div>
+
+      <div class="gallery-tile">
+        <div class="gallery-tile__inner-border"></div>
+        <div class="gallery-tile__overlay">
+          <span class="gallery-tile__label">Společenský účes</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Section break ─── -->
+  <div class="section-break" style="background: var(--night-soft);">
+    <div class="gold-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+  </div>
+
+  <!-- ─── Discount ─── -->
+  <section class="discount">
+    <p class="discount__eyebrow">Uvítací nabídka</p>
+    <h2 class="discount__heading">−15 %<br>pro nové klienty</h2>
+    <p class="discount__sub">Nechte nám svůj e-mail a my vám pošleme slevový kód na první návštěvu. Žádné newslettery — jen vaše sleva.</p>
+    <form class="discount__form" onsubmit="return false;">
+      <input class="discount__input" type="email" placeholder="salon-beauty@email.cz" aria-label="Váš e-mail" />
+      <button class="discount__submit" type="submit">Získat slevu</button>
+    </form>
+    <p class="discount__note">Odesláním souhlasíte se zpracováním e-mailu za účelem zaslání slevového kódu.</p>
+  </section>
+
+  <!-- ─── Pricing ─── -->
+  <section class="pricing" id="cenik">
+    <div class="pricing__header">
+      <p class="section-label">Ceník</p>
+      <h2 class="pricing__heading">Přehled <em>cen</em></h2>
+      <p class="pricing__sub">Konečná cena závisí na délce, hustotě a stavu vlasů. Vždy ji upřesníme při osobní konzultaci před zahájením služby.</p>
+    </div>
+    <div class="pricing__table">
+      <div class="pricing-row">
+        <span class="pricing-row__name">Dámský střih</span>
+        <span class="pricing-row__price">650 – 950 Kč</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-row__name">Barvení vlasů</span>
+        <span class="pricing-row__price">900 – 1 600 Kč</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-row__name">Melíry &amp; Balayage</span>
+        <span class="pricing-row__price">1 400 – 2 800 Kč</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-row__name">Společenský účes</span>
+        <span class="pricing-row__price">800 – 1 400 Kč</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-row__name">Foukaná</span>
+        <span class="pricing-row__price">450 – 650 Kč</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-row__name">Konzultace stylu</span>
+        <span class="pricing-row__price">350 Kč</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Section break ─── -->
+  <div class="section-break" style="background: var(--night-soft);">
+    <div class="gold-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+  </div>
+
+  <!-- ─── Testimonials ─── -->
+  <section class="testimonials" id="hodnoceni">
+    <div class="testimonials__header">
+      <p class="section-label">Hodnocení klientek</p>
+      <h2 class="testimonials__heading">Co říkají<br><em>naše klientky</em></h2>
+      <p class="testimonials__sub">Autentická hodnocení od žen, které nám svěřily své vlasy a svůj styl.</p>
+    </div>
+    <div class="testimonials__grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__top">
+          <div class="testimonial-card__avatar">A</div>
+          <div class="testimonial-card__info">
+            <div class="testimonial-card__name">Adéla Kovářová</div>
+            <div class="testimonial-card__stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-card__quote">„Přišla jsem poprvé a hned věděla, že se vrátím. Prostor, přístup i výsledek jsou na naprosto jiné úrovni, než na co jsem byla zvyklá. Cítila jsem se jako VIP od první minuty."</p>
+        <span class="testimonial-card__service">Balayage + střih</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__top">
+          <div class="testimonial-card__avatar">V</div>
+          <div class="testimonial-card__info">
+            <div class="testimonial-card__name">Veronika Malá</div>
+            <div class="testimonial-card__stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-card__quote">„Konečně barvení, ze kterého vlasy neztrácí lesk. Stylistka přesně pochopila, co chci, a přidala svůj vlastní pohled — výsledek je dokonalý. Doporučuju každé ženě."</p>
+        <span class="testimonial-card__service">Barvení + foukaná</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__top">
+          <div class="testimonial-card__avatar">M</div>
+          <div class="testimonial-card__info">
+            <div class="testimonial-card__name">Markéta Horáková</div>
+            <div class="testimonial-card__stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-card__quote">„Na svatbu jsem chtěla něco výjimečného. Dostala jsem účes, který mě doplnil přesně tak, jak jsem si představovala — jemný, elegantní a vydržel celý den. Absolutní spokojenost."</p>
+        <span class="testimonial-card__service">Společenský účes</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Section break ─── -->
+  <div class="section-break" style="background: var(--night);">
+    <div class="gold-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+  </div>
+
+  <!-- ─── Contact ─── -->
+  <section class="contact" id="kontakt">
+    <div class="contact__header">
+      <p class="section-label">Kontakt</p>
+      <h2 class="contact__heading">Přijďte nás <em>navštívit</em></h2>
+      <p class="contact__sub">Rezervace doporučujeme s předstihem. Jsme k dispozici telefonicky, e-mailem nebo přes online formulář.</p>
+    </div>
+    <div class="contact__grid">
+
+      <div class="contact-card">
+        <p class="contact-card__label">Adresa &amp; kontakt</p>
+        <h3 class="contact-card__title">Salon BEAUTY</h3>
+        <p class="contact-card__text">
+          A. Staška 114/20<br>
+          140 00 Praha 4<br>
+          Česká republika
+        </p>
+        <a href="tel:607813483" class="contact-card__link">607 813 483</a>
+        <a href="mailto:salon-beauty@email.cz" class="contact-card__link">salon-beauty@email.cz</a>
+        <a href="https://instagram.com" class="contact-card__link" target="_blank" rel="noopener">@salonkrasy</a>
+      </div>
+
+      <div class="contact-card">
+        <p class="contact-card__label">Otevírací hodiny</p>
+        <h3 class="contact-card__title">Kdy jsme zde</h3>
+        <ul class="hours-list">
+          <li><span>Pondělí</span><span>9:00 – 18:00</span></li>
+          <li><span>Úterý</span><span>9:00 – 19:00</span></li>
+          <li><span>Středa</span><span>9:00 – 19:00</span></li>
+          <li><span>Čtvrtek</span><span>9:00 – 20:00</span></li>
+          <li><span>Pátek</span><span>9:00 – 18:00</span></li>
+          <li><span>Sobota</span><span>9:00 – 15:00</span></li>
+          <li><span>Neděle</span><span>Zavřeno</span></li>
+        </ul>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://maps.google.com/maps?q=A.+Staška+114/20,+140+00+Praha+4-Krč,+Česko&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa salonu">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">Salon BEAUTY</div>
+        <p class="footer__tagline">Místo, kde se každý detail počítá. Luxusní péče o vlasy v srdci Prahy — pro ty, kteří chtějí víc než jen dobrou barvu.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link">IG</a>
+          <a href="#" class="footer__social-link">FB</a>
+          <a href="#" class="footer__social-link">TK</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigace</p>
+        <ul class="footer__links">
+          <li><a href="#o-salonu">O salonu</a></li>
+          <li><a href="#sluzby">Naše služby</a></li>
+          <li><a href="#cenik">Ceník</a></li>
+          <li><a href="#hodnoceni">Hodnocení</a></li>
+          <li><a href="#kontakt">Kontakt &amp; rezervace</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Kontakt</p>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Adresa</span>
+          <span class="footer__contact-value">A. Staška 114/20, 140 00 Praha 4</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Telefon</span>
+          <span class="footer__contact-value">607 813 483</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">E-mail</span>
+          <span class="footer__contact-value">salon-beauty@email.cz</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Hodiny</span>
+          <span class="footer__contact-value">Po–Pá 9:00–20:00<br>So 9:00–15:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; 2026 Salon BEAUTY. Všechna práva vyhrazena.</p>
+      <nav class="footer__legal">
+        <a href="#">Ochrana soukromí</a>
+        <a href="#">Obchodní podmínky</a>
+        <a href="#">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
