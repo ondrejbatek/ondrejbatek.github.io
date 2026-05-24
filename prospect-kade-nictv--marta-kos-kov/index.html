@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kadeřnictví Marta Kosíková — Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:     #ffffff;
+      --off-white: #fafaf8;
+      --near-white:#f4f4f0;
+      --light:     #e8e8e4;
+      --mid:       #c0bfb8;
+      --muted:     #909088;
+      --ink-soft:  #404038;
+      --ink:       #181814;
+      --accent:    #c8a878;
+      --line:      #e4e4e0;
+      --sans:      'Outfit', sans-serif;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navigation ────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      text-decoration: none;
+    }
+
+    .nav-logo-text {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 24px;
+      letter-spacing: 0.28em;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .nav-logo-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 1px;
+      flex-shrink: 0;
+      position: relative;
+      top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      padding: 10px 24px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    .hero {
+      padding: 240px 60px 180px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(72px, 12vw, 180px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 56px;
+    }
+
+    /* Hero divider — thin line with tan dot */
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 52px;
+      width: 240px;
+      position: relative;
+    }
+
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.55;
+    }
+
+    .hero-divider-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin: 0 12px;
+      flex-shrink: 0;
+    }
+
+    .hero-rule {
+      width: 80px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 44px;
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 64px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      padding: 14px 36px;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .btn-ghost-accent {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 14px 36px;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost-accent:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ─── Trust Bar ─────────────────────────────────────────── */
+    .trust-bar {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 60px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      background: var(--off-white);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .trust-item span {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ─── About ─────────────────────────────────────────────── */
+    .about {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 140px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .about-figure {
+      background: var(--near-white);
+      border: 1px solid var(--line);
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-figure-letter {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 180px;
+      color: var(--light);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .about-figure-caption {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .about-content {}
+
+    .about-label {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 36px;
+      display: block;
+    }
+
+    .about-quote {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 44px;
+      border-left: 1px solid var(--accent);
+      padding-left: 28px;
+    }
+
+    .about-text {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    .about-signature {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 24px;
+      color: var(--ink-soft);
+      margin-top: 36px;
+      display: block;
+    }
+
+    .about-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--line);
+      margin: 20px 0;
+    }
+
+    /* ─── Services ──────────────────────────────────────────── */
+    .services {
+      background: var(--off-white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 120px 60px;
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 80px;
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(36px, 5vw, 72px);
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .service-list {}
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 0 40px;
+      align-items: start;
+      padding: 44px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .service-num {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--accent);
+      padding-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .service-body {}
+
+    .service-name {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 28px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+
+    .service-price {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Gallery ───────────────────────────────────────────── */
+    .gallery {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 60px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 60px;
+      border: 1px solid var(--line);
+    }
+
+    .gallery-tile {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      cursor: pointer;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .gallery-tile:nth-child(3n) { border-right: none; }
+    .gallery-tile:nth-child(n+4) { border-bottom: none; }
+
+    .gallery-tile-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-tile:hover .gallery-tile-bg {
+      transform: scale(1.03);
+    }
+
+    .gt-1 .gallery-tile-bg { background: linear-gradient(135deg, #f4f2ee 0%, #e8e4dc 100%); }
+    .gt-2 .gallery-tile-bg { background: linear-gradient(135deg, #f7f5f0 0%, #ede8e0 100%); }
+    .gt-3 .gallery-tile-bg { background: linear-gradient(160deg, #f0ede6 0%, #e4dfd4 100%); }
+    .gt-4 .gallery-tile-bg { background: linear-gradient(135deg, #ede8e2 0%, #d8d3ca 100%); }
+    .gt-5 .gallery-tile-bg { background: linear-gradient(135deg, #f5f2ec 0%, #e9e4da 100%); }
+    .gt-6 .gallery-tile-bg { background: linear-gradient(160deg, #f2efe8 0%, #dbd6cc 100%); }
+
+    /* Faint watermark letter on each tile */
+    .gallery-tile-letter {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 120px;
+      color: rgba(0,0,0,0.04);
+      user-select: none;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .gallery-tile-label {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: opacity 0.3s;
+    }
+
+    .gallery-tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(24, 24, 20, 0.0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.35s ease;
+    }
+
+    .gallery-tile:hover .gallery-tile-overlay {
+      background: rgba(24, 24, 20, 0.55);
+    }
+
+    .gallery-tile-overlay-text {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-tile:hover .gallery-tile-overlay-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-tile:hover .gallery-tile-label {
+      opacity: 0;
+    }
+
+    /* ─── Discount ──────────────────────────────────────────── */
+    .discount {
+      background: var(--off-white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 120px 60px;
+      text-align: center;
+    }
+
+    .discount-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .discount-label {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .discount-percent {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(64px, 10vw, 120px);
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .discount-headline {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 34px);
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .discount-text {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .discount-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .discount-form input {
+      flex: 1;
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      padding: 14px 20px;
+      border: 1px solid var(--line);
+      border-right: none;
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .discount-form input::placeholder { color: var(--mid); }
+    .discount-form input:focus { border-color: var(--mid); }
+
+    .discount-form button {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .discount-form button:hover { background: var(--accent); border-color: var(--accent); }
+
+    .discount-note {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 11px;
+      color: var(--mid);
+      margin-top: 16px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── Pricing ───────────────────────────────────────────── */
+    .pricing {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 140px 60px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 80px;
+      margin-top: 60px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .price-row:first-child { border-top: 1px solid var(--line); }
+
+    .price-name {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 15px;
+      color: var(--ink-soft);
+      letter-spacing: 0.01em;
+    }
+
+    .price-dots {
+      flex: 1;
+      height: 1px;
+      background: repeating-linear-gradient(to right, var(--line) 0, var(--line) 2px, transparent 2px, transparent 8px);
+      margin: 0 16px;
+      position: relative;
+      top: -3px;
+    }
+
+    .price-val {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .pricing-note {
+      margin-top: 40px;
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+
+    /* ─── Testimonials ──────────────────────────────────────── */
+    .testimonials {
+      background: var(--off-white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 120px 60px;
+    }
+
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 72px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Top accent rule */
+    .testimonial-card::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    .testimonial-stars {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+      flex: 1;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-initials {
+      width: 40px;
+      height: 40px;
+      background: var(--near-white);
+      border: 1px solid var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .testimonial-meta {}
+
+    .testimonial-name {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .testimonial-service {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Contact ───────────────────────────────────────────── */
+    .contact {
+      background: var(--off-white);
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .contact-info {
+      padding-right: 80px;
+      border-right: 1px solid var(--line);
+    }
+
+    .contact-map {
+      padding-left: 80px;
+    }
+
+    .contact-block {
+      margin-bottom: 52px;
+    }
+
+    .contact-block-label {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .contact-block-value {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    .contact-block-value a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-block-value a:hover { color: var(--ink); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hours-day {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .hours-time {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .map-frame {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--line);
+      display: block;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    .map-label {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 12px;
+      display: block;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: var(--off-white);
+      border-top: 1px solid var(--line);
+      padding: 80px 60px 48px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 20px;
+      letter-spacing: 0.24em;
+      color: var(--ink);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      text-decoration: none;
+    }
+
+    .footer-tagline {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--ink); }
+
+    .footer-col-title {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--ink); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--ink-soft); }
+
+    /* ─── Mobile Menu ───────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 32px 40px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    /* ─── Responsive ────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 0 32px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+
+      .hero { padding: 140px 32px 100px; }
+
+      .trust-bar { padding: 24px 32px; gap: 28px; flex-wrap: wrap; }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 80px 32px;
+      }
+
+      .about-figure { max-height: 400px; }
+
+      .services { padding: 80px 32px; }
+      .service-item { grid-template-columns: 48px 1fr; grid-template-rows: auto auto; }
+      .service-price { grid-column: 2; margin-top: 8px; }
+
+      .gallery { padding: 80px 32px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-tile:nth-child(3n) { border-right: 1px solid var(--line); }
+      .gallery-tile:nth-child(2n) { border-right: none; }
+      .gallery-tile:nth-child(n+5) { border-bottom: none; }
+      .gallery-tile:nth-child(n+4) { border-bottom: 1px solid var(--line); }
+
+      .discount { padding: 80px 32px; }
+      .discount-form { flex-direction: column; }
+      .discount-form input { border-right: 1px solid var(--line); border-bottom: none; }
+
+      .pricing { padding: 80px 32px; }
+      .pricing-grid { grid-template-columns: 1fr; gap: 0; }
+
+      .testimonials { padding: 80px 32px; }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 52px; }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        padding: 80px 32px;
+      }
+      .contact-info { border-right: none; padding-right: 0; margin-bottom: 60px; }
+      .contact-map { padding-left: 0; }
+
+      footer { padding: 60px 32px 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 100px 20px 80px; }
+      .trust-bar { padding: 20px; gap: 16px; justify-content: flex-start; }
+      .about { padding: 60px 20px; }
+      .services { padding: 60px 20px; }
+      .service-name { font-size: 22px; }
+      .gallery { padding: 60px 20px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-tile { border-right: none !important; }
+      .gallery-tile:nth-child(n) { border-bottom: 1px solid var(--line); }
+      .gallery-tile:last-child { border-bottom: none; }
+      .discount { padding: 60px 20px; }
+      .pricing { padding: 60px 20px; }
+      .testimonials { padding: 60px 20px; }
+      .contact-inner { padding: 60px 20px; }
+      footer { padding: 48px 20px 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .hours-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-text">Salon</span>
+      <span class="nav-logo-dot"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">O salonu</a></li>
+      <li><a href="#services">Služby</a></li>
+      <li><a href="#pricing">Ceník</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Rezervace</a>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">O salonu</a>
+    <a href="#services" onclick="toggleMenu()">Služby</a>
+    <a href="#pricing" onclick="toggleMenu()">Ceník</a>
+    <a href="#contact" onclick="toggleMenu()">Kontakt</a>
+    <a href="#contact" onclick="toggleMenu()" class="nav-cta" style="width:fit-content">Rezervace</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <h1><em>Jednoduchost</em><br>je forma<br>dokonalosti.</h1>
+    <div class="hero-divider">
+      <span class="hero-divider-dot"></span>
+    </div>
+    <p class="hero-sub">Péče o vlasy, která mluví za sebe.<br>Bez zbytečností. Jen to podstatné.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-ghost">Rezervovat termín</a>
+      <a href="#services" class="btn-ghost-accent">Naše služby</a>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Střihy &amp; Styling</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Barvení &amp; Melíry</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Společenské účesy</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Praha 2 — 29</span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-figure">
+      <span class="about-figure-letter">S</span>
+      <span class="about-figure-caption">Kadeřnictví Marta Kosíková — Praha</span>
+    </div>
+    <div class="about-content">
+      <span class="about-label">O nás</span>
+      <blockquote class="about-quote">
+        Věříme, že skutečná krása spočívá v přirozenosti a detailu.
+      </blockquote>
+      <p class="about-text">
+        Kadeřnictví Marta Kosíková byl založen s jediným záměrem — vytvořit prostor, kde se každý klient cítí viděn, vyslyšen a krásně. Nejsme salón, který honí trendy. Jsme místo, kde si každý vlásek zaslouží plnou pozornost.
+      </p>
+      <p class="about-text">
+        Naši kadeřníci absolvovali pokročilá školení v Paříži i Londýně a přinášejí do každého střihu preciznost, která se nedá naučit z YouTube tutoriálů. Každá návštěva u nás začíná konzultací a končí vaším úsměvem.
+      </p>
+      <div class="about-rule"></div>
+      <span class="about-signature">— tým Kadeřnictví Marta Kosíková</span>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <div class="section-header">
+        <span class="section-label">Co nabízíme</span>
+        <h2 class="section-title">Naše služby.</h2>
+      </div>
+      <div class="service-list">
+
+        <div class="service-item">
+          <span class="service-num">01.</span>
+          <div class="service-body">
+            <h3 class="service-name">Dámský střih</h3>
+            <p class="service-desc">Precizní střih přizpůsobený tvaru obličeje, hustotě vlasů a vašemu životnímu stylu. Zahrnuje konzultaci, mytí, střih a základní foukanou.</p>
+          </div>
+          <span class="service-price">od 650 Kč</span>
+        </div>
+
+        <div class="service-item">
+          <span class="service-num">02.</span>
+          <div class="service-body">
+            <h3 class="service-name">Barvení vlasů</h3>
+            <p class="service-desc">Celobarevné přebarvení s použitím šetrných, ammonia-free přípravků. Barvy vybíráme individuálně s ohledem na tón pleti a přání klientky.</p>
+          </div>
+          <span class="service-price">od 1 200 Kč</span>
+        </div>
+
+        <div class="service-item">
+          <span class="service-num">03.</span>
+          <div class="service-body">
+            <h3 class="service-name">Melíry &amp; Balayage</h3>
+            <p class="service-desc">Ruční techniky zesvětlování pro přirozený, sluncem políbený efekt. Balayage, klasické melíry i moderní babylights — vždy bez viditelného odrostu.</p>
+          </div>
+          <span class="service-price">od 1 800 Kč</span>
+        </div>
+
+        <div class="service-item">
+          <span class="service-num">04.</span>
+          <div class="service-body">
+            <h3 class="service-name">Společenský účes</h3>
+            <p class="service-desc">Slavnostní a svatební účesy, které vydrží celý den. Od elegantních culíků přes volné vlny až po sofistikované uzly. Rezervujte s předstihem.</p>
+          </div>
+          <span class="service-price">od 900 Kč</span>
+        </div>
+
+        <div class="service-item">
+          <span class="service-num">05.</span>
+          <div class="service-body">
+            <h3 class="service-name">Foukaná</h3>
+            <p class="service-desc">Profesionální foukaná s tepelnou ochranou pro dokonalý objem a lesk. Hodí se před důležitou schůzkou, focením nebo prostě proto, že si to zasloužíte.</p>
+          </div>
+          <span class="service-price">od 450 Kč</span>
+        </div>
+
+        <div class="service-item">
+          <span class="service-num">06.</span>
+          <div class="service-body">
+            <h3 class="service-name">Konzultace stylu</h3>
+            <p class="service-desc">Osobní konzultace se zkušeným stylisto — rozebere vám střihy, barvy a techniky péče nejvhodněji pro váš typ vlasů. Ideální před velkou změnou.</p>
+          </div>
+          <span class="service-price">300 Kč</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="section-header">
+      <span class="section-label">Fotogalerie prací</span>
+      <h2 class="section-title">Naše práce.</h2>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-tile gt-1">
+        <div class="gallery-tile-bg"></div>
+        <span class="gallery-tile-letter">B</span>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-text">Balayage</span>
+        </div>
+        <span class="gallery-tile-label">Balayage</span>
+      </div>
+
+      <div class="gallery-tile gt-2">
+        <div class="gallery-tile-bg"></div>
+        <span class="gallery-tile-letter">S</span>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-text">Střih &amp; Styling</span>
+        </div>
+        <span class="gallery-tile-label">Střih &amp; Styling</span>
+      </div>
+
+      <div class="gallery-tile gt-3">
+        <div class="gallery-tile-bg"></div>
+        <span class="gallery-tile-letter">B</span>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-text">Barvení</span>
+        </div>
+        <span class="gallery-tile-label">Barvení</span>
+      </div>
+
+      <div class="gallery-tile gt-4">
+        <div class="gallery-tile-bg"></div>
+        <span class="gallery-tile-letter">M</span>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-text">Melíry</span>
+        </div>
+        <span class="gallery-tile-label">Melíry</span>
+      </div>
+
+      <div class="gallery-tile gt-5">
+        <div class="gallery-tile-bg"></div>
+        <span class="gallery-tile-letter">U</span>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-text">Společenský účes</span>
+        </div>
+        <span class="gallery-tile-label">Společenský účes</span>
+      </div>
+
+      <div class="gallery-tile gt-6">
+        <div class="gallery-tile-bg"></div>
+        <span class="gallery-tile-letter">F</span>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-text">Foukaná</span>
+        </div>
+        <span class="gallery-tile-label">Foukaná</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Discount -->
+  <section class="discount" id="discount">
+    <div class="discount-inner">
+      <span class="discount-label">Nabídka pro nové klientky</span>
+      <div class="discount-percent">−15 %</div>
+      <h2 class="discount-headline">Na první návštěvu.<br>Bez podmínek.</h2>
+      <p class="discount-text">
+        Přijďte nás poznat a první službu u nás máte se slevou 15 %. Stačí zadat váš e-mail a my vám zašleme slevový kód. Platí na všechny služby v ceníku, kombinovatelné se střihem i barvením.
+      </p>
+      <form class="discount-form" onsubmit="return false;">
+        <input type="email" placeholder="váš@email.cz" autocomplete="email">
+        <button type="submit">Získat slevu</button>
+      </form>
+      <p class="discount-note">Zadáním emailu souhlasíte se zpracováním osobních údajů. Odběr lze kdykoli zrušit.</p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="section-header">
+      <span class="section-label">Přehled cen</span>
+      <h2 class="section-title">Ceník.</h2>
+    </div>
+    <div class="pricing-grid">
+      <div>
+        <div class="price-row">
+          <span class="price-name">Dámský střih</span>
+          <span class="price-dots"></span>
+          <span class="price-val">od 650 Kč</span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">Barvení vlasů</span>
+          <span class="price-dots"></span>
+          <span class="price-val">od 1 200 Kč</span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">Melíry / Balayage</span>
+          <span class="price-dots"></span>
+          <span class="price-val">od 1 800 Kč</span>
+        </div>
+      </div>
+      <div>
+        <div class="price-row">
+          <span class="price-name">Společenský účes</span>
+          <span class="price-dots"></span>
+          <span class="price-val">od 900 Kč</span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">Foukaná</span>
+          <span class="price-dots"></span>
+          <span class="price-val">od 450 Kč</span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">Konzultace stylu</span>
+          <span class="price-dots"></span>
+          <span class="price-val">300 Kč</span>
+        </div>
+      </div>
+    </div>
+    <p class="pricing-note">Ceny jsou orientační a mohou se lišit dle délky a hustoty vlasů. Přesnou cenu sdělíme při konzultaci. Platba kartou i hotově.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="hodnoceni">
+    <div class="testimonials-inner">
+      <div class="section-header">
+        <span class="section-label">Hodnocení klientek</span>
+        <h2 class="section-title">Co říkají ostatní.</h2>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "Přišla jsem s vágní představou a odešla s přesně tím, co jsem chtěla. Kadeřník poslouchal, nepospíchal a výsledek byl bezchybný."
+          </p>
+          <div class="testimonial-footer">
+            <div class="testimonial-initials">KN</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name">Kateřina Nováková</div>
+              <div class="testimonial-service">Balayage + střih</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "Konečně salon, kde nemusím nic vysvětlovat dvakrát. Atmosféra klidná, práce precizní. Moje vlasy nikdy nevypadaly tak přirozeně."
+          </p>
+          <div class="testimonial-footer">
+            <div class="testimonial-initials">MP</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name">Markéta Procházková</div>
+              <div class="testimonial-service">Barvení vlasů</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "Na svatbu jsem chtěla něco nadčasového. Dostala jsem přesně to. Účes vydržel celý den a komplimenty nestačily."
+          </p>
+          <div class="testimonial-footer">
+            <div class="testimonial-initials">LH</div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name">Lucie Horáčková</div>
+              <div class="testimonial-service">Společenský účes</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <span class="section-label" style="margin-bottom:40px;display:block">Přijďte za námi</span>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Adresa</span>
+          <div class="contact-block-value">
+            29<br>
+            120 00 Praha 2<br>
+            Česká republika
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Telefon &amp; E-mail</span>
+          <div class="contact-block-value">
+            <a href="tel:608482822">608 482 822</a><br>
+            <a href="mailto:info@salonkosikova.cz">info@salonkosikova.cz</a>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Otevírací doba</span>
+          <div class="hours-grid">
+            <div class="hours-row"><span class="hours-day">Po – Pá</span><span class="hours-time">9:00 – 19:00</span></div>
+            <div class="hours-row"><span class="hours-day">Sobota</span><span class="hours-time">9:00 – 16:00</span></div>
+            <div class="hours-row"><span class="hours-day">Neděle</span><span class="hours-time">Zavřeno</span></div>
+          </div>
+        </div>
+
+        <a href="#discount" class="btn-ghost" style="margin-top:20px;display:inline-block">Rezervovat online</a>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          class="map-frame"
+          src="https://maps.google.com/maps?q=29,+Italská+754,+120+00+Praha+2-Vinohrady,+Česko&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa — Kadeřnictví Marta Kosíková Praha"
+        ></iframe>
+        <span class="map-label">Kadeřnictví Marta Kosíková · 29, Praha 2</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          Salon <span class="nav-logo-dot" style="width:4px;height:4px;background:var(--accent)"></span>
+        </a>
+        <p class="footer-tagline">Jednoduchost je forma dokonalosti.<br>Praha 2 — od roku 2018.</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Navigace</span>
+        <ul>
+          <li><a href="#about">O salonu</a></li>
+          <li><a href="#services">Služby</a></li>
+          <li><a href="#pricing">Ceník</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Služby</span>
+        <ul>
+          <li><a href="#services">Dámský střih</a></li>
+          <li><a href="#services">Barvení</a></li>
+          <li><a href="#services">Melíry</a></li>
+          <li><a href="#services">Foukaná</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Kontakt</span>
+        <ul>
+          <li><a href="tel:608482822">608 482 822</a></li>
+          <li><a href="mailto:info@salonkosikova.cz">info@salonkosikova.cz</a></li>
+          <li><a href="#">29, Praha 2</a></li>
+          <li><a href="#">Po–Pá 9–19 hod.</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Kadeřnictví Marta Kosíková. Všechna práva vyhrazena.</span>
+      <div class="footer-legal">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Obchodní podmínky</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const m = document.getElementById('mobileMenu');
+      m.classList.toggle('open');
+    }
+
+    // Close mobile menu on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+  </script>
+
+</body>
+</html>
