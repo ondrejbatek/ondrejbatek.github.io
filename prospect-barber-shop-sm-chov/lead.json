@@ -1,0 +1,16 @@
+{
+  "salon_name": "Barber Shop Smíchov",
+  "place_id": "ChIJN0aWbWCVC0cRWhGP8SZt0YA",
+  "address": "Ostrovského 1332/4, Smíchov, 150 00 Praha-Praha 5, Česko",
+  "rating": 4.9,
+  "reviews": 527,
+  "website": "https://barbersmichov.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "778 553 280",
+  "email": "barbersmichov@gmail.com",
+  "maps_url": "https://maps.google.com/?cid=9282320321016172890",
+  "priority": "medium",
+  "folder_name": "prospect-barber-shop-sm-chov",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-barber-shop-sm-chov",
+  "template_used": "template-salon-dore"
+}
