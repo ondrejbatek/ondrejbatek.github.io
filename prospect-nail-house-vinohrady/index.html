@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nail House Vinohrady — Praha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --bg:       #FFFFFF;
+      --bg-warm:  #F5F0EB;
+      --bg-dark:  #1E1C1A;
+      --ink:      #1E1C1A;
+      --muted:    #7A7068;
+      --rose:     #C4909A;
+      --rose-lt:  #E8D0D4;
+      --line:     #E5DED6;
+      --white:    #FFFFFF;
+      --display:  'Syne', sans-serif;
+      --body:     'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      height: 68px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .nav__links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--rose); }
+    .nav__phone {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--rose);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      min-height: 90vh;
+    }
+    .hero__left {
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__years {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .hero__years-number {
+      font-family: var(--display);
+      font-size: 140px;
+      font-weight: 800;
+      color: var(--rose);
+      opacity: 0.25;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .hero__years-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+    }
+    .hero__headline {
+      font-family: var(--display);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      white-space: pre-line;
+    }
+    .hero__headline .accent { color: var(--rose); }
+    .hero__sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 380px;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 28px;
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn--rose {
+      background: var(--rose);
+      color: var(--white);
+    }
+    .btn--rose:hover { background: #b37f89; }
+    .btn--outline {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn--outline:hover {
+      border-color: rgba(255,255,255,0.5);
+      color: var(--white);
+    }
+    .btn--dark {
+      background: var(--bg-dark);
+      color: var(--white);
+    }
+    .btn--dark:hover { background: #2d2b29; }
+    .hero__right {
+      background: var(--bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+    .hero__stats-box {
+      background: var(--white);
+      padding: 48px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .hero__stats-title {
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+    .stat-item {}
+    .stat-item__number {
+      font-family: var(--display);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-item__label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .stat-item__bar {
+      width: 32px;
+      height: 2px;
+      background: var(--rose);
+      margin-top: 10px;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 100px 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--rose);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .section-headline {
+      font-family: var(--display);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      white-space: pre-line;
+    }
+    .about__body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+    .about__owner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .about__owner-avatar {
+      width: 52px;
+      height: 52px;
+      background: var(--rose-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--rose);
+    }
+    .about__owner-name {
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .about__owner-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .about__photo {
+      aspect-ratio: 4/5;
+      background: var(--bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .about__photo-letter {
+      font-family: var(--display);
+      font-size: 200px;
+      font-weight: 800;
+      color: var(--rose-lt);
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--bg-warm);
+      padding: 100px 72px;
+    }
+    .services__header {
+      margin-bottom: 64px;
+    }
+    .services__header .section-headline {
+      max-width: 480px;
+    }
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: 40px 200px 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-row:first-child {
+      border-top: 1px solid var(--line);
+    }
+    .service-row__num {
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--rose);
+      opacity: 0.6;
+    }
+    .service-row__category {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .service-row__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .service-tag {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-weight: 400;
+    }
+    .service-row__price {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--rose);
+      white-space: nowrap;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 100px 72px;
+      background: var(--white);
+    }
+    .gallery__header {
+      margin-bottom: 48px;
+    }
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 16px;
+    }
+    .gallery__tile {
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery__tile:first-child {
+      grid-row: 1 / 3;
+    }
+    .gallery__tile-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gallery__tile:hover .gallery__tile-inner {
+      transform: scale(1.04);
+    }
+    .gallery__tile-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+    .gt1 { background: linear-gradient(135deg, #C4909A 0%, #9a6470 100%); }
+    .gt2 { background: linear-gradient(135deg, #1E1C1A 0%, #3a3533 100%); }
+    .gt3 { background: linear-gradient(135deg, #E8D0D4 0%, #d4b0b8 100%); }
+    .gt4 { background: linear-gradient(135deg, #F5F0EB 0%, #e0d5c8 100%); }
+    .gt5 { background: linear-gradient(135deg, #7A7068 0%, #5a5250 100%); }
+    .gt6 { background: linear-gradient(135deg, #C4909A 0%, #1E1C1A 100%); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--bg-dark);
+      padding: 100px 72px;
+    }
+    .testimonials__header {
+      margin-bottom: 56px;
+    }
+    .testimonials__header .section-eyebrow { color: var(--rose); }
+    .testimonials__header .section-headline { color: var(--white); }
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      padding: 36px 32px;
+      border-top: 3px solid var(--rose);
+    }
+    .testimonial-card__stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .star {
+      color: var(--rose);
+      font-size: 14px;
+    }
+    .testimonial-card__quote {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .testimonial-card__name {
+      font-family: var(--display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .testimonial-card__detail {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 100px 72px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .contact__left .section-headline {
+      margin-bottom: 16px;
+    }
+    .contact__tagline {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .btn--cta {
+      background: var(--rose);
+      color: var(--white);
+      height: 56px;
+      padding: 0 36px;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+    .btn--cta:hover { background: #b37f89; }
+    .contact__info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .contact-block__label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--rose);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .contact-block__value {
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .contact-block__sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--bg-dark);
+      padding: 28px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer__logo {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .footer__copy {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer__top {
+      font-size: 12px;
+      color: var(--rose);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .footer__top:hover { color: #d4a0aa; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav {
+        padding: 0 24px;
+        height: 60px;
+      }
+      .nav__links { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero__left {
+        padding: 64px 24px;
+      }
+      .hero__years-number { font-size: 88px; }
+      .hero__headline { font-size: 36px; }
+      .hero__right { padding: 40px 24px; }
+      .hero__stats-box { padding: 32px 24px; }
+
+      .about {
+        grid-template-columns: 1fr;
+        padding: 64px 24px;
+        gap: 48px;
+      }
+      .about__photo { max-height: 320px; }
+      .about__photo-letter { font-size: 120px; }
+      .section-headline { font-size: 36px; }
+
+      .services {
+        padding: 64px 24px;
+      }
+      .service-row {
+        grid-template-columns: 32px 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 12px;
+        padding: 24px 0;
+      }
+      .service-row__num { grid-column: 1; grid-row: 1; }
+      .service-row__category { grid-column: 2; grid-row: 1; }
+      .service-row__items { grid-column: 1 / -1; grid-row: 2; }
+      .service-row__price { grid-column: 1 / -1; grid-row: 3; }
+
+      .gallery {
+        padding: 64px 24px;
+      }
+      .gallery__grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 200px);
+      }
+      .gallery__tile:first-child { grid-row: auto; }
+
+      .testimonials {
+        padding: 64px 24px;
+      }
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+        padding: 64px 24px;
+        gap: 48px;
+      }
+      .contact__info-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer {
+        padding: 24px 24px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <a href="#" class="nav__logo">Salon Kr&#225;sy</a>
+    <ul class="nav__links">
+      <li><a href="#about">O n&#225;s</a></li>
+      <li><a href="#services">Slu&#382;by</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <a href="tel:608014646" class="nav__phone">608 014 646</a>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero__left">
+      <div class="hero__years">
+        <div class="hero__years-number">08</div>
+        <div class="hero__years-label">Rok&#367; praxe</div>
+      </div>
+      <h1 class="hero__headline">St&#345;ih,<br>kter&#253; mluv&#237;<br>za <span class="accent">v&#225;s.</span></h1>
+      <p class="hero__sub">Profesion&#225;ln&#237; p&#233;&#269;e o va&#353;e vlasy v srdci Prahy&#160;2. P&#345;ijm&#283;te poz&#225;n&#237; skute&#269;n&#233;ho um&#283;n&#237; kr&#225;sy.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--rose">Rezervovat term&#237;n</a>
+        <a href="#services" class="btn btn--outline">Na&#353;e slu&#382;by</a>
+      </div>
+    </div>
+    <div class="hero__right">
+      <div class="hero__stats-box">
+        <div class="hero__stats-title">Co nab&#237;z&#237;me</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-item__number">420+</div>
+            <div class="stat-item__label">St&#345;ihy</div>
+            <div class="stat-item__bar"></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">180+</div>
+            <div class="stat-item__label">Barvy</div>
+            <div class="stat-item__bar"></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">95%</div>
+            <div class="stat-item__label">P&#233;&#269;e</div>
+            <div class="stat-item__bar"></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">60+</div>
+            <div class="stat-item__label">Styling</div>
+            <div class="stat-item__bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="about">
+    <div class="about__left">
+      <div class="section-eyebrow">O n&#225;s</div>
+      <h2 class="section-headline">Tady se<br>c&#237;t&#237;te<br>doma.</h2>
+      <p class="about__body">
+        V Salon Kr&#225;sy v&#283;&#345;&#237;me, &#382;e dob&#345;e vypadaj&#237;c&#237; vlasy znamen&#225; seb&#283;jistotu a radost. Na&#353; t&#253;m zku&#353;en&#253;ch kade&#345;n&#237;k&#367; p&#233;&#269;liv&#283; naslou&#269;h&#225; va&#353;im p&#345;&#225;n&#237;m a spole&#269;n&#283; s v&#225;mi vytv&#225;&#345;&#237; v&#253;sledek, kter&#253; p&#345;esn&#283; odp&#237;d&#225; va&#353;emu stylu a osobnosti.
+      </p>
+      <p class="about__body">
+        Pou&#382;&#237;v&#225;me pouze pr&#233;miov&#233; produkty od prověřen&#253;ch zna&#269;ek. Va&#353;e vlasy jsou v t&#283;ch nejlep&#353;&#237;ch rukou.
+      </p>
+      <div class="about__owner">
+        <div class="about__owner-avatar">J</div>
+        <div>
+          <div class="about__owner-name">Jm&#233;no P&#345;&#237;jmen&#237;</div>
+          <div class="about__owner-role">Majitelka &amp; hlavn&#237; kade&#345;nice</div>
+        </div>
+      </div>
+    </div>
+    <div class="about__photo">
+      <div class="about__photo-letter">S</div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="services__header">
+      <div class="section-eyebrow">Co nab&#237;z&#237;me</div>
+      <h2 class="section-headline">Slu&#382;by<br>pro v&#225;s.</h2>
+    </div>
+    <div class="services-list">
+      <div class="service-row">
+        <div class="service-row__num">01</div>
+        <div class="service-row__category">St&#345;ihy</div>
+        <div class="service-row__items">
+          <span class="service-tag">D&#225;msk&#253; st&#345;ih</span>
+          <span class="service-tag">P&#225;nsk&#253; st&#345;ih</span>
+          <span class="service-tag">D&#283;tsk&#253; st&#345;ih</span>
+          <span class="service-tag">Fra&#233;rov&#225;n&#237;</span>
+          <span class="service-tag">Tvarování</span>
+        </div>
+        <div class="service-row__price">od 350 K&#269;</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row__num">02</div>
+        <div class="service-row__category">Barven&#237;</div>
+        <div class="service-row__items">
+          <span class="service-tag">Cel&#233; barven&#237;</span>
+          <span class="service-tag">Melír</span>
+          <span class="service-tag">Balayage</span>
+          <span class="service-tag">Ombre</span>
+          <span class="service-tag">Korekce barvy</span>
+        </div>
+        <div class="service-row__price">od 800 K&#269;</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row__num">03</div>
+        <div class="service-row__category">P&#233;&#269;e</div>
+        <div class="service-row__items">
+          <span class="service-tag">Keratinov&#225; kúra</span>
+          <span class="service-tag">Masáž hlavy</span>
+          <span class="service-tag">Hydratace</span>
+          <span class="service-tag">Regenerace</span>
+        </div>
+        <div class="service-row__price">od 450 K&#269;</div>
+      </div>
+      <div class="service-row">
+        <div class="service-row__num">04</div>
+        <div class="service-row__category">Styling</div>
+        <div class="service-row__items">
+          <span class="service-tag">Spole&#269;ensk&#253; ú&#269;es</span>
+          <span class="service-tag">Fo&#233;nov&#225;n&#237;</span>
+          <span class="service-tag">Vlny &amp; lokny</span>
+          <span class="service-tag">Svatební styling</span>
+        </div>
+        <div class="service-row__price">od 500 K&#269;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section class="gallery" id="gallery">
+    <div class="gallery__header">
+      <div class="section-eyebrow">Na&#353;e pr&#225;ce</div>
+      <h2 class="section-headline">Galerie.</h2>
+    </div>
+    <div class="gallery__grid">
+      <div class="gallery__tile">
+        <div class="gallery__tile-inner gt1">
+          <span class="gallery__tile-label">Balayage</span>
+        </div>
+      </div>
+      <div class="gallery__tile">
+        <div class="gallery__tile-inner gt2">
+          <span class="gallery__tile-label">St&#345;ih</span>
+        </div>
+      </div>
+      <div class="gallery__tile">
+        <div class="gallery__tile-inner gt3">
+          <span class="gallery__tile-label">Barven&#237;</span>
+        </div>
+      </div>
+      <div class="gallery__tile">
+        <div class="gallery__tile-inner gt4">
+          <span class="gallery__tile-label">P&#233;&#269;e</span>
+        </div>
+      </div>
+      <div class="gallery__tile">
+        <div class="gallery__tile-inner gt5">
+          <span class="gallery__tile-label">Styling</span>
+        </div>
+      </div>
+      <div class="gallery__tile">
+        <div class="gallery__tile-inner gt6">
+          <span class="gallery__tile-label">Ombre</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials__header">
+      <div class="section-eyebrow">Reference</div>
+      <h2 class="section-headline">Co &#345;&#237;kaj&#237;<br>na&#353;e klientky.</h2>
+    </div>
+    <div class="testimonials__grid">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <p class="testimonial-card__quote">&#8222;Naprosto fantastick&#225; zku&#353;enost. Kone&#269;n&#283; jsem na&#353;la sal&#243;n, kde skute&#269;n&#283; rozum&#237; tomu, co chci. Balayage dopadl p&#345;esn&#283; podle m&#253;ch p&#345;edstav.&#8220;</p>
+        <div class="testimonial-card__name">Tereza M.</div>
+        <div class="testimonial-card__detail">Pravideln&#225; klientka</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <p class="testimonial-card__quote">&#8222;P&#345;&#225;telsk&#253; tým, p&#233;&#269;liv&#253; p&#345;&#237;stup a v&#253;sledek, kter&#253; p&#345;edčil m&#225; o&#269;ek&#225;v&#225;n&#237;. Doporu&#269;uji ka&#382;d&#233;mu, kdo hled&#225; kvalitn&#237; slu&#382;by.&#8220;</p>
+        <div class="testimonial-card__name">Lucie K.</div>
+        <div class="testimonial-card__detail">Spokojen&#225; z&#225;kaznice</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <p class="testimonial-card__quote">&#8222;Na&#353;la jsem si tady sv&#367;j &#8222;home sal&#243;n&#8220;. Vrac&#237;m se pravideln&#283; a v&#382;dy odch&#225;z&#237;m spokojená. Prost&#345;ed&#237; je kr&#225;sné a personál milý.&#8220;</p>
+        <div class="testimonial-card__name">Markéta V.</div>
+        <div class="testimonial-card__detail">V&#283;rná klientka</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contact">
+    <div class="contact__left">
+      <div class="section-eyebrow">Kontakt</div>
+      <h2 class="section-headline">Objedn&#225;te<br>se k n&#225;m.</h2>
+      <p class="contact__tagline">Rádi v&#225;s uv&#237;t&#225;me. Zavolejte n&#225;m nebo napište — r&#225;di v&#225;m nahl&#225;s&#237;me voln&#253; term&#237;n.</p>
+      <a href="tel:608014646" class="btn btn--cta">608 014 646</a>
+    </div>
+    <div class="contact__right">
+      <div class="contact__info-grid">
+        <div class="contact-block">
+          <div class="contact-block__label">Telefon</div>
+          <div class="contact-block__value">608 014 646</div>
+          <div class="contact-block__sub">Po–P&#225; 9:00–18:00</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block__label">Email</div>
+          <div class="contact-block__value">salon@example.com</div>
+          <div class="contact-block__sub">Odp&#237;me do 24h</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block__label">Adresa</div>
+          <div class="contact-block__value">Praha-Praha</div>
+          <div class="contact-block__sub">Česk&#225; republika</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block__label">Hodiny</div>
+          <div class="contact-block__value">Po–P&#225; 9–18h</div>
+          <div class="contact-block__sub">So 9–14h</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer__logo">Salon Kr&#225;sy</div>
+    <div class="footer__copy">&copy; 2026 Salon Kr&#225;sy. V&#353;echna pr&#225;va vyhrazena.</div>
+    <a href="#" class="footer__top">&#8593; Nahoru</a>
+  </footer>
+
+</body>
+</html>
