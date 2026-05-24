@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair salon GLAMOUR — Praha</title>
+<meta name="description" content="Hair salon GLAMOUR — salon krasy v Praha 5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #F7F3EE;
+  --bg-deep:  #EDE7DC;
+  --bg-card:  #FDFAF6;
+  --ink:      #1A1714;
+  --ink-soft: #3D3530;
+  --muted:    #7A6D60;
+  --gold:     #B8975A;
+  --gold-lt:  #D4B896;
+  --gold-dk:  #8A6E3A;
+  --line:     #DDD5C8;
+  --white:    #FFFFFF;
+  --display:  'Playfair Display', Georgia, serif;
+  --body:     'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); color: var(--ink); background: var(--bg); font-size: 16px; line-height: 1.7; font-weight: 300; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─── NAV ─── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(247,243,238,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  font-family: var(--display);
+  font-size: 20px; font-weight: 500; letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 400; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-phone {
+  font-size: 14px; font-weight: 400; color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-phone::before {
+  content: '';
+  display: inline-block; width: 20px; height: 1px;
+  background: var(--gold); flex-shrink: 0;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 88vh;
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 80px 48px 80px 72px;
+  gap: 64px;
+}
+.hero-content { max-width: 560px; }
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 40px;
+}
+.hero-eyebrow::after {
+  content: ''; flex: 1; height: 1px; background: var(--gold-lt); max-width: 80px;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(52px, 6vw, 76px);
+  font-weight: 400; line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink); margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: italic; color: var(--gold);
+}
+.hero-lead {
+  font-size: 17px; color: var(--muted); line-height: 1.75;
+  margin-bottom: 48px; font-weight: 300; max-width: 420px;
+}
+.hero-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--ink); color: var(--bg);
+  font-family: var(--body); font-size: 13px; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 16px 36px; border: none; cursor: pointer;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-dk); }
+.btn-secondary {
+  font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--gold-lt);
+  padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+}
+.btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+.hero-visual {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-monogram-wrap {
+  width: 360px; height: 420px;
+  background: var(--bg-deep);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-monogram-wrap::before {
+  content: '';
+  position: absolute; inset: 20px;
+  border: 1px solid var(--gold-lt);
+}
+.hero-monogram {
+  font-family: var(--display);
+  font-size: 140px; font-weight: 400; font-style: italic;
+  color: var(--gold-lt); line-height: 1;
+  opacity: 0.6;
+  user-select: none;
+}
+.hero-monogram-label {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-top: 8px;
+}
+.hero-badge {
+  position: absolute; bottom: -16px; right: -16px;
+  background: var(--gold); color: var(--white);
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+}
+.hero-badge-num {
+  font-family: var(--display); font-size: 28px; font-weight: 400; line-height: 1;
+}
+.hero-badge-text {
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px;
+}
+
+/* ─── STATS ─── */
+.stats {
+  background: var(--ink);
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.stat {
+  padding: 40px 48px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--display); font-size: 48px; font-weight: 400;
+  color: var(--gold); line-height: 1; margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(247,243,238,0.5);
+}
+
+/* ─── SEKCE OBECNĚ ─── */
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before {
+  content: ''; width: 24px; height: 1px; background: var(--gold);
+}
+.section-title {
+  font-family: var(--display); font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400; line-height: 1.15; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* ─── O NÁS ─── */
+.about {
+  padding: 120px 72px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 96px; align-items: center;
+}
+.about-figure {
+  position: relative;
+}
+.about-photo-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: var(--bg-deep);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.about-photo-placeholder::before {
+  content: ''; position: absolute; inset: 24px;
+  border: 1px solid var(--gold-lt); opacity: 0.6;
+}
+.about-monogram {
+  font-family: var(--display); font-size: 100px; font-weight: 400;
+  font-style: italic; color: var(--gold-lt); opacity: 0.5;
+}
+.about-photo-label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-top: 8px;
+}
+.about-years {
+  position: absolute; bottom: -24px; left: -24px;
+  background: var(--gold); color: var(--white);
+  padding: 20px 28px;
+}
+.about-years-num {
+  font-family: var(--display); font-size: 40px; font-weight: 400; line-height: 1;
+}
+.about-years-text {
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  margin-top: 4px; opacity: 0.85;
+}
+.about-content { padding-top: 16px; }
+.about-text {
+  font-size: 16px; color: var(--muted); line-height: 1.85;
+  margin: 24px 0 32px; font-weight: 300;
+}
+.about-signature {
+  font-family: var(--display); font-size: 28px; font-style: italic;
+  color: var(--ink); font-weight: 400; margin-top: 32px;
+  padding-top: 24px; border-top: 1px solid var(--line);
+}
+.about-signature-sub {
+  font-family: var(--body); font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold); margin-top: 6px;
+  font-style: normal;
+}
+
+/* ─── SLUŽBY ─── */
+.services {
+  background: var(--bg-deep);
+  padding: 120px 72px;
+}
+.services-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; margin-bottom: 80px;
+  align-items: end;
+}
+.services-intro {
+  font-size: 16px; color: var(--muted); line-height: 1.8; font-weight: 300;
+}
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+}
+.service-category {
+  background: var(--bg-card); padding: 48px 40px;
+}
+.service-category-title {
+  font-family: var(--display); font-size: 22px; font-weight: 500;
+  color: var(--ink); margin-bottom: 28px; padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.service-category-num {
+  font-size: 11px; letter-spacing: 0.15em; color: var(--gold); font-family: var(--body);
+}
+.service-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 10px 0; border-bottom: 1px solid rgba(221,213,200,0.5);
+  font-size: 15px;
+}
+.service-item:last-child { border-bottom: none; }
+.service-name { color: var(--ink-soft); font-weight: 300; }
+.service-price { color: var(--gold); font-weight: 400; white-space: nowrap; margin-left: 16px; }
+
+
+/* ─── GALERIE ─── */
+.gallery {
+  background: var(--bg-deep);
+  padding: 120px 72px;
+}
+.gallery-header { margin-bottom: 56px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 240px 240px;
+  gap: 3px;
+}
+.gallery-tile {
+  overflow: hidden; position: relative;
+}
+.gallery-tile:first-child {
+  grid-column: 1; grid-row: 1 / 3;
+}
+.gallery-tile-bg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-style: italic;
+  font-size: 18px; color: rgba(255,255,255,0.35);
+  transition: transform 0.4s ease;
+}
+.gallery-tile:hover .gallery-tile-bg { transform: scale(1.04); }
+.gallery-tile:nth-child(1) .gallery-tile-bg { background: linear-gradient(145deg, #c9a86c 0%, #8a6a38 60%, #b8956a 100%); }
+.gallery-tile:nth-child(2) .gallery-tile-bg { background: linear-gradient(160deg, #ede7dc 0%, #d4c8b4 50%, #c2b49a 100%); }
+.gallery-tile:nth-child(3) .gallery-tile-bg { background: linear-gradient(130deg, #3d3530 0%, #5e4e42 55%, #3d3530 100%); }
+.gallery-tile:nth-child(4) .gallery-tile-bg { background: linear-gradient(150deg, #b8975a 0%, #d4b896 45%, #b8975a 100%); }
+.gallery-tile:nth-child(5) .gallery-tile-bg { background: linear-gradient(140deg, #ede7dc 0%, #c9a86c 60%, #a07840 100%); }
+
+/* ─── REFERENCE ─── */
+.testimonials {
+  padding: 120px 72px;
+  background: var(--bg);
+}
+.testimonials-header { text-align: center; margin-bottom: 72px; }
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  max-width: 1100px; margin: 0 auto;
+}
+.testimonial {
+  padding: 40px 32px;
+  background: var(--bg-card);
+  border-top: 3px solid var(--gold-lt);
+  position: relative;
+}
+.testimonial-quote {
+  font-family: var(--display); font-size: 64px; font-style: italic;
+  color: var(--gold-lt); line-height: 1; margin-bottom: 20px;
+  opacity: 0.7;
+}
+.testimonial-text {
+  font-size: 15px; color: var(--muted); line-height: 1.8;
+  font-weight: 300; font-style: italic;
+  margin-bottom: 28px;
+}
+.testimonial-author {
+  font-size: 13px; font-weight: 400; color: var(--ink);
+  letter-spacing: 0.05em;
+}
+.testimonial-stars {
+  margin-bottom: 16px;
+  color: var(--gold); font-size: 13px; letter-spacing: 3px;
+}
+
+/* ─── KONTAKT ─── */
+.contact {
+  background: var(--ink);
+  padding: 120px 72px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 96px; align-items: start;
+}
+.contact-left .section-eyebrow { color: var(--gold-lt); }
+.contact-left .section-eyebrow::before { background: var(--gold-lt); }
+.contact-left .section-title { color: var(--bg); }
+.contact-tagline {
+  font-size: 16px; color: rgba(247,243,238,0.55);
+  margin-top: 20px; font-weight: 300; line-height: 1.7;
+}
+.contact-cta {
+  margin-top: 44px; display: inline-block;
+  background: var(--gold); color: var(--white);
+  font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 16px 40px; font-weight: 400;
+  transition: background 0.2s;
+}
+.contact-cta:hover { background: var(--gold-dk); }
+.contact-info { padding-top: 60px; }
+.contact-block { margin-bottom: 40px; }
+.contact-block-label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 10px;
+}
+.contact-block-value {
+  font-size: 17px; color: rgba(247,243,238,0.85); font-weight: 300; line-height: 1.6;
+}
+.contact-block-value a { color: rgba(247,243,238,0.85); }
+.contact-block-value a:hover { color: var(--gold-lt); }
+.hours-grid {
+  display: grid; gap: 6px; margin-top: 8px;
+}
+.hours-row {
+  display: flex; justify-content: space-between;
+  font-size: 14px; color: rgba(247,243,238,0.55);
+  padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day { font-weight: 300; }
+.hours-time { color: rgba(247,243,238,0.75); }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #110E0C;
+  padding: 32px 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo {
+  font-family: var(--display); font-size: 18px;
+  color: rgba(247,243,238,0.4); font-weight: 400;
+}
+.footer-copy {
+  font-size: 12px; color: rgba(247,243,238,0.2);
+  letter-spacing: 0.05em;
+}
+.footer-link {
+  font-size: 12px; color: var(--gold-lt);
+  letter-spacing: 0.05em; opacity: 0.6;
+}
+
+/* ─── MOBILNÍ ─── */
+@media (max-width: 900px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero {
+    grid-template-columns: 1fr; padding: 60px 24px;
+    min-height: auto; gap: 48px;
+  }
+  .hero-visual { order: -1; }
+  .hero-monogram-wrap { width: 100%; height: 260px; }
+  .hero-badge { right: 0; bottom: -12px; width: 80px; height: 80px; }
+  .hero-badge-num { font-size: 22px; }
+  .stats { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; }
+  .about { grid-template-columns: 1fr; padding: 72px 24px; gap: 48px; }
+  .about-years { bottom: -12px; left: -12px; }
+  .services { padding: 72px 24px; }
+  .services-header { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .pricing { padding: 72px 24px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .gallery { padding: 72px 24px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-tile:first-child { grid-column: 1; grid-row: 1; }
+  .testimonials { padding: 72px 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: 1fr; padding: 72px 24px; gap: 48px; }
+  .contact-info { padding-top: 0; }
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">Hair salon GLAMOUR<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#o-salonu">O nás</a></li>
+    <li><a href="#sluzby">Služby</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <div class="nav-phone">777 752 888</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Praha 5 · Kadeřnický salon</div>
+    <h1>Krása,<br>která <em>vydrží.</em></h1>
+    <p class="hero-lead">Přijďte si pro střih, barvu nebo péči, která sedí přesně vám. V klidném prostředí, s péčí věnovanou jen vám.</p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Rezervovat termín</a>
+      <a href="tel:777752888" class="btn-secondary">Zavolat</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-monogram-wrap">
+      <div class="hero-monogram">S</div>
+      <div class="hero-monogram-label">Hair salon GLAMOUR</div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-num">10+</div>
+      <div class="hero-badge-text">let praxe</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Let zkušeností</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2 000+</div>
+    <div class="stat-label">Spokojených klientek</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5 ★</div>
+    <div class="stat-label">Průměrné hodnocení</div>
+  </div>
+</div>
+
+<!-- O NÁS -->
+<section class="about" id="o-salonu">
+  <div class="about-figure">
+    <div class="about-photo-placeholder">
+      <div class="about-monogram">S</div>
+      <div class="about-photo-label">Majitelka salonu</div>
+    </div>
+    <div class="about-years">
+      <div class="about-years-num">10+</div>
+      <div class="about-years-text">let v oboru</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-eyebrow">O nás</div>
+    <h2 class="section-title">Salon, kde se<br>cítíte <em>výjimečně.</em></h2>
+    <p class="about-text">
+      Hair salon GLAMOUR vznikl z jednoduché myšlenky: každá žena si zaslouží péči, která jí sluší. Nesledujeme trendy naslepo — hledáme to, co přesně sedí vám. Ať přijdete pro drobnou úpravu nebo kompletní proměnu, vždy odcházíte s pocitem, že jste udělaly správnou volbu.
+    </p>
+    <p class="about-text">
+      Pracujeme výhradně s prověřenými přípravky šetrnými ke zdraví vlasů. Každá návštěva začíná konzultací, aby výsledek odpovídal přesně vašim představám.
+    </p>
+    <div class="about-signature">
+      Jméno Příjmení
+      <div class="about-signature-sub">Majitelka &amp; kadeřnice</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLUŽBY -->
+<section class="services" id="sluzby">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow">Služby</div>
+      <h2 class="section-title">Co pro vás<br><em>uděláme.</em></h2>
+    </div>
+    <p class="services-intro">
+      Nabízíme komplexní péči o vlasy — od klasických střihů přes moderní barvící techniky až po hloubkové ošetření. Vše šetrně a s důrazem na zdraví vašich vlasů.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-category">
+      <div class="service-category-title">
+        Střihy <span class="service-category-num">01</span>
+      </div>
+      <div class="service-item"><span class="service-name">Střih + foukaná</span><span class="service-price">od 650 Kč</span></div>
+      <div class="service-item"><span class="service-name">Dámský střih</span><span class="service-price">od 550 Kč</span></div>
+      <div class="service-item"><span class="service-name">Pánský střih</span><span class="service-price">od 350 Kč</span></div>
+      <div class="service-item"><span class="service-name">Dětský střih</span><span class="service-price">od 280 Kč</span></div>
+      <div class="service-item"><span class="service-name">Foukaná / styling</span><span class="service-price">od 400 Kč</span></div>
+    </div>
+    <div class="service-category">
+      <div class="service-category-title">
+        Barvy <span class="service-category-num">02</span>
+      </div>
+      <div class="service-item"><span class="service-name">Celková barva</span><span class="service-price">od 900 Kč</span></div>
+      <div class="service-item"><span class="service-name">Melír / balayage</span><span class="service-price">od 1 200 Kč</span></div>
+      <div class="service-item"><span class="service-name">Odbarvení</span><span class="service-price">od 800 Kč</span></div>
+      <div class="service-item"><span class="service-name">Toning</span><span class="service-price">od 500 Kč</span></div>
+      <div class="service-item"><span class="service-name">Přebarvení odrostů</span><span class="service-price">od 650 Kč</span></div>
+    </div>
+    <div class="service-category">
+      <div class="service-category-title">
+        Péče o vlasy <span class="service-category-num">03</span>
+      </div>
+      <div class="service-item"><span class="service-name">Keratinová kúra</span><span class="service-price">od 1 500 Kč</span></div>
+      <div class="service-item"><span class="service-name">Botox na vlasy</span><span class="service-price">od 1 800 Kč</span></div>
+      <div class="service-item"><span class="service-name">Hloubková maska</span><span class="service-price">od 400 Kč</span></div>
+      <div class="service-item"><span class="service-name">Olaplex ošetření</span><span class="service-price">od 600 Kč</span></div>
+    </div>
+    <div class="service-category">
+      <div class="service-category-title">
+        Společenské účesy <span class="service-category-num">04</span>
+      </div>
+      <div class="service-item"><span class="service-name">Svatební účes</span><span class="service-price">od 2 000 Kč</span></div>
+      <div class="service-item"><span class="service-name">Slavnostní účes</span><span class="service-price">od 800 Kč</span></div>
+      <div class="service-item"><span class="service-name">Zkouška účesu</span><span class="service-price">od 600 Kč</span></div>
+      <div class="service-item"><span class="service-name">Prodlužování vlasů</span><span class="service-price">od 3 500 Kč</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GALERIE -->
+<section class="gallery" id="galerie">
+  <div class="gallery-header">
+    <div class="section-eyebrow">Galerie</div>
+    <h2 class="section-title">Naše <em>práce.</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-tile">
+      <div class="gallery-tile-bg">Střihy &amp; styling</div>
+    </div>
+    <div class="gallery-tile">
+      <div class="gallery-tile-bg">Barvení</div>
+    </div>
+    <div class="gallery-tile">
+      <div class="gallery-tile-bg">Balayage</div>
+    </div>
+    <div class="gallery-tile">
+      <div class="gallery-tile-bg">Péče o vlasy</div>
+    </div>
+    <div class="gallery-tile">
+      <div class="gallery-tile-bg">Společenské účesy</div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCE -->
+<section class="testimonials" id="reference">
+  <div class="testimonials-header">
+    <div class="section-eyebrow" style="justify-content:center;">Reference</div>
+    <h2 class="section-title">Co říkají<br>naše <em>klientky.</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Naprosto spokojená. Paní kadeřnice přesně pochopila, co chci, a výsledek předčil moje očekávání. Vrátím se určitě.</p>
+      <div class="testimonial-author">Tereza K. · Praha</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Konečně salon, kde se cítím vítána a kde si dají záležet. Melír vypadá naprosto přirozeně a vydrží výborně.</p>
+      <div class="testimonial-author">Markéta H. · Praha</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Přišla jsem s poměrně náročným přáním a dostala jsem přesně to, co jsem si představovala. Profesionální přístup od začátku do konce.</p>
+      <div class="testimonial-author">Jana S. · Praha</div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="contact-left">
+    <div class="section-eyebrow">Kontakt</div>
+    <h2 class="section-title">Rezervujte si<br><em>termín.</em></h2>
+    <p class="contact-tagline">Zavolejte nám nebo napište — rádi vám najdeme vhodný čas. Jsme tu pro vás od pondělí do soboty.</p>
+    <a href="tel:777752888" class="contact-cta">Zavolat nyní</a>
+  </div>
+  <div class="contact-info">
+    <div class="contact-block">
+      <div class="contact-block-label">Telefon</div>
+      <div class="contact-block-value"><a href="tel:777752888">777 752 888</a></div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-block-label">E-mail</div>
+      <div class="contact-block-value"><a href="mailto:info@hair-glamour.cz">salon@example.com</a></div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-block-label">Adresa</div>
+      <div class="contact-block-value">Praha 5</div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-block-label">Otevírací doba</div>
+      <div class="hours-grid">
+        <div class="hours-row"><span class="hours-day">Pondělí – Pátek</span><span class="hours-time">9:00 – 19:00</span></div>
+        <div class="hours-row"><span class="hours-day">Sobota</span><span class="hours-time">9:00 – 15:00</span></div>
+        <div class="hours-row"><span class="hours-day">Neděle</span><span class="hours-time">Zavřeno</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Hair salon GLAMOUR</div>
+  <div class="footer-copy">© 2025 Hair salon GLAMOUR · Praha</div>
+  <a href="#" class="footer-link">↑ Zpět nahoru</a>
+</footer>
+
+</body>
+</html>
