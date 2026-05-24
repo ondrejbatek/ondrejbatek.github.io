@@ -1,0 +1,16 @@
+{
+  "salon_name": "Oh My Hair",
+  "place_id": "ChIJIRxdq4KUC0cR1gAaRS5K4Qw",
+  "address": "Perunova 930/13, 130 00 Praha 3-Vinohrady, Česko",
+  "rating": 4.6,
+  "reviews": 79,
+  "website": "https://ohmyhair.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "732 917 942",
+  "email": "info@ohmyhair.cz",
+  "maps_url": "https://maps.google.com/?cid=928104560803315926",
+  "priority": "medium",
+  "folder_name": "prospect-oh-my-hair",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-oh-my-hair",
+  "template_used": "template-linen-rust"
+}
