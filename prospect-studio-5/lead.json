@@ -1,0 +1,16 @@
+{
+  "salon_name": "Studio 5",
+  "place_id": "ChIJL-D2fOqUC0cRmXvHAmhQkGU",
+  "address": "Na Zbořenci 16, Nové Město, 120 00 Praha-Praha 2, Česko",
+  "rating": 4.8,
+  "reviews": 471,
+  "website": "https://www.studio-5.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "604 983 104",
+  "email": "info@studio-5.cz",
+  "maps_url": "https://maps.google.com/?cid=7318437802130504601",
+  "priority": "medium",
+  "folder_name": "prospect-studio-5",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-studio-5",
+  "template_used": "template-sage-wellness"
+}
