@@ -1,0 +1,16 @@
+{
+  "salon_name": "BARBER ROOM",
+  "place_id": "ChIJkc0tMV6VC0cROLaqDV2M3yI",
+  "address": "Na Příkopě 957/23, 110 00 Praha 1-Staré Město, Česko",
+  "rating": 4.9,
+  "reviews": 232,
+  "website": "http://barberroom.cz/rezervace",
+  "website_quality": "má vlastní web",
+  "phone": "607 446 226",
+  "email": "info@mysite.com",
+  "maps_url": "https://maps.google.com/?cid=2512881448385164856",
+  "priority": "medium",
+  "folder_name": "prospect-barber-room",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-barber-room",
+  "template_used": "template-sage-wellness"
+}
