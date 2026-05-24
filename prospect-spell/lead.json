@@ -1,0 +1,16 @@
+{
+  "salon_name": "Spell",
+  "place_id": "ChIJo5SaSZOUC0cRHvR0IF4hwig",
+  "address": "20, Jindřišská 939, 110 00 Praha 1-Nové Město, Česko",
+  "rating": 4.7,
+  "reviews": 258,
+  "website": "http://spell.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "773 590 591",
+  "email": "recepce@spell.cz",
+  "maps_url": "https://maps.google.com/?cid=2936946595154162718",
+  "priority": "medium",
+  "folder_name": "prospect-spell",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-spell",
+  "template_used": "template-blush-contemporary"
+}
