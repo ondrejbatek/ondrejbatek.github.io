@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceník — Salon Carina Praha 10</title>
+<meta name="description" content="Ceník služeb Salon Carina — kadeřnictví, kosmetika Mary Cohr-Paris, masáže, pedikúra, laserové ošetření. Praha 10 – Malešice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6f3;
+    --bg-deep: #f0e8e2;
+    --primary: #9e5a6a;
+    --burgundy: #7a3040;
+    --accent: #c4956a;
+    --accent-light: #f7ede8;
+    --text: #2a1218;
+    --muted: #7a5560;
+    --plum: #5c3040;
+    --line: #e0cec8;
+    --cream: #faf6f3;
+    --gold: #c4956a;
+    --gold-light: #d9b896;
+    --ink: #2a1218;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--text); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; line-height: 1.1; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+
+  /* === NAV === */
+  .nav { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: rgba(250, 246, 243, 0.95); backdrop-filter: blur(14px); z-index: 100; border-bottom: 1px solid var(--line); }
+  .logo { font-family: var(--serif); font-size: 24px; color: var(--burgundy); display: flex; align-items: baseline; gap: 8px; }
+  .logo .script-accent { font-family: var(--script); font-size: 32px; color: var(--gold); line-height: 0.9; }
+  .nav-links { display: flex; gap: 36px; font-size: 14px; }
+  .nav-cta { background: var(--burgundy); color: var(--cream); padding: 11px 24px; border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-cta:hover { background: var(--ink); opacity: 1; }
+
+  /* === HERO === */
+  .page-hero { padding: 100px 0 80px; text-align: center; background: var(--bg-deep); border-bottom: 1px solid var(--line); }
+  .page-hero .eyebrow { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px; }
+  .page-hero .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .page-hero h1 { font-family: var(--serif); font-size: clamp(56px, 8vw, 96px); color: var(--ink); font-weight: 500; margin-bottom: 20px; }
+  .page-hero h1 em { font-style: italic; color: var(--burgundy); }
+  .page-hero p { font-size: 17px; color: var(--muted); max-width: 46ch; margin: 0 auto; }
+
+  /* === MAIN === */
+  .main { max-width: 900px; margin: 0 auto; padding: 80px 48px 120px; }
+
+  /* === CATEGORY === */
+  .category { margin-bottom: 72px; }
+  .category-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .category-num { font-family: var(--script); font-size: 48px; color: var(--gold); line-height: 0.85; }
+  .category-title { font-family: var(--serif); font-size: 36px; color: var(--ink); font-weight: 500; }
+  .category-badge { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--burgundy); background: var(--accent-light); border: 1px solid var(--line); padding: 4px 12px; border-radius: 100px; margin-left: auto; }
+
+  /* === PRICE ROWS === */
+  .price-row { display: flex; align-items: baseline; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(224, 206, 200, 0.5); gap: 24px; }
+  .price-row:last-child { border-bottom: none; }
+  .price-name { font-size: 16px; color: var(--text); flex: 1; }
+  .price-name small { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .price-dots { flex: 1; border-bottom: 1px dotted var(--line); margin: 0 16px; position: relative; top: -4px; }
+  .price-amount { font-family: var(--serif); font-size: 20px; color: var(--burgundy); white-space: nowrap; font-weight: 600; }
+
+  /* === NOTE === */
+  .note { background: var(--bg-deep); border: 1px solid var(--line); border-left: 3px solid var(--gold); padding: 20px 24px; border-radius: 4px; font-size: 14px; color: var(--muted); line-height: 1.7; margin-top: 48px; }
+  .note strong { color: var(--text); }
+
+  /* === FOOTER === */
+  footer { background: var(--ink); color: rgba(250, 246, 243, 0.6); padding: 64px 0 32px; text-align: center; font-size: 14px; }
+  footer .logo { color: var(--cream); justify-content: center; margin-bottom: 16px; }
+  footer .script-accent { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 60px 24px 40px; }
+    .main { padding: 48px 24px 80px; }
+    .price-dots { display: none; }
+    .price-row { flex-wrap: wrap; gap: 4px; }
+    .price-amount { width: 100%; font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="logo">Salon <span class="script-accent">Carina</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">O salonu</a>
+    <a href="index.html#services">Služby</a>
+    <a href="cenik.html" style="color: var(--burgundy); font-weight: 500;">Ceník</a>
+    <a href="index.html#contact">Kontakt</a>
+  </div>
+  <a href="tel:+420603331751" class="nav-cta">Rezervovat</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="eyebrow">Salon Carina · Praha 10</div>
+  <h1>Ceník<em> služeb.</em></h1>
+  <p>Orientační ceny. Přesnou cenu dohodneme při rezervaci nebo konzultaci.</p>
+</div>
+
+<main class="main">
+
+  <!-- KADEŘNICTVÍ -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">i.</span>
+      <h2 class="category-title">Kadeřnictví</h2>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Dámský střih<small>Konzultace, mytí, střih, foukaná</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 450 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Pánský střih<small>Konzultace, mytí, střih</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 280 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Barvení — celé vlasy<small>Profesionální barva, aplikace, mytí, foukaná</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 900 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Melír / highlights<small>Dle množství a délky vlasů</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 1 200 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Trvalá ondulace<small>Chemická nebo digitální</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 1 100 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Hloubková kúra a regenerace<small>Maska, zábal, ošetření</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 350 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Společenský účes<small>Na svatbu, ples, slavnostní příležitost</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 800 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Prodloužení vlasů<small>Dle metody a množství pramenů</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">Dle dohody</span>
+    </div>
+  </div>
+
+  <!-- KOSMETIKA MARY COHR -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">ii.</span>
+      <h2 class="category-title">Kosmetika Mary Cohr-Paris</h2>
+      <span class="category-badge">Exkluzivně</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Základní kosmetické ošetření<small>Čištění, toner, sérum, maska, krém</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 700 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Hloubkové čištění pleti<small>Čištění, peeling, extrakce, uklidnění</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 900 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Anti-aging ošetření<small>Lifting, zpevňování, redukce vrásek</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 1 200 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Intenzivní hydratační kúra<small>Pro suchou a namáhanou pleť</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 950 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Ošetření citlivé pleti<small>Zklidnění, posílení bariéry</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 850 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Sérum a maska na míru<small>Dle typu a stavu pleti</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 600 Kč</span>
+    </div>
+  </div>
+
+  <!-- MASÁŽE -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">iii.</span>
+      <h2 class="category-title">Masáže</h2>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Relaxační masáž zad a šíje<small>30 minut</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 450 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Celotělová relaxační masáž<small>60 minut</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 800 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Klasická terapeutická masáž<small>45 nebo 60 minut</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 600 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Masáž lýtek a nohou<small>30 minut</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 380 Kč</span>
+    </div>
+  </div>
+
+  <!-- PEDIKÚRA -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">iv.</span>
+      <h2 class="category-title">Pedikúra</h2>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Klasická pedikúra<small>Ošetření nehtů, kůže, závěrečná péče</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 450 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Medicinální pedikúra<small>Speciální ošetření problematické kůže</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 600 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Gelové nehty na nohou<small>Výztuž, tvarování, lak</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 550 Kč</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Lakování nehtů<small>Klasický nebo gel lak</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">od 200 Kč</span>
+    </div>
+  </div>
+
+  <!-- LASEROVÉ OŠETŘENÍ -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-num">v.</span>
+      <h2 class="category-title">Laserové ošetření</h2>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Laserové ošetření pleti<small>Rejuvenace, redukce pigmentací</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">Dle dohody</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Ošetření cévních léků<small>Rozšířené žilky, kapilárky</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">Dle dohody</span>
+    </div>
+    <div class="price-row">
+      <span class="price-name">Konzultace před ošetřením<small>Bezplatná, bez závazku</small></span>
+      <span class="price-dots"></span>
+      <span class="price-amount">Zdarma</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Poznámka k ceníku:</strong> Uvedené ceny jsou orientační a závisejí na délce a hustotě vlasů, stavu pleti a rozsahu ošetření. Přesnou cenu dohodneme při rezervaci. Konzultace vždy zdarma. Termíny na objednávku — volejte <a href="tel:+420603331751" style="color: var(--burgundy);">+420 603 331 751</a> nebo pište na <a href="mailto:info@saloncarina.cz" style="color: var(--burgundy);">info@saloncarina.cz</a>.
+  </div>
+
+</main>
+
+<footer>
+  <div class="logo">Salon <span class="script-accent">Carina</span></div>
+  <p>Vydrova 561/2 · Praha 10 – Malešice · +420 603 331 751</p>
+  <div style="margin-top: 32px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250, 246, 243, 0.4);">© 2026 Salon Carina · Praha 10</div>
+</footer>
+
+</body>
+</html>

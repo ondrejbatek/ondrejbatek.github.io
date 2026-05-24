@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Carina — Kadeřnictví &amp; Kosmetika Praha 10</title>
+<meta name="description" content="Salon Carina — 28 let péče o krásu v Malešicích. Kadeřnictví, exkluzivní kosmetika Mary Cohr-Paris, masáže, pedikúra, laserové ošetření.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6f3;
+    --bg-deep: #f0e8e2;
+    --primary: #9e5a6a;
+    --primary-deep: #2a1218;
+    --accent: #c4956a;
+    --accent-light: #f7ede8;
+    --text: #2a1218;
+    --muted: #7a5560;
+    --line: #e0cec8;
+    /* Mapped for template use */
+    --cream: #faf6f3;
+    --cream-deep: #f0e8e2;
+    --rose-soft: #f3cfc7;
+    --rose: #e8b5b5;
+    --rose-deep: #9e5a6a;
+    --burgundy: #7a3040;
+    --gold: #c4956a;
+    --gold-light: #d9b896;
+    --ink: #2a1218;
+    --plum: #5c3040;
+    --muted-color: #7a5560;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--text); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
+  .script { font-family: var(--script); font-weight: 400; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+
+  /* === NAV === */
+  .nav { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: rgba(250, 246, 243, 0.95); backdrop-filter: blur(14px); z-index: 100; border-bottom: 1px solid var(--line); }
+  .logo { font-family: var(--serif); font-size: 24px; color: var(--burgundy); display: flex; align-items: baseline; gap: 8px; }
+  .logo .script-accent { font-family: var(--script); font-size: 32px; color: var(--gold); line-height: 0.9; }
+  .nav-links { display: flex; gap: 36px; font-size: 14px; color: var(--text); }
+  .nav-cta { background: var(--burgundy); color: var(--cream); padding: 11px 24px; border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-cta:hover { background: var(--ink); opacity: 1; }
+
+  /* === SPLIT-SCREEN HERO === */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; }
+  .hero-left { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--bg); }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 32px; display: flex; align-items: center; gap: 14px; }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 { font-size: clamp(52px, 7vw, 100px); color: var(--ink); margin-bottom: 36px; }
+  .hero h1 em { font-style: italic; color: var(--burgundy); font-weight: 400; }
+  .hero h1 .script-large { font-family: var(--script); font-size: 1.05em; color: var(--gold); display: block; line-height: 0.85; font-style: normal; font-weight: 400; }
+  .hero-lead { font-size: 18px; color: var(--plum); line-height: 1.7; max-width: 42ch; margin-bottom: 48px; }
+  .hero-actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 17px 32px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.3s ease; }
+  .btn-primary { background: var(--burgundy); color: var(--cream); box-shadow: 0 6px 20px rgba(122, 48, 64, 0.2); }
+  .btn-primary:hover { background: var(--ink); opacity: 1; transform: translateY(-2px); }
+  .btn-text { color: var(--burgundy); border-bottom: 1px solid var(--burgundy); padding-bottom: 4px; font-family: var(--serif); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; }
+
+  .hero-right { background: linear-gradient(135deg, #e8b5b5 0%, #9e5a6a 45%, #7a3040 100%); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-right::before { content: ''; position: absolute; inset: 32px; border: 1px solid rgba(250, 246, 243, 0.3); border-radius: 4px; pointer-events: none; }
+  .hero-right-content { text-align: center; color: var(--cream); position: relative; z-index: 2; }
+  .hero-right-mark { font-family: var(--script); font-size: 280px; line-height: 0.85; color: rgba(250, 246, 243, 0.95); margin-bottom: 16px; }
+  .hero-right-meta { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(250, 246, 243, 0.7); }
+  .hero-right-meta strong { display: block; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--cream); margin-top: 6px; text-transform: none; letter-spacing: 0; font-weight: 500; }
+  .hero-badge { display: inline-block; background: rgba(196, 149, 106, 0.25); border: 1px solid rgba(196, 149, 106, 0.5); color: var(--cream); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-top: 20px; }
+
+  /* === ALTERNATING SECTIONS === */
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px; }
+  .section-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .section-title { font-size: clamp(38px, 5.5vw, 60px); color: var(--ink); line-height: 1.05; margin-bottom: 32px; }
+  .section-title em { font-style: italic; color: var(--burgundy); font-weight: 400; }
+
+  .alt-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
+  .alt-section.reverse { direction: rtl; }
+  .alt-section.reverse > * { direction: ltr; }
+  .alt-photo { background: var(--bg-deep); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .alt-photo.gold { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); }
+  .alt-photo.burgundy { background: linear-gradient(135deg, #c47080 0%, #7a3040 100%); color: var(--cream); }
+  .alt-photo.rose-deep { background: linear-gradient(135deg, #f0e0da 0%, #d4a0a8 100%); }
+  .alt-photo-decoration { font-family: var(--script); font-size: 220px; color: var(--cream); line-height: 0.85; opacity: 0.95; }
+  .alt-photo.gold .alt-photo-decoration { color: var(--burgundy); opacity: 0.8; }
+  .alt-photo.rose-deep .alt-photo-decoration { color: var(--burgundy); opacity: 0.6; }
+  .alt-text { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
+  .alt-text p { font-size: 17px; color: var(--plum); line-height: 1.75; margin-bottom: 18px; }
+  .alt-quote { font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--burgundy); padding-left: 20px; border-left: 2px solid var(--gold); margin-bottom: 32px; line-height: 1.4; }
+
+  /* === BRAND BADGE === */
+  .brand-badge { display: inline-flex; align-items: center; gap: 12px; background: var(--bg-deep); border: 1px solid var(--line); padding: 14px 24px; border-radius: 100px; margin-top: 8px; }
+  .brand-badge-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+  .brand-badge-name { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--burgundy); }
+
+  /* === SERVICES === */
+  .services { padding: 120px 0; background: var(--bg-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .services-header { text-align: center; margin-bottom: 80px; }
+  .services-header .section-eyebrow { display: inline-flex; }
+  .services-header h2 { font-size: clamp(44px, 6vw, 68px); }
+  .services-header h2 em { font-style: italic; color: var(--burgundy); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card { background: var(--bg); padding: 40px 32px; text-align: center; border: 1px solid var(--line); transition: all 0.3s ease; border-radius: 4px 4px 100px 100px; }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(158, 90, 106, 0.12); border-color: var(--rose-soft); }
+  .service-num { font-family: var(--script); font-size: 36px; color: var(--gold); margin-bottom: 12px; line-height: 0.85; }
+  .service-name { font-family: var(--serif); font-size: 26px; color: var(--ink); margin-bottom: 14px; }
+  .service-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+  .service-price { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--burgundy); padding-top: 16px; border-top: 1px solid var(--line); font-weight: 600; }
+
+  /* === NUMBERS STRIP === */
+  .numbers { padding: 100px 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .numbers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .number-item { text-align: center; padding: 48px 32px; border-right: 1px solid var(--line); }
+  .number-item:last-child { border-right: none; }
+  .number-big { font-family: var(--serif); font-size: clamp(72px, 9vw, 110px); color: var(--burgundy); line-height: 0.9; font-weight: 500; }
+  .number-label { font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin-top: 16px; }
+  .number-sub { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--plum); margin-top: 8px; }
+
+  /* === DISCOUNT === */
+  .discount { background: linear-gradient(135deg, #7a3040 0%, #2a1218 100%); color: var(--cream); padding: 130px 0; text-align: center; position: relative; overflow: hidden; }
+  .discount::before { content: ''; position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(196, 149, 106, 0.18) 0%, transparent 60%); border-radius: 50%; }
+  .discount::after { content: ''; position: absolute; bottom: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(243, 207, 199, 0.18) 0%, transparent 60%); border-radius: 50%; }
+  .discount .container { max-width: 720px; position: relative; z-index: 2; }
+  .discount .section-eyebrow { color: var(--gold-light); justify-content: center; }
+  .discount .section-eyebrow::before { background: var(--gold-light); }
+  .discount h2 { font-size: clamp(44px, 6.5vw, 72px); color: var(--cream); margin-bottom: 28px; }
+  .discount h2 em { color: var(--gold-light); font-family: var(--script); font-size: 1.2em; line-height: 0.9; display: block; font-style: normal; }
+  .discount-lead { color: rgba(250, 246, 243, 0.78); font-size: 17px; margin-bottom: 44px; line-height: 1.7; max-width: 42ch; margin-left: auto; margin-right: auto; }
+  .email-form { display: flex; gap: 8px; max-width: 480px; margin: 0 auto; background: rgba(250, 246, 243, 0.08); border: 1px solid rgba(250, 246, 243, 0.18); padding: 7px; border-radius: 100px; }
+  .email-form input { flex: 1; background: transparent; border: none; padding: 14px 22px; color: var(--cream); font-size: 15px; font-family: inherit; outline: none; }
+  .email-form input::placeholder { color: rgba(250, 246, 243, 0.5); }
+  .email-form button { background: var(--gold); color: var(--ink); border: none; padding: 14px 28px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: inherit; }
+  .email-form button:hover { background: var(--gold-light); }
+
+  /* === CONTACT === */
+  .contact { padding: 120px 0; }
+  .contact-header { text-align: center; margin-bottom: 64px; }
+  .contact-header .section-eyebrow { display: inline-flex; }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; }
+  .contact-map { aspect-ratio: 16/10; border-radius: 4px; overflow: hidden; }
+  .contact-map iframe { width: 100%; height: 100%; border: none; filter: sepia(0.1) saturate(0.95); }
+  .contact-info { background: var(--bg-deep); padding: 48px; border-radius: 4px; }
+  .contact-block { margin-bottom: 32px; }
+  .contact-block:last-child { margin-bottom: 0; }
+  .contact-label { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+  .contact-value { font-family: var(--serif); font-size: 22px; color: var(--ink); display: block; }
+  .contact-extra { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  /* === FOOTER === */
+  footer { background: var(--ink); color: rgba(250, 246, 243, 0.6); padding: 64px 0 32px; text-align: center; font-size: 14px; }
+  footer .logo { color: var(--cream); justify-content: center; margin-bottom: 16px; font-family: var(--serif); font-size: 24px; display: flex; align-items: baseline; gap: 8px; }
+  footer .script-accent { font-family: var(--script); font-size: 32px; color: var(--gold); line-height: 0.9; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 24px; }
+    .hero-right { aspect-ratio: 4/5; }
+    .hero-right-mark { font-size: 180px; }
+    .alt-section { grid-template-columns: 1fr; }
+    .alt-section.reverse { direction: ltr; }
+    .alt-photo { aspect-ratio: 16/10; }
+    .alt-photo-decoration { font-size: 140px; }
+    .alt-text { padding: 60px 24px; }
+    .container { padding: 0 24px; }
+    .services { padding: 80px 0; }
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .numbers-grid { grid-template-columns: 1fr; }
+    .number-item { border-right: none; border-bottom: 1px solid var(--line); }
+    .number-item:last-child { border-bottom: none; }
+    .discount { padding: 80px 0; }
+    .email-form { flex-direction: column; border-radius: 16px; padding: 12px; }
+    .email-form input { text-align: center; }
+    .email-form button { width: 100%; padding: 16px; }
+    .contact { padding: 80px 0; }
+    .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .contact-info { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="logo">Salon <span class="script-accent">Carina</span></a>
+  <div class="nav-links">
+    <a href="#about">O salonu</a>
+    <a href="#services">Služby</a>
+    <a href="#cenik">Ceník</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+  <a href="tel:+420603331751" class="nav-cta">Rezervovat</a>
+</nav>
+
+<!-- SPLIT-SCREEN HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Salon krásy · Praha 10 – Malešice</div>
+    <h1>28 let<span class="script-large">péče</span><em>o vás.</em></h1>
+    <p class="hero-lead">Kadeřnictví, exkluzivní kosmetika Mary Cohr-Paris, masáže a celková péče o krásu — vše pod jednou střechou od roku 1997.</p>
+    <div class="hero-actions">
+      <a href="tel:+420603331751" class="btn btn-primary">Zavolat a rezervovat</a>
+      <a href="#services" class="btn btn-text">Naše služby →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-content">
+      <div class="hero-right-mark">C</div>
+      <div class="hero-right-meta">Vedoucí · <strong>Dana Grúlová</strong></div>
+      <div class="hero-badge">V provozu od roku 1997</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT (PHOTO LEFT, TEXT RIGHT) -->
+<section id="about" class="alt-section">
+  <div class="alt-photo gold">
+    <div class="alt-photo-decoration">01.</div>
+  </div>
+  <div class="alt-text">
+    <div class="section-eyebrow">O salonu</div>
+    <h2 class="section-title">Řemeslo, které <em>čas prověřil.</em></h2>
+    <div class="alt-quote">„Vracejí se k nám klientky, jejichž dcery k nám začaly chodit samy."</div>
+    <p>Salon Carina otevřela Dana Grúlová v roce 1997 v Malešicích. Za 28 let vybudovala místo, které si drží stálou klientelu generaci za generací — díky individuálnímu přístupu a konzistentní kvalitě.</p>
+    <p>Nejsme salon pro každého. Jsme salon pro ty, kteří vědí, že péče o sebe je investice — a chtějí ji svěřit zkušeným rukám.</p>
+  </div>
+</section>
+
+<!-- MARY COHR (TEXT LEFT, PHOTO RIGHT) -->
+<section class="alt-section reverse">
+  <div class="alt-photo burgundy">
+    <div class="alt-photo-decoration">02.</div>
+  </div>
+  <div class="alt-text">
+    <div class="section-eyebrow">Exkluzivní kosmetika</div>
+    <h2 class="section-title">Mary Cohr-Paris — <em>dermatologická</em> péče z Paříže.</h2>
+    <p>Jsme autorizovaný partner značky Mary Cohr-Paris — francouzské kosmetické řady s více než 60letou historií a vědecky podloženými výsledky. Ošetření dostupná pouze ve vybraných salonech.</p>
+    <p>Hloubkové čištění, anti-aging ošetření, zpevňování pleti a hydratační kúry — vše s produkty, které nenajdete v obchodě.</p>
+    <div class="brand-badge">
+      <span class="brand-badge-label">Exkluzivně</span>
+      <span class="brand-badge-name">Mary Cohr-Paris</span>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH (PHOTO LEFT, TEXT RIGHT) -->
+<section class="alt-section">
+  <div class="alt-photo rose-deep">
+    <div class="alt-photo-decoration">03.</div>
+  </div>
+  <div class="alt-text">
+    <div class="section-eyebrow">Náš přístup</div>
+    <h2 class="section-title">Komplexní péče <em>na jednom místě.</em></h2>
+    <p>Kadeřnictví, kosmetika, masáže, pedikúra, laserové ošetření — nemusíte chodit jinam. Vše v jednom salonu, od lidí, kteří vás znají.</p>
+    <p>Každá návštěva začíná rozhovorem. Vaše přání, vaše pleť, vaše vlasy — to je naše výchozí bod, ne šablona.</p>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers">
+  <div class="container">
+    <div class="numbers-grid">
+      <div class="number-item">
+        <div class="number-big">28</div>
+        <div class="number-label">Let v provozu</div>
+        <div class="number-sub">Malešice · od roku 1997</div>
+      </div>
+      <div class="number-item">
+        <div class="number-big">5+</div>
+        <div class="number-label">Specializací péče</div>
+        <div class="number-sub">Pod jednou střechou</div>
+      </div>
+      <div class="number-item">
+        <div class="number-big" style="font-family: var(--script); font-size: clamp(48px, 6vw, 76px);">Mary Cohr</div>
+        <div class="number-label">Exkluzivní partner</div>
+        <div class="number-sub">Francouzská dermatologie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-eyebrow">Naše služby</div>
+      <h2>Kompletní péče<br><em>o krásu.</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">i.</div>
+        <h3 class="service-name">Kadeřnictví</h3>
+        <p class="service-desc">Dámský a pánský střih, barvení, melír, trvalá. Konzultace a styling v ceně.</p>
+        <div class="service-price">Dle ceníku</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">ii.</div>
+        <h3 class="service-name">Kosmetika Mary Cohr</h3>
+        <p class="service-desc">Hloubkové čištění, anti-aging ošetření, hydratace a zpevňování pleti. Exkluzivně.</p>
+        <div class="service-price">Dle ceníku</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">iii.</div>
+        <h3 class="service-name">Masáže</h3>
+        <p class="service-desc">Relaxační a terapeutické masáže. Dokonalé uvolnění od hlavy až k patě.</p>
+        <div class="service-price">Dle ceníku</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">iv.</div>
+        <h3 class="service-name">Pedikúra</h3>
+        <p class="service-desc">Profesionální péče o nohy. Medicinální i estetická pedikúra.</p>
+        <div class="service-price">Dle ceníku</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">v.</div>
+        <h3 class="service-name">Laserové ošetření</h3>
+        <p class="service-desc">Moderní laserové technologie pro péči o pleť a řešení kožních problémů.</p>
+        <div class="service-price">Dle ceníku</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">vi.</div>
+        <h3 class="service-name">Konzultace</h3>
+        <p class="service-desc">Nevíte, co přesně hledáte? Rádi poradíme — vždy bez závazku.</p>
+        <div class="service-price">Zdarma</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT -->
+<section class="discount">
+  <div class="container">
+    <div class="section-eyebrow" style="display: inline-flex;">Pro nové klientky</div>
+    <h2>Přijďte poprvé<em>se slevou.</em></h2>
+    <p class="discount-lead">Zanechte nám e-mail a slevový kód na první návštěvu dorazí obratem. Žádný spam, jen příjemné uvítání.</p>
+    <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Hotovo ✓';">
+      <input type="email" placeholder="vase@email.cz" required>
+      <button type="submit">Získat slevu</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-header">
+      <div class="section-eyebrow">Kontakt</div>
+      <h2 class="section-title">Najdete nás <em>v Malešicích.</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-map">
+        <iframe src="https://maps.google.com/maps?q=Vydrova+561%2F2%2C+Praha+10&output=embed" loading="lazy"></iframe>
+      </div>
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-label">Adresa</div>
+          <div class="contact-value">Vydrova 561/2<br>Praha 10 – Malešice</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Telefon</div>
+          <a href="tel:+420603331751" class="contact-value">+420 603 331 751</a>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">E-mail</div>
+          <a href="mailto:info@saloncarina.cz" class="contact-value" style="font-size: 18px;">info@saloncarina.cz</a>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Otevřeno</div>
+          <div class="contact-value" style="font-size: 18px;">Po — Pá · 9—18</div>
+          <div class="contact-extra">So dle dohody · Termíny na objednávku</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Salon <span class="script-accent">Carina</span></div>
+  <p>Vydrova 561/2 · Praha 10 – Malešice · +420 603 331 751</p>
+  <div style="margin-top: 32px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250, 246, 243, 0.4);">© 2026 Salon Carina · Praha 10</div>
+</footer>
+
+</body>
+</html>
