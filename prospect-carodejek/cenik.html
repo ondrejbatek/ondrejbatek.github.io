@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceník — Kadeřnictví U Čarodějek | Zárubova 26, Praha 4</title>
+<meta name="description" content="Ceník kadeřnictví U Čarodějek v Kamýku. Střihy, barvení, melíry, společenské účesy — přehled cen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8; --bg-section: #f0efea; --ink: #0e0e0c; --ink-soft: #2a2a26;
+    --muted: #6b6b65; --line: #d5d4cc; --accent: #ff4d28; --accent-deep: #d63d1f;
+    --display: 'Space Grotesk', sans-serif;
+    --sans: 'Inter', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250, 250, 248, 0.94);
+    backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .logo { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); display: flex; align-items: center; gap: 12px; }
+  .logo-mark { width: 32px; height: 32px; background: var(--accent); color: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; color: var(--muted); }
+  .nav-cta { background: var(--ink); color: var(--bg); padding: 10px 22px; border-radius: 4px; font-size: 13px; font-weight: 600; transition: all 0.3s ease; }
+  .nav-cta:hover { background: var(--accent); opacity: 1; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 150px 0 80px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--accent); }
+  .page-header h1 { font-size: clamp(48px, 8vw, 88px); color: var(--ink); margin-bottom: 20px; }
+  .page-header h1 em { font-style: normal; color: var(--accent); }
+  .page-header p { font-size: 17px; color: var(--muted); font-weight: 300; max-width: 60ch; line-height: 1.75; }
+
+  /* PRICE SECTIONS */
+  .price-section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  .price-section:last-of-type { border-bottom: none; }
+  .category-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 32px; }
+  .category-num { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); min-width: 32px; }
+  .category-name { font-family: var(--display); font-size: 30px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .price-row:last-child { border-bottom: none; }
+  .price-name { font-size: 16px; color: var(--ink); font-weight: 400; }
+  .price-name small { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; font-weight: 300; }
+  .price-amount { font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--accent); white-space: nowrap; margin-left: 24px; letter-spacing: -0.02em; }
+
+  /* NOTE BOX */
+  .note-box {
+    margin: 48px 0;
+    padding: 28px 36px;
+    background: var(--bg-section);
+    border-left: 3px solid var(--accent);
+  }
+  .note-box p { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+  .note-box strong { color: var(--ink); font-weight: 600; }
+
+  /* CTA */
+  .cta-section { background: var(--ink); color: var(--bg); text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+  .cta-section::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(255,77,40,0.1) 0%, transparent 60%); }
+  .cta-section .container { position: relative; z-index: 2; }
+  .cta-eyebrow { font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+  .cta-section h2 { font-size: clamp(36px, 5.5vw, 60px); color: var(--bg); margin-bottom: 20px; }
+  .cta-section h2 em { font-style: normal; color: var(--accent); }
+  .cta-section p { font-size: 17px; font-weight: 300; color: rgba(250,250,248,0.65); margin-bottom: 36px; max-width: 48ch; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 4px; font-size: 14px; font-weight: 600; letter-spacing: 0.01em; transition: all 0.3s ease; border: 1.5px solid transparent; cursor: pointer; font-family: var(--display); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { background: var(--accent-deep); opacity: 1; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer { background: var(--ink-soft); color: rgba(250,250,248,0.5); padding: 40px 0 24px; font-size: 14px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: var(--display); font-size: 16px; font-weight: 700; color: rgba(250,250,248,0.85); letter-spacing: -0.02em; }
+  .footer-copy { font-size: 12px; color: rgba(250,250,248,0.35); }
+  .footer-accent { color: var(--accent); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    .page-header { padding: 110px 0 56px; }
+    .price-section { padding: 40px 0; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { flex-direction: column; text-align: center; }
+    .category-name { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">Č</span>
+      U Čarodějek
+    </a>
+    <div class="nav-links">
+      <a href="index.html#o-nas">O nás</a>
+      <a href="index.html#sluzby">Služby</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <a href="tel:+420723241391" class="nav-cta">Rezervovat</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="eyebrow">Kadeřnictví U Čarodějek · Kamýk</div>
+    <h1>Ceník <em>služeb</em></h1>
+    <p>Přehled cen kadeřnických služeb. Všechny ceny jsou orientační — přesnou kalkulaci vám rádi sdělíme při objednávce nebo konzultaci.</p>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div style="padding: 0 0 80px;">
+  <div class="container">
+
+    <div class="price-section">
+      <div class="category-header">
+        <span class="category-num">01</span>
+        <h2 class="category-name">Dámské střihy</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Střih krátké vlasy<small>Konzultace, mytí, střih, foukaná</small></div>
+        <div class="price-amount">450 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Střih středně dlouhé vlasy<small>Konzultace, mytí, střih, foukaná</small></div>
+        <div class="price-amount">550 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Střih dlouhé vlasy<small>Konzultace, mytí, střih, foukaná</small></div>
+        <div class="price-amount">650 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Zastřižení konečků<small>Bez foukaná</small></div>
+        <div class="price-amount">250 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Foukaná<small>Bez střihu, tvarování</small></div>
+        <div class="price-amount">od 200 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="category-header">
+        <span class="category-num">02</span>
+        <h2 class="category-name">Barvení vlasů</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Barvení odrostů — krátké vlasy<small>Profesionální barva</small></div>
+        <div class="price-amount">od 600 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Barvení odrostů — dlouhé vlasy<small>Profesionální barva</small></div>
+        <div class="price-amount">od 800 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Celkové přebarvení<small>Dle délky a hustoty vlasů</small></div>
+        <div class="price-amount">od 900 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Tónování / přeliv<small>Oživení barvy, studené tóny</small></div>
+        <div class="price-amount">od 400 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="category-header">
+        <span class="category-num">03</span>
+        <h2 class="category-name">Melír a odsvětlování</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Klasický melír — krátké vlasy</div>
+        <div class="price-amount">od 700 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Klasický melír — dlouhé vlasy</div>
+        <div class="price-amount">od 1 000 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Balayage / Ombre<small>Včetně tónování</small></div>
+        <div class="price-amount">od 1 200 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Celkové odsvětlení<small>Dle výchozí barvy a délky</small></div>
+        <div class="price-amount">dle konzultace</div>
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="category-header">
+        <span class="category-num">04</span>
+        <h2 class="category-name">Společenské účesy</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Společenský účes<small>Ples, firemní akce, oslava</small></div>
+        <div class="price-amount">od 500 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Svatební účes — nevěsta<small>Včetně zkoušky</small></div>
+        <div class="price-amount">od 1 500 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Zkouška účesu</div>
+        <div class="price-amount">od 600 Kč</div>
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="category-header">
+        <span class="category-num">05</span>
+        <h2 class="category-name">Vlasová péče</h2>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Hloubková maska<small>Regenerace a výživa</small></div>
+        <div class="price-amount">od 200 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Keratinová kúra<small>Uhlazení, lesk, ochrana</small></div>
+        <div class="price-amount">od 400 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Masáž pokožky hlavy<small>Relaxační, 15 min</small></div>
+        <div class="price-amount">150 Kč</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <p><strong>Upozornění k cenám:</strong> Všechny ceny jsou orientační a závisí na délce, hustotě a stavu vlasů. Přesnou cenu vám sdělíme předem, bez překvapení. Ceny jsou včetně DPH.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-eyebrow">Pro nové klientky</div>
+    <h2>−15 % na první <em>návštěvu.</em></h2>
+    <p>Zanechte e-mail na hlavní stránce a slevový kód máte do minuty. Bez závazků.</p>
+    <a href="index.html#discount" class="btn btn-accent">Získat slevu →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Kadeřnictví U Čarodějek</div>
+    <div class="footer-copy">© 2026 · <span class="footer-accent">Zárubova 26, Praha 4</span></div>
+    <div><a href="tel:+420723241391" style="color: rgba(250,250,248,0.5);">+420 723 241 391</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
