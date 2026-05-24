@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ceník — Beauty studio Čakovice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf5ee;
+      --bg-deep: #ede3d5;
+      --primary: #4d2e58;
+      --primary-deep: #321d3a;
+      --accent: #c4a36a;
+      --accent-light: #e8d9b8;
+      --text: #1e1620;
+      --muted: #7a6882;
+      --line: #d4c4b0;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 245, 238, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      height: 64px; display: flex; align-items: center; padding: 0 2rem;
+    }
+
+    .nav-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+
+    .nav-monogram {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--primary); display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Pinyon Script', cursive; font-size: 1.4rem; line-height: 1; flex-shrink: 0;
+    }
+
+    .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--primary-deep); }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color var(--transition); }
+    .nav-links a:hover { color: var(--primary); }
+
+    .btn-nav {
+      background: var(--primary); color: #fff; padding: 0.5rem 1.4rem; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; transition: background var(--transition);
+    }
+    .btn-nav:hover { background: var(--primary-deep); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 120px 2rem 60px;
+      background: var(--bg-deep);
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-header .eyebrow {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem;
+    }
+
+    .page-header h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); color: var(--primary-deep); margin-bottom: 0.5rem; }
+
+    .page-header .ornament {
+      font-family: 'Pinyon Script', cursive; font-size: 1.8rem;
+      color: var(--accent); display: block; margin: 0.5rem 0;
+    }
+
+    .page-header .lead {
+      font-size: 1rem; color: var(--muted); max-width: 520px; margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* PRICING SECTIONS */
+    .pricing-sections { max-width: 900px; margin: 0 auto; padding: 60px 2rem; }
+
+    .pricing-category { margin-bottom: 3rem; }
+
+    .category-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem;
+      padding-bottom: 0.8rem; border-bottom: 2px solid var(--accent-light);
+    }
+
+    .category-num {
+      font-family: 'Pinyon Script', cursive; font-size: 2.2rem; color: var(--accent); line-height: 1;
+    }
+
+    .category-title { font-size: 1.5rem; color: var(--primary-deep); }
+
+    .price-table { width: 100%; border-collapse: collapse; }
+
+    .price-table tr { border-bottom: 1px solid var(--line); transition: background var(--transition); }
+    .price-table tr:last-child { border-bottom: none; }
+    .price-table tr:hover { background: var(--bg-deep); }
+
+    .price-table td { padding: 0.85rem 0.5rem; font-size: 0.92rem; }
+    .price-table td:first-child { color: var(--text); font-weight: 400; }
+    .price-table td.price-desc { color: var(--muted); font-size: 0.82rem; }
+    .price-table td:last-child { text-align: right; font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+    .price-note {
+      font-size: 0.8rem; color: var(--muted); font-style: italic;
+      margin-top: 0.5rem; padding-left: 0.5rem;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      background: var(--bg-deep); border: 1px solid var(--line);
+      border-radius: 6px; padding: 1.2rem 1.5rem;
+      font-size: 0.85rem; color: var(--muted);
+      max-width: 900px; margin: 0 auto 3rem;
+      padding-left: 2rem; padding-right: 2rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--primary-deep); padding: 60px 2rem; text-align: center;
+    }
+
+    .cta-section h2 { font-size: 2.2rem; color: #fff; margin-bottom: 0.8rem; }
+    .cta-section h2 em { font-style: italic; color: var(--accent); }
+    .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+
+    .btn-primary {
+      background: var(--accent); color: var(--primary-deep); padding: 0.9rem 2.2rem;
+      border-radius: 100px; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em;
+      transition: background var(--transition), transform var(--transition);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { background: #d4b47a; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--primary-deep); color: rgba(255,255,255,0.5); padding: 2rem; text-align: center; font-size: 0.82rem; }
+    footer a { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) { .nav-links { display: none; } }
+    @media (max-width: 480px) {
+      nav { padding: 0 1rem; }
+      .pricing-sections { padding: 40px 1rem; }
+      .price-table td.price-desc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-monogram">B</div>
+        <span class="nav-name">Beauty studio Čakovice</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#o-nas">O nás</a></li>
+        <li><a href="index.html#sluzby">Služby</a></li>
+        <li><a href="cenik.html">Ceník</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="index.html#kontakt" class="btn-nav">Rezervovat</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <p class="eyebrow">Beauty studio Čakovice</p>
+    <h1>Ceník služeb</h1>
+    <span class="ornament">❀</span>
+    <p class="lead">Kompletní přehled cen všech našich služeb. Ceny jsou orientační — při první návštěvě vám rádi poradíme s výběrem ošetření přesně pro vás.</p>
+  </header>
+
+  <!-- DISCLAIMER -->
+  <div style="padding: 2rem 2rem 0;">
+    <div class="disclaimer" style="max-width: 900px; margin: 0 auto;">
+      Uvedené ceny jsou orientační. Konečná cena se může lišit v závislosti na délce a náročnosti ošetření. Bližší informace rádi poskytneme telefonicky nebo při osobní konzultaci.
+    </div>
+  </div>
+
+  <!-- PRICING SECTIONS -->
+  <div class="pricing-sections">
+
+    <!-- Ošetření obličeje -->
+    <div class="pricing-category">
+      <div class="category-header">
+        <span class="category-num">i.</span>
+        <h2 class="category-title">Ošetření obličeje</h2>
+      </div>
+      <table class="price-table">
+        <tr>
+          <td>Hloubkové čištění pleti</td>
+          <td class="price-desc">Mechanická + přístrojová exfoliace, sérum, maska</td>
+          <td>650 – 850 Kč</td>
+        </tr>
+        <tr>
+          <td>Hydratační ošetření</td>
+          <td class="price-desc">Intenzivní hydratace pro suchou a citlivou pleť</td>
+          <td>900 – 1 100 Kč</td>
+        </tr>
+        <tr>
+          <td>Anti-age ošetření</td>
+          <td class="price-desc">Liftingové sérum, maska, masáž obličeje a dekoltu</td>
+          <td>1 100 – 1 400 Kč</td>
+        </tr>
+        <tr>
+          <td>Ošetření problematické pleti</td>
+          <td class="price-desc">Pro akné, rozšířené póry, mastnou pleť</td>
+          <td>850 – 1 050 Kč</td>
+        </tr>
+        <tr>
+          <td>Antipigmentační ošetření</td>
+          <td class="price-desc">Redukce pigmentových skvrn, sjednocení tónu pleti</td>
+          <td>1 000 – 1 300 Kč</td>
+        </tr>
+        <tr>
+          <td>Oční zóna — speciální ošetření</td>
+          <td class="price-desc">Tmavé kruhy, otoky, jemné linky kolem očí</td>
+          <td>450 – 600 Kč</td>
+        </tr>
+        <tr>
+          <td>Kosmetický rituál (90 min)</td>
+          <td class="price-desc">Komplexní ritual — čištění, sérum, maska, masáž, styling</td>
+          <td>1 200 – 1 800 Kč</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Tělová kosmetika & masáže -->
+    <div class="pricing-category">
+      <div class="category-header">
+        <span class="category-num">ii.</span>
+        <h2 class="category-title">Tělová kosmetika & masáže</h2>
+      </div>
+      <table class="price-table">
+        <tr>
+          <td>Relaxační masáž zad a šíje (30 min)</td>
+          <td class="price-desc">Uvolnění napětí v zádech, ramenou a šíji</td>
+          <td>450 – 550 Kč</td>
+        </tr>
+        <tr>
+          <td>Relaxační masáž celého těla (60 min)</td>
+          <td class="price-desc">Kompletní relaxační masáž, uvolnění celého těla</td>
+          <td>750 – 900 Kč</td>
+        </tr>
+        <tr>
+          <td>Aromaterapeutická masáž (60 min)</td>
+          <td class="price-desc">S esenciálními oleji, hluboká relaxace</td>
+          <td>850 – 1 000 Kč</td>
+        </tr>
+        <tr>
+          <td>Masáž lávovými kameny (60 min)</td>
+          <td class="price-desc">Teplé lávové kameny pro maximální uvolnění</td>
+          <td>950 – 1 100 Kč</td>
+        </tr>
+        <tr>
+          <td>Tělový peeling</td>
+          <td class="price-desc">Exfoliace a hydratace celého těla</td>
+          <td>600 – 800 Kč</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Depilace -->
+    <div class="pricing-category">
+      <div class="category-header">
+        <span class="category-num">iii.</span>
+        <h2 class="category-title">Depilace</h2>
+      </div>
+      <table class="price-table">
+        <tr>
+          <td>Podpaží</td>
+          <td class="price-desc">Vosková depilace</td>
+          <td>180 – 220 Kč</td>
+        </tr>
+        <tr>
+          <td>Předloktí</td>
+          <td class="price-desc">Vosková depilace</td>
+          <td>220 – 280 Kč</td>
+        </tr>
+        <tr>
+          <td>Celé paže</td>
+          <td class="price-desc">Vosková depilace</td>
+          <td>350 – 420 Kč</td>
+        </tr>
+        <tr>
+          <td>Lýtka</td>
+          <td class="price-desc">Vosková depilace</td>
+          <td>280 – 340 Kč</td>
+        </tr>
+        <tr>
+          <td>Celé nohy</td>
+          <td class="price-desc">Vosková depilace</td>
+          <td>480 – 600 Kč</td>
+        </tr>
+        <tr>
+          <td>Bikinky klasik</td>
+          <td class="price-desc">Vosková depilace</td>
+          <td>280 – 360 Kč</td>
+        </tr>
+        <tr>
+          <td>Obličej (horní ret / brada)</td>
+          <td class="price-desc">Jemná vosková depilace</td>
+          <td>120 – 160 Kč</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Manikúra -->
+    <div class="pricing-category">
+      <div class="category-header">
+        <span class="category-num">iv.</span>
+        <h2 class="category-title">Manikúra</h2>
+      </div>
+      <table class="price-table">
+        <tr>
+          <td>Klasická manikúra</td>
+          <td class="price-desc">Tvarování, péče o nehtové lůžko, lak</td>
+          <td>420 – 500 Kč</td>
+        </tr>
+        <tr>
+          <td>Gel lak (manikúra + gelový lak)</td>
+          <td class="price-desc">Dlouhotrvající efekt, výběr z barevné palety</td>
+          <td>550 – 650 Kč</td>
+        </tr>
+        <tr>
+          <td>Zpevnění nehtů (gelem)</td>
+          <td class="price-desc">Zpevnění přirozených nehtů gelem</td>
+          <td>600 – 750 Kč</td>
+        </tr>
+        <tr>
+          <td>Odstranění gel laku</td>
+          <td class="price-desc">Bezpečné odmočení bez poškození</td>
+          <td>120 – 160 Kč</td>
+        </tr>
+        <tr>
+          <td>Paraffínový zábal rukou</td>
+          <td class="price-desc">Intenzivní hydratace a změkčení pokožky rukou</td>
+          <td>150 – 200 Kč</td>
+        </tr>
+      </table>
+      <p class="price-note">* Ceny platí pro manikúru bez umělého prodlužování. Prodlužování nehtů — cena dle konzultace.</p>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Rezervujte si <em>svůj termín</em></h2>
+    <p>Zavolejte nebo napište — rádi vám najdeme termín, který vám nejlépe vyhovuje.</p>
+    <a href="tel:728539540" class="btn-primary">
+      Zavolat: 728 539 540
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Beauty studio Čakovice — Martina Pučeková &nbsp;|&nbsp; <a href="index.html">Zpět na hlavní stránku</a></p>
+  </footer>
+
+</body>
+</html>

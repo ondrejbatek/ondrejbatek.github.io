@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty studio Čakovice — Kosmetika, Masáže, Manikúra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf5ee;
+      --bg-deep: #ede3d5;
+      --primary: #4d2e58;
+      --primary-deep: #321d3a;
+      --accent: #c4a36a;
+      --accent-light: #e8d9b8;
+      --text: #1e1620;
+      --muted: #7a6882;
+      --line: #d4c4b0;
+      --radius: 2px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    em { font-style: italic; }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 245, 238, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-monogram {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Pinyon Script', cursive;
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--primary-deep);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .btn-nav {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.5rem 1.4rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-nav:hover { background: var(--primary-deep); transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-blob {
+      position: absolute;
+      top: 10%;
+      right: 0;
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse at 70% 40%, var(--accent-light) 0%, var(--bg-deep) 50%, transparent 75%);
+      border-radius: 50% 30% 60% 40% / 40% 50% 40% 55%;
+      z-index: 0;
+      opacity: 0.7;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      color: var(--primary-deep);
+      margin-bottom: 1.4rem;
+      line-height: 1.15;
+    }
+
+    .hero h1 em {
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 2.4rem;
+      max-width: 480px;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(77, 46, 88, 0.3);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-illustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.68;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* ─── DIVIDER ─── */
+    .section-divider {
+      text-align: center;
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      padding: 0.5rem 0;
+      opacity: 0.7;
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--bg-deep);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 1.6rem 2rem;
+    }
+
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.5rem;
+    }
+
+    .trust-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .trust-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-deep);
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: 100px 2rem;
+      background: var(--bg);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-figure {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-arch {
+      width: 260px;
+      height: 340px;
+      background: linear-gradient(160deg, var(--accent-light), var(--bg-deep));
+      border-radius: 140px 140px 20px 20px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-arch::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='200' height='300' viewBox='0 0 200 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='100' cy='180' rx='55' ry='70' fill='%234d2e58' opacity='0.08'/%3E%3Ccircle cx='100' cy='85' r='40' fill='%234d2e58' opacity='0.07'/%3E%3C/svg%3E") center 30% / 180px no-repeat;
+    }
+
+    .about-monogram-wrap {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-monogram-circle {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+      box-shadow: 0 4px 16px rgba(77, 46, 88, 0.25);
+    }
+
+    .about-monogram-circle span {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 2rem;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .about-owner-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-deep);
+    }
+
+    .about-owner-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .about-content .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-content h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--primary-deep);
+      margin-bottom: 1.4rem;
+    }
+
+    .about-content h2 em {
+      color: var(--primary);
+    }
+
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--primary);
+      border-left: 3px solid var(--accent);
+      padding-left: 1.2rem;
+      margin-bottom: 1.6rem;
+      line-height: 1.7;
+    }
+
+    .about-content p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .about-signature {
+      margin-top: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .signature-script {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 2.2rem;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .signature-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── SERVICES ─── */
+    .services {
+      padding: 100px 2rem;
+      background: var(--bg-deep);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--primary-deep);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header h2 em { color: var(--primary); }
+
+    .section-header p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2rem 1.8rem 1.8rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(77, 46, 88, 0.12);
+    }
+
+    .service-num {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .service-icon {
+      margin-bottom: 0.8rem;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .service-price {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    /* ─── DISCOUNT ─── */
+    .discount {
+      background: var(--primary-deep);
+      padding: 100px 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .discount::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(196, 163, 106, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .discount-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .discount .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .discount h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .discount h2 .script-em {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 1.4em;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 0.9;
+      display: inline-block;
+    }
+
+    .discount-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2.4rem;
+      line-height: 1.7;
+    }
+
+    .discount-form {
+      display: flex;
+      gap: 0;
+      max-width: 440px;
+      margin: 0 auto 1rem;
+    }
+
+    .discount-form input {
+      flex: 1;
+      padding: 0.85rem 1.4rem;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-right: none;
+      border-radius: 100px 0 0 100px;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .discount-form input::placeholder { color: rgba(255,255,255,0.45); }
+
+    .discount-form input:focus { border-color: var(--accent); }
+
+    .discount-form button {
+      padding: 0.85rem 1.6rem;
+      background: var(--accent);
+      color: var(--primary-deep);
+      border: none;
+      border-radius: 0 100px 100px 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+
+    .discount-form button:hover { background: #d4b47a; }
+
+    .discount-fine {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── PRICING PREVIEW ─── */
+    .pricing-preview {
+      padding: 100px 2rem;
+      background: var(--bg);
+    }
+
+    .pricing-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .pricing-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pricing-item:nth-child(odd) { border-right: 1px solid var(--line); }
+
+    .pricing-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .pricing-item-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .pricing-cta {
+      text-align: center;
+      margin-top: 2.4rem;
+    }
+
+    .pricing-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      padding: 100px 2rem;
+      background: var(--bg-deep);
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2rem 2rem 2rem;
+    }
+
+    .contact-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--primary-deep);
+      margin-bottom: 1.4rem;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .contact-line svg { flex-shrink: 0; margin-top: 2px; }
+
+    .contact-line a { color: var(--primary); }
+    .contact-line a:hover { text-decoration: underline; }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .hours-table td {
+      padding: 0.4rem 0;
+      color: var(--muted);
+    }
+
+    .hours-table td:first-child {
+      font-weight: 500;
+      color: var(--text);
+      width: 40%;
+    }
+
+    .map-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--primary-deep);
+      color: rgba(255,255,255,0.75);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-blurb {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-col h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul li a:hover { color: var(--accent); }
+
+    .footer-contact-line {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .footer-copy {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .hero-illustration { order: -1; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-ctas { justify-content: center; }
+      .hero-sub { margin: 0 auto 2.4rem; }
+
+      .trust-inner { grid-template-columns: repeat(2, 1fr); }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+
+      .about-quote { text-align: left; }
+      .about-figure { margin: 0 auto; }
+
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-item:nth-child(odd) { border-right: none; }
+
+      .contact-cards { grid-template-columns: 1fr; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 1rem; }
+      .nav-name { font-size: 0.9rem; }
+
+      .hero { padding: 100px 1rem 60px; }
+      .trust-inner { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .discount-form { flex-direction: column; }
+      .discount-form input { border-right: 1.5px solid rgba(255,255,255,0.2); border-bottom: none; border-radius: 100px 100px 0 0; }
+      .discount-form button { border-radius: 0 0 100px 100px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-copy { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-monogram">B</div>
+        <span class="nav-name">Beauty studio Čakovice</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#cenik">Ceník</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#kontakt" class="btn-nav">Rezervovat</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="uvod">
+    <div class="hero-blob"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Praha 9, Čakovice · areál RelaxLaFabrique</p>
+        <h1>Krása, která<br /><em>pečuje</em> zevnitř</h1>
+        <p class="hero-sub">Profesionální kosmetická péče, relaxační masáže a manikúra v příjemném prostředí wellness areálu RelaxLaFabrique. Dopřejte si chvíli jen pro sebe.</p>
+        <div class="hero-ctas">
+          <a href="#kontakt" class="btn-primary">Objednat se
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#sluzby" class="btn-outline">Naše služby</a>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <!-- Botanical / cosmetic SVG illustration -->
+        <svg width="380" height="420" viewBox="0 0 380 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Large leaf left -->
+          <path d="M80 300 C60 220 100 140 160 120 C140 180 120 240 80 300Z" fill="#c4a36a" opacity="0.25"/>
+          <!-- Large leaf right -->
+          <path d="M300 300 C320 220 280 140 220 120 C240 180 260 240 300 300Z" fill="#4d2e58" opacity="0.18"/>
+          <!-- Stem -->
+          <path d="M190 380 C190 340 190 300 190 260 C190 220 185 180 175 130" stroke="#c4a36a" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <!-- Center bloom -->
+          <circle cx="190" cy="200" r="55" fill="#e8d9b8" opacity="0.5"/>
+          <!-- Petals -->
+          <ellipse cx="190" cy="145" rx="18" ry="32" fill="#4d2e58" opacity="0.3" transform="rotate(0 190 145)"/>
+          <ellipse cx="235" cy="165" rx="18" ry="32" fill="#4d2e58" opacity="0.25" transform="rotate(60 235 165)"/>
+          <ellipse cx="235" cy="235" rx="18" ry="32" fill="#4d2e58" opacity="0.25" transform="rotate(120 235 235)"/>
+          <ellipse cx="190" cy="255" rx="18" ry="32" fill="#4d2e58" opacity="0.3" transform="rotate(180 190 255)"/>
+          <ellipse cx="145" cy="235" rx="18" ry="32" fill="#4d2e58" opacity="0.25" transform="rotate(240 145 235)"/>
+          <ellipse cx="145" cy="165" rx="18" ry="32" fill="#4d2e58" opacity="0.25" transform="rotate(300 145 165)"/>
+          <!-- Center circle -->
+          <circle cx="190" cy="200" r="26" fill="#c4a36a" opacity="0.5"/>
+          <circle cx="190" cy="200" r="14" fill="#c4a36a" opacity="0.7"/>
+          <!-- Small decorative dots -->
+          <circle cx="120" cy="360" r="5" fill="#c4a36a" opacity="0.4"/>
+          <circle cx="260" cy="370" r="4" fill="#4d2e58" opacity="0.3"/>
+          <circle cx="290" cy="330" r="6" fill="#c4a36a" opacity="0.25"/>
+          <circle cx="90" cy="340" r="7" fill="#4d2e58" opacity="0.2"/>
+          <!-- Small leaves -->
+          <path d="M130 280 C120 260 140 250 145 265 C140 272 133 278 130 280Z" fill="#c4a36a" opacity="0.5"/>
+          <path d="M250 280 C260 260 240 250 235 265 C240 272 247 278 250 280Z" fill="#c4a36a" opacity="0.5"/>
+          <!-- Sparkles -->
+          <path d="M310 160 L313 150 L316 160 L326 163 L316 166 L313 176 L310 166 L300 163Z" fill="#c4a36a" opacity="0.6"/>
+          <path d="M65 180 L67 173 L69 180 L76 182 L69 184 L67 191 L65 184 L58 182Z" fill="#4d2e58" opacity="0.4"/>
+          <!-- Jar / cream container (cosmetic motif) -->
+          <rect x="155" y="330" width="70" height="40" rx="8" fill="#4d2e58" opacity="0.2"/>
+          <rect x="162" y="322" width="56" height="12" rx="4" fill="#4d2e58" opacity="0.25"/>
+          <text x="190" y="357" font-family="serif" font-size="9" fill="#4d2e58" opacity="0.6" text-anchor="middle">BEAUTY</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="section-divider">——— ❀ ———</div>
+
+  <!-- ═══ TRUST BAR ═══ -->
+  <section class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <span class="trust-icon">✦</span>
+        <span class="trust-label">Lokalita</span>
+        <span class="trust-value">areál RelaxLaFabrique</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✦</span>
+        <span class="trust-label">Speciality</span>
+        <span class="trust-value">Kosmetické rituály & masáže</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✦</span>
+        <span class="trust-label">Přístup</span>
+        <span class="trust-value">Individuální péče</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✦</span>
+        <span class="trust-label">Objednávky</span>
+        <span class="trust-value">Telefonicky & online</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="section-divider">——— ✦ ———</div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="o-nas">
+    <div class="about-inner">
+      <div class="about-figure">
+        <div class="about-arch">
+          <div class="about-monogram-wrap">
+            <div class="about-monogram-circle">
+              <span>M</span>
+            </div>
+            <div class="about-owner-name">Martina Pučeková</div>
+            <div class="about-owner-role">Majitelka & kosmetička</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="eyebrow">O nás</p>
+        <h2>Péče, která<br /><em>opravdu funguje</em></h2>
+        <blockquote class="about-quote">
+          „Věřím, že zdravá a krásná pleť začíná správnou péčí — a tu chci nabídnout každé klientce individuálně."
+        </blockquote>
+        <p>Jsem Martina Pučeková a Beauty studio Čakovice je mým místem, kde se setkává odborná kosmetická péče s přirozenou atmosférou relaxace. Nacházíme se v areálu RelaxLaFabrique v Čakovicích, kde můžete načerpat novou energii a dopřát si péči, na kterou máte zaslouženě právo.</p>
+        <p>Specializuji se na hloubkové čištění pleti, profesionální ošetření obličeje a kosmetické rituály, které přináší viditelné výsledky. Každou klientku vnímám jako jedinečnou osobnost s vlastními potřebami — žádný přístup „od shora dolů".</p>
+        <div class="about-signature">
+          <span class="signature-script">Martina</span>
+          <span class="signature-role">Vaše kosmetička</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="section-divider">——— ❀ ———</div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="services" id="sluzby">
+    <div class="section-header">
+      <p class="eyebrow">Naše služby</p>
+      <h2>Vše, co vaše<br /><em>krása potřebuje</em></h2>
+      <p>Nabízíme komplexní péči o pleť, tělo i ruce — přizpůsobenou přesně vašim potřebám.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-num">i.</span>
+        <div class="service-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="20" stroke="#4d2e58" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="28" cy="28" r="12" stroke="#c4a36a" stroke-width="1.5"/>
+            <path d="M28 16 C28 16 22 22 22 28 C22 34 28 40 28 40 C28 40 34 34 34 28 C34 22 28 16 28 16Z" fill="#c4a36a" opacity="0.25"/>
+            <circle cx="28" cy="28" r="4" fill="#4d2e58" opacity="0.4"/>
+            <path d="M20 20 L24 24M36 20 L32 24M20 36 L24 32M36 36 L32 32" stroke="#c4a36a" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Čištění pleti</h3>
+        <p class="service-desc">Hloubkové čištění pórů, mechanická i přístrojová exfoliace. Základ zdravé a zářivé pleti pro každou klientku.</p>
+        <span class="service-price">od 650 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">ii.</span>
+        <div class="service-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="28" cy="30" rx="16" ry="18" stroke="#4d2e58" stroke-width="1.5" opacity="0.35"/>
+            <ellipse cx="28" cy="14" rx="8" ry="9" stroke="#c4a36a" stroke-width="1.5"/>
+            <path d="M20 30 C20 38 28 44 28 44 C28 44 36 38 36 30" stroke="#c4a36a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M24 22 C24 22 26 25 28 25 C30 25 32 22 32 22" stroke="#4d2e58" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+            <circle cx="24" cy="18" r="2" fill="#c4a36a" opacity="0.5"/>
+            <circle cx="32" cy="18" r="2" fill="#c4a36a" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Ošetření obličeje</h3>
+        <p class="service-desc">Komplexní kosmetické ošetření přizpůsobené vašemu typu pleti — hydratace, výživa, lifting, antipigmentace.</p>
+        <span class="service-price">od 900 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">iii.</span>
+        <div class="service-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="28" cy="26" rx="10" ry="14" stroke="#4d2e58" stroke-width="1.5" opacity="0.35"/>
+            <path d="M18 26 C18 38 28 46 28 46 C28 46 38 38 38 26" stroke="#c4a36a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="22" cy="20" rx="4" ry="5" stroke="#c4a36a" stroke-width="1.2" opacity="0.6"/>
+            <ellipse cx="34" cy="20" rx="4" ry="5" stroke="#c4a36a" stroke-width="1.2" opacity="0.6"/>
+            <path d="M22 30 C24 32 26 33 28 33 C30 33 32 32 34 30" stroke="#4d2e58" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Oční zóna</h3>
+        <p class="service-desc">Speciální péče o citlivou oblast kolem očí — redukce tmavých kruhů, otokůa jemných linek. Oční maska, liftingové sérum.</p>
+        <span class="service-price">od 450 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">iv.</span>
+        <div class="service-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 28 C14 20 20 14 28 14 C36 14 42 20 42 28 C42 36 36 42 28 42 C20 42 14 36 14 28Z" stroke="#4d2e58" stroke-width="1.5" opacity="0.3"/>
+            <path d="M20 28 C20 23.6 23.6 20 28 20 C32.4 20 36 23.6 36 28" stroke="#c4a36a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M16 34 C18 38 22.5 41 28 41 C33.5 41 38 38 40 34" stroke="#c4a36a" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <circle cx="28" cy="28" r="3" fill="#4d2e58" opacity="0.4"/>
+            <path d="M28 10 L28 14M38 14 L35 17M42 24 L38 25M14 24 L18 25M18 14 L21 17" stroke="#c4a36a" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Kosmetické rituály</h3>
+        <p class="service-desc">Luxusní rituály kombinující několik procedur pro maximální efekt — od klasiky až po exkluzivní ošetření prémiovými přípravky.</p>
+        <span class="service-price">od 1 200 Kč</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">v.</span>
+        <div class="service-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 20 Q28 30 42 20" stroke="#c4a36a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M14 28 Q28 38 42 28" stroke="#4d2e58" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+            <path d="M14 36 Q28 46 42 36" stroke="#c4a36a" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <circle cx="10" cy="20" r="3" fill="#c4a36a" opacity="0.5"/>
+            <circle cx="10" cy="28" r="3" fill="#4d2e58" opacity="0.35"/>
+            <circle cx="10" cy="36" r="3" fill="#c4a36a" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Relaxační masáže</h3>
+        <p class="service-desc">Klasická relaxační masáž zad a šíje, celotělová masáž nebo aromaterapie. Ideální doplněk ke kosmetickému ošetření.</p>
+        <span class="service-price">od 750 Kč / 60 min</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">vi.</span>
+        <div class="service-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 40 L16 28 C14 22 18 16 24 16 L28 16 L32 16 C38 16 42 22 40 28 L36 40 Z" stroke="#4d2e58" stroke-width="1.5" fill="none" opacity="0.35"/>
+            <path d="M22 16 C22 12 26 10 28 10 C30 10 34 12 34 16" stroke="#c4a36a" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <path d="M22 32 L34 32" stroke="#c4a36a" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M22 28 L34 28" stroke="#c4a36a" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="25" cy="36" r="2" fill="#c4a36a" opacity="0.5"/>
+            <circle cx="31" cy="36" r="2" fill="#c4a36a" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Manikúra</h3>
+        <p class="service-desc">Klasická manikúra, gel lak, zpevnění nehtů. Vaše ruce budou vypadat upraveně a elegantně při každé příležitosti.</p>
+        <span class="service-price">od 450 Kč</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="section-divider" style="background:var(--bg-deep);">——— ❀ ———</div>
+
+  <!-- ═══ DISCOUNT ═══ -->
+  <section class="discount">
+    <div class="discount-inner">
+      <p class="eyebrow">Exkluzivní nabídka</p>
+      <h2>Získejte <span class="script-em">patnáct procent</span><br />slevu na první ošetření</h2>
+      <p class="discount-sub">Přihlaste se k odběru novinek a my vám pošleme slevový kód přímo do e-mailu. Žádný spam — jen to podstatné o akcích a novinkách studia.</p>
+      <div class="discount-form">
+        <input type="email" placeholder="Váš e-mail" />
+        <button type="button">Chci slevu</button>
+      </div>
+      <p class="discount-fine">Odhlášení je kdykoliv možné jedním kliknutím. Vaše data jsou v bezpečí.</p>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="section-divider">——— ✦ ———</div>
+
+  <!-- ═══ PRICING PREVIEW ═══ -->
+  <section class="pricing-preview" id="cenik">
+    <div class="section-header">
+      <p class="eyebrow">Ceník</p>
+      <h2>Orientační<br /><em>přehled cen</em></h2>
+      <p>Přesný ceník najdete na stránce Ceník. Ceny jsou orientační a mohou se lišit dle délky a náročnosti ošetření.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-item">
+        <span class="pricing-item-name">Čištění pleti</span>
+        <span class="pricing-item-price">od 650 Kč</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-item-name">Ošetření obličeje</span>
+        <span class="pricing-item-price">od 900 Kč</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-item-name">Oční zóna</span>
+        <span class="pricing-item-price">od 450 Kč</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-item-name">Kosmetický rituál</span>
+        <span class="pricing-item-price">od 1 200 Kč</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-item-name">Relaxační masáž (60 min)</span>
+        <span class="pricing-item-price">od 750 Kč</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-item-name">Manikúra</span>
+        <span class="pricing-item-price">od 450 Kč</span>
+      </div>
+    </div>
+    <div class="pricing-cta">
+      <p class="pricing-note">Uvedené ceny jsou orientační. Přesný ceník dle aktuálního ceníku studia.</p>
+      <a href="cenik.html" class="btn-primary">Zobrazit celý ceník</a>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="section-divider" style="background:var(--bg-deep); padding-top:1rem;">——— ❀ ———</div>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="contact" id="kontakt">
+    <div class="contact-inner">
+      <div class="section-header" style="margin-bottom:2.5rem;">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Přijďte nás<br /><em>navštívit</em></h2>
+      </div>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <h3>Kde nás najdete</h3>
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 5 14 5 9a7 7 0 0114 0c0 5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span>Cukrovarská 987/33<br />areál RelaxLaFabrique<br />Praha 9, Čakovice</span>
+          </div>
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92V20a2 2 0 01-2.18 2A19.8 19.8 0 013.18 5.18 2 2 0 015.18 3H8.1a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L9.09 10.9a16 16 0 006.01 6.01l1.27-1.27a2 2 0 012.11-.45c.9.35 1.84.59 2.8.72A2 2 0 0122 17.92z"/></svg>
+            <a href="tel:728539540">728 539 540</a>
+          </div>
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
+            <a href="mailto:infokosmetika@email.cz">infokosmetika@email.cz</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Otevírací doba</h3>
+          <table class="hours-table">
+            <tr><td>Pondělí</td><td>9:00 – 18:00</td></tr>
+            <tr><td>Úterý</td><td>9:00 – 18:00</td></tr>
+            <tr><td>Středa</td><td>9:00 – 19:00</td></tr>
+            <tr><td>Čtvrtek</td><td>9:00 – 19:00</td></tr>
+            <tr><td>Pátek</td><td>9:00 – 17:00</td></tr>
+            <tr><td>Sobota</td><td>9:00 – 14:00</td></tr>
+            <tr><td>Neděle</td><td>zavřeno</td></tr>
+          </table>
+          <br />
+          <a href="tel:728539540" class="btn-primary" style="font-size:0.85rem; padding:0.7rem 1.4rem;">Objednat se telefonicky</a>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Cukrovarsk%C3%A1+987%2F33+%C4%8Cakovice+Praha+9&output=embed"
+          width="100%" height="350"
+          style="border:0; border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); display:block;"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Beauty studio Čakovice</div>
+        <p class="footer-blurb">Profesionální kosmetická péče a relaxace v srdci areálu RelaxLaFabrique v Praze 9. Každá klientka je pro nás výjimečná.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="#o-nas">O nás</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <div class="footer-contact-line">📍 Cukrovarská 987/33, Praha 9</div>
+        <div class="footer-contact-line">📞 728 539 540</div>
+        <div class="footer-contact-line">✉️ infokosmetika@email.cz</div>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2025 Beauty studio Čakovice — Martina Pučeková</span>
+      <span>Praha 9, Čakovice</span>
+    </div>
+  </footer>
+
+</body>
+</html>
