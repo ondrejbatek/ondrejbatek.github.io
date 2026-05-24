@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceník — Kosmetický salon Biologique Recherche | Praha 11</title>
+<meta name="description" content="Ceník kosmetických ošetření Biologique Recherche. Základní ošetření, hloubkové čištění, anti-aging, hydratace, oční ošetření. Praha 11.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf3ea; --bg-deep: #f4e8d6; --primary: #d4a8a0; --primary-deep: #a87870;
+    --accent: #c89a78; --accent-light: #e8d5b8; --text: #2a1d1a; --muted: #8a7570; --line: #f5d8d0;
+    --cream: #faf3ea; --rose-dark: #a87870; --rose-gold: #c89a78; --champagne: #e8d5b8; --plum: #4a3530;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--text); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
+  .script { font-family: var(--script); }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250, 243, 234, 0.93); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .logo { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--rose-dark); display: flex; align-items: center; gap: 12px; }
+  .logo-mark {
+    width: 32px; height: 32px; background: var(--rose-dark); color: var(--cream);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: var(--script); font-size: 22px; line-height: 1; padding-top: 2px;
+  }
+  .nav-links { display: flex; gap: 36px; font-size: 14px; }
+  .nav-cta {
+    background: var(--rose-dark); color: var(--cream); padding: 11px 24px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: all 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--plum); opacity: 1; transform: translateY(-1px); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 160px 0 80px; text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  }
+  .page-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--rose-gold); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 14px;
+  }
+  .page-eyebrow::before, .page-eyebrow::after { content: ""; width: 36px; height: 1px; background: var(--rose-gold); }
+  .page-header h1 { font-size: clamp(42px, 6vw, 72px); color: var(--text); margin-bottom: 24px; }
+  .page-header h1 em { font-style: italic; color: var(--rose-dark); }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 28px 0; }
+  .ornament-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-light), transparent); }
+  .ornament-symbol { font-family: var(--serif); font-size: 20px; color: var(--rose-gold); }
+  .page-lead { font-size: 17px; color: var(--muted); max-width: 54ch; margin: 0 auto; line-height: 1.75; }
+
+  /* PRICE CATEGORIES */
+  .cenik-section { padding: 80px 0; }
+  .cenik-section:nth-child(even) { background: var(--bg-deep); }
+  .category-header { margin-bottom: 40px; }
+  .cat-num { font-family: var(--script); font-size: 48px; color: var(--accent-light); line-height: 1; }
+  .cat-title { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 40px); color: var(--text); margin-top: -8px; }
+  .cat-title em { font-style: italic; color: var(--rose-dark); }
+  .cat-lead { font-size: 15px; color: var(--muted); margin-top: 12px; max-width: 52ch; line-height: 1.7; }
+  .price-card {
+    background: var(--cream); border: 1px solid var(--line);
+    border-radius: 4px; overflow: hidden;
+  }
+  .cenik-section:nth-child(even) .price-card { background: var(--bg); }
+  .price-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 20px 32px; border-bottom: 1px dashed var(--line);
+    transition: background 0.2s ease;
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-row:hover { background: rgba(212, 168, 160, 0.06); }
+  .price-name { font-family: var(--serif); font-size: 20px; color: var(--text); }
+  .price-name small { display: block; font-family: var(--sans); font-size: 13px; color: var(--muted); margin-top: 3px; font-weight: 400; }
+  .price-amount { font-family: var(--serif); font-size: 20px; color: var(--rose-dark); font-weight: 500; white-space: nowrap; padding-left: 24px; }
+
+  /* NOTE BOX */
+  .note-section { padding: 64px 0; }
+  .note-box {
+    background: var(--bg-deep); border: 1px solid var(--line);
+    border-left: 3px solid var(--rose-gold);
+    padding: 32px 40px; border-radius: 4px;
+  }
+  .note-box h3 { font-family: var(--serif); font-size: 22px; color: var(--text); margin-bottom: 12px; }
+  .note-box p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: linear-gradient(135deg, var(--rose-dark) 0%, var(--plum) 100%);
+    padding: 100px 0; text-align: center; color: var(--cream);
+  }
+  .cta-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--champagne); margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px;
+  }
+  .cta-eyebrow::before, .cta-eyebrow::after { content: ""; width: 36px; height: 1px; background: var(--champagne); }
+  .cta-section h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 58px); margin-bottom: 24px; color: var(--cream); }
+  .cta-section h2 em { font-style: italic; color: var(--champagne); }
+  .cta-section p { color: rgba(250, 243, 234, 0.75); font-size: 17px; margin-bottom: 44px; max-width: 50ch; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 17px 36px; border-radius: 100px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+    transition: all 0.3s ease; border: 1px solid transparent;
+  }
+  .btn-light {
+    background: var(--champagne); color: var(--plum);
+    box-shadow: 0 6px 20px rgba(232, 213, 184, 0.3);
+  }
+  .btn-light:hover { background: var(--cream); opacity: 1; transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--plum); color: rgba(250, 243, 234, 0.6); padding: 56px 0 32px; font-size: 14px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; margin-bottom: 40px; }
+  footer .logo { color: var(--cream); margin-bottom: 16px; }
+  footer .logo-mark { background: var(--rose-gold); color: var(--plum); }
+  footer h4 { color: var(--cream); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; }
+  .footer-bottom { border-top: 1px solid rgba(250, 243, 234, 0.1); padding-top: 28px; text-align: center; font-size: 12px; color: rgba(250, 243, 234, 0.45); }
+  .footer-bottom .script { color: var(--champagne); font-size: 18px; }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .price-row { padding: 18px 20px; flex-direction: column; gap: 4px; }
+    .price-amount { padding-left: 0; }
+  }
+  @media (max-width: 480px) {
+    .page-header { padding: 130px 0 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">B</span>
+      Biologique Recherche
+    </a>
+    <div class="nav-links">
+      <a href="index.html#o-nas">O salonu</a>
+      <a href="index.html#sluzby">Ošetření</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <a href="tel:+420724140812" class="nav-cta">Objednat se</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="page-eyebrow">Ceník ošetření</div>
+    <h1>Přehled cen <em>všech ošetření</em></h1>
+    <div class="ornament">
+      <span class="ornament-line"></span>
+      <span class="ornament-symbol">❀</span>
+      <span class="ornament-line"></span>
+    </div>
+    <p class="page-lead">Transparentní ceník kosmetických ošetření s produkty Biologique Recherche. Všechny ceny jsou orientační — přesnou kalkulaci ošetření na míru sestavíme na místě po diagnostice vaší pleti.</p>
+  </div>
+</div>
+
+<!-- CATEGORY I — ZÁKLADNÍ OŠETŘENÍ -->
+<div class="cenik-section">
+  <div class="container">
+    <div class="category-header">
+      <div class="cat-num">i.</div>
+      <h2 class="cat-title">Základní ošetření <em>pleti</em></h2>
+      <p class="cat-lead">Kompletní péče o pleť zahrnující diagnostiku, čištění a finální ošetření. Ideální pro první návštěvu nebo pravidelnou péči.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-row">
+        <div class="price-name">Základní kosmetické ošetření<small>Diagnostika + čištění + toning + maska, 60 min</small></div>
+        <div class="price-amount">1 200 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Ošetření s enzymatickým peelingem<small>Základní ošetření + enzymatická exfoliace, 75 min</small></div>
+        <div class="price-amount">1 450 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Ošetření s sérem na míru<small>S individuálně vybraným sérem BR, 75 min</small></div>
+        <div class="price-amount">1 600 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Expresní ošetření<small>Rychlé osvěžení pleti, 30 min</small></div>
+        <div class="price-amount">650 Kč</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY II — HLOUBKOVÉ ČIŠTĚNÍ -->
+<div class="cenik-section">
+  <div class="container">
+    <div class="category-header">
+      <div class="cat-num">ii.</div>
+      <h2 class="cat-title">Hloubkové čištění <em>pleti</em></h2>
+      <p class="cat-lead">Intenzivní procedury pro mastnou, smíšenou nebo problematickou pleť. Obnovují hladkost, redukují póry a odstraňují nečistoty z hloubky.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-row">
+        <div class="price-name">Hloubkové čištění<small>Enzymatický peeling + extrakce + antibakteriální maska, 80 min</small></div>
+        <div class="price-amount">1 400 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Hloubkové čištění Premium<small>Rozšířené čištění + galvanie + uklidňující maska, 90 min</small></div>
+        <div class="price-amount">1 750 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Péče o problematickou pleť<small>Akné, rozšířené póry — protokol BR, 75 min</small></div>
+        <div class="price-amount">1 500 Kč</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY III — ANTI-AGING -->
+<div class="cenik-section">
+  <div class="container">
+    <div class="category-header">
+      <div class="cat-num">iii.</div>
+      <h2 class="cat-title">Anti-aging <em>ošetření</em></h2>
+      <p class="cat-lead">Liftingové a zpevňující procedury s aktivními séry Biologique Recherche. Viditelné výsledky od první návštěvy.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-row">
+        <div class="price-name">Anti-aging ošetření<small>Lifting, zpevnění, redukce vrásek — 85 min</small></div>
+        <div class="price-amount">1 800 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Anti-aging Premium<small>Rozšířené liftingové séra + mikromasáž + maska, 100 min</small></div>
+        <div class="price-amount">2 200 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Sérum booster<small>Koncentrované sérum BR aplikované při základním ošetření</small></div>
+        <div class="price-amount">+500 Kč</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY IV — HYDRATACE A OČNÍ -->
+<div class="cenik-section">
+  <div class="container">
+    <div class="category-header">
+      <div class="cat-num">iv.</div>
+      <h2 class="cat-title">Hydratace <em>a oční ošetření</em></h2>
+      <p class="cat-lead">Speciální procedury pro suchou, citlivou nebo dehydratovanou pleť — včetně péče o nejcitlivější partii obličeje.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-row">
+        <div class="price-name">Hydratační ošetření<small>Intenzivní hydratace pro suchou/citlivou pleť, 70 min</small></div>
+        <div class="price-amount">1 300 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Hydratační zábal<small>Hydratační maska s následnou péčí BR, 45 min</small></div>
+        <div class="price-amount">800 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Oční ošetření<small>Redukce tmavých kruhů, otoků a jemných linek, 45 min</small></div>
+        <div class="price-amount">900 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Kompletní oční péče<small>Oční ošetření + liftingové sérum, 60 min</small></div>
+        <div class="price-amount">1 200 Kč</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY V — DOPLŇKOVÉ SLUŽBY -->
+<div class="cenik-section">
+  <div class="container">
+    <div class="category-header">
+      <div class="cat-num">v.</div>
+      <h2 class="cat-title">Doplňkové <em>péče</em></h2>
+      <p class="cat-lead">Doplňkové procedury, které doplní vaše hlavní ošetření nebo mohou sloužit jako samostatný rychlý rituál.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-row">
+        <div class="price-name">Péče o rty<small>Exfoliace + hydratace rtů, 20 min</small></div>
+        <div class="price-amount">400 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Depilace obličeje<small>Horní ret, brada nebo obočí — vosk</small></div>
+        <div class="price-amount">od 150 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Úprava a barvení obočí<small>Tvarování + barvení</small></div>
+        <div class="price-amount">280 Kč</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Konzultace pleti<small>Diagnostika bez ošetření, doporučení domácí péče BR</small></div>
+        <div class="price-amount">zdarma</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTE BOX -->
+<div class="note-section">
+  <div class="container">
+    <div class="note-box">
+      <h3>Poznámka k cenám</h3>
+      <p>Uvedené ceny jsou orientační. Přesná cena ošetření závisí na aktuálním stavu vaší pleti, délce procedury a produktech použitých při ošetření. Konečnou cenu vždy sdělíme před zahájením ošetření. Biologique Recherche produkty jsou dostupné k prodeji — ceny kosmetiky na dotaz.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <div class="container">
+    <div class="cta-eyebrow">Objednejte se</div>
+    <h2>Zkuste péči, která <em>funguje.</em></h2>
+    <p>První ošetření s 15% slevou pro nové klientky — stačí zadat e-mail na hlavní stránce. Nebo rovnou zavolejte.</p>
+    <a href="index.html#discount" class="btn btn-light">Získat 15% slevu →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-mark">B</span>
+          Biologique Recherche
+        </div>
+        <p style="max-width: 36ch;">Luxusní kosmetický salon v Praze 11. Individuální péče o pleť s exkluzivní francouzskou kosmetikou Biologique Recherche.</p>
+      </div>
+      <div>
+        <h4>Salon</h4>
+        <ul>
+          <li><a href="index.html#o-nas">O salonu</a></li>
+          <li><a href="index.html#sluzby">Ošetření</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Praha 11</li>
+          <li><a href="tel:+420724140812">+420 724 140 812</a></li>
+          <li><a href="mailto:proevika@seznam.cz">proevika@seznam.cz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Kosmetický salon Biologique Recherche · Praha 11 · Vytvořeno <span class="script">s láskou</span> pro vaši pleť
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
