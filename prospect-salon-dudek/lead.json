@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon Dudek",
+  "place_id": "ChIJvzbkW66TC0cRCq-g-9tnBDY",
+  "address": "Na Kovárně 472/8, 101 00 Praha 10-Vršovice, Česko",
+  "rating": 5,
+  "reviews": 65,
+  "website": "http://salondudek.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "602 253 094",
+  "email": "salondudek@gmail.com",
+  "maps_url": "https://maps.google.com/?cid=3892350172472061706",
+  "priority": "medium",
+  "folder_name": "prospect-salon-dudek",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-dudek",
+  "template_used": "template-chalk-berry"
+}
