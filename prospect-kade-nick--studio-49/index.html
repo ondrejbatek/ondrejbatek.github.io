@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kadeřnické Studio 49 — Praha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F8F5F8;
+    --navy: #1E2A3A;
+    --navy-deep: #131D2A;
+    --petal: #C4849A;
+    --petal-lt: #E8C4D0;
+    --petal-dk: #9A5870;
+    --cream: #FAF7F4;
+    --muted: #6A6070;
+    --line: #E0D8E4;
+    --white: #FFFFFF;
+    --display: 'Cormorant', Georgia, serif;
+    --body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--navy);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--petal); font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-phone {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .btn-petal {
+    background: var(--petal);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.25s;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .btn-petal:hover { background: var(--petal-dk); }
+
+  /* ─── HERO ─── */
+  .hero {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    min-height: calc(100vh - 68px);
+  }
+  .hero-left {
+    background: var(--navy);
+    padding: 80px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--petal);
+    margin-bottom: 28px;
+  }
+  .hero-headline {
+    font-family: var(--display);
+    font-size: clamp(56px, 6vw, 92px);
+    line-height: 1.0;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--petal);
+    font-weight: 400;
+  }
+  .hero-lead {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(250,247,244,0.6);
+    line-height: 1.8;
+    max-width: 400px;
+    margin-bottom: 44px;
+  }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-petal-solid {
+    background: var(--petal);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 15px 34px;
+    text-decoration: none;
+    transition: background 0.25s;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .btn-petal-solid:hover { background: var(--petal-dk); }
+  .btn-outline-cream {
+    border: 1px solid rgba(250,247,244,0.3);
+    color: rgba(250,247,244,0.8);
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 15px 34px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .btn-outline-cream:hover { border-color: rgba(250,247,244,0.7); color: var(--cream); }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 48px;
+    position: relative;
+  }
+  .hero-dot-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.6;
+  }
+  .hero-frame-right {
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 380px;
+    border: 2px solid var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250,247,244,0.9);
+  }
+  .hero-frame-right::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+  }
+  .hero-monogram-right {
+    font-family: var(--display);
+    font-size: 160px;
+    font-style: italic;
+    color: var(--petal);
+    opacity: 0.22;
+    line-height: 1;
+    user-select: none;
+  }
+  .hero-frame-label {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    background: var(--navy);
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    padding: 8px;
+  }
+
+  /* ─── STATS ─── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat-item {
+    padding: 56px 48px;
+    text-align: center;
+  }
+  .stat-item:nth-child(odd) { background: var(--navy); }
+  .stat-item:nth-child(even) { background: var(--petal-lt); }
+  .stat-number-navy {
+    font-family: var(--display);
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--petal);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .stat-number-petal {
+    font-family: var(--display);
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .stat-label-navy {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5);
+  }
+  .stat-label-petal {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--petal-dk);
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    padding: 100px 60px;
+    background: var(--bg);
+  }
+  .about-photo {
+    position: relative;
+    height: 480px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-inner {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(250,247,244,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-monogram {
+    font-family: var(--display);
+    font-size: 160px;
+    font-style: italic;
+    color: var(--petal);
+    opacity: 0.3;
+    line-height: 1;
+    user-select: none;
+  }
+  .about-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--petal);
+    margin-bottom: 20px;
+  }
+  .about-headline {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .about-headline em { font-style: italic; color: var(--petal); font-weight: 400; }
+  .about-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .about-signature {
+    font-family: var(--display);
+    font-size: 24px;
+    font-style: italic;
+    color: var(--navy);
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .about-signature-role {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services {
+    background: var(--cream);
+    padding: 100px 60px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--petal);
+    margin-bottom: 16px;
+  }
+  .section-headline {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  .section-headline em { font-style: italic; color: var(--petal); font-weight: 400; }
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+  .service-row {
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    align-items: center;
+    gap: 40px;
+    padding: 36px 48px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s;
+  }
+  .service-row:last-child { border-bottom: none; }
+  .service-row:hover { background: var(--bg); }
+  .service-category-name {
+    font-family: var(--display);
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--navy);
+  }
+  .service-items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  .service-item-text {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+  }
+  .service-item-text::before {
+    content: '—';
+    margin-right: 6px;
+    color: var(--petal-lt);
+  }
+  .service-price-range {
+    font-family: var(--display);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--petal);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery {
+    padding: 100px 60px;
+    background: var(--bg);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 240px 240px;
+    gap: 12px;
+    margin-top: 48px;
+  }
+  .gallery-tile {
+    border-radius: 2px;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-tile:nth-child(1) {
+    grid-row: 1 / 3;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  }
+  .gallery-tile:nth-child(2) {
+    background: linear-gradient(145deg, #E8C4D0 0%, #C4849A 100%);
+  }
+  .gallery-tile:nth-child(3) {
+    background: linear-gradient(145deg, #FAF7F4 0%, #E0D8E4 100%);
+  }
+  .gallery-tile:nth-child(4) {
+    background: linear-gradient(145deg, #C4849A 0%, #9A5870 100%);
+  }
+  .gallery-tile:nth-child(5) {
+    background: linear-gradient(145deg, #1E2A3A 0%, #C4849A 100%);
+  }
+  .gallery-tile-label {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+    z-index: 1;
+  }
+  .gallery-tile:nth-child(3) .gallery-tile-label { color: var(--muted); }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    background: var(--navy);
+    padding: 100px 60px;
+  }
+  .testimonials .section-headline { color: var(--cream); }
+  .testimonials .section-eyebrow { color: var(--petal); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .testimonial-card {
+    background: var(--white);
+    padding: 36px 32px;
+    border-left: 3px solid var(--petal);
+    position: relative;
+  }
+  .testimonial-quote-mark {
+    font-family: var(--display);
+    font-size: 96px;
+    font-style: italic;
+    color: var(--petal);
+    opacity: 0.15;
+    line-height: 0.8;
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    user-select: none;
+  }
+  .testimonial-text {
+    font-family: var(--display);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+  }
+  .testimonial-stars {
+    color: var(--petal);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .testimonial-author {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .testimonial-role {
+    font-family: var(--body);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 100px 60px;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--petal);
+    margin-bottom: 20px;
+  }
+  .contact-headline {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .contact-headline em { font-style: italic; color: var(--petal); font-weight: 400; }
+  .contact-tagline {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .btn-petal-navy {
+    background: var(--petal);
+    color: var(--navy);
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 15px 36px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: background 0.25s;
+  }
+  .btn-petal-navy:hover { background: var(--petal-lt); }
+  .contact-info-blocks { display: flex; flex-direction: column; gap: 28px; }
+  .contact-info-block {}
+  .contact-info-label {
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--petal);
+    margin-bottom: 6px;
+  }
+  .contact-info-value {
+    font-family: var(--body);
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 20px;
+  }
+  .hours-row {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .hours-row strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy-deep);
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--petal); font-style: italic; }
+  .footer-copy {
+    font-family: var(--body);
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-family: var(--body);
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--petal); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-right .btn-petal { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-left { padding: 48px 24px; order: 1; }
+    .hero-right { padding: 40px 24px; order: 0; min-height: 280px; }
+    .hero-frame-right { width: 220px; height: 280px; }
+    .hero-monogram-right { font-size: 110px; }
+
+    .stats { grid-template-columns: 1fr; }
+    .stat-item { padding: 40px 24px; }
+
+    .about { grid-template-columns: 1fr; padding: 64px 24px; gap: 40px; }
+    .about-photo { height: 300px; }
+
+    .services { padding: 64px 24px; }
+    .service-row { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
+    .service-price-range { text-align: left; }
+
+    .gallery { padding: 64px 24px; }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+    }
+    .gallery-tile { height: 180px; }
+    .gallery-tile:nth-child(1) { grid-row: auto; }
+
+    .testimonials { padding: 64px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .contact { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+
+    .footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">Salon <span>Krásy</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#testimonials">Reference</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:732603625" class="nav-phone">732 603 625</a>
+    <a href="#contact" class="btn-petal">Rezervovat</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Kadeřnický salon Praha 6</p>
+    <h1 class="hero-headline">Krása<br><em>s duší.</em></h1>
+    <p class="hero-lead">Přijďte zažít péči, která jde nad rámec očekávání. Každý detail je promyšlený — pro výsledek, který přetrvá.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-petal-solid">Rezervovat termín</a>
+      <a href="#services" class="btn-outline-cream">Naše služby</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-dot-pattern"></div>
+    <div class="hero-frame-right">
+      <span class="hero-monogram-right">S</span>
+      <div class="hero-frame-label">Kadeřnické Studio 49</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-item">
+    <div class="stat-number-navy">12+</div>
+    <div class="stat-label-navy">Let zkušeností</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number-petal">2 400+</div>
+    <div class="stat-label-petal">Spokojených klientek</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number-navy">98%</div>
+    <div class="stat-label-navy">Doporučuje dál</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-photo">
+    <div class="about-photo-inner">
+      <span class="about-photo-monogram">S</span>
+    </div>
+  </div>
+  <div class="about-text">
+    <p class="about-eyebrow">Náš příběh</p>
+    <h2 class="about-headline">Místo, kde se<br>cítíte <em>výjimečně.</em></h2>
+    <p class="about-body">Kadeřnické Studio 49 je více než jen kadeřnictví — je to prostor, kde se o vás postaráme s plnou pozorností. Věříme, že dobrý střih nebo barva začínají dobrým nasloucháním.</p>
+    <p class="about-body">Náš tým se neustále vzdělává a sleduje světové trendy, aby vám přinesl to nejlepší z moderní kadeřnické péče v srdci Praha 6.</p>
+    <div class="about-signature">
+      Jméno Příjmení
+      <div class="about-signature-role">Zakladatelka &amp; hlavní stylistka</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <p class="section-eyebrow">Naše péče</p>
+    <h2 class="section-headline">Komplexní <em>kadeřnické</em> služby</h2>
+  </div>
+  <div class="services-list">
+    <div class="service-row">
+      <div class="service-category-name">Střihy</div>
+      <div class="service-items-list">
+        <span class="service-item-text">Dámský střih</span>
+        <span class="service-item-text">Pánský střih</span>
+        <span class="service-item-text">Dětský střih</span>
+        <span class="service-item-text">Foukaná</span>
+      </div>
+      <div class="service-price-range">od 450 Kč</div>
+    </div>
+    <div class="service-row">
+      <div class="service-category-name">Barvy</div>
+      <div class="service-items-list">
+        <span class="service-item-text">Barvení</span>
+        <span class="service-item-text">Balayage</span>
+        <span class="service-item-text">Highlights</span>
+        <span class="service-item-text">Toning</span>
+      </div>
+      <div class="service-price-range">od 800 Kč</div>
+    </div>
+    <div class="service-row">
+      <div class="service-category-name">Péče</div>
+      <div class="service-items-list">
+        <span class="service-item-text">Keratinová kúra</span>
+        <span class="service-item-text">Botox vlasů</span>
+        <span class="service-item-text">Hydratace</span>
+        <span class="service-item-text">Rekonstrukce</span>
+      </div>
+      <div class="service-price-range">od 600 Kč</div>
+    </div>
+    <div class="service-row">
+      <div class="service-category-name">Společenské</div>
+      <div class="service-items-list">
+        <span class="service-item-text">Svatební účes</span>
+        <span class="service-item-text">Večerní účes</span>
+        <span class="service-item-text">Prodlužování</span>
+        <span class="service-item-text">Konzultace</span>
+      </div>
+      <div class="service-price-range">od 900 Kč</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-header">
+    <p class="section-eyebrow">Naše práce</p>
+    <h2 class="section-headline">Galerie <em>proměn</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-tile"><span class="gallery-tile-label">Střihy &amp; Styling</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Balayage</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Barvení</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Toning</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Péče</span></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header">
+    <p class="section-eyebrow">Klientky</p>
+    <h2 class="section-headline">Co říkají <em>ostatní</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Přišla jsem s nejasnou představou a odešla s přesně tím, co jsem hledala. Profesionální, příjemné, skvělý výsledek. Vrátím se určitě!</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">Karolína M.</div>
+      <div class="testimonial-role">Praha 6</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Tohle salon bere svou práci vážně. Barva vydrží, střih roste krásně a pokaždé se cítím jako nová. Léta věrná zákaznice.</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">Jana T.</div>
+      <div class="testimonial-role">Praha 3</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Svatební účes byl naprosto dokonalý. Vydržel celý den, fotky vypadají skvěle. Mockrát děkuji za krásný zážitek!</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">Tereza H.</div>
+      <div class="testimonial-role">Praha</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <p class="contact-eyebrow">Přijďte k nám</p>
+    <h2 class="contact-headline">Rezervujte si<br>svůj <em>termín</em></h2>
+    <p class="contact-tagline">Těšíme se na Vaši návštěvu. Kontaktujte nás telefonicky, e-mailem nebo navštivte náš salon v Praha 6.</p>
+    <a href="tel:732603625" class="btn-petal-navy">Zavolat nyní</a>
+  </div>
+  <div class="contact-right">
+    <div class="contact-info-blocks">
+      <div class="contact-info-block">
+        <div class="contact-info-label">Telefon</div>
+        <div class="contact-info-value">732 603 625</div>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">E-mail</div>
+        <div class="contact-info-value">salon@example.com</div>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Adresa</div>
+        <div class="contact-info-value">Praha 6, Česká republika</div>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Hodiny</div>
+        <div class="hours-grid">
+          <div class="hours-row"><strong>Po – Pá</strong></div>
+          <div class="hours-row">9:00 – 19:00</div>
+          <div class="hours-row"><strong>Sobota</strong></div>
+          <div class="hours-row">9:00 – 16:00</div>
+          <div class="hours-row"><strong>Neděle</strong></div>
+          <div class="hours-row">Zavřeno</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="#" class="footer-logo">Salon <span>Krásy</span></a>
+  <p class="footer-copy">&copy; 2024 Kadeřnické Studio 49 — Praha 6. Všechna práva vyhrazena.</p>
+  <ul class="footer-links">
+    <li><a href="#">Ochrana soukromí</a></li>
+    <li><a href="#">Podmínky</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
