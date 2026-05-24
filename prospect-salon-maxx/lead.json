@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon MAXX",
+  "place_id": "ChIJ3yKsq3qUC0cR1VnOyX4XIrI",
+  "address": "Na Pankráci 932/32, 140 00 Praha 4-Nusle, Česko",
+  "rating": 4.3,
+  "reviews": 44,
+  "website": "https://www.salonmaxx.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "775 499 427",
+  "email": "info@salonmaxx.cz",
+  "maps_url": "https://maps.google.com/?cid=12835847721278396885",
+  "priority": "medium",
+  "folder_name": "prospect-salon-maxx",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-maxx",
+  "template_used": "template-chalk-berry"
+}
