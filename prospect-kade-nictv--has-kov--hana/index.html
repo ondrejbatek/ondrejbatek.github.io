@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kadeřnictví Hasáková Hana — Praha</title>
+<meta name="description" content="Kadeřnictví Hasáková Hana — salon krasy v Praha-Praha">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5ede0;
+    --cream-deep: #ebe0c8;
+    --cream-warm: #efe4cd;
+    --paper: #f9f3e7;
+    --terracotta: #b56a44;
+    --terracotta-deep: #8a4830;
+    --sage: #7d8a6d;
+    --sage-deep: #5b6a4d;
+    --ochre: #c89358;
+    --ink: #2d2419;
+    --brown-soft: #5e4f3c;
+    --muted: #8a7860;
+    --line: #d8c8ad;
+    --display: 'Playfair Display', Georgia, serif;
+    --body: 'EB Garamond', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    font-weight: 400;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Subtle paper texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(181, 106, 68, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(125, 138, 109, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  h1, h2, h3, .display {
+    font-family: var(--display);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.65; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* === NAV === */
+  .nav {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background: rgba(245, 237, 224, 0.95);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .logo {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo svg { color: var(--terracotta); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--brown-soft);
+  }
+  .nav-cta {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--terracotta);
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 2px;
+  }
+
+  /* === EDITORIAL HEADER STRIP === */
+  .editorial-strip {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brown-soft);
+    font-family: var(--body);
+    font-weight: 500;
+  }
+  .editorial-strip span { color: var(--terracotta); }
+
+  /* === HERO === */
+  .hero {
+    padding: 100px 0 120px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .issue-no {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: clamp(56px, 8vw, 110px);
+    color: var(--ink);
+    margin-bottom: 36px;
+    font-weight: 500;
+    line-height: 1.05;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .hero-lead {
+    font-size: 22px;
+    color: var(--brown-soft);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-style: italic;
+    font-family: var(--display);
+    max-width: 36ch;
+  }
+  .hero-lead::first-letter {
+    font-size: 64px;
+    float: left;
+    line-height: 0.9;
+    margin-right: 12px;
+    margin-top: 6px;
+    color: var(--terracotta);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .hero-actions { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--display);
+    font-size: 17px;
+    font-style: italic;
+    transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 32px;
+    border-radius: 100px;
+  }
+  .btn-primary:hover { background: var(--terracotta); opacity: 1; }
+  .btn-text {
+    color: var(--terracotta);
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 4px;
+  }
+
+  /* Hero illustration — abstract organic blob */
+  .hero-illustration {
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .hero-blob {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* === MANIFESTO QUOTE === */
+  .manifesto {
+    background: var(--paper);
+    padding: 100px 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .manifesto-quote {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.3;
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 0 auto 32px;
+  }
+  .manifesto-quote em { color: var(--terracotta); }
+  .manifesto-attribution {
+    font-size: 14px;
+    color: var(--brown-soft);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .manifesto-attribution span { color: var(--terracotta); font-style: italic; text-transform: none; letter-spacing: 0.02em; font-family: var(--display); }
+
+  /* === ABOUT === */
+  .about { padding: 130px 0; }
+  .about-header {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: end;
+  }
+  .section-meta {
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    font-family: var(--body);
+    margin-bottom: 24px;
+  }
+  .section-meta::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--terracotta);
+    vertical-align: middle;
+    margin-right: 14px;
+  }
+  .about h2 {
+    font-size: clamp(40px, 5.5vw, 72px);
+    color: var(--ink);
+  }
+  .about h2 em { font-style: italic; color: var(--terracotta); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-figure {
+    aspect-ratio: 3/4;
+    background: var(--cream-deep);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .about-figure-content {
+    position: absolute;
+    inset: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .about-figure-mark {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 200px;
+    color: var(--terracotta);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    align-self: flex-end;
+    margin-top: auto;
+  }
+  .about-figure-meta {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-soft);
+    font-weight: 500;
+  }
+  .about-figure-meta strong {
+    display: block;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 26px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+  .about-text { padding-top: 12px; }
+  .about-text p { margin-bottom: 24px; color: var(--ink); font-size: 19px; line-height: 1.7; }
+  .about-text p:first-of-type::first-letter {
+    font-size: 80px;
+    float: left;
+    line-height: 0.85;
+    margin-right: 14px;
+    margin-top: 8px;
+    color: var(--terracotta);
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* === SERVICES (MENU STYLE) === */
+  .services {
+    background: var(--paper);
+    padding: 130px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: end;
+  }
+  .services-header h2 { font-size: clamp(48px, 6vw, 84px); color: var(--ink); }
+  .services-header h2 em { font-style: italic; color: var(--terracotta); }
+  .services-header-text {
+    font-size: 18px;
+    color: var(--brown-soft);
+    line-height: 1.7;
+    max-width: 40ch;
+    padding-bottom: 8px;
+  }
+  .services-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
+  }
+  .menu-section {
+    border-top: 2px solid var(--ink);
+    padding-top: 32px;
+    margin-bottom: 56px;
+  }
+  .menu-section h3 {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+  }
+  .menu-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 18px 0;
+    border-bottom: 1px dotted var(--line);
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item-name {
+    font-family: var(--display);
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .menu-item-name em {
+    display: block;
+    font-family: var(--body);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--brown-soft);
+    margin-top: 4px;
+  }
+  .menu-item-dots { flex: 1; border-bottom: 1px dotted var(--brown-soft); margin-bottom: 8px; min-width: 20px; }
+  .menu-item-price {
+    font-family: var(--display);
+    font-size: 20px;
+    color: var(--terracotta);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* === GALLERY === */
+  .gallery {
+    padding: 130px 0;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .gallery-header {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+  .gallery-header h2 {
+    font-size: clamp(44px, 6vw, 80px);
+    color: var(--ink);
+  }
+  .gallery-header h2 em { font-style: italic; color: var(--terracotta); }
+  .gallery-header-text {
+    font-size: 18px;
+    color: var(--brown-soft);
+    line-height: 1.7;
+    font-style: italic;
+    font-family: var(--display);
+    padding-bottom: 6px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .gallery-tile {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .gallery-tile-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.45s ease;
+  }
+  .gallery-tile:hover .gallery-tile-bg { transform: scale(1.05); }
+  .gallery-tile-1 .gallery-tile-bg { background: linear-gradient(145deg, #b56a44 0%, #8a4830 55%, #c89358 100%); }
+  .gallery-tile-2 .gallery-tile-bg { background: linear-gradient(160deg, #f5ede0 0%, #ebe0c8 50%, #d8c8ad 100%); }
+  .gallery-tile-3 .gallery-tile-bg { background: linear-gradient(130deg, #7d8a6d 0%, #5b6a4d 55%, #7d8a6d 100%); }
+  .gallery-tile-4 .gallery-tile-bg { background: linear-gradient(150deg, #ebe0c8 0%, #c89358 45%, #b56a44 100%); }
+  .gallery-tile-5 .gallery-tile-bg { background: linear-gradient(140deg, #f5ede0 0%, #7d8a6d 60%, #5b6a4d 100%); }
+  .gallery-tile-6 .gallery-tile-bg { background: linear-gradient(125deg, #8a4830 0%, #b56a44 50%, #c89358 100%); }
+  .gallery-tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(45, 36, 25, 0.82) 0%, rgba(45, 36, 25, 0) 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .gallery-tile:hover .gallery-tile-overlay { opacity: 1; }
+  .gallery-tile-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--cream);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s ease;
+  }
+  .gallery-tile-2 .gallery-tile-label { color: var(--ink); }
+  .gallery-tile:hover .gallery-tile-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .gallery-tile-label-static {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 12px;
+    opacity: 0.55;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    transition: opacity 0.3s ease;
+  }
+  .gallery-tile-2 .gallery-tile-label-static { color: var(--muted); }
+  .gallery-tile:hover .gallery-tile-label-static { opacity: 0; }
+
+  /* === TESTIMONIALS === */
+  .testimonials {
+    padding: 130px 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .testimonials-header h2 {
+    font-size: clamp(44px, 6vw, 80px);
+    color: var(--ink);
+    margin-top: 12px;
+  }
+  .testimonials-header h2 em { font-style: italic; color: var(--terracotta); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--terracotta);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .testimonial-card:hover::before { opacity: 1; }
+  .testimonial-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .testimonial-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    flex-shrink: 0;
+    border: 1.5px solid var(--line);
+  }
+  .testimonial-avatar-1 { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+  .testimonial-avatar-2 { background: var(--sage); color: var(--cream); border-color: var(--sage); }
+  .testimonial-avatar-3 { background: var(--ochre); color: var(--ink); border-color: var(--ochre); }
+  .testimonial-name {
+    font-family: var(--display);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .testimonial-stars {
+    color: var(--terracotta);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+  .testimonial-quote {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    flex: 1;
+    font-style: italic;
+    font-family: var(--display);
+  }
+  .testimonial-quote::before {
+    content: '\201E';
+    font-size: 52px;
+    color: var(--terracotta);
+    opacity: 0.35;
+    line-height: 0;
+    vertical-align: -26px;
+    margin-right: 4px;
+  }
+  .testimonial-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    background: var(--cream-deep);
+    border: 1px solid var(--line);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    align-self: flex-start;
+    border-radius: 2px;
+    font-family: var(--body);
+    font-style: normal;
+  }
+
+  @media (max-width: 900px) {
+    .gallery { padding: 80px 0; }
+    .gallery-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .testimonials { padding: 80px 0; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .testimonial-card { padding: 36px 28px; }
+  }
+
+  /* === DISCOUNT === */
+  .discount {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 130px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .discount::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(181, 106, 68, 0.18) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .discount::after {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(125, 138, 109, 0.12) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .discount .container { position: relative; z-index: 2; max-width: 720px; }
+  .discount .section-meta { color: var(--ochre); justify-content: center; }
+  .discount .section-meta::before { background: var(--ochre); }
+  .discount h2 {
+    font-size: clamp(48px, 7vw, 88px);
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .discount h2 em { color: var(--ochre); font-style: italic; }
+  .discount-lead {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(245, 237, 224, 0.85);
+    line-height: 1.5;
+    max-width: 42ch;
+    margin: 0 auto 48px;
+  }
+  .discount-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--ochre);
+    padding-bottom: 12px;
+  }
+  .discount-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 0;
+    color: var(--cream);
+    font-size: 18px;
+    font-family: var(--display);
+    font-style: italic;
+    outline: none;
+  }
+  .discount-form input::placeholder { color: rgba(245, 237, 224, 0.5); }
+  .discount-form button {
+    background: transparent;
+    color: var(--ochre);
+    border: none;
+    padding: 14px 0;
+    font-family: var(--display);
+    font-size: 18px;
+    font-style: italic;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  .discount-form button:hover { opacity: 0.7; }
+
+  /* === CONTACT === */
+  .contact { padding: 130px 0; }
+  .contact-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .contact-header .section-meta { display: inline-block; }
+  .contact-header h2 {
+    font-size: clamp(48px, 6vw, 84px);
+    color: var(--ink);
+    margin-top: 8px;
+  }
+  .contact-header h2 em { font-style: italic; color: var(--terracotta); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+  .contact-cell {
+    padding: 56px 48px;
+    border-right: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .contact-cell:nth-child(2) { border-right: none; }
+  .contact-cell:nth-child(3) { border-top: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0; aspect-ratio: 16/10; }
+  .contact-cell:nth-child(4) { border-top: 1px solid var(--line); padding: 0; aspect-ratio: 16/10; overflow: hidden; }
+  .contact-cell:nth-child(4) iframe { width: 100%; height: 100%; border: none; filter: sepia(0.15) saturate(0.85); }
+  .contact-label {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .contact-value {
+    font-family: var(--display);
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .contact-extra { font-style: italic; color: var(--brown-soft); font-size: 16px; }
+  .hours-list { list-style: none; margin-top: 20px; }
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--line);
+    font-size: 17px;
+  }
+  .hours-list li:last-child { border-bottom: none; }
+  .hours-day { color: var(--brown-soft); font-style: italic; font-family: var(--display); }
+  .hours-time { color: var(--ink); font-family: var(--display); }
+  .map-cell-img {
+    width: 100%;
+    height: 100%;
+    background: var(--cream-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown-soft);
+    font-style: italic;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--cream-deep);
+    color: var(--brown-soft);
+    padding: 64px 0 32px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .footer-line {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+  }
+  .footer-bottom {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-inner { padding: 0 24px; }
+    .nav-links { display: none; }
+    body { font-size: 17px; }
+    .hero { padding: 60px 0 80px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-illustration { max-width: 280px; margin: 0 auto; }
+    .manifesto { padding: 60px 0; }
+    .about { padding: 80px 0; }
+    .about-header { grid-template-columns: 1fr; gap: 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-figure { max-width: 320px; margin: 0 auto; }
+    .about-figure-mark { font-size: 140px; }
+    .services { padding: 80px 0; }
+    .services-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+    .services-menu { grid-template-columns: 1fr; gap: 0; }
+    .discount { padding: 80px 0; }
+    .discount-form { flex-direction: column; align-items: center; gap: 16px; padding-bottom: 0; border-bottom: none; }
+    .discount-form input { text-align: center; border-bottom: 2px solid var(--ochre); width: 100%; }
+    .discount-form button { width: 100%; padding: 16px; background: var(--ochre); color: var(--ink); }
+    .contact { padding: 80px 0; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-cell { border-right: none; padding: 40px 28px; }
+    .contact-cell:nth-child(2) { border-top: 1px solid var(--line); }
+    .contact-cell:nth-child(3), .contact-cell:nth-child(4) { aspect-ratio: 16/12; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <circle cx="11" cy="11" r="1.5" fill="currentColor"/>
+      </svg>
+      Kadeřnictví Hasáková Hana
+    </a>
+    <div class="nav-links">
+      <a href="#about">O nás</a>
+      <a href="#services">Služby</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+    <a href="tel:296326109" class="nav-cta">Rezervovat termín</a>
+  </div>
+</nav>
+
+<!-- EDITORIAL STRIP -->
+<div class="editorial-strip">
+  Kadeřnictví Hasáková Hana · Issue <span>01</span> · Praha · Holistická péče · Od 2026
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="issue-no">Studio · 001</div>
+        <h1>Místo, kde<br>se <em>vrátíte</em><br>k sobě.</h1>
+        <p class="hero-lead">Ateliér holistické péče v centru Prahy. Klid, ruční řemeslo, čas pro sebe — bez spěchu.</p>
+        <div class="hero-actions">
+          <a href="tel:296326109" class="btn btn-primary">Rezervovat termín</a>
+          <a href="#services" class="btn btn-text">Naše služby →</a>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <!-- Abstract organic blob illustration -->
+        <svg class="hero-blob" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Large background blob -->
+          <path d="M80 70 Q40 130 60 220 Q80 310 160 350 Q240 390 280 330 Q300 270 280 200 Q260 130 220 90 Q180 50 130 50 Q100 50 80 70 Z" fill="#b56a44" opacity="0.85"/>
+          <!-- Smaller overlapping blob -->
+          <path d="M150 100 Q110 140 110 200 Q110 260 160 280 Q220 300 250 260 Q280 220 270 170 Q260 120 220 100 Q190 90 150 100 Z" fill="#7d8a6d" opacity="0.85"/>
+          <!-- Tiny accent blob -->
+          <ellipse cx="200" cy="180" rx="35" ry="40" fill="#c89358" opacity="0.95"/>
+          <!-- Hand-drawn line accents -->
+          <path d="M50 350 Q120 360 200 355 Q260 350 290 340" stroke="#2d2419" stroke-width="1.5" fill="none" opacity="0.6"/>
+          <path d="M90 380 Q160 388 230 384" stroke="#2d2419" stroke-width="1" fill="none" opacity="0.4"/>
+          <!-- Decorative dots -->
+          <circle cx="80" cy="120" r="3" fill="#2d2419" opacity="0.5"/>
+          <circle cx="270" cy="80" r="2" fill="#2d2419" opacity="0.5"/>
+          <circle cx="60" cy="240" r="2" fill="#2d2419" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="container">
+    <p class="manifesto-quote">
+      „Krása začíná tam, kde končí <em>spěch.</em>"
+    </p>
+    <div class="manifesto-attribution">— filozofie ateliéru, <span>Hanna L.</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-header">
+      <div>
+        <div class="section-meta">Kapitola II — O ateliéru</div>
+      </div>
+      <h2>Tvořeno <em>pro ty,</em> kteří už nechtějí spěchat.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-figure">
+        <div class="about-figure-content">
+          <div class="about-figure-meta">Zakladatelka<strong>Hanna Loupová</strong></div>
+          <div class="about-figure-mark">L</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>Kadeřnictví Hasáková Hana jsme založili, protože nám chyběl prostor — místo v Praze, kde se péče o sebe nepočítá v minutách, ale v hloubce. Kde se nedělá konvejer, ale skutečné řemeslo. Kde si terapeut sedne s vámi pět minut před masáží jen proto, aby vás slyšel.</p>
+        <p>Nepracujeme rychle a ani levně. Pracujeme tak, aby každá návštěva byla chvíle, na kterou se bude celý týden těšit. Holistická kosmetika, ruční masáže, péče o ruce a nohy — všechno s respektem k vašemu času, vašemu tělu a tomu, co opravdu potřebujete.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-meta">Kapitola III — Služby</div>
+        <h2>Náš <em>seznam</em> péče.</h2>
+      </div>
+      <div class="services-header-text">
+        Každá služba je v ateliéru řemeslem. Žádné spěchání, žádné šablony — jen čas věnovaný vám. Konzultace před první návštěvou je vždy zdarma.
+      </div>
+    </div>
+
+    <div class="services-menu">
+      <div>
+        <div class="menu-section">
+          <h3>I. Pleť & péče</h3>
+          <div class="menu-item">
+            <div class="menu-item-name">Holistické ošetření<em>90 min · Hluboké čištění a výživa pleti</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">1 400 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Anti-aging rituál<em>120 min · Pro pleť 35+, intenzivní</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">1 900 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Detox & osvěžení<em>60 min · Lehké ošetření, regenerace</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">900 Kč</div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3>II. Ruce & nohy</h3>
+          <div class="menu-item">
+            <div class="menu-item-name">Klasická manikúra<em>S parafínovým zábalem</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">450 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Pedikúra terapeutická<em>S masáží chodidel</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">650 Kč</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="menu-section">
+          <h3>III. Masáže</h3>
+          <div class="menu-item">
+            <div class="menu-item-name">Klasická relaxační<em>60 min · Záda, šíje, ramena</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">900 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Lymfatická drenáž<em>60 min · Detox, prevence otoků</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">1 100 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Hluboká tkáňová<em>75 min · Pro chronické bolesti</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">1 300 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Aromaterapie celého těla<em>90 min · S esenciálními oleji</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">1 600 Kč</div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3>IV. Rituály</h3>
+          <div class="menu-item">
+            <div class="menu-item-name">Sváteční ritual<em>3 hodiny · Pleť + masáž + manikúra</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">3 200 Kč</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Konzultace<em>Bez závazku, vždy zdarma</em></div>
+            <div class="menu-item-dots"></div>
+            <div class="menu-item-price">Zdarma</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <div>
+        <div class="section-meta">Kapitola IV — Naše práce</div>
+        <h2>Každý účes, <em>příběh.</em></h2>
+      </div>
+      <p class="gallery-header-text">Věříme, že krása vlasů se rodí z pečlivého dialogu. Každá z těchto prací vznikla po konzultaci, s respektem k přirozenosti vlasů i osobnosti klientky.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile gallery-tile-1">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-label-static">Balayage</div>
+        <div class="gallery-tile-label">Balayage</div>
+        <div class="gallery-tile-overlay"></div>
+      </div>
+      <div class="gallery-tile gallery-tile-2">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-label-static">Střih & styling</div>
+        <div class="gallery-tile-label">Střih & styling</div>
+        <div class="gallery-tile-overlay"></div>
+      </div>
+      <div class="gallery-tile gallery-tile-3">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-label-static">Barvení</div>
+        <div class="gallery-tile-label">Barvení</div>
+        <div class="gallery-tile-overlay"></div>
+      </div>
+      <div class="gallery-tile gallery-tile-4">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-label-static">Melíry</div>
+        <div class="gallery-tile-label">Melíry</div>
+        <div class="gallery-tile-overlay"></div>
+      </div>
+      <div class="gallery-tile gallery-tile-5">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-label-static">Společenský účes</div>
+        <div class="gallery-tile-label">Společenský účes</div>
+        <div class="gallery-tile-overlay"></div>
+      </div>
+      <div class="gallery-tile gallery-tile-6">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-label-static">Péče o vlasy</div>
+        <div class="gallery-tile-label">Péče o vlasy</div>
+        <div class="gallery-tile-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-meta" style="display: inline-block;">Kapitola V — Hodnocení</div>
+      <h2>Slova <em>klientek.</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar testimonial-avatar-1">EK</div>
+          <div>
+            <div class="testimonial-name">Eva Krejčová</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">Hledala jsem salón, kde se ke mně nebudou chovat jako na páse. Tady si sedla kadeřnice se mnou na dvacet minut a teprve pak vzala nůžky. Balayage dopadl přesně tak přirozeně, jak jsem si přála.</p>
+        <span class="testimonial-badge">Balayage</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar testimonial-avatar-2">LV</div>
+          <div>
+            <div class="testimonial-name">Lenka Valentová</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">Mám suché, chemicky namáhané vlasy a bála jsem se dalšího melíru. Tady mi navrhly jiný postup a vlasy vypadají zdravěji než před rokem. Cítím tu péči v každém kroku.</p>
+        <span class="testimonial-badge">Melíry</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar testimonial-avatar-3">BR</div>
+          <div>
+            <div class="testimonial-name">Barbora Říhová</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">Společenský účes na křtiny mé dcery — přišla jsem s nejistotou, odešla s dokonalým výsledkem. Prostředí je klidné, voní to bylinkami a kadeřnice ví přesně, co dělá.</p>
+        <span class="testimonial-badge">Společenský účes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT -->
+<section class="discount">
+  <div class="container">
+    <div class="section-meta" style="display: inline-block;">Kapitola VI — Pro nové</div>
+    <h2><em>−15%</em><br>na první návštěvu</h2>
+    <p class="discount-lead">
+      Zanechte nám e-mail a slevový kód vám pošleme do minuty. Žádný spam — jen občasná pozvánka, když budeme mít volný termín.
+    </p>
+    <form class="discount-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Hotovo ✓';">
+      <input type="email" placeholder="váš e-mail" required>
+      <button type="submit">Získat slevu →</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <div class="section-meta">Kapitola VII — Návštěva</div>
+      <h2>Najdete nás <em>tady.</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <div class="contact-label">Adresa</div>
+        <div class="contact-value">Vaše ulice 00<br>Praha-Praha — 000 00</div>
+        <div class="contact-extra">3 minuty od metra. Vstup z dvora.</div>
+        <ul class="hours-list" style="margin-top: 32px;">
+          <li><span class="hours-day">Pondělí — pátek</span><span class="hours-time">10—20</span></li>
+          <li><span class="hours-day">Sobota</span><span class="hours-time">10—16</span></li>
+          <li><span class="hours-day">Neděle</span><span class="hours-time">Na objednávku</span></li>
+        </ul>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-label">Kontakt</div>
+        <a href="tel:296326109" class="contact-value">296 326 109</a>
+        <div class="contact-extra">Hanna — pro rezervace, dotazy a konzultace</div>
+        <div style="margin-top: 32px;">
+          <div class="contact-label">E-mail</div>
+          <a href="mailto:license@php.net" class="contact-value" style="font-size: 22px;">license@php.net</a>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="tel:296326109" class="btn btn-primary">Rezervovat termín</a>
+        </div>
+      </div>
+      <div class="contact-cell">
+        <iframe src="https://maps.google.com/maps?q=Ve+Smečkách+1920/27,+Nové+Město,+110+00+Praha-Praha+1,+Česko&output=embed" loading="lazy"></iframe>
+      </div>
+      <div class="contact-cell">
+        <div class="map-cell-img" style="padding: 40px; flex-direction: column; gap: 16px;">
+          <div style="font-family: var(--display); font-size: 32px; font-style: italic; color: var(--terracotta);">Doprava</div>
+          <div style="text-align: center; max-width: 28ch; line-height: 1.6;"><em>Metro</em> A — Můstek (3 min pěšky)<br><em>Tram</em> 22, 17 — Národní třída<br><em>Parkování</em> v okolí, modrá zóna</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-line"><em>Atelier</em> Lune · Praha</div>
+    <p>Atelier holistické krásy · Vaše ulice 00 · Praha-Praha · 296 326 109</p>
+    <div class="footer-bottom">© 2026 — Vyrobeno s láskou v Praze</div>
+  </div>
+</footer>
+
+</body>
+</html>
