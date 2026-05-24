@@ -1,0 +1,16 @@
+{
+  "salon_name": "Juliet Hair Salon",
+  "place_id": "ChIJFR_U07yUC0cRwKVvhcgOHfQ",
+  "address": "Bruselská 328/8, Vinohrady, 120 00 Praha-Praha 2, Česko",
+  "rating": 4.8,
+  "reviews": 111,
+  "website": "http://www.juliet-hair-salon.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "608 121 634",
+  "email": "info@juliet-hair-salon.cz",
+  "maps_url": "https://maps.google.com/?cid=17590231973973960128",
+  "priority": "medium",
+  "folder_name": "prospect-juliet-hair-salon",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-juliet-hair-salon",
+  "template_used": "template-salon-dore"
+}
