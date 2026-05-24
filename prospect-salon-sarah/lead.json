@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon Sarah",
+  "place_id": "ChIJPWK8vYiUC0cRxWCcbaDgfA0",
+  "address": "Mánesova 1598/60, 120 00 Praha 2-Vinohrady, Česko",
+  "rating": 4.8,
+  "reviews": 110,
+  "website": "http://salon-sarah.eu/",
+  "website_quality": "má vlastní web",
+  "phone": "732 600 800",
+  "email": "recepce@salon-sarah.eu",
+  "maps_url": "https://maps.google.com/?cid=971898599243538629",
+  "priority": "medium",
+  "folder_name": "prospect-salon-sarah",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-sarah",
+  "template_used": "template-art-nouveau"
+}
