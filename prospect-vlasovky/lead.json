@@ -1,0 +1,16 @@
+{
+  "salon_name": "Vlasovky",
+  "place_id": "ChIJzZOaUyGVC0cRzEnSPRmaVLU",
+  "address": "10, V. P. Čkalova 449, Bubeneč, 160 00 Praha-Praha 6, Česko",
+  "rating": 4.7,
+  "reviews": 469,
+  "website": "http://www.vlasovky.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "224 314 269",
+  "email": "vlasovky@volny.cz",
+  "maps_url": "https://maps.google.com/?cid=13066237852110703052",
+  "priority": "medium",
+  "folder_name": "prospect-vlasovky",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-vlasovky",
+  "template_used": "template-ultra-minimal"
+}
