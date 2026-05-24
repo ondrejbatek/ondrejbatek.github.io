@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon Vibi",
+  "place_id": "ChIJTzFQuLPsC0cRoOfS7uVFTUo",
+  "address": "18, Čihákova 974, 190 00 Praha 9-Libeň, Česko",
+  "rating": 4.8,
+  "reviews": 110,
+  "website": "http://www.salon-vibi.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "223 012 141",
+  "email": "salonvibi@seznam.cz",
+  "maps_url": "https://maps.google.com/?cid=5354012385870014368",
+  "priority": "medium",
+  "folder_name": "prospect-salon-vibi",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-vibi",
+  "template_used": "template-dusk-violet"
+}
