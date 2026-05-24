@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Body Studio — Kompletní péče | Kosmická 745, Praha 4 — Háje</title>
+<meta name="description" content="Beauty Body Studio — kadeřnictví, kosmetika, wellness, masáže, manikúra, pedikúra, solárium. Kompletní péče na jednom místě v Praze 4 — Háje.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f6f0e6;
+    --cream-deep: #ece2d0;
+    --teal-soft: #a3c0bc;
+    --teal: #3a6b6b;
+    --teal-deep: #234848;
+    --gold: #c19a5a;
+    --gold-light: #dcb87a;
+    --ink: #1c2a2a;
+    --slate: #6e7a78;
+    --line: #d8cebe;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(163, 192, 188, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 80% 20%, rgba(193, 154, 90, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .script { font-family: var(--script); font-weight: 400; }
+
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* === ORNAMENTAL DIVIDER === */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--gold);
+    margin: 24px 0;
+  }
+  .ornament-line {
+    width: 64px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  }
+  .ornament-symbol {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  /* === NAV === */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(246, 240, 230, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--teal-deep);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: var(--teal-deep); color: var(--cream);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--script); font-size: 24px; line-height: 1; padding-top: 2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .nav-cta {
+    background: var(--teal-deep);
+    color: var(--cream);
+    padding: 11px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(35, 72, 72, 0.18);
+  }
+  .nav-cta:hover {
+    background: var(--teal);
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(35, 72, 72, 0.28);
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 200px 0 140px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(58, 107, 107, 0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -200px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(193, 154, 90, 0.08) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-size: clamp(48px, 8.5vw, 104px);
+    color: var(--ink);
+    margin-bottom: 36px;
+    max-width: 14ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-deep);
+    font-weight: 400;
+  }
+  .hero h1 .accent {
+    font-family: var(--script);
+    font-size: 0.85em;
+    color: var(--teal);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.9;
+    display: inline-block;
+    margin-right: 0.1em;
+  }
+  .hero-subhead {
+    font-size: 18px;
+    color: var(--slate);
+    max-width: 52ch;
+    margin-bottom: 56px;
+    line-height: 1.75;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 34px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--teal-deep);
+    color: var(--cream);
+    box-shadow: 0 6px 20px rgba(35, 72, 72, 0.2);
+  }
+  .btn-primary:hover {
+    background: var(--teal);
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(35, 72, 72, 0.3);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--teal-soft);
+  }
+  .btn-secondary:hover {
+    background: var(--teal-soft);
+    color: var(--cream);
+    opacity: 1;
+    border-color: var(--teal-soft);
+  }
+
+  /* Decorative botanical SVG */
+  .hero-floral {
+    position: absolute;
+    top: 240px;
+    right: 8%;
+    width: 280px;
+    opacity: 0.5;
+    z-index: 1;
+    animation: float 8s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+  }
+
+  /* === TRUST BAR === */
+  .trust {
+    background: var(--cream-deep);
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+  .trust-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--gold);
+  }
+
+  /* === SECTIONS === */
+  section { padding: 130px 0; position: relative; }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-size: clamp(38px, 5.2vw, 60px);
+    margin-bottom: 28px;
+    max-width: 18ch;
+  }
+  .section-title em { font-style: italic; color: var(--teal-deep); font-weight: 400; }
+  .section-lead {
+    font-size: 18px;
+    color: var(--slate);
+    max-width: 56ch;
+    line-height: 1.75;
+  }
+
+  /* === ABOUT === */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-figure {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--teal-soft) 0%, var(--teal) 100%);
+    border-radius: 200px 200px 8px 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(35, 72, 72, 0.15);
+  }
+  .about-figure::before {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    border: 1px solid rgba(246, 240, 230, 0.3);
+    border-radius: 180px 180px 4px 4px;
+    pointer-events: none;
+  }
+  .about-figure-monogram {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgba(246, 240, 230, 0.95);
+    text-align: center;
+  }
+  .about-figure-monogram .script {
+    font-size: 140px;
+    line-height: 0.85;
+    margin-bottom: 8px;
+    color: rgba(246, 240, 230, 0.8);
+  }
+  .about-figure-monogram .role {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(246, 240, 230, 0.6);
+  }
+  .about-figure-frame {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(246, 240, 230, 0.5);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  .about-quote {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--teal-deep);
+    margin: 0 0 32px;
+    padding-left: 24px;
+    border-left: 2px solid var(--gold);
+  }
+  .about-text p { margin-bottom: 22px; color: var(--ink); font-size: 16px; }
+  .about-signature {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .about-signature .script-name {
+    font-family: var(--script);
+    font-size: 42px;
+    color: var(--teal-deep);
+    line-height: 1;
+  }
+  .about-signature .signature-role {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--slate);
+    border-left: 1px solid var(--line);
+    padding-left: 16px;
+  }
+
+  /* === SERVICES === */
+  .services {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 50%, var(--cream) 100%);
+  }
+  .services-header { text-align: center; margin-bottom: 80px; }
+  .services-header .section-eyebrow,
+  .services-header .section-title { margin-left: auto; margin-right: auto; }
+  .services-header .section-eyebrow { justify-content: center; }
+  .services-header .section-title { max-width: none; }
+  .services-header .section-lead { margin-left: auto; margin-right: auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    padding: 48px 36px 40px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 4px 4px 80px 80px;
+    transition: all 0.4s ease;
+    position: relative;
+    text-align: center;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px rgba(35, 72, 72, 0.1);
+    border-color: var(--teal-soft);
+  }
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
+    color: var(--teal-deep);
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); }
+  .service-num {
+    font-family: var(--script);
+    font-size: 24px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .service-desc {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .service-price {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* === DISCOUNT EMAIL === */
+  .discount {
+    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 100%);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .discount::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(193, 154, 90, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .discount::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(163, 192, 188, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .discount .container { max-width: 720px; position: relative; z-index: 2; }
+  .discount .section-eyebrow { color: var(--gold-light); justify-content: center; }
+  .discount .section-eyebrow::before,
+  .discount .section-eyebrow::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--gold-light);
+  }
+  .discount-header { display: flex; justify-content: center; margin-bottom: 28px; }
+  .discount h2 {
+    font-size: clamp(42px, 6.5vw, 68px);
+    margin-bottom: 28px;
+    color: var(--cream);
+  }
+  .discount h2 em {
+    color: var(--gold-light);
+    font-style: italic;
+    display: block;
+    font-family: var(--script);
+    font-size: 0.95em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .discount-lead {
+    color: rgba(246, 240, 230, 0.78);
+    font-size: 17px;
+    margin-bottom: 44px;
+    line-height: 1.7;
+  }
+  .email-form {
+    display: flex;
+    gap: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(246, 240, 230, 0.08);
+    border: 1px solid rgba(246, 240, 230, 0.18);
+    padding: 7px;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+  }
+  .email-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 22px;
+    color: var(--cream);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+  }
+  .email-form input::placeholder { color: rgba(246, 240, 230, 0.5); }
+  .email-form button {
+    background: var(--gold);
+    color: var(--teal-deep);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 14px rgba(193, 154, 90, 0.4);
+  }
+  .email-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(193, 154, 90, 0.5);
+  }
+  .discount-fineprint {
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(246, 240, 230, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* === PRICING PREVIEW === */
+  .pricing-preview {
+    background: var(--cream-deep);
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 80px;
+    margin-top: 64px;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .price-name small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--slate);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--teal-deep);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pricing-cta { margin-top: 64px; text-align: center; }
+
+  /* === CONTACT === */
+  .contact { background: var(--cream); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 72px;
+  }
+  .contact-card {
+    background: var(--cream-deep);
+    padding: 48px 40px;
+    border-radius: 4px 80px 4px 80px;
+    border: 1px solid var(--line);
+  }
+  .contact-block { margin-bottom: 36px; }
+  .contact-block:last-child { margin-bottom: 0; }
+  .contact-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .contact-value {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.4;
+    display: block;
+  }
+  .contact-extra { color: var(--slate); font-size: 14px; }
+  .hours-list { list-style: none; }
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 15px;
+  }
+  .hours-list li:last-child { border-bottom: none; }
+  .hours-day { color: var(--slate); font-family: var(--serif); font-size: 18px; }
+  .hours-time { color: var(--ink); font-weight: 500; }
+
+  /* === MAPS CONTAINER === */
+  .map-container {
+    margin-top: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(35, 72, 72, 0.1);
+  }
+  .map-container iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--ink);
+    color: rgba(246, 240, 230, 0.6);
+    padding: 72px 0 36px;
+    font-size: 14px;
+    position: relative;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+  footer .logo { color: var(--cream); margin-bottom: 20px; }
+  footer .logo-mark { background: var(--gold); color: var(--ink); }
+  footer h4 {
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(246, 240, 230, 0.1);
+    padding-top: 32px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(246, 240, 230, 0.5);
+  }
+  .footer-bottom .script { color: var(--gold-light); font-size: 18px; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 0; }
+    .hero { padding: 140px 0 80px; }
+    .about { grid-template-columns: 1fr; gap: 56px; }
+    .about-figure { aspect-ratio: 4/5; max-width: 360px; margin: 0 auto; border-radius: 160px 160px 6px 6px; }
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 0; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-card { padding: 40px 28px; border-radius: 4px 60px 4px 60px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .email-form { flex-direction: column; border-radius: 16px; padding: 12px; }
+    .email-form input { text-align: center; }
+    .email-form button { width: 100%; padding: 16px; }
+    .trust-inner { justify-content: center; gap: 16px 32px; }
+    .about-quote { font-size: 24px; padding-left: 16px; }
+    .hero-floral { display: none; }
+    .about-figure-monogram .script { font-size: 110px; }
+    .map-container iframe { height: 300px; }
+  }
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+    .about-signature .script-name { font-size: 36px; }
+    .map-container iframe { height: 250px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">B</span>
+      Beauty Body Studio
+    </a>
+    <div class="nav-links">
+      <a href="#o-nas">O nás</a>
+      <a href="#sluzby">Služby</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a href="tel:+420777957458" class="nav-cta">Rezervovat</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Decorative botanical SVG -->
+  <svg class="hero-floral" viewBox="0 0 240 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#3a6b6b" stroke-width="1" stroke-linecap="round" fill="none">
+      <path d="M120 250 Q120 200 130 150 Q140 100 120 60"/>
+      <path d="M120 200 Q90 195 70 180 Q60 170 65 160" />
+      <path d="M120 200 Q150 195 170 180 Q180 170 175 160" />
+      <path d="M124 160 Q105 158 90 150 Q82 144 84 138" />
+      <path d="M126 160 Q145 158 160 150 Q168 144 166 138" />
+      <path d="M126 120 Q110 116 100 108" />
+      <path d="M128 120 Q144 116 154 108" />
+    </g>
+    <!-- Buds -->
+    <g fill="#a3c0bc" opacity="0.7">
+      <ellipse cx="62" cy="158" rx="6" ry="9" transform="rotate(-30 62 158)"/>
+      <ellipse cx="178" cy="158" rx="6" ry="9" transform="rotate(30 178 158)"/>
+      <ellipse cx="82" cy="136" rx="5" ry="7" transform="rotate(-20 82 136)"/>
+      <ellipse cx="168" cy="136" rx="5" ry="7" transform="rotate(20 168 136)"/>
+      <ellipse cx="98" cy="106" rx="4" ry="6" transform="rotate(-15 98 106)"/>
+      <ellipse cx="156" cy="106" rx="4" ry="6" transform="rotate(15 156 106)"/>
+    </g>
+    <!-- Top blossom -->
+    <g fill="#3a6b6b">
+      <circle cx="120" cy="58" r="8"/>
+      <circle cx="112" cy="62" r="6" opacity="0.7"/>
+      <circle cx="128" cy="62" r="6" opacity="0.7"/>
+      <circle cx="115" cy="50" r="6" opacity="0.7"/>
+      <circle cx="125" cy="50" r="6" opacity="0.7"/>
+      <circle cx="120" cy="58" r="3" fill="#dcb87a"/>
+    </g>
+    <!-- Leaves -->
+    <g fill="#a3c0bc" opacity="0.5">
+      <ellipse cx="75" cy="175" rx="8" ry="3" transform="rotate(-30 75 175)"/>
+      <ellipse cx="165" cy="175" rx="8" ry="3" transform="rotate(30 165 175)"/>
+    </g>
+  </svg>
+
+  <div class="container hero-content">
+    <div class="hero-eyebrow">Kompletní péče na jednom místě · Praha 4 · Háje</div>
+    <h1>Vše pro vaši <em>krásu</em> <span class="accent">a wellness.</span></h1>
+    <p class="hero-subhead">
+      Kadeřnictví, kosmetika, masáže, wellness a fitness pod jednou střechou. Studio s tradicí od roku 2007, kde se vaší péče věnujeme komplexně.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:+420777957458" class="btn btn-primary">Rezervovat termín →</a>
+      <a href="#sluzby" class="btn btn-secondary">Naše služby</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Tradice od roku 2007
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Šest oborů péče
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      150m od metra Háje
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Kosmická 745/17, Praha 4
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="o-nas">
+  <div class="container">
+    <div class="about">
+      <div class="about-figure">
+        <div class="about-figure-monogram">
+          <div class="script">JH</div>
+          <div class="role">Judita Halvová · Majitelka</div>
+        </div>
+        <div class="about-figure-frame">Péče s tradicí</div>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">O studiu</div>
+        <h2 class="section-title">Studio, které <em>evoluje s vámi.</em></h2>
+        <p class="about-quote">
+          „Péče o tělo a duši není luxus — je to nezbytnost. Chceme, aby k vám byla dostupná pod jednou střechou."
+        </p>
+        <p>
+          Beauty Body Studio vede Judita Halvová, která si kladla ambici vytvořit místo, kde jsou všechny služby péče cenově dostupné a odborně proveřené. Od roku 2007 se studio rozvíjí — dnes nabízíme kadeřnictví, kosmetiku, masáže, wellness, fitness a péči o nehty, a to s důrazem na kvalitu a individuální přístup.
+        </p>
+        <p>
+          Každý člen našeho týmu prochází kvalifikací a pravidelným vzděláváním. Věříme, že péče o sebe sama by měla být jednoduché a dostupné. Proto jsme si zvolili polohu kousek od metra — aby k vám cesta nebyla prekážkou, ale možností.
+        </p>
+        <div class="about-signature">
+          <div class="script-name">Judita Halvová</div>
+          <div class="signature-role">Majitelka<br>& zakladatelka</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="sluzby" class="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-eyebrow">Naše služby</div>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-symbol">❀</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2 class="section-title">Šest oborů péče <em>na jednom místě.</em></h2>
+      <p class="section-lead">Nemusíte objíždět tři salóny. Všechno vyřešíme při jedné návštěvě — a vše vzájemně slaďuje jeden tým.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="14" cy="42" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="42" cy="42" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="38" x2="48" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="36" y1="38" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-num">i.</div>
+        <h3 class="service-name">Kadeřnictví</h3>
+        <p class="service-desc">Dámské, pánské i dětské stříhání. Barvení, melír, balayage, péče o vlasy. Prodloužení vlasů metodou extend magic.</p>
+        <div class="service-price">Od 250 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M16 12 L40 12 L40 36 C40 42 35 46 28 46 C21 46 16 42 16 36 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M22 22 L34 22 M22 28 L34 28 M22 34 L30 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="28" cy="8" r="3" fill="currentColor"/>
+        </svg>
+        <div class="service-num">ii.</div>
+        <h3 class="service-name">Kosmetika</h3>
+        <p class="service-desc">Čištění, hydratace, regenerace. Mezoterápie, fotostáří, péče o problematickou pleť. Péče dle typu vaší kůže.</p>
+        <div class="service-price">Od 400 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M14 28 Q14 14 28 14 Q42 14 42 28 Q42 42 28 42 Q14 42 14 28 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M22 24 Q28 20 34 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M22 32 Q28 36 34 32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="22" cy="28" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="28" r="1.5" fill="currentColor"/>
+        </svg>
+        <div class="service-num">iii.</div>
+        <h3 class="service-name">Masáže</h3>
+        <p class="service-desc">Relaxační, sportovní, lymfatická drenáž. Ošetření a balení. Pro relaxaci i regeneraci těla.</p>
+        <div class="service-price">Od 500 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M18 42 L18 16 Q18 8 26 8 L30 8 Q38 8 38 16 L38 42" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <ellipse cx="28" cy="16" rx="7" ry="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="16" y1="42" x2="40" y2="42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-num">iv.</div>
+        <h3 class="service-name">Manikúra</h3>
+        <p class="service-desc">Klasická manikúra, gellak, modeláž nehtů, parafínový zábal. Pečlivě a s příslušným detailem.</p>
+        <div class="service-price">Od 300 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M16 34 Q16 18 28 18 Q40 18 40 34 Q40 44 28 44 Q16 44 16 34 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="22" cy="24" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="24" r="1.5" fill="currentColor"/>
+          <circle cx="22" cy="34" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="34" r="1.5" fill="currentColor"/>
+          <circle cx="28" cy="29" r="1.5" fill="currentColor"/>
+        </svg>
+        <div class="service-num">v.</div>
+        <h3 class="service-name">Pedikúra</h3>
+        <p class="service-desc">Mokrá pedikúra, parafínový zábal, péče o nohy. V pohodlném prostředí se věnujeme každému detailu.</p>
+        <div class="service-price">Od 400 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M20 28 L36 28 M28 20 L28 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="28" cy="16" r="2" fill="currentColor"/>
+          <circle cx="40" cy="28" r="2" fill="currentColor"/>
+          <circle cx="28" cy="40" r="2" fill="currentColor"/>
+          <circle cx="16" cy="28" r="2" fill="currentColor"/>
+        </svg>
+        <div class="service-num">vi.</div>
+        <h3 class="service-name">Wellness & Fitness</h3>
+        <p class="service-desc">Fitness centrum, Power Plate, Vacushape, váhové programy. Pro komplexní péči o tělo a postavu.</p>
+        <div class="service-price">Dle programu</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT EMAIL HOOK -->
+<section class="discount" id="discount">
+  <div class="container">
+    <div class="discount-header">
+      <div class="section-eyebrow">Pro nové klientky</div>
+    </div>
+    <h2><em>Patnáct procent</em>na vaši první návštěvu.</h2>
+    <p class="discount-lead">
+      Zanechte nám e-mail a slevový kód vám pošleme do minuty. Žádný spam — jen občasná pozvánka, když budeme mít volný termín nebo novinku, o které byste měla vědět.
+    </p>
+    <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Odesláno ✓';">
+      <input type="email" placeholder="vase@email.cz" required>
+      <button type="submit">Získat slevu</button>
+    </form>
+    <div class="discount-fineprint">Vaše údaje neukládáme nikomu třetímu. Odhlášení kdykoliv jedním klikem.</div>
+  </div>
+</section>
+
+<!-- PRICING PREVIEW -->
+<section class="pricing-preview">
+  <div class="container">
+    <div class="section-eyebrow">Ceník · Výběr</div>
+    <h2 class="section-title">Transparentní ceny, <em>bez překvapení.</em></h2>
+    <p class="section-lead">Vybrané služby. Kompletní ceník najdete na samostatné stránce.</p>
+    <div class="pricing-grid">
+      <div>
+        <div class="price-row">
+          <div class="price-name">Dámský střih<small>Konzultace, mytí, střih, foukaná</small></div>
+          <div class="price-amount">od 450 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Pánský střih<small>Mytí, střih, styling</small></div>
+          <div class="price-amount">od 250 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Barvení vlasů<small>Dle délky a typu vlasů</small></div>
+          <div class="price-amount">dle délky</div>
+        </div>
+      </div>
+      <div>
+        <div class="price-row">
+          <div class="price-name">Kosmetické ošetření<small>Čištění + maska</small></div>
+          <div class="price-amount">od 600 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Masáž<small>Klasická / sportovní, 30 min</small></div>
+          <div class="price-amount">od 500 Kč</div>
+        </div>
+        <div class="price-row">
+          <div class="price-name">Manikúra & Pedikúra<small>Komplet, obě ruce a nohy</small></div>
+          <div class="price-amount">od 700 Kč</div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-cta">
+      <a href="cenik.html" class="btn btn-secondary">Kompletní ceník →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="container">
+    <div class="section-eyebrow">Kde nás najdete</div>
+    <h2 class="section-title">Kosmická 745/17, <em>Praha 4 — Háje.</em></h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-block">
+          <div class="contact-label">Adresa</div>
+          <div class="contact-value">Kosmická 745/17<br>149 00 Praha 4 — Háje</div>
+          <div class="contact-extra">150m od stanice metra Háje (linka C), snadná dostupnost, parkování</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Telefon</div>
+          <a href="tel:+420777957458" class="contact-value">+420 777 957 458</a>
+          <div class="contact-extra">Objednávky a dotazy — kadeřnictví</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">E-mail</div>
+          <a href="mailto:info@bbstudio.cz" class="contact-value">info@bbstudio.cz</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-label">Otevírací doba</div>
+        <ul class="hours-list" style="margin-top: 8px;">
+          <li><span class="hours-day">Pondělí–Pátek</span><span class="hours-time">9:00 — 19:00</span></li>
+          <li><span class="hours-day">Sobota</span><span class="hours-time">Na objednávku</span></li>
+          <li><span class="hours-day">Neděle</span><span class="hours-time">Zavřeno</span></li>
+        </ul>
+        <div style="margin-top: 32px;">
+          <a href="tel:+420777957458" class="btn btn-primary">Rezervovat termín →</a>
+        </div>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://maps.google.com/maps?q=Kosmick%C3%A1+745%2F17,+149+00+Praha+4+-+H%C3%A1je&output=embed"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-mark">B</span>
+          Beauty Body Studio
+        </div>
+        <p style="max-width: 36ch;">Kompletní péče od roku 2007. Kadeřnictví, kosmetika, wellness, masáže a fitness pod jednou střechou. Tradice a kvalita na Praze 4 — Háje.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#o-nas">O nás</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Kosmická 745/17, Praha 4</li>
+          <li><a href="tel:+420777957458">+420 777 957 458</a></li>
+          <li><a href="mailto:info@bbstudio.cz">info@bbstudio.cz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Beauty Body Studio · Kosmická 745/17, Praha 4 — Háje · Vytvořeno <span class="script">s láskou</span> pro vaši péči
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
