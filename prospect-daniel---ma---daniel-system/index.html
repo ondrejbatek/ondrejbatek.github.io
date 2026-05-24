@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Šíma - Daniel System — Praha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF6F1;
+    --bg-warm: #F2EBE0;
+    --copper: #B87333;
+    --copper-lt: #D4956A;
+    --copper-dk: #8A5220;
+    --ink: #1C1410;
+    --muted: #7A6A58;
+    --line: #E0D5C5;
+    --white: #FFFFFF;
+    --display: 'Libre Baskerville', Georgia, serif;
+    --body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--copper); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--copper); }
+  .nav-phone {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--copper);
+    text-decoration: none;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: calc(100vh - 68px);
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 60px;
+    gap: 80px;
+  }
+  .hero-left {}
+  .hero-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--copper);
+    margin-bottom: 28px;
+  }
+  .hero-headline {
+    font-family: var(--display);
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 1.05;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--copper);
+    font-weight: 400;
+  }
+  .hero-lead {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 420px;
+    margin-bottom: 44px;
+  }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: background 0.25s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--copper-dk); }
+  .btn-secondary {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--copper);
+    padding: 16px 0;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--copper); }
+
+  .hero-right { display: flex; justify-content: center; align-items: center; }
+  .hero-frame {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-frame::before {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+  }
+  .hero-monogram {
+    font-family: var(--display);
+    font-size: 180px;
+    font-style: italic;
+    color: var(--copper);
+    opacity: 0.18;
+    line-height: 1;
+    user-select: none;
+  }
+  .hero-atelier-label {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+  }
+  .hero-badge {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 72px;
+    height: 72px;
+    background: var(--copper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(184,115,51,0.35);
+  }
+  .hero-badge-text {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    text-align: center;
+  }
+  .hero-badge-sub {
+    font-family: var(--body);
+    font-size: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ─── STATS ─── */
+  .stats {
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat-item {
+    padding: 60px 48px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: var(--display);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--copper);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .stat-label {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    padding: 100px 60px;
+    background: var(--bg);
+  }
+  .about-photo {
+    position: relative;
+    height: 480px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo::after {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    pointer-events: none;
+  }
+  .about-photo-monogram {
+    font-family: var(--display);
+    font-size: 160px;
+    font-style: italic;
+    color: var(--copper);
+    opacity: 0.25;
+    line-height: 1;
+    user-select: none;
+  }
+  .about-photo-tag {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--copper);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 10px 20px;
+  }
+  .about-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--copper);
+    margin-bottom: 20px;
+  }
+  .about-headline {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .about-headline em { font-style: italic; color: var(--copper); font-weight: 400; }
+  .about-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .about-signature {
+    font-family: var(--display);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .about-signature-role {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services {
+    background: var(--bg-warm);
+    padding: 100px 60px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--copper);
+    margin-bottom: 16px;
+  }
+  .section-headline {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .section-headline em { font-style: italic; color: var(--copper); font-weight: 400; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+  .service-col {
+    padding: 40px 32px;
+    border-right: 1px solid var(--line);
+    background: var(--white);
+  }
+  .service-col:last-child { border-right: none; }
+  .service-num {
+    font-family: var(--display);
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--copper);
+    opacity: 0.35;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .service-category {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .service-tag {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .service-price {
+    font-family: var(--display);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--copper);
+    font-weight: 400;
+  }
+  .service-price-label {
+    font-family: var(--body);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery {
+    padding: 100px 60px;
+    background: var(--bg);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 48px;
+  }
+  .gallery-tile {
+    height: 320px;
+    border-radius: 2px;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-tile-label {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.8);
+  }
+  .gallery-tile:nth-child(1) { background: linear-gradient(145deg, #B87333 0%, #8A5220 100%); }
+  .gallery-tile:nth-child(2) { background: linear-gradient(145deg, #F2EBE0 0%, #E0D5C5 100%); }
+  .gallery-tile:nth-child(2) .gallery-tile-label { color: var(--muted); }
+  .gallery-tile:nth-child(3) { background: linear-gradient(145deg, #1C1410 0%, #2E1F15 100%); }
+  .gallery-tile:nth-child(4) { background: linear-gradient(145deg, #D4956A 0%, #B87333 100%); }
+  .gallery-tile:nth-child(5) { background: linear-gradient(145deg, #E8D5B8 0%, #D4956A 60%, #B87333 100%); }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    background: var(--white);
+    padding: 100px 60px;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+  }
+  .testimonial-card {
+    background: var(--bg);
+    padding: 36px 32px;
+    border-top: 3px solid var(--copper);
+    position: relative;
+  }
+  .testimonial-quote-mark {
+    font-family: var(--display);
+    font-size: 96px;
+    font-style: italic;
+    color: var(--copper);
+    opacity: 0.12;
+    line-height: 0.8;
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    user-select: none;
+  }
+  .testimonial-text {
+    font-family: var(--display);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    padding-top: 36px;
+  }
+  .testimonial-stars {
+    color: var(--copper);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .testimonial-author {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .testimonial-role {
+    font-family: var(--body);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 100px 60px;
+    gap: 80px;
+  }
+  .contact-left {}
+  .contact-eyebrow {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--copper);
+    margin-bottom: 20px;
+  }
+  .contact-headline {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .contact-headline em { font-style: italic; color: var(--copper); font-weight: 400; }
+  .contact-tagline {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .btn-copper {
+    background: var(--copper);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s;
+  }
+  .btn-copper:hover { background: var(--copper-lt); }
+  .contact-right {}
+  .contact-info-blocks { display: flex; flex-direction: column; gap: 28px; }
+  .contact-info-block {}
+  .contact-info-label {
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--copper);
+    margin-bottom: 6px;
+  }
+  .contact-info-value {
+    font-family: var(--body);
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+  }
+  .hours-row {
+    font-family: var(--body);
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+  .hours-row strong {
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: #110D0A;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--copper); }
+  .footer-copy {
+    font-family: var(--body);
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-family: var(--body);
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--copper); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav { padding: 0 24px; }
+    .nav-links { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 48px;
+      min-height: auto;
+    }
+    .hero-right { order: -1; }
+    .hero-frame { width: 100%; max-width: 340px; height: 320px; }
+    .hero-monogram { font-size: 120px; }
+
+    .stats { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 40px 24px; }
+    .stat-item:last-child { border-bottom: none; }
+
+    .about { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+    .about-photo { height: 320px; }
+
+    .services { padding: 64px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-col { border-right: none; border-bottom: 1px solid var(--line); }
+    .service-col:last-child { border-bottom: none; }
+
+    .gallery { padding: 64px 24px; }
+    .gallery-grid { grid-template-columns: 1fr; gap: 8px; }
+    .gallery-tile { height: 200px; }
+
+    .testimonials { padding: 64px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .contact { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+
+    .footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">Salon <span>Krásy</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#testimonials">Reference</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <a href="tel:602391069" class="nav-phone">602 391 069</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Atelier krásy &amp; péče — Praha 4</p>
+    <h1 class="hero-headline">Umění,<br>které<br><em>vydrží.</em></h1>
+    <p class="hero-lead">Každý střih, každý tón, každý detail — s péčí a precizností, která se projeví. Vítejte v salonu, kde krása není trendem, ale řemeslem.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Rezervovat termín</a>
+      <a href="#services" class="btn-secondary">Prohlédnout služby</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-frame">
+      <span class="hero-monogram">S</span>
+      <span class="hero-atelier-label">Atelier</span>
+      <div class="hero-badge">
+        <div class="hero-badge-text">12+</div>
+        <div class="hero-badge-sub">let</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-item">
+    <div class="stat-number">12+</div>
+    <div class="stat-label">Let zkušeností</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">2 400+</div>
+    <div class="stat-label">Spokojených klientek</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">98%</div>
+    <div class="stat-label">Doporučuje dál</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-photo">
+    <span class="about-photo-monogram">S</span>
+    <div class="about-photo-tag">12 let praxe</div>
+  </div>
+  <div class="about-text">
+    <p class="about-eyebrow">Náš příběh</p>
+    <h2 class="about-headline">Salon, kde se<br>preciznost stává<br><em>uměním.</em></h2>
+    <p class="about-body">Daniel Šíma - Daniel System vznikl z jednoduché víry: každá žena si zaslouží péči, která ji opravdu vidí. Náš tým zkušených specialistek kombinuje technickou dokonalost s individuálním přístupem — protože vaše krása je jedinečná.</p>
+    <p class="about-body">Pracujeme výhradně s prémiovými produkty a neustále se vzdělávame v nejnovějších technikách, aby výsledek byl vždy nad očekávání.</p>
+    <div class="about-signature">
+      Jméno Příjmení
+      <div class="about-signature-role">Zakladatelka &amp; hlavní stylistka</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <p class="section-eyebrow">Naše péče</p>
+    <h2 class="section-headline">Komplexní <em>kadeřnické</em> služby</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-col">
+      <div class="service-num">01</div>
+      <div class="service-category">Střihy</div>
+      <div class="service-tags">
+        <span class="service-tag">Dámský střih</span>
+        <span class="service-tag">Pánský střih</span>
+        <span class="service-tag">Dětský střih</span>
+        <span class="service-tag">Foukaná</span>
+      </div>
+      <div class="service-price">od 450 Kč</div>
+      <div class="service-price-label">dle délky vlasů</div>
+    </div>
+    <div class="service-col">
+      <div class="service-num">02</div>
+      <div class="service-category">Barvy</div>
+      <div class="service-tags">
+        <span class="service-tag">Barvení</span>
+        <span class="service-tag">Balayage</span>
+        <span class="service-tag">Highlights</span>
+        <span class="service-tag">Toning</span>
+      </div>
+      <div class="service-price">od 800 Kč</div>
+      <div class="service-price-label">dle techniky</div>
+    </div>
+    <div class="service-col">
+      <div class="service-num">03</div>
+      <div class="service-category">Péče</div>
+      <div class="service-tags">
+        <span class="service-tag">Keratinová kúra</span>
+        <span class="service-tag">Botox vlasů</span>
+        <span class="service-tag">Hydratace</span>
+        <span class="service-tag">Rekonstrukce</span>
+      </div>
+      <div class="service-price">od 600 Kč</div>
+      <div class="service-price-label">dle délky vlasů</div>
+    </div>
+    <div class="service-col">
+      <div class="service-num">04</div>
+      <div class="service-category">Společenské</div>
+      <div class="service-tags">
+        <span class="service-tag">Svatební</span>
+        <span class="service-tag">Večerní účes</span>
+        <span class="service-tag">Prodlužování</span>
+        <span class="service-tag">Konsultace</span>
+      </div>
+      <div class="service-price">od 900 Kč</div>
+      <div class="service-price-label">dle náročnosti</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-header">
+    <p class="section-eyebrow">Naše práce</p>
+    <h2 class="section-headline">Galerie <em>proměn</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-tile"><span class="gallery-tile-label">Barvení</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Střihy</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Společenské</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Balayage</span></div>
+    <div class="gallery-tile"><span class="gallery-tile-label">Péče</span></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header">
+    <p class="section-eyebrow">Klientky</p>
+    <h2 class="section-headline">Co říkají <em>ostatní</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Nejlepší salon, ve kterém jsem kdy byla. Profesionální přístup, nádherný výsledek a příjemná atmosféra. Určitě se vrátím!</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">Markéta N.</div>
+      <div class="testimonial-role">Praha</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Konečně salon, který opravdu naslouchá. Balayage dopadl přesně tak, jak jsem si přála — přirozený, elegantní, dlouhotrvající.</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">Lucie K.</div>
+      <div class="testimonial-role">Praha 4</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">Chodím sem více než tři roky a nikdy jsem neodešla zklamaná. Jméno je opravdový expert na barvy a každá návštěva je zážitek.</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">Petra V.</div>
+      <div class="testimonial-role">Praha 4</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <p class="contact-eyebrow">Přijďte k nám</p>
+    <h2 class="contact-headline">Rezervujte si<br>svůj <em>termín</em></h2>
+    <p class="contact-tagline">Rádi Vás uvítáme. Kontaktujte nás telefonicky, e-mailem nebo nás jednoduše navštivte v Praha 4.</p>
+    <a href="tel:602391069" class="btn-copper">Zavolat nyní</a>
+  </div>
+  <div class="contact-right">
+    <div class="contact-info-blocks">
+      <div class="contact-info-block">
+        <div class="contact-info-label">Telefon</div>
+        <div class="contact-info-value">602 391 069</div>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">E-mail</div>
+        <div class="contact-info-value">salon@example.com</div>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Adresa</div>
+        <div class="contact-info-value">Praha 4, Česká republika</div>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Hodiny</div>
+        <div class="hours-grid">
+          <div class="hours-row"><strong>Po – Pá</strong></div>
+          <div class="hours-row">9:00 – 19:00</div>
+          <div class="hours-row"><strong>Sobota</strong></div>
+          <div class="hours-row">9:00 – 16:00</div>
+          <div class="hours-row"><strong>Neděle</strong></div>
+          <div class="hours-row">Zavřeno</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="#" class="footer-logo">Salon <span>Krásy</span></a>
+  <p class="footer-copy">&copy; 2024 Daniel Šíma - Daniel System — Praha 4. Všechna práva vyhrazena.</p>
+  <ul class="footer-links">
+    <li><a href="#">Ochrana soukromí</a></li>
+    <li><a href="#">Podmínky</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
