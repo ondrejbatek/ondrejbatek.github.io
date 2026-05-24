@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOMAS ARSOV HAIR & BEAUTY INSTITUTE s.r.o. — Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf6ee;
+      --bg-deep: #f0e8d4;
+      --forest: #2d4a2e;
+      --forest-light: #4a6e4a;
+      --forest-soft: rgba(45,74,46,0.08);
+      --gold: #c8952a;
+      --gold-light: #e8c070;
+      --ivory: #faf6ee;
+      --ink: #1a2218;
+      --muted: #6a7860;
+      --line: #d8cca8;
+      --champagne: #e8d8a8;
+      --display: 'Cormorant Garamond', Georgia, serif;
+      --body: 'EB Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 18px;
+    }
+
+    /* ──────────────────── NAV ──────────────────── */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ivory);
+      border-bottom: 2px solid var(--forest);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 76px;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      line-height: 1;
+    }
+
+    .nav-logo-atelier {
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--forest);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-beaute {
+      font-family: var(--display);
+      font-variant: small-caps;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: var(--body);
+      font-size: 16px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--forest);
+    }
+
+    .nav-cta {
+      background: var(--forest) !important;
+      color: var(--ivory) !important;
+      padding: 10px 26px;
+      border-radius: 0;
+      font-size: 15px !important;
+      letter-spacing: 0.08em;
+      transition: background 0.2s !important;
+      font-variant: small-caps;
+    }
+
+    .nav-cta:hover {
+      background: var(--forest-light) !important;
+      color: var(--champagne) !important;
+    }
+
+    /* ──────────────────── HERO ──────────────────── */
+
+    .hero {
+      background: var(--bg);
+      text-align: center;
+      padding: 120px 48px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(200,149,42,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 35% at 80% 15%, rgba(45,74,46,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--body);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '—';
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-weight: 300;
+      font-style: normal;
+      font-size: clamp(64px, 11vw, 140px);
+      line-height: 1.0;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      max-width: 900px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .hero-sub {
+      font-family: var(--body);
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: var(--ivory);
+      padding: 16px 44px;
+      border-radius: 0;
+      font-family: var(--body);
+      font-size: 17px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+      font-variant: small-caps;
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+      padding: 16px 44px;
+      border-radius: 0;
+      font-family: var(--body);
+      font-size: 17px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1.5px solid var(--forest);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+      font-variant: small-caps;
+    }
+
+    .btn-outline:hover {
+      background: var(--forest-soft);
+    }
+
+    /* ──────────────────── HERO BOTANICAL SVG ──────────────────── */
+
+    .hero-botanical {
+      width: 100%;
+      max-width: 820px;
+      margin: 8px auto -16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-botanical svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ──────────────────── ART NOUVEAU SVG DIVIDER (between hero and trust) ──────────────────── */
+
+    .divider-botanical {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--bg);
+      padding: 4px 0;
+    }
+
+    .divider-botanical svg {
+      width: 100%;
+      max-width: 900px;
+      height: 80px;
+      display: block;
+    }
+
+    /* ──────────────────── TRUST BAR ──────────────────── */
+
+    .trust-bar {
+      background: var(--bg-deep);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 36px;
+      border-right: 1px solid var(--line);
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-icon {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 32px;
+      color: var(--gold);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .trust-text strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .trust-text span {
+      font-family: var(--body);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ──────────────────── SECTION SHARED ──────────────────── */
+
+    section {
+      padding: 104px 56px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--body);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(36px, 4vw, 56px);
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    /* ──────────────────── ABOUT ──────────────────── */
+
+    #o-salonu {
+      background: var(--ivory);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+
+    .about-figure {
+      aspect-ratio: 3/4;
+      background: linear-gradient(170deg, var(--forest-light) 0%, var(--forest) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-figure-inset {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(232,192,112,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-figure-inset::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(232,192,112,0.15);
+    }
+
+    .about-monogram {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 130px;
+      color: var(--gold);
+      opacity: 0.45;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-corner {
+      position: absolute;
+      font-size: 22px;
+      color: rgba(232,192,112,0.5);
+      font-family: var(--display);
+      font-style: italic;
+    }
+
+    .about-corner.tl { top: 28px; left: 28px; }
+    .about-corner.tr { top: 28px; right: 28px; }
+    .about-corner.bl { bottom: 28px; left: 28px; }
+    .about-corner.br { bottom: 28px; right: 28px; }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .about-quote {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.5;
+      color: var(--forest);
+      padding-left: 28px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .about-text {
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    .about-signature {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 24px;
+      color: var(--forest);
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-signature span {
+      display: block;
+      font-family: var(--body);
+      font-style: normal;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ──────────────────── SERVICES ──────────────────── */
+
+    #sluzby {
+      background: var(--bg);
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+      gap: 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--line);
+    }
+
+    .service-card {
+      background: var(--ivory);
+      border-top: 2px solid var(--gold);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: background 0.25s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: var(--bg-deep);
+    }
+
+    .service-number {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 36px;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.8;
+    }
+
+    .service-name {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .service-price {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--forest);
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .service-price span {
+      font-family: var(--body);
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ──────────────────── GALLERY ──────────────────── */
+
+    #fotogalerie {
+      background: var(--ivory);
+      padding: 96px 56px;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      background: var(--line);
+    }
+
+    .gallery-tile {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-tile:nth-child(1) {
+      background: linear-gradient(150deg, #3a5c3b 0%, #2d4a2e 50%, #1e3420 100%);
+    }
+    .gallery-tile:nth-child(2) {
+      background: linear-gradient(140deg, #c8952a 0%, #a07018 50%, #7a5210 100%);
+    }
+    .gallery-tile:nth-child(3) {
+      background: linear-gradient(155deg, #4a6e4a 0%, #2d4a2e 55%, #1a2e1b 100%);
+    }
+    .gallery-tile:nth-child(4) {
+      background: linear-gradient(130deg, #e8d8a8 0%, #d8c888 40%, #c8a850 100%);
+    }
+    .gallery-tile:nth-child(5) {
+      background: linear-gradient(145deg, #2d4a2e 0%, #4a6e4a 50%, #3a5c3b 100%);
+    }
+    .gallery-tile:nth-child(6) {
+      background: linear-gradient(135deg, #a07018 0%, #c8952a 50%, #e8c070 100%);
+    }
+
+    /* Art nouveau corner ornaments on tiles */
+    .gallery-tile::before {
+      content: '✦';
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      font-family: var(--display);
+      font-size: 12px;
+      color: rgba(200,149,42,0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gallery-tile::after {
+      content: '✦';
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      font-family: var(--display);
+      font-size: 12px;
+      color: rgba(200,149,42,0.5);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gallery-tile-border {
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(200,149,42,0.2);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .gallery-tile-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 20px 16px;
+      background: linear-gradient(to top, rgba(26,34,24,0.75) 0%, transparent 100%);
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 17px;
+      color: rgba(232,216,168,0.7);
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+      z-index: 3;
+    }
+
+    .gallery-tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(45,74,46,0.0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.35s;
+      z-index: 4;
+    }
+
+    .gallery-tile-overlay-text {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 24px;
+      color: rgba(232,216,168,0);
+      letter-spacing: 0.06em;
+      transition: color 0.35s;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .gallery-tile:hover .gallery-tile-overlay {
+      background: rgba(45,74,46,0.55);
+    }
+
+    .gallery-tile:hover .gallery-tile-overlay-text {
+      color: rgba(232,216,168,0.95);
+    }
+
+    .gallery-tile:hover .gallery-tile-label {
+      color: rgba(232,216,168,0.3);
+    }
+
+    /* Section ornament between services and gallery */
+    .section-ornament {
+      text-align: center;
+      padding: 16px 0 0;
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 20px;
+      color: rgba(200,149,42,0.35);
+      letter-spacing: 0.3em;
+    }
+
+    /* ──────────────────── ORNAMENTAL SVG DIVIDER ──────────────────── */
+
+    .divider-wave {
+      background: var(--bg);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ──────────────────── DISCOUNT ──────────────────── */
+
+    .discount-section {
+      background: var(--forest);
+      padding: 104px 56px;
+    }
+
+    .discount-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .discount-ornament {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 64px;
+      color: var(--gold);
+      opacity: 0.6;
+      line-height: 1;
+      margin-bottom: -12px;
+    }
+
+    .discount-badge {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 88px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .discount-title {
+      font-family: var(--display);
+      font-weight: 300;
+      font-size: clamp(28px, 3.5vw, 42px);
+      color: var(--ivory);
+      line-height: 1.25;
+    }
+
+    .discount-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .discount-sub {
+      font-family: var(--body);
+      font-size: 17px;
+      color: rgba(232,216,168,0.75);
+      max-width: 480px;
+      line-height: 1.8;
+    }
+
+    .discount-form {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid rgba(232,192,112,0.4);
+    }
+
+    .discount-form input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: var(--body);
+      font-size: 16px;
+      color: var(--ink);
+      background: var(--ivory);
+      padding: 16px 20px;
+    }
+
+    .discount-form input::placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .discount-form button {
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      padding: 16px 28px;
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    .discount-form button:hover {
+      background: var(--gold-light);
+    }
+
+    .discount-fine {
+      font-family: var(--body);
+      font-size: 13px;
+      color: rgba(232,216,168,0.5);
+      font-style: italic;
+    }
+
+    /* ──────────────────── PRICING ──────────────────── */
+
+    #cenik {
+      background: var(--bg-deep);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--line);
+    }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 36px;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--line);
+      gap: 16px;
+      transition: background 0.18s;
+    }
+
+    .pricing-row:hover {
+      background: var(--bg);
+    }
+
+    .pricing-row:nth-child(odd) {
+      border-right: 1px solid var(--line);
+    }
+
+    .pricing-row:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .pricing-service {
+      font-family: var(--display);
+      font-size: 19px;
+      color: var(--ink);
+    }
+
+    .pricing-service small {
+      display: block;
+      font-family: var(--body);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .pricing-price {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 32px;
+      font-family: var(--body);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* ──────────────────── TESTIMONIALS ──────────────────── */
+
+    #hodnoceni {
+      background: var(--bg);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-ornament {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 40px;
+      color: var(--gold);
+      opacity: 0.45;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--line);
+    }
+
+    .testimonial-card {
+      background: var(--ivory);
+      border-top: 2px solid var(--gold);
+      padding: 44px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    .testimonial-card:hover {
+      background: var(--bg-deep);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--display);
+      font-size: 120px;
+      color: var(--gold);
+      opacity: 0.08;
+      line-height: 1;
+      position: absolute;
+      top: 8px;
+      right: 20px;
+      pointer-events: none;
+    }
+
+    .testimonial-header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px;
+      flex-shrink: 0;
+      border: 1.5px solid var(--gold);
+    }
+
+    .testimonial-avatar.av1 { background: linear-gradient(135deg, #2d4a2e, #4a6e4a); color: var(--gold); }
+    .testimonial-avatar.av2 { background: linear-gradient(135deg, #c8952a, #a07018); color: var(--ivory); }
+    .testimonial-avatar.av3 { background: linear-gradient(135deg, #4a6e4a, #2d4a2e); color: var(--gold-light); }
+
+    .testimonial-name {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .testimonial-service {
+      font-family: var(--body);
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .testimonial-tag {
+      display: inline-block;
+      font-family: var(--body);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold);
+      border-bottom: 1px solid rgba(200,149,42,0.4);
+      padding-bottom: 2px;
+      width: fit-content;
+      letter-spacing: 0.04em;
+    }
+
+    /* ──────────────────── CONTACT ──────────────────── */
+
+    #kontakt {
+      background: var(--ivory);
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--bg-deep);
+      border: 1px solid var(--line);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-card:nth-child(3) {
+      padding: 0;
+      overflow: hidden;
+      border: none;
+      min-height: 300px;
+    }
+
+    .contact-card:nth-child(3) iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: 0;
+      display: block;
+    }
+
+    .contact-card-icon {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .contact-card-title {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .contact-card p {
+      font-family: var(--body);
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-card a {
+      color: var(--forest);
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      color: var(--gold);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--body);
+      font-size: 15px;
+      color: var(--muted);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .hours-row strong {
+      font-family: var(--display);
+      font-size: 16px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ──────────────────── FOOTER ──────────────────── */
+
+    footer {
+      background: #1a2e1b;
+      color: rgba(232,216,168,0.75);
+      padding: 72px 56px 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 56px;
+      max-width: 1100px;
+      margin: 0 auto 56px;
+    }
+
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-logo-atelier {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--champagne);
+      display: block;
+      line-height: 1;
+    }
+
+    .footer-logo-beaute {
+      font-family: var(--display);
+      font-variant: small-caps;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+    }
+
+    .footer-desc {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(232,216,168,0.6);
+      margin-top: 12px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--display);
+      font-variant: small-caps;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col ul a {
+      text-decoration: none;
+      font-family: var(--body);
+      font-size: 15px;
+      color: rgba(232,216,168,0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--champagne);
+    }
+
+    .footer-divider-ornament {
+      text-align: center;
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 22px;
+      color: rgba(200,149,42,0.35);
+      letter-spacing: 0.3em;
+      margin-bottom: 28px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(232,216,168,0.15);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      font-family: var(--body);
+      font-size: 14px;
+      color: rgba(232,216,168,0.4);
+    }
+
+    /* ──────────────────── RESPONSIVE ──────────────────── */
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 24px;
+        height: 68px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 24px 64px;
+      }
+
+      .trust-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .trust-item {
+        padding: 22px 22px;
+      }
+
+      section {
+        padding: 72px 24px;
+      }
+
+      #fotogalerie {
+        padding: 72px 24px;
+      }
+
+      .discount-section {
+        padding: 72px 24px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-figure {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-row:nth-child(odd) {
+        border-right: none;
+      }
+
+      .pricing-row:nth-last-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .pricing-row:last-child {
+        border-bottom: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .divider-botanical {
+        padding: 8px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links li:nth-last-child(2) {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 16px 48px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trust-item:last-child {
+        border-bottom: none;
+      }
+
+      section {
+        padding: 56px 16px;
+      }
+
+      #fotogalerie {
+        padding: 56px 16px;
+      }
+
+      .discount-section {
+        padding: 56px 16px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-tile {
+        height: 200px;
+      }
+
+      .discount-form {
+        flex-direction: column;
+      }
+
+      .discount-form input {
+        padding: 14px 16px;
+      }
+
+      .discount-form button {
+        padding: 14px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-atelier">TOMAS ARSOV HAIR & BEAUTY INSTITUTE s.r.o.</span>
+      <span class="nav-logo-beaute"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#o-salonu">O salonu</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#cenik">Ceník</a></li>
+      <li><a href="#hodnoceni">Recenze</a></li>
+      <li><a href="#kontakt" class="nav-cta">Rezervovat</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Praha</div>
+    <h1><em>Atelier</em> krásy<br>pro ženu,<br>která <em>ví.</em></h1>
+    <p class="hero-sub">Salón s duší — kde kadeřnické umění potkává pařížskou eleganci. Přijďte pro vlasy, které mluví za vás.</p>
+    <div class="hero-buttons">
+      <a href="#kontakt" class="btn-primary">Rezervovat termín</a>
+      <a href="#sluzby" class="btn-outline">Naše služby</a>
+    </div>
+
+    <!-- ELABORATE BOTANICAL HERO SVG -->
+    <div class="hero-botanical">
+      <svg viewBox="0 0 820 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- Main undulating central stem -->
+        <path d="M0 60 C80 60 100 35 160 60 C220 85 260 35 340 60 C420 85 400 35 410 60 C420 85 400 35 480 60 C560 85 580 35 660 60 C720 85 740 35 820 60" stroke="#c8952a" stroke-width="0.9" fill="none" opacity="0.65"/>
+
+        <!-- Secondary waveline above -->
+        <path d="M40 52 C100 44 130 30 200 48 C270 66 300 28 380 52 C460 76 490 28 570 52 C640 70 670 34 760 48" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.3"/>
+
+        <!-- Secondary waveline below -->
+        <path d="M40 68 C100 76 130 90 200 72 C270 54 300 92 380 68 C460 44 490 92 570 68 C640 50 670 86 760 72" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.3"/>
+
+        <!-- Left large leaf pair -->
+        <path d="M155 60 C148 42 130 30 122 40 C130 52 148 60 155 60Z" stroke="#2d4a2e" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <path d="M155 60 C148 78 130 90 122 80 C130 68 148 60 155 60Z" stroke="#2d4a2e" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <!-- Left small leaf accent -->
+        <path d="M135 60 C130 50 118 44 114 50 C120 56 130 60 135 60Z" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.35"/>
+
+        <!-- Right large leaf pair -->
+        <path d="M665 60 C672 42 690 30 698 40 C690 52 672 60 665 60Z" stroke="#2d4a2e" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <path d="M665 60 C672 78 690 90 698 80 C690 68 672 60 665 60Z" stroke="#2d4a2e" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <!-- Right small leaf accent -->
+        <path d="M685 60 C690 50 702 44 706 50 C700 56 690 60 685 60Z" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.35"/>
+
+        <!-- Inner left leaf cluster at 1/4 -->
+        <path d="M335 60 C330 48 316 40 312 48 C320 56 330 60 335 60Z" stroke="#2d4a2e" stroke-width="0.55" fill="none" opacity="0.4"/>
+        <path d="M335 60 C330 72 316 80 312 72 C320 64 330 60 335 60Z" stroke="#2d4a2e" stroke-width="0.55" fill="none" opacity="0.4"/>
+
+        <!-- Inner right leaf cluster at 3/4 -->
+        <path d="M485 60 C490 48 504 40 508 48 C500 56 490 60 485 60Z" stroke="#2d4a2e" stroke-width="0.55" fill="none" opacity="0.4"/>
+        <path d="M485 60 C490 72 504 80 508 72 C500 64 490 60 485 60Z" stroke="#2d4a2e" stroke-width="0.55" fill="none" opacity="0.4"/>
+
+        <!-- Center ornament — elaborate floral rosette -->
+        <circle cx="410" cy="60" r="7" stroke="#c8952a" stroke-width="0.9" fill="none" opacity="0.9"/>
+        <circle cx="410" cy="60" r="3.5" stroke="#c8952a" stroke-width="0.7" fill="none" opacity="0.7"/>
+        <circle cx="410" cy="60" r="1.5" fill="#c8952a" opacity="0.8"/>
+        <!-- Rosette petal lines -->
+        <line x1="410" y1="50" x2="410" y2="44" stroke="#c8952a" stroke-width="0.6" opacity="0.5"/>
+        <line x1="410" y1="70" x2="410" y2="76" stroke="#c8952a" stroke-width="0.6" opacity="0.5"/>
+        <line x1="400" y1="60" x2="394" y2="60" stroke="#c8952a" stroke-width="0.6" opacity="0.5"/>
+        <line x1="420" y1="60" x2="426" y2="60" stroke="#c8952a" stroke-width="0.6" opacity="0.5"/>
+        <line x1="403" y1="53" x2="398" y2="48" stroke="#c8952a" stroke-width="0.5" opacity="0.4"/>
+        <line x1="417" y1="53" x2="422" y2="48" stroke="#c8952a" stroke-width="0.5" opacity="0.4"/>
+        <line x1="403" y1="67" x2="398" y2="72" stroke="#c8952a" stroke-width="0.5" opacity="0.4"/>
+        <line x1="417" y1="67" x2="422" y2="72" stroke="#c8952a" stroke-width="0.5" opacity="0.4"/>
+
+        <!-- Quarter-point mini rosettes -->
+        <circle cx="205" cy="60" r="4" stroke="#c8952a" stroke-width="0.7" fill="none" opacity="0.7"/>
+        <circle cx="205" cy="60" r="1.5" fill="#c8952a" opacity="0.6"/>
+        <circle cx="615" cy="60" r="4" stroke="#c8952a" stroke-width="0.7" fill="none" opacity="0.7"/>
+        <circle cx="615" cy="60" r="1.5" fill="#c8952a" opacity="0.6"/>
+
+        <!-- Small floating dots -->
+        <circle cx="90" cy="57" r="1.5" fill="#c8952a" opacity="0.35"/>
+        <circle cx="270" cy="63" r="1.5" fill="#c8952a" opacity="0.35"/>
+        <circle cx="550" cy="57" r="1.5" fill="#c8952a" opacity="0.35"/>
+        <circle cx="730" cy="63" r="1.5" fill="#c8952a" opacity="0.35"/>
+
+        <!-- Tiny upward curls / tendrils left -->
+        <path d="M170 60 C172 50 178 44 180 48" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.35"/>
+        <path d="M145 60 C143 50 137 44 135 48" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.35"/>
+
+        <!-- Tiny upward curls / tendrils right -->
+        <path d="M650 60 C648 50 642 44 640 48" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.35"/>
+        <path d="M675 60 C677 50 683 44 685 48" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.35"/>
+
+        <!-- Tiny downward curls left -->
+        <path d="M170 60 C172 70 178 76 180 72" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M145 60 C143 70 137 76 135 72" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.3"/>
+
+        <!-- Tiny downward curls right -->
+        <path d="M650 60 C648 70 642 76 640 72" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M675 60 C677 70 683 76 685 72" stroke="#2d4a2e" stroke-width="0.5" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ART NOUVEAU BOTANICAL DIVIDER -->
+  <div class="divider-botanical">
+    <svg viewBox="0 0 900 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <!-- Main flowing stem -->
+      <path d="M60 40 C150 40 180 20 250 40 C320 58 360 20 450 40 C540 60 580 20 650 40 C720 58 760 20 840 40" stroke="#c8952a" stroke-width="0.8" fill="none" opacity="0.7"/>
+      <!-- Left leaf cluster -->
+      <path d="M180 40 C185 28 200 22 205 30 C200 38 188 42 180 40Z" stroke="#2d4a2e" stroke-width="0.6" fill="none" opacity="0.5"/>
+      <path d="M195 40 C197 24 210 18 212 28 C208 36 198 42 195 40Z" stroke="#2d4a2e" stroke-width="0.6" fill="none" opacity="0.5"/>
+      <!-- Right leaf cluster -->
+      <path d="M695 40 C700 28 715 22 720 30 C715 38 703 42 695 40Z" stroke="#2d4a2e" stroke-width="0.6" fill="none" opacity="0.5"/>
+      <path d="M710 40 C712 24 725 18 727 28 C723 36 713 42 710 40Z" stroke="#2d4a2e" stroke-width="0.6" fill="none" opacity="0.5"/>
+      <!-- Center ornament -->
+      <circle cx="450" cy="40" r="5" stroke="#c8952a" stroke-width="0.8" fill="none" opacity="0.9"/>
+      <circle cx="450" cy="40" r="2" fill="#c8952a" opacity="0.7"/>
+      <!-- Side dots -->
+      <circle cx="250" cy="40" r="2.5" stroke="#c8952a" stroke-width="0.6" fill="none" opacity="0.6"/>
+      <circle cx="650" cy="40" r="2.5" stroke="#c8952a" stroke-width="0.6" fill="none" opacity="0.6"/>
+      <!-- Tiny accent dots -->
+      <circle cx="150" cy="38" r="1.2" fill="#c8952a" opacity="0.4"/>
+      <circle cx="350" cy="42" r="1.2" fill="#c8952a" opacity="0.4"/>
+      <circle cx="550" cy="38" r="1.2" fill="#c8952a" opacity="0.4"/>
+      <circle cx="750" cy="42" r="1.2" fill="#c8952a" opacity="0.4"/>
+      <!-- Vertical flourishes -->
+      <path d="M450 32 L450 22 M447 26 L453 26" stroke="#c8952a" stroke-width="0.6" fill="none" opacity="0.5"/>
+      <path d="M450 48 L450 58 M447 54 L453 54" stroke="#c8952a" stroke-width="0.6" fill="none" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-icon">✦</div>
+      <div class="trust-text">
+        <strong>Střihy & Styling</strong>
+        <span>Dámské i společenské účesy</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">❧</div>
+      <div class="trust-text">
+        <strong>Barvení & Melíry</strong>
+        <span>Balayage, ombre, highlights</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">✿</div>
+      <div class="trust-text">
+        <strong>Péče o vlasy</strong>
+        <span>Prémiová ošetření a masky</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">◈</div>
+      <div class="trust-text">
+        <strong>V Jámě 696/2, Praha</strong>
+        <span>V srdci historické Prahy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="o-salonu">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-figure">
+          <div class="about-figure-inset">
+            <span class="about-monogram">AB</span>
+          </div>
+          <span class="about-corner tl">✦</span>
+          <span class="about-corner tr">✦</span>
+          <span class="about-corner bl">✦</span>
+          <span class="about-corner br">✦</span>
+        </div>
+        <div class="about-content">
+          <span class="section-eyebrow">Náš příběh</span>
+          <h2 class="section-title">Salón s <em>duší</em> a tradicí</h2>
+          <blockquote class="about-quote">
+            „Vlasy jsou korunou každé ženy. Naším posláním je, aby vaše zářila."
+          </blockquote>
+          <p class="about-text">
+            TOMAS ARSOV HAIR & BEAUTY INSTITUTE s.r.o. vznikl jako pocta klasickému kadeřnickému řemeslu, které nepodléhá módním výstřelkům. Naše filozofie stojí na třech pilířích: precizní řemeslo, individuální přístup a estetika, která obstojí zkouškou času.
+          </p>
+          <p class="about-text">
+            Každá návštěva začíná důkladnou konzultací, při níž nasloucháme vašim přáním. Pracujeme s prémiovými francouzskými a italskými produkty, které šetrně pečují o strukturu vašich vlasů a zachovávají jejich přirozený lesk po dlouhé týdny.
+          </p>
+          <div class="about-signature">
+            Madame Veronique Marková
+            <span>Hlavní stylistka & zakladatelka</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="sluzby">
+    <div class="section-inner">
+      <div class="services-header">
+        <div>
+          <span class="section-eyebrow">Co nabízíme</span>
+          <h2 class="section-title">Naše <em>umění</em></h2>
+        </div>
+        <a href="#kontakt" class="btn-primary">Rezervovat termín</a>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-number">I.</div>
+          <div class="service-name">Dámský střih</div>
+          <div class="service-desc">Pečlivý střih přizpůsobený vašemu typu vlasů, tvaru tváře a životnímu rytmu. Každý střih zahrnuje aromatické mytí, hloubkový kondicionér a finální tvarování. Odcházíte dokonalá.</div>
+          <div class="service-price">od 650 Kč
+            <span>60–90 minut · mytí a foukání v ceně</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">II.</div>
+          <div class="service-name">Barvení vlasů</div>
+          <div class="service-desc">Plnobarevné barvení s prémiovými pigmenty bez agresivních látek. Precizní aplikace pro sytou, rovnoměrnou barvu s dokonalým pokrytím šedin. Zahrnuje péči po barvení pro maximální lesk.</div>
+          <div class="service-price">od 900 Kč
+            <span>90–120 minut · dle délky vlasů</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">III.</div>
+          <div class="service-name">Melíry & Balayage</div>
+          <div class="service-desc">Přirozené světelné přechody technikou balayage nebo strukturované melíry s fólií. Výsledkem jsou vlasy plné hloubky a pohybu — jako by je ozářilo letní slunce. Ideální pro každodenní eleganci.</div>
+          <div class="service-price">od 1 400 Kč
+            <span>120–180 minut · toning v ceně</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">IV.</div>
+          <div class="service-name">Společenský účes</div>
+          <div class="service-desc">Reprezentativní účes pro svatební den, maturitní ples nebo gala večer. Navrhujeme a tvoříme styl, který se hodí k vašemu outfitu i osobnosti. Na přání realizujeme předběžnou zkoušku účesu.</div>
+          <div class="service-price">od 1 200 Kč
+            <span>60–120 minut · dle náročnosti</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">V.</div>
+          <div class="service-name">Foukaná</div>
+          <div class="service-desc">Profesionální foukání s přesným tvarováním pro hedvábně hladký lesk, přirozené vlnění nebo velký filmový objem. Dokonalá příprava na fotografování, rande nebo důležitou schůzku.</div>
+          <div class="service-price">od 450 Kč
+            <span>30–50 minut · vhodné samostatně</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">VI.</div>
+          <div class="service-name">Konzultace stylu</div>
+          <div class="service-desc">Osobní sezení se zkušenou stylistkou. Analyzujeme tvar vaší tváře, přirozenou strukturu vlasů, barevný kontrast pleti a váš životní styl. Obdržíte konkrétní doporučení střihu i barvy.</div>
+          <div class="service-price">200 Kč
+            <span>30 minut · zdarma při objednávce</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section id="fotogalerie">
+    <div class="section-inner">
+      <div class="gallery-header">
+        <div class="section-ornament">— ✦ —</div>
+        <span class="section-eyebrow" style="display:block;text-align:center;margin-top:12px;">Naše práce</span>
+        <h2 class="section-title" style="text-align:center;">Fotogalerie <em>ateliéru</em></h2>
+        <p style="font-family:var(--body);font-style:italic;color:var(--muted);font-size:16px;margin-top:8px;text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">Každý výsledek je dílem — tak jako každá žena, která k nám přichází.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-tile">
+          <div class="gallery-tile-border"></div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-overlay-text">Balayage<br>přechod</span>
+          </div>
+          <div class="gallery-tile-label">Balayage</div>
+        </div>
+        <div class="gallery-tile">
+          <div class="gallery-tile-border"></div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-overlay-text">Střih &amp;<br>styling</span>
+          </div>
+          <div class="gallery-tile-label">Střih & styling</div>
+        </div>
+        <div class="gallery-tile">
+          <div class="gallery-tile-border"></div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-overlay-text">Plné<br>barvení</span>
+          </div>
+          <div class="gallery-tile-label">Barvení</div>
+        </div>
+        <div class="gallery-tile">
+          <div class="gallery-tile-border"></div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-overlay-text">Melíry<br>s fólií</span>
+          </div>
+          <div class="gallery-tile-label">Melíry</div>
+        </div>
+        <div class="gallery-tile">
+          <div class="gallery-tile-border"></div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-overlay-text">Společenský<br>účes</span>
+          </div>
+          <div class="gallery-tile-label">Společenský účes</div>
+        </div>
+        <div class="gallery-tile">
+          <div class="gallery-tile-border"></div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-overlay-text">Foukaná<br>& tvarování</span>
+          </div>
+          <div class="gallery-tile-label">Foukaná</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORNAMENTAL WAVE DIVIDER -->
+  <div class="divider-wave">
+    <svg viewBox="0 0 800 60" style="width:100%;max-width:800px;height:40px;display:block">
+      <path d="M0 30 Q100 10 200 30 Q300 50 400 30 Q500 10 600 30 Q700 50 800 30" stroke="#c8952a" stroke-width="0.8" fill="none"/>
+      <circle cx="400" cy="30" r="4" fill="#c8952a"/>
+      <circle cx="200" cy="30" r="2" fill="#c8952a" opacity="0.6"/>
+      <circle cx="600" cy="30" r="2" fill="#c8952a" opacity="0.6"/>
+      <circle cx="100" cy="20" r="1.5" fill="#c8952a" opacity="0.35"/>
+      <circle cx="300" cy="48" r="1.5" fill="#c8952a" opacity="0.35"/>
+      <circle cx="500" cy="12" r="1.5" fill="#c8952a" opacity="0.35"/>
+      <circle cx="700" cy="48" r="1.5" fill="#c8952a" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <!-- DISCOUNT -->
+  <div class="discount-section">
+    <div class="discount-inner">
+      <div class="discount-ornament">❦</div>
+      <div class="discount-badge">−15 %</div>
+      <h2 class="discount-title">Sleva na první návštěvu<br><em>pro nové klientky</em></h2>
+      <p class="discount-sub">Zanechte nám svůj e-mail a jako uvítací gesto obdržíte slevový kód na vaši první návštěvu. Žádný spam — pouze vybrané novinky ze světa krásy.</p>
+      <form class="discount-form" onsubmit="return false;">
+        <input type="email" placeholder="Váš e-mail…">
+        <button type="submit">Získat slevu</button>
+      </form>
+      <p class="discount-fine">Odesláním souhlasíte se zpracováním kontaktních údajů. Odhlásit se lze kdykoliv jedním klikem.</p>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <section id="cenik">
+    <div class="section-inner">
+      <div class="pricing-header">
+        <span class="section-eyebrow" style="display:block;text-align:center;">Orientační ceny</span>
+        <h2 class="section-title">Ceník <em>ateliéru</em></h2>
+        <p style="font-family:var(--body); color:var(--muted); font-size:16px; font-style:italic; margin-top:8px;">Cena se odvíjí od délky a hustoty vlasů. Přesnou nabídku sestavíme na osobní konzultaci.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-row">
+          <div class="pricing-service">
+            Dámský střih
+            <small>Mytí, střih, foukání</small>
+          </div>
+          <div class="pricing-price">od 650 Kč</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-service">
+            Pánský střih
+            <small>Mytí, střih, styling</small>
+          </div>
+          <div class="pricing-price">od 350 Kč</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-service">
+            Barvení vlasů
+            <small>Plnobarevná aplikace</small>
+          </div>
+          <div class="pricing-price">od 900 Kč</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-service">
+            Balayage & Melíry
+            <small>Světelné přechody</small>
+          </div>
+          <div class="pricing-price">od 1 400 Kč</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-service">
+            Společenský účes
+            <small>Svatba, ples, event</small>
+          </div>
+          <div class="pricing-price">od 1 200 Kč</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-service">
+            Foukaná & Styling
+            <small>Tvar a objem</small>
+          </div>
+          <div class="pricing-price">od 450 Kč</div>
+        </div>
+      </div>
+      <p class="pricing-note">Přijímáme platbu kartou i hotově. Dárkové poukazy s osobním věnováním vystavujeme na recepci.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="hodnoceni">
+    <div class="section-inner">
+      <div class="testimonials-header">
+        <div class="testimonials-ornament">❦</div>
+        <span class="section-eyebrow" style="display:block;text-align:center;">Hodnocení klientek</span>
+        <h2 class="section-title" style="text-align:center;">Slova našich <em>klientek</em></h2>
+        <p style="font-family:var(--body);font-style:italic;color:var(--muted);font-size:16px;margin-top:8px;text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">Nejlepší doporučení pochází od těch, které nás znají nejlépe — našich klientek.</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-header-row">
+            <div class="testimonial-avatar av1">LK</div>
+            <div>
+              <div class="testimonial-name">Lucie Kovářová</div>
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-service">pravidelná klientka</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">„Přišla jsem poprvé s obavami — vlasy mám velmi jemné. Stylistka si se vším poradila s naprostou grácií. Balayage vypadá naprosto přirozeně, jako bych strávila léto u moře."</p>
+          <div class="testimonial-tag">Balayage + střih</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header-row">
+            <div class="testimonial-avatar av2">MH</div>
+            <div>
+              <div class="testimonial-name">Markéta Horáková</div>
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-service">věrná klientka od 2022</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">„TOMAS ARSOV HAIR & BEAUTY INSTITUTE s.r.o. je jediné místo v Praze, kde se skutečně cítím jako na pařížském salóně. Atmosféra, vůně, preciznost — vše ladí. Výsledek vždy předčí má očekávání."</p>
+          <div class="testimonial-tag">Dámský střih & barvení</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header-row">
+            <div class="testimonial-avatar av3">VP</div>
+            <div>
+              <div class="testimonial-name">Veronika Procházková</div>
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-service">klientka pro zvláštní příležitosti</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">„Na svůj svatební den jsem chtěla jen to nejlepší. Společenský účes byl dílem umění — vydržel celý den a večer. Hosté se dodnes ptají, kde jsem se nechala učesat."</p>
+          <div class="testimonial-tag">Společenský účes</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="section-inner">
+      <div class="contact-header">
+        <span class="section-eyebrow" style="display:block;text-align:center;">Přijďte nás navštívit</span>
+        <h2 class="section-title">Kde nás <em>najdete</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-card-icon">✦</div>
+          <div class="contact-card-title">Adresa & kontakt</div>
+          <p>
+            V Jámě 696/2<br>
+            110 00 Praha-Praha<br><br>
+            <a href="tel:222222866">222 222 866</a><br>
+            <a href="mailto:info@tomasarsov.cz">info@atelierbeaute.cz</a>
+          </p>
+          <p style="font-size:14px; font-style:italic;">Dostupné metrem linky A, zastávka Staroměstská. Doporučujeme rezervaci předem.</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">❧</div>
+          <div class="contact-card-title">Otevírací hodiny</div>
+          <div>
+            <div class="hours-row"><strong>Pondělí</strong><span>9:00 – 18:00</span></div>
+            <div class="hours-row"><strong>Úterý</strong><span>9:00 – 19:00</span></div>
+            <div class="hours-row"><strong>Středa</strong><span>9:00 – 19:00</span></div>
+            <div class="hours-row"><strong>Čtvrtek</strong><span>9:00 – 19:00</span></div>
+            <div class="hours-row"><strong>Pátek</strong><span>9:00 – 18:00</span></div>
+            <div class="hours-row"><strong>Sobota</strong><span>8:00 – 14:00</span></div>
+            <div class="hours-row"><strong>Neděle</strong><span>Zavřeno</span></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <iframe
+            src="https://maps.google.com/maps?q=V+Jámě+696/2,+Nové+Město,+110+00+Praha-Praha+1,+Česko&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa – TOMAS ARSOV HAIR & BEAUTY INSTITUTE s.r.o.">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="footer-logo-atelier">Atelier</span>
+          <span class="footer-logo-beaute">Beauté</span>
+        </div>
+        <p class="footer-desc">Kadeřnický ateliér v srdci Prahy, kde tradice potkává moderní eleganci. Váš krásný den začíná zde.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="#o-salonu">O ateliéru</a></li>
+          <li><a href="#sluzby">Naše umění</a></li>
+          <li><a href="#fotogalerie">Galerie prací</a></li>
+          <li><a href="#cenik">Ceník</a></li>
+          <li><a href="#hodnoceni">Recenze</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:222222866">222 222 866</a></li>
+          <li><a href="mailto:info@tomasarsov.cz">info@atelierbeaute.cz</a></li>
+          <li><a href="#kontakt">V Jámě 696/2, Praha-Praha</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider-ornament">— ✦ —</div>
+    <div class="footer-bottom">
+      <span>© 2025 TOMAS ARSOV HAIR & BEAUTY INSTITUTE s.r.o.. Všechna práva vyhrazena.</span>
+      <span>Zpracování osobních údajů · Cookies</span>
+    </div>
+  </footer>
+
+</body>
+</html>
