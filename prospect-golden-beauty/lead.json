@@ -1,0 +1,16 @@
+{
+  "salon_name": "Golden beauty",
+  "place_id": "ChIJq49uOdqTC0cRI7PjvBHZyTU",
+  "address": "Hartigova 131/1842, 130 00 Praha 3, Česko",
+  "rating": 5,
+  "reviews": 103,
+  "website": "https://www.goldenbeauty.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "777 785 459",
+  "email": "info@goldenbeauty.cz",
+  "maps_url": "https://maps.google.com/?cid=3875867624535733027",
+  "priority": "medium",
+  "folder_name": "prospect-golden-beauty",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-golden-beauty",
+  "template_used": "template-midnight-luxe"
+}
