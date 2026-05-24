@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceník — Beauty Studio Nicole Praha 4 Podolí</title>
+<meta name="description" content="Ceník kadeřnických, kosmetických, manikérských a pedikérských služeb Beauty Studio Nicole Praha 4 Podolí.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf3ea;
+    --cream-deep: #f4e8d6;
+    --blush: #f5d8d0;
+    --blush-deep: #e8b8b0;
+    --rose: #d4a8a0;
+    --rose-dark: #a87870;
+    --champagne: #e8d5b8;
+    --rose-gold: #c89a78;
+    --rose-gold-deep: #a07050;
+    --ink: #2a1d1a;
+    --plum: #4a3530;
+    --muted: #8a7570;
+    --line: #ead7cf;
+    --serif: 'Italiana', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 30%, rgba(245, 216, 208, 0.4) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.65; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* NAV */
+  .nav { padding: 28px 0; position: sticky; top: 0; z-index: 100; background: rgba(250, 243, 234, 0.92); backdrop-filter: blur(14px); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .logo { font-family: var(--serif); font-size: 28px; color: var(--ink); line-height: 1; display: flex; align-items: baseline; gap: 8px; }
+  .logo .script-accent { font-family: var(--script); font-size: 32px; color: var(--rose-gold-deep); line-height: 0.9; }
+  .nav-links { display: flex; gap: 40px; font-size: 14px; }
+  .nav-cta { background: var(--ink); color: var(--cream); padding: 12px 24px; border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s ease; }
+  .nav-cta:hover { background: var(--rose-gold-deep); opacity: 1; transform: translateY(-1px); }
+
+  /* PAGE HEADER */
+  .page-header { padding: 120px 0 80px; text-align: center; border-bottom: 1px solid var(--line); }
+  .section-meta { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--rose-gold-deep); font-weight: 600; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 14px; }
+  .section-meta::before, .section-meta::after { content: ''; width: 32px; height: 1px; background: var(--rose-gold-deep); }
+  .page-header h1 { font-size: clamp(64px, 10vw, 140px); color: var(--ink); margin-bottom: 32px; }
+  .page-header h1 em { color: var(--rose-gold-deep); font-family: var(--script); font-size: 1.1em; display: inline-block; font-style: normal; line-height: 0.85; }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 20px; color: var(--muted); font-size: 18px; margin-bottom: 28px; }
+  .ornament::before, .ornament::after { content: ''; height: 1px; width: 80px; background: var(--line); }
+  .page-header p { font-size: 17px; color: var(--plum); max-width: 54ch; margin: 0 auto; line-height: 1.7; }
+
+  /* PRICING */
+  .pricing { padding: 80px 0; }
+  .price-section { margin-bottom: 72px; background: var(--cream); border-radius: 24px; border: 1px solid var(--line); overflow: hidden; }
+  .price-section-head {
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: var(--cream-deep);
+    border-bottom: 1px solid var(--line);
+  }
+  .price-section-num {
+    font-family: var(--script);
+    font-size: 72px;
+    line-height: 0.85;
+    color: var(--rose-gold-deep);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+  .price-section-title { font-size: clamp(32px, 4vw, 56px); color: var(--ink); margin-bottom: 6px; }
+  .price-section-specialist { font-size: 14px; color: var(--muted); font-family: var(--sans); }
+  .price-body { padding: 0 48px; }
+  .price-table { width: 100%; border-collapse: collapse; }
+  .price-table tr { border-bottom: 1px solid var(--line); }
+  .price-table tr:last-child { border-bottom: none; }
+  .price-table td { padding: 20px 0; font-size: 15px; vertical-align: top; }
+  .price-table td:first-child { color: var(--plum); padding-right: 40px; }
+  .price-table td:last-child { text-align: right; font-family: var(--serif); font-size: 22px; color: var(--rose-dark); white-space: nowrap; }
+  .price-sub { font-size: 13px; color: var(--muted); margin-top: 4px; font-family: var(--sans); }
+  .price-group-label td { padding-bottom: 4px; padding-top: 28px; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose-gold-deep); border-bottom: none; font-family: var(--sans); }
+
+  /* NOTE BOX */
+  .note-box {
+    background: var(--blush);
+    border-radius: 24px;
+    padding: 40px 48px;
+    margin: 24px 0 72px;
+    font-size: 15px;
+    color: var(--plum);
+    line-height: 1.7;
+  }
+  .note-box strong { color: var(--ink); }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--ink) 0%, #1a0e0c 100%);
+    color: var(--cream);
+    padding: 100px 0;
+    margin: 0 -32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(200, 154, 120, 0.15) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .cta-inner { text-align: center; position: relative; z-index: 2; }
+  .cta-inner h2 { font-size: clamp(48px, 7vw, 100px); color: var(--cream); margin-bottom: 24px; line-height: 1; }
+  .cta-inner h2 em { color: var(--rose-gold); font-family: var(--script); font-size: 1.2em; display: block; line-height: 0.9; font-style: normal; }
+  .cta-inner p { font-size: 18px; color: rgba(250,243,234,0.78); margin-bottom: 48px; max-width: 48ch; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .email-form {
+    display: flex; gap: 8px; max-width: 480px; margin: 0 auto;
+    background: rgba(250, 243, 234, 0.08); border: 1px solid rgba(250, 243, 234, 0.2);
+    padding: 7px; border-radius: 100px;
+  }
+  .email-form input { flex: 1; background: transparent; border: none; padding: 14px 22px; color: var(--cream); font-size: 15px; font-family: inherit; outline: none; }
+  .email-form input::placeholder { color: rgba(250,243,234,0.5); }
+  .email-form button { background: var(--rose-gold); color: var(--ink); border: none; padding: 14px 28px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: all 0.3s ease; }
+  .email-form button:hover { background: var(--cream); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(250,243,234,0.6); padding: 64px 0 32px; font-size: 14px; text-align: center; }
+  footer .logo { color: var(--cream); justify-content: center; margin-bottom: 16px; }
+  footer .logo .script-accent { color: var(--rose-gold); }
+  .footer-bottom { border-top: 1px solid rgba(250,243,234,0.1); padding-top: 24px; margin-top: 32px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,243,234,0.4); }
+  .footer-bottom .script { font-family: var(--script); color: var(--rose-gold); text-transform: none; font-size: 18px; letter-spacing: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .container { padding: 0 16px; }
+    .nav-inner { padding: 0 16px; }
+    .nav-links { display: none; }
+    .page-header { padding: 100px 0 60px; }
+    .pricing { padding: 48px 0; }
+    .price-section-head { padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .price-body { padding: 0 24px; }
+    .note-box { padding: 28px 24px; }
+    .cta-section { margin: 0 -16px; padding: 60px 16px; }
+    .email-form { flex-direction: column; border-radius: 16px; padding: 12px; }
+    .email-form button { width: 100%; padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Beauty Studio <span class="script-accent">Nicole</span></a>
+    <div class="nav-links">
+      <a href="index.html#about">O nás</a>
+      <a href="index.html#services">Služby</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="index.html#contact">Kontakt</a>
+    </div>
+    <a href="tel:+420731533504" class="nav-cta">Objednat se</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <div class="section-meta">Beauty Studio Nicole · Praha 4 Podolí</div>
+    <h1>Ceník <em>služeb</em></h1>
+    <div class="ornament">❀</div>
+    <p>Přehled orientačních cen kadeřnických, kosmetických, manikérských a pedikérských služeb. Prémiové produkty, zkušený tým.</p>
+  </div>
+</header>
+
+<!-- PRICING -->
+<div class="pricing">
+  <div class="container">
+
+    <!-- KADEŘNICTVÍ DÁMSKÉ -->
+    <div class="price-section">
+      <div class="price-section-head">
+        <div class="price-section-num">i.</div>
+        <div>
+          <h2 class="price-section-title">Kadeřnictví dámské</h2>
+          <div class="price-section-specialist">Petra Lišková · Donika Shala · Wella Professionals, Previa, Milk Shake, Itely</div>
+        </div>
+      </div>
+      <div class="price-body">
+        <table class="price-table">
+          <tr class="price-group-label"><td colspan="2">Střih &amp; styling</td></tr>
+          <tr><td>Foukání</td><td>460 — 600 Kč</td></tr>
+          <tr><td>Střih</td><td>650 — 900 Kč</td></tr>
+          <tr class="price-group-label"><td colspan="2">Barvení</td></tr>
+          <tr><td>Barva</td><td>1 300 — 1 800 Kč</td></tr>
+          <tr><td>Melír 1/2</td><td>1 300 — 1 800 Kč</td></tr>
+          <tr><td>Melír celý</td><td>1 500 — 2 600 Kč</td></tr>
+          <tr><td>Barvení + melír</td><td>1 600 — 2 600 Kč</td></tr>
+          <tr><td>Ombre</td><td>1 600 — 2 300 Kč</td></tr>
+          <tr class="price-group-label"><td colspan="2">Speciální účesy</td></tr>
+          <tr><td>Společenský účes</td><td>800 — 1 400 Kč</td></tr>
+          <tr><td>Svatební účes</td><td>1 600 — 2 100 Kč</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- KADEŘNICTVÍ DĚTSKÉ + PÁNSKÉ -->
+    <div class="price-section">
+      <div class="price-section-head">
+        <div class="price-section-num">ii.</div>
+        <div>
+          <h2 class="price-section-title">Kadeřnictví pánské &amp; dětské</h2>
+          <div class="price-section-specialist">Petra Lišková · Donika Shala</div>
+        </div>
+      </div>
+      <div class="price-body">
+        <table class="price-table">
+          <tr><td>Pánský střih</td><td>od 300 Kč</td></tr>
+          <tr><td>Dětský střih</td><td>od 200 Kč</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- KOSMETIKA -->
+    <div class="price-section">
+      <div class="price-section-head">
+        <div class="price-section-num">iii.</div>
+        <div>
+          <h2 class="price-section-title">Kosmetika</h2>
+          <div class="price-section-specialist">Radka Odvárková · 30 let praxe · Alcina</div>
+        </div>
+      </div>
+      <div class="price-body">
+        <table class="price-table">
+          <tr class="price-group-label"><td colspan="2">Ošetření pleti</td></tr>
+          <tr>
+            <td>Základní kosmetické ošetření (60 min)
+              <div class="price-sub">Čištění pleti, masáž, maska</div>
+            </td>
+            <td>od 600 Kč</td>
+          </tr>
+          <tr>
+            <td>Ošetření + masáž obličeje a dekoltu (90 min)
+              <div class="price-sub">Rozšířená péče s masáží obličeje a dekoltu</div>
+            </td>
+            <td>od 700 Kč</td>
+          </tr>
+          <tr>
+            <td>Ošetření ultrazvukovou špachtlí</td>
+            <td>140 Kč</td>
+          </tr>
+          <tr class="price-group-label"><td colspan="2">Oční partie &amp; řasy</td></tr>
+          <tr><td>Úprava obočí</td><td>80 Kč</td></tr>
+          <tr><td>Barvení obočí</td><td>80 Kč</td></tr>
+          <tr><td>Barvení řas</td><td>80 Kč</td></tr>
+          <tr><td>Trvalá na řasy + barvení</td><td>400 Kč</td></tr>
+          <tr class="price-group-label"><td colspan="2">Depilace &amp; líčení</td></tr>
+          <tr><td>Depilace obličeje (vosk)</td><td>60 — 110 Kč</td></tr>
+          <tr><td>Depilace lýtek (vosk)</td><td>190 Kč</td></tr>
+          <tr><td>Depilace celých nohou (vosk)</td><td>420 Kč</td></tr>
+          <tr><td>Depilace třísel</td><td>100 Kč</td></tr>
+          <tr><td>Parafínový zábal rukou</td><td>100 Kč</td></tr>
+          <tr><td>Večerní líčení</td><td>250 Kč</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- MANIKÚRA -->
+    <div class="price-section">
+      <div class="price-section-head">
+        <div class="price-section-num">iv.</div>
+        <div>
+          <h2 class="price-section-title">Manikúra</h2>
+          <div class="price-section-specialist">Lea Kusiu · 20+ let praxe · BisBis</div>
+        </div>
+      </div>
+      <div class="price-body">
+        <table class="price-table">
+          <tr class="price-group-label"><td colspan="2">Klasická manikúra</td></tr>
+          <tr>
+            <td>Základní manikúra (cca 30–45 min)
+              <div class="price-sub">Lázeň, úprava nehtů, závěrečná péče</div>
+            </td>
+            <td>550 Kč</td>
+          </tr>
+          <tr>
+            <td>Manikúra komplet (cca 45–60 min)
+              <div class="price-sub">Lázeň, úprava, masáž peelingem, závěrečná péče</div>
+            </td>
+            <td>690 Kč</td>
+          </tr>
+          <tr><td>Lakování (cca 30 min)</td><td>220 Kč</td></tr>
+          <tr><td>Odlakování</td><td>100 Kč</td></tr>
+          <tr class="price-group-label"><td colspan="2">Gelová modeláž</td></tr>
+          <tr>
+            <td>Manikúra + gel lak (cca 60 min)
+              <div class="price-sub">Barva vydrží 2–3 týdny</div>
+            </td>
+            <td>750 Kč</td>
+          </tr>
+          <tr><td>Gelová modeláž — doplnění (cca 90 min)</td><td>890 Kč</td></tr>
+          <tr><td>Nová gelová modeláž pomocí šablon (cca 120 min)</td><td>1 290 Kč</td></tr>
+          <tr><td>Odstranění gelových nehtů</td><td>450 Kč</td></tr>
+          <tr><td>Zdobení</td><td>100 — 200 Kč</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- PEDIKÚRA -->
+    <div class="price-section">
+      <div class="price-section-head">
+        <div class="price-section-num">v.</div>
+        <div>
+          <h2 class="price-section-title">Pedikúra</h2>
+          <div class="price-section-specialist">Lea Kusiu · 20+ let praxe · mokrá, suchá i kombinovaná</div>
+        </div>
+      </div>
+      <div class="price-body">
+        <table class="price-table">
+          <tr class="price-group-label"><td colspan="2">Základní pedikúra</td></tr>
+          <tr>
+            <td>Základní pedikúra (cca 60 min)
+              <div class="price-sub">Lázeň, odstranění zrohovatělé kůže, úprava nehtů, závěrečná péče</div>
+            </td>
+            <td>660 Kč</td>
+          </tr>
+          <tr>
+            <td>Kompletní pedikúra (cca 75 min)
+              <div class="price-sub">Rozšířená péče s peelingem a masáží chodidel</div>
+            </td>
+            <td>990 Kč</td>
+          </tr>
+          <tr><td>Pedikúra Expres / prsty (cca 30 min)</td><td>490 Kč</td></tr>
+          <tr class="price-group-label"><td colspan="2">S gellakem &amp; speciální</td></tr>
+          <tr><td>Pedikúra + gellak (cca 90 min)</td><td>1 150 Kč</td></tr>
+          <tr><td>Pedikúra Expres + gellak (cca 60 min)</td><td>980 Kč</td></tr>
+          <tr><td>Snížení nehtové ploténky</td><td>od 200 Kč</td></tr>
+          <tr><td>Ošetření zarostlého nehtu</td><td>200 — 300 Kč</td></tr>
+          <tr><td>Rovnátko na nehty (PODOFIX)</td><td>690 Kč</td></tr>
+          <tr><td>Lakování nehtů (cca 30 min)</td><td>200 Kč</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- NOTE -->
+    <div class="note-box">
+      <strong>Poznámka k cenám:</strong> Všechny ceny jsou orientační. Finální cena může záviset na délce vlasů, hustotě, náročnosti techniky a aktuálním ceníku studia. Pro přesnou nabídku nás neváhejte kontaktovat. Ceny jsou převzaty z veřejně dostupných informací Beauty Studio Nicole.
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Na první návštěvu<em>−15 %</em></h2>
+      <p>Zanechte nám e-mail a slevový kód letí do minuty. Platí na všechny naše služby.</p>
+      <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Hotovo ✓';">
+        <input type="email" placeholder="vase@email.cz" required>
+        <button type="submit">Získat slevu</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="logo">Beauty Studio <span class="script-accent">Nicole</span></div>
+    <p>Dvorecká 3 · Praha 4 – Podolí · beauty.studio.nicole@gmail.com</p>
+    <div class="footer-bottom">
+      © 2026 — Vyrobeno <span class="script">s láskou</span> v Praze &nbsp;|&nbsp; <a href="index.html">← Zpět na hlavní stránku</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
