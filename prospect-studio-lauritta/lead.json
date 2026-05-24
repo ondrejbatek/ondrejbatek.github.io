@@ -1,0 +1,16 @@
+{
+  "salon_name": "Studio Lauritta",
+  "place_id": "ChIJK4ebd0iVC0cRTw5xjaFx8FY",
+  "address": "Ostrovského 1823/32, 150 00 Praha 5-Smíchov, Česko",
+  "rating": 4.9,
+  "reviews": 29,
+  "website": "http://www.lauritta.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "732 186 543",
+  "email": "studio.lauritta@email.cz",
+  "maps_url": "https://maps.google.com/?cid=6264632020349029967",
+  "priority": "medium",
+  "folder_name": "prospect-studio-lauritta",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-studio-lauritta",
+  "template_used": "template-slate-sand"
+}
