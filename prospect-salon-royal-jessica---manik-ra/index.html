@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Royal Jessica - Manikúra & Pedikúra — Praha</title>
+<meta name="description" content="Salon Royal Jessica - Manikúra & Pedikúra — salon krasy v Praha-Praha">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Italianno&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #fbf6ee;
+    --ivory-deep: #f3e9d7;
+    --pink-soft: #f5d8d2;
+    --pink: #e8a8a0;
+    --burgundy: #5a1f29;
+    --burgundy-dark: #3a131a;
+    --champagne: #d8b88a;
+    --gold: #b8915e;
+    --ink: #221216;
+    --plum: #4a2730;
+    --muted: #826064;
+    --line: #e3d0c8;
+    --display: 'Playfair Display', Georgia, serif;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Italianno', cursive;
+    --sans: 'Inter', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--ivory); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle at 50% 20%, rgba(232, 168, 160, 0.06) 0%, transparent 60%), radial-gradient(circle at 50% 80%, rgba(216, 184, 138, 0.06) 0%, transparent 60%); pointer-events: none; z-index: 1; }
+
+  h1, h2, h3, .display { font-family: var(--display); font-weight: 400; line-height: 1; letter-spacing: -0.015em; }
+  .script { font-family: var(--script); font-weight: 400; }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
+
+  /* === NARROW CONTAINER === */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; text-align: center; }
+  .container-wide { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; text-align: center; }
+
+  /* === NAV === */
+  .nav { padding: 28px 0; text-align: center; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(251, 246, 238, 0.95); backdrop-filter: blur(14px); z-index: 100; }
+  .nav-logo { font-family: var(--script); font-size: 56px; color: var(--burgundy); line-height: 0.9; margin-bottom: 8px; }
+  .nav-tag { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .nav-links { margin-top: 16px; display: flex; justify-content: center; gap: 36px; font-size: 14px; }
+
+  /* === HERO === */
+  .hero { padding: 120px 0 100px; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 40px; display: inline-flex; align-items: center; gap: 14px; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 { font-size: clamp(56px, 8vw, 110px); color: var(--ink); margin-bottom: 40px; line-height: 1.05; }
+  .hero h1 em { font-style: italic; color: var(--burgundy); font-weight: 400; }
+  .hero h1 .script-large { font-family: var(--script); font-size: 1.3em; color: var(--gold); display: inline-block; line-height: 0.85; font-style: normal; font-weight: 400; }
+  .hero-lead { font-size: 21px; color: var(--plum); line-height: 1.7; margin-bottom: 48px; font-family: var(--serif); font-style: italic; max-width: 28ch; margin-left: auto; margin-right: auto; }
+  .hero-actions { display: inline-flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 17px 36px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s ease; }
+  .btn-primary { background: var(--burgundy); color: var(--ivory); box-shadow: 0 6px 20px rgba(90, 31, 41, 0.2); }
+  .btn-primary:hover { background: var(--burgundy-dark); opacity: 1; transform: translateY(-2px); }
+  .btn-text { color: var(--burgundy); border-bottom: 1px solid var(--burgundy); padding: 0 0 4px 0; font-family: var(--serif); font-style: italic; font-size: 18px; letter-spacing: 0; text-transform: none; }
+  .btn-text:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-ornament { margin: 80px auto 0; display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 360px; color: var(--gold); }
+  .hero-ornament-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .hero-ornament-symbol { font-family: var(--script); font-size: 36px; }
+
+  /* === MANIFESTO === */
+  .manifesto { background: linear-gradient(180deg, var(--ivory) 0%, var(--pink-soft) 50%, var(--ivory) 100%); padding: 100px 0; text-align: center; }
+  .manifesto-script { font-family: var(--script); font-size: 64px; color: var(--burgundy); line-height: 0.9; margin-bottom: 24px; }
+  .manifesto-quote { font-family: var(--display); font-style: italic; font-size: clamp(28px, 4vw, 40px); color: var(--ink); line-height: 1.4; max-width: 24ch; margin: 0 auto 24px; }
+  .manifesto-quote em { color: var(--burgundy); }
+  .manifesto-attr { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+
+  /* === ABOUT === */
+  .about { padding: 130px 0; text-align: center; }
+  .section-meta { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px; }
+  .section-meta::before, .section-meta::after { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .about h2 { font-size: clamp(40px, 6vw, 72px); color: var(--ink); margin-bottom: 32px; line-height: 1.1; }
+  .about h2 em { font-style: italic; color: var(--burgundy); font-weight: 400; }
+  .about-figure { width: 200px; aspect-ratio: 4/5; background: linear-gradient(135deg, var(--pink) 0%, var(--burgundy) 100%); margin: 48px auto; border-radius: 100px 100px 4px 4px; position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(90, 31, 41, 0.18); }
+  .about-figure::before { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(251, 246, 238, 0.3); border-radius: 90px 90px 2px 2px; pointer-events: none; }
+  .about-figure-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--ivory); }
+  .about-figure-mark { font-family: var(--script); font-size: 100px; color: rgba(251, 246, 238, 0.95); line-height: 0.85; }
+  .about-figure-name { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(251, 246, 238, 0.8); margin-top: 8px; font-weight: 500; }
+  .about-text { font-size: 18px; color: var(--plum); line-height: 1.75; margin-bottom: 20px; max-width: 50ch; margin-left: auto; margin-right: auto; }
+  .about-quote { font-family: var(--display); font-style: italic; font-size: 26px; color: var(--burgundy); margin: 32px 0; line-height: 1.4; max-width: 32ch; margin-left: auto; margin-right: auto; }
+  .about-signature { margin-top: 48px; }
+  .about-signature .name { font-family: var(--script); font-size: 56px; color: var(--burgundy); line-height: 0.9; }
+  .about-signature .role { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+  /* === SERVICES === */
+  .services { padding: 130px 0; background: var(--ivory-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .services-header { margin-bottom: 80px; text-align: center; }
+  .services-header .section-meta { display: inline-flex; }
+  .services-header h2 { font-size: clamp(48px, 6vw, 72px); color: var(--ink); }
+  .services-header h2 em { font-style: italic; color: var(--burgundy); }
+  .services-list { max-width: 680px; margin: 0 auto; }
+  .service-row { display: grid; grid-template-columns: 50px 1fr 100px; gap: 20px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .service-row:first-child { border-top: 1px solid var(--line); }
+  .service-num { font-family: var(--script); font-size: 36px; color: var(--gold); line-height: 0.85; }
+  .service-name { font-family: var(--display); font-size: 26px; color: var(--ink); text-align: left; }
+  .service-name small { display: block; font-family: var(--sans); font-size: 13px; color: var(--muted); margin-top: 4px; font-style: normal; }
+  .service-price { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--burgundy); text-align: right; }
+
+  /* === DISCOUNT === */
+  .discount { background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%); color: var(--ivory); padding: 130px 0; text-align: center; position: relative; overflow: hidden; }
+  .discount::before { content: ''; position: absolute; top: -200px; left: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(216, 184, 138, 0.18) 0%, transparent 60%); border-radius: 50%; }
+  .discount::after { content: ''; position: absolute; bottom: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245, 216, 210, 0.18) 0%, transparent 60%); border-radius: 50%; }
+  .discount .container { position: relative; z-index: 2; }
+  .discount .section-meta { color: var(--champagne); justify-content: center; }
+  .discount .section-meta::before, .discount .section-meta::after { background: var(--champagne); }
+  .discount h2 { font-size: clamp(48px, 6.5vw, 78px); color: var(--ivory); margin-bottom: 28px; line-height: 1; }
+  .discount h2 em { color: var(--champagne); font-family: var(--script); font-size: 1.3em; line-height: 0.85; display: block; font-style: normal; }
+  .discount-lead { color: rgba(251, 246, 238, 0.78); font-size: 17px; margin-bottom: 44px; line-height: 1.7; max-width: 38ch; margin-left: auto; margin-right: auto; font-family: var(--serif); font-style: italic; font-size: 20px; }
+  .email-form { display: flex; gap: 8px; max-width: 480px; margin: 0 auto; background: rgba(251, 246, 238, 0.08); border: 1px solid rgba(251, 246, 238, 0.18); padding: 7px; border-radius: 100px; }
+  .email-form input { flex: 1; background: transparent; border: none; padding: 14px 22px; color: var(--ivory); font-size: 15px; font-family: inherit; outline: none; }
+  .email-form input::placeholder { color: rgba(251, 246, 238, 0.5); }
+  .email-form button { background: var(--champagne); color: var(--burgundy-dark); border: none; padding: 14px 28px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: inherit; }
+  .email-form button:hover { background: var(--ivory); }
+
+  /* === CONTACT === */
+  .contact { padding: 130px 0; text-align: center; }
+  .contact-header { margin-bottom: 64px; }
+  .contact-header .section-meta { display: inline-flex; }
+  .contact-header h2 { font-size: clamp(40px, 5.5vw, 64px); color: var(--ink); }
+  .contact-header h2 em { font-style: italic; color: var(--burgundy); }
+
+  .contact-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; max-width: 880px; margin-left: auto; margin-right: auto; }
+  .contact-cell { padding: 36px 24px; }
+  .contact-label { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+  .contact-value { font-family: var(--display); font-size: 22px; color: var(--ink); display: block; line-height: 1.4; }
+  .contact-extra { color: var(--muted); font-size: 14px; margin-top: 6px; font-style: italic; }
+  .contact-map { max-width: 880px; margin: 0 auto; aspect-ratio: 16/8; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+  .contact-map iframe { width: 100%; height: 100%; border: none; filter: sepia(0.1) saturate(0.95); }
+
+  /* === FOOTER === */
+  footer { background: var(--ink); color: rgba(251, 246, 238, 0.6); padding: 64px 0 32px; text-align: center; font-size: 14px; }
+  footer .nav-logo { color: var(--ivory); font-size: 48px; }
+  footer .nav-tag { color: var(--champagne); }
+
+  /* === GALLERY === */
+  .gallery { padding: 130px 0; text-align: center; }
+  .gallery-header { margin-bottom: 64px; }
+  .gallery-header h2 { font-size: clamp(40px, 5.5vw, 64px); color: var(--ink); }
+  .gallery-header h2 em { font-style: italic; color: var(--burgundy); }
+  .gallery-header .subtext { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--muted); margin-top: 16px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+  .gallery-tile { height: 240px; border-radius: 6px; position: relative; overflow: hidden; cursor: pointer; }
+  .gallery-tile::after { content: attr(data-label); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(90, 31, 41, 0); color: var(--ivory); font-family: var(--display); font-style: italic; font-size: 22px; font-weight: 400; opacity: 0; transition: all 0.4s ease; }
+  .gallery-tile:hover::after { background: rgba(90, 31, 41, 0.72); opacity: 1; }
+  .gallery-tile-1 { background: linear-gradient(135deg, var(--pink-soft) 0%, var(--pink) 60%, var(--burgundy) 100%); }
+  .gallery-tile-2 { background: linear-gradient(160deg, var(--champagne) 0%, var(--gold) 100%); }
+  .gallery-tile-3 { background: linear-gradient(135deg, var(--burgundy) 0%, var(--plum) 50%, var(--ink) 100%); }
+  .gallery-tile-4 { background: linear-gradient(135deg, var(--ivory-deep) 0%, var(--champagne) 60%, var(--gold) 100%); }
+  .gallery-tile-5 { background: linear-gradient(160deg, var(--pink) 0%, var(--burgundy) 70%, var(--ink) 100%); }
+  .gallery-tile-6 { background: linear-gradient(135deg, var(--pink-soft) 0%, var(--champagne) 50%, var(--gold) 100%); }
+  .gallery-tile-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 16px; background: linear-gradient(0deg, rgba(34, 18, 22, 0.7) 0%, transparent 100%); color: var(--ivory); font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; text-align: left; transition: opacity 0.4s ease; }
+  .gallery-tile:hover .gallery-tile-label { opacity: 0; }
+
+  /* === TESTIMONIALS === */
+  .testimonials { padding: 130px 0; background: var(--ivory-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+  .testimonials-header { margin-bottom: 64px; }
+  .testimonials-header h2 { font-size: clamp(40px, 5.5vw, 64px); color: var(--ink); }
+  .testimonials-header h2 em { font-style: italic; color: var(--burgundy); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 960px; margin: 0 auto; text-align: left; }
+  .review-card { background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 36px 32px; position: relative; }
+  .review-card::before { content: '\201C'; position: absolute; top: 20px; right: 28px; font-family: var(--display); font-size: 80px; color: var(--line); line-height: 0.7; }
+  .review-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 16px; }
+  .review-text { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--plum); line-height: 1.7; margin-bottom: 24px; }
+  .review-author { display: flex; align-items: center; gap: 14px; }
+  .review-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 15px; font-weight: 600; flex-shrink: 0; }
+  .review-avatar-1 { background: linear-gradient(135deg, var(--pink) 0%, var(--burgundy) 100%); color: var(--ivory); }
+  .review-avatar-2 { background: linear-gradient(135deg, var(--champagne) 0%, var(--gold) 100%); color: var(--burgundy-dark); }
+  .review-avatar-3 { background: linear-gradient(135deg, var(--pink-soft) 0%, var(--pink) 100%); color: var(--burgundy); }
+  .review-name { font-weight: 600; font-size: 15px; color: var(--ink); }
+  .review-badge { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-top: 2px; font-weight: 500; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 700px) {
+    .container, .container-wide { padding: 0 24px; }
+    .nav-links { gap: 24px; flex-wrap: wrap; }
+    .hero { padding: 60px 0 60px; }
+    .manifesto { padding: 60px 0; }
+    .about { padding: 80px 0; }
+    .services { padding: 80px 0; }
+    .service-row { grid-template-columns: 40px 1fr; gap: 12px; padding: 20px 0; }
+    .service-price { grid-column: 1 / -1; text-align: left; padding-left: 52px; padding-top: 4px; font-size: 18px; }
+    .gallery { padding: 80px 0; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials { padding: 80px 0; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .discount { padding: 80px 0; }
+    .email-form { flex-direction: column; border-radius: 16px; padding: 12px; }
+    .email-form input { text-align: center; }
+    .email-form button { width: 100%; padding: 16px; }
+    .contact { padding: 80px 0; }
+    .contact-trio { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+    .contact-cell { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Salon Royal Jessica - Manikúra & Pedikúra</div>
+    <div class="nav-tag">Boutique salon · Praha-Praha</div>
+    <div class="nav-links">
+      <a href="#about">O nás</a>
+      <a href="#services">Služby</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact">Kontakt</a>
+      <a href="tel:774419017">Rezervovat</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Boutique salon · Praha-Praha</div>
+    <h1>Krása<br>v <em>klidu,</em><br><span class="script-large">v ústraní.</span></h1>
+    <p class="hero-lead">Komorní salon pro klientky, které vědí, co chtějí — a hlavně co nechtějí.</p>
+    <div class="hero-actions">
+      <a href="tel:774419017" class="btn btn-primary">Rezervovat termín</a>
+      <a href="#services" class="btn btn-text">Služby →</a>
+    </div>
+    <div class="hero-ornament">
+      <span class="hero-ornament-line"></span>
+      <span class="hero-ornament-symbol">✿</span>
+      <span class="hero-ornament-line"></span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="container">
+    <div class="manifesto-script">Filozofie</div>
+    <p class="manifesto-quote">„Salon, kde vás nikdy nikdo nespěchá. <em>Nikdy.</em>"</p>
+    <div class="manifesto-attr">— Salon Royal Jessica - Manikúra & Pedikúra, Praha</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-meta">O salónu</div>
+    <h2>Salón <em>jen pro vás</em><br>v daný okamžik.</h2>
+    <div class="about-figure">
+      <div class="about-figure-content">
+        <div class="about-figure-mark">Lc</div>
+        <div class="about-figure-name">Vedoucí · Tereza N.</div>
+      </div>
+    </div>
+    <p class="about-text">Salon Royal Jessica - Manikúra & Pedikúra je komorní salon Terezy Nedvědové, která po deseti letech v největších pražských studiích chtěla něco jiného — místo, kde se nikdy nepřekrývají dvě klientky, kde má každá hodinu jen pro sebe.</p>
+    <p class="about-quote">„Když se klientka nemusí dívat na hodinky, nemusíme jí nic prodávat. To je to nejlepší, co můžeme dát."</p>
+    <p class="about-text">Pracujeme jen na rezervaci. Bez fronty, bez zbytečného hluku. Jen vy, váš termín, a péče přesně podle toho, co potřebujete.</p>
+    <div class="about-signature">
+      <div class="name">Tereza N.</div>
+      <div class="role">Majitelka & kadeřnice</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container-wide">
+    <div class="services-header">
+      <div class="section-meta">Naše nabídka</div>
+      <h2>Šest <em>specializací.</em></h2>
+    </div>
+    <div class="services-list">
+      <div class="service-row"><div class="service-num">i.</div><div class="service-name">Dámský střih<small>Konzultace · mytí · střih · foukaná · styling</small></div><div class="service-price">od 750 Kč</div></div>
+      <div class="service-row"><div class="service-num">ii.</div><div class="service-name">Barvení & balayage<small>L'Oréal Professionnel · Kérastase</small></div><div class="service-price">od 1 800 Kč</div></div>
+      <div class="service-row"><div class="service-num">iii.</div><div class="service-name">Hloubková péče<small>Olaplex · Botox · keratin</small></div><div class="service-price">od 1 400 Kč</div></div>
+      <div class="service-row"><div class="service-num">iv.</div><div class="service-name">Společenský účes<small>Svatba · ples · slavnostní večer</small></div><div class="service-price">od 1 200 Kč</div></div>
+      <div class="service-row"><div class="service-num">v.</div><div class="service-name">Vlasové masáže<small>Relaxace pokožky hlavy · 30 min</small></div><div class="service-price">od 450 Kč</div></div>
+      <div class="service-row"><div class="service-num">vi.</div><div class="service-name">Konzultace<small>Vždy zdarma před první návštěvou</small></div><div class="service-price">Zdarma</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+  <div class="container-wide">
+    <div class="gallery-header">
+      <div class="section-meta">Naše práce</div>
+      <h2>Fotogalerie <em>výsledků.</em></h2>
+      <p class="subtext">Každý snímek je příběh péče a pozornosti.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile gallery-tile-1" data-label="Balayage">
+        <div class="gallery-tile-label">Balayage</div>
+      </div>
+      <div class="gallery-tile gallery-tile-2" data-label="Střih & styling">
+        <div class="gallery-tile-label">Střih & styling</div>
+      </div>
+      <div class="gallery-tile gallery-tile-3" data-label="Barvení">
+        <div class="gallery-tile-label">Barvení</div>
+      </div>
+      <div class="gallery-tile gallery-tile-4" data-label="Melíry">
+        <div class="gallery-tile-label">Melíry</div>
+      </div>
+      <div class="gallery-tile gallery-tile-5" data-label="Společenský účes">
+        <div class="gallery-tile-label">Společenský účes</div>
+      </div>
+      <div class="gallery-tile gallery-tile-6" data-label="Péče o vlasy">
+        <div class="gallery-tile-label">Péče o vlasy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container-wide">
+    <div class="testimonials-header">
+      <div class="section-meta">Hodnocení</div>
+      <h2>Co říkají <em>klientky.</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Konečně salon, kde se nemusím dívat na hodinky. Tereza je výjimečná — výsledek byl přesně takový, jak jsem si představovala, a ještě lepší."</p>
+        <div class="review-author">
+          <div class="review-avatar review-avatar-1">MK</div>
+          <div>
+            <div class="review-name">Markéta Kovářová</div>
+            <div class="review-badge">Balayage · klientka od 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Přišla jsem poprvé a odešla jako jiný člověk. Klid, péče, přesnost. Nic z toho, co zažíváte v přecpaných salonech. Vrátím se určitě."</p>
+        <div class="review-author">
+          <div class="review-avatar review-avatar-2">LP</div>
+          <div>
+            <div class="review-name">Lucie Procházková</div>
+            <div class="review-badge">Střih & styling · klientka od 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Společenský účes na svatbu mé dcery — dokonalý. Tereza pochopila přesně, co chci, aniž bych musela dlouho vysvětlovat. Perfektní zážitek."</p>
+        <div class="review-author">
+          <div class="review-avatar review-avatar-3">HN</div>
+          <div>
+            <div class="review-name">Helena Nováková</div>
+            <div class="review-badge">Společenský účes · klientka od 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT -->
+<section class="discount">
+  <div class="container">
+    <div class="section-meta">Pro nové klientky</div>
+    <h2>Na první návštěvu<em>−15 %</em></h2>
+    <p class="discount-lead">Zanechte nám e-mail a slevový kód letí do minuty.</p>
+    <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Hotovo ✓';">
+      <input type="email" placeholder="jan@novak.cz" required>
+      <button type="submit">Získat slevu</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container-wide">
+    <div class="contact-header">
+      <div class="section-meta">Návštěva</div>
+      <h2>Najdete nás <em>tady.</em></h2>
+    </div>
+    <div class="contact-trio">
+      <div class="contact-cell">
+        <div class="contact-label">Adresa</div>
+        <div class="contact-value">Vaše ulice 00<br>Praha-Praha</div>
+        <div class="contact-extra">5 min od metra Hradčanská</div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-label">Telefon</div>
+        <a href="tel:774419017" class="contact-value">774 419 017</a>
+        <div class="contact-extra">Pouze rezervace</div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-label">Otevřeno</div>
+        <div class="contact-value">Po — Pá · 10—19</div>
+        <div class="contact-extra">So na objednávku</div>
+      </div>
+    </div>
+    <div class="contact-map">
+      <iframe src="https://maps.google.com/maps?q=44,+Vinohradská+2030,+Vinohrady,+120+00+Praha-Praha+2,+Česko&output=embed" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="nav-logo">Salon Royal Jessica - Manikúra & Pedikúra</div>
+    <div class="nav-tag">Boutique salon · Praha-Praha · 774 419 017</div>
+    <div style="margin-top: 32px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(251, 246, 238, 0.4);">© 2026 Salon Royal Jessica - Manikúra & Pedikúra</div>
+  </div>
+</footer>
+
+</body>
+</html>
