@@ -1,0 +1,16 @@
+{
+  "salon_name": "Chicas-Locas - kadeřnictví",
+  "place_id": "ChIJMTHSlcGUC0cRz7ScjzIP3lw",
+  "address": "Seifertova 996/31, Žižkov, 130 00 Praha-Praha 3, Česko",
+  "rating": 5,
+  "reviews": 48,
+  "website": "http://www.chicas-locas.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "728 262 622",
+  "email": "chicaslocas@seznam.cz",
+  "maps_url": "https://maps.google.com/?cid=6691802806151328975",
+  "priority": "medium",
+  "folder_name": "prospect-chicas-locas---kade-nictv",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-chicas-locas---kade-nictv",
+  "template_used": "template-linen-rust"
+}
