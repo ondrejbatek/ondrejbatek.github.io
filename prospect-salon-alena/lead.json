@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon Alena",
+  "place_id": "ChIJZw3mZiGVC0cRoiBZJg3dZ-Q",
+  "address": "Bachmačské nám. 6, 160 00 Praha 6-Dejvice, Česko",
+  "rating": 4.9,
+  "reviews": 104,
+  "website": "http://www.salon-alena.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "224 312 459",
+  "email": "salon@salon-alena.cz",
+  "maps_url": "https://maps.google.com/?cid=16458366411796455586",
+  "priority": "medium",
+  "folder_name": "prospect-salon-alena",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-alena",
+  "template_used": "template-linen-rust"
+}
