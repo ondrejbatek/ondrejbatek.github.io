@@ -1,0 +1,16 @@
+{
+  "salon_name": "Beauty Laboratory",
+  "place_id": "ChIJifBDtvaVC0cR5jIYTu_c9Bg",
+  "address": "Záhřebská 562/41, Vinohrady, 120 00 Praha-Praha 2, Česko",
+  "rating": 4.7,
+  "reviews": 240,
+  "website": "https://www.beautypraha.com/",
+  "website_quality": "má vlastní web",
+  "phone": "777 450 249",
+  "email": "Anita.savchur@gmail.com",
+  "maps_url": "https://maps.google.com/?cid=1798305071593173734",
+  "priority": "medium",
+  "folder_name": "prospect-beauty-laboratory",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-beauty-laboratory",
+  "template_used": "template-creme-parisienne"
+}
