@@ -1,0 +1,16 @@
+{
+  "salon_name": "Voholto",
+  "place_id": "ChIJbU_PYcSVC0cRDv2hquqZDLQ",
+  "address": "Sokolovská 43/53, 186 00 Praha 8-Karlín, Česko",
+  "rating": 5,
+  "reviews": 112,
+  "website": "https://voholto.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "739 708 000",
+  "email": "info@voholto.cz",
+  "maps_url": "https://maps.google.com/?cid=12973913859711696142",
+  "priority": "medium",
+  "folder_name": "prospect-voholto",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-voholto",
+  "template_used": "template-terra-rosa"
+}
