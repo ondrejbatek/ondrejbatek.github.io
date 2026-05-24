@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zujan — Praha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --bg-soft: #F8F8F6;
+  --ink: #111111;
+  --ink-soft: #333333;
+  --muted: #888880;
+  --coral: #E8624A;
+  --coral-lt: #F5C4B8;
+  --coral-dk: #C04030;
+  --line: #E8E8E4;
+  --black: #000000;
+  --display: 'Syne', sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--ink); }
+
+.nav-phone {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--coral);
+  text-decoration: none;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+}
+
+/* HERO */
+.hero {
+  min-height: calc(100vh - 64px);
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 80px 48px;
+  gap: 60px;
+}
+
+.hero-left {}
+
+.hero-eyebrow {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.hero-headline {
+  font-family: var(--display);
+  font-size: clamp(64px, 7vw, 88px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--ink);
+  margin-bottom: 24px;
+  white-space: pre-line;
+}
+
+.hero-headline .coral { color: var(--coral); }
+
+.hero-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  margin: 28px 0;
+}
+
+.hero-lead {
+  font-family: var(--body);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--coral);
+  color: #fff;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: var(--coral-dk); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  position: relative;
+}
+
+.hero-black-box {
+  background: var(--black);
+  width: 280px;
+  height: 340px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-rotated-text {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #fff;
+  transform: rotate(90deg);
+  white-space: nowrap;
+  position: absolute;
+  right: -52px;
+}
+
+.hero-monogram {
+  font-family: var(--display);
+  font-size: 120px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.08);
+  line-height: 1;
+  position: absolute;
+}
+
+.hero-stat-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--coral);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-right: 40px;
+}
+
+.hero-stat-circle .stat-num {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero-stat-circle .stat-lbl {
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}
+
+/* STATS */
+.stats {
+  background: var(--black);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 56px 48px;
+  gap: 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0 20px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num-big {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.stat-label {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-top: 8px;
+  display: block;
+}
+
+/* ABOUT */
+.about {
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  min-height: 560px;
+}
+
+.about-img {
+  background: var(--black);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+  min-height: 480px;
+}
+
+.about-img-monogram {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--display);
+  font-size: 180px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.07);
+  line-height: 1;
+}
+
+.about-img-label {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  z-index: 1;
+}
+
+.about-content {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 24px;
+}
+
+.section-headline {
+  font-family: var(--display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.about-body {
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.about-owner {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.about-owner-title {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* SERVICES */
+.services {
+  background: var(--bg-soft);
+  padding: 96px 48px;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+}
+
+.services-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 48px 200px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-row:first-child { border-top: 1px solid var(--line); }
+
+.service-num {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.service-category {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.service-items {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.service-price {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--coral);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 4px;
+  background: var(--line);
+}
+
+.gallery-tile {
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-tile:nth-child(1) {
+  background: var(--black);
+  grid-row: span 2;
+}
+
+.gallery-tile:nth-child(2) {
+  background: var(--coral);
+}
+
+.gallery-tile:nth-child(3) {
+  background: #F0EEE8;
+}
+
+.gallery-tile:nth-child(4) {
+  background: #2A2A2A;
+}
+
+.gallery-tile:nth-child(5) {
+  background: var(--coral-lt);
+}
+
+.gallery-tile-label {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.gallery-tile:nth-child(1) .gallery-tile-label { color: rgba(255,255,255,0.5); }
+.gallery-tile:nth-child(2) .gallery-tile-label { color: rgba(255,255,255,0.7); }
+.gallery-tile:nth-child(3) .gallery-tile-label { color: var(--muted); }
+.gallery-tile:nth-child(4) .gallery-tile-label { color: rgba(255,255,255,0.5); }
+.gallery-tile:nth-child(5) .gallery-tile-label { color: var(--coral-dk); }
+
+.gallery-tile-big-text {
+  font-family: var(--display);
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1;
+  position: absolute;
+  bottom: -10px;
+  right: 16px;
+}
+
+.gallery-tile:nth-child(1) .gallery-tile-big-text { color: rgba(255,255,255,0.05); font-size: 140px; }
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--bg);
+  padding: 96px 48px;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.testimonial-card {
+  border-top: 2px solid var(--black);
+  padding-top: 28px;
+}
+
+.testimonial-quote-mark {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.testimonial-text {
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.testimonial-stars {
+  color: var(--coral);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.testimonial-name {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* CONTACT */
+.contact {
+  background: var(--black);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-left {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.contact-left .eyebrow { color: var(--coral); }
+
+.contact-headline {
+  font-family: var(--display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.contact-body {
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+.contact-right {
+  padding: 80px 64px;
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.contact-info-block {}
+
+.contact-info-label {
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 8px;
+}
+
+.contact-info-value {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.contact-info-value a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+
+.hours-day {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+}
+
+.hours-time {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+}
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-back {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--coral);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav {
+    padding: 0 24px;
+  }
+
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 48px 24px;
+    min-height: auto;
+    gap: 48px;
+  }
+
+  .hero-right {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .hero-black-box { width: 200px; height: 240px; }
+  .hero-stat-circle { margin-right: 0; }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px 24px;
+    gap: 32px;
+  }
+
+  .stat-item { border-right: none; }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-img { min-height: 280px; }
+
+  .about-content {
+    padding: 48px 24px;
+  }
+
+  .services {
+    padding: 64px 24px;
+  }
+
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .service-row {
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px 16px;
+  }
+
+  .service-items {
+    grid-column: 2;
+  }
+
+  .service-price {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+  }
+
+  .gallery-tile:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .testimonials {
+    padding: 64px 24px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-left, .contact-right {
+    padding: 48px 24px;
+  }
+
+  .contact-right { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 24px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ZUJAN</a>
+  <ul class="nav-links">
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#testimonials">Reference</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <a href="tel:775887893" class="nav-phone">775 887 893</a>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Praha 6 · Vlasový salon</p>
+    <h1 class="hero-headline">STŘIH,<br>KTERÝ<br><span class="coral">SEDÍ.</span></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-lead">Profesionální péče o vaše vlasy v srdci Prahy. Každý střih je příběh — dovolte nám napsat ten váš.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Rezervovat termín</a>
+      <a href="#services" class="btn-outline">Naše služby</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-black-box">
+      <span class="hero-monogram">SK</span>
+      <span class="hero-rotated-text">SALON · PRAHA · KRÁSA</span>
+    </div>
+    <div class="hero-stat-circle">
+      <span class="stat-num">10+</span>
+      <span class="stat-lbl">let<br>praxe</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-item">
+    <span class="stat-num-big">1200+</span>
+    <span class="stat-label">spokojených klientů</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num-big">10+</span>
+    <span class="stat-label">let zkušeností</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num-big">98%</span>
+    <span class="stat-label">vrací se znovu</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num-big">Praha 6</span>
+    <span class="stat-label">snadno dostupné</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img">
+    <span class="about-img-monogram">SK</span>
+    <span class="about-img-label">Majitelka</span>
+  </div>
+  <div class="about-content">
+    <p class="eyebrow">Náš příběh</p>
+    <h2 class="section-headline">Salon, kde se cítíte jako doma.</h2>
+    <p class="about-body">Věříme, že krása začíná dobrým pocitem. Náš tým zkušených stylistů se stará o každý detail — od prvního pohledu po finální výsledek. Přijďte zažít rozdíl.</p>
+    <p class="about-body">V Zujan kombinujeme moderní techniky s individuálním přístupem. Každý klient je jedinečný a zaslouží si péči šitou na míru.</p>
+    <div>
+      <p class="about-owner">Jméno Příjmení</p>
+      <p class="about-owner-title">Majitelka &amp; hlavní stylistka</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <p class="eyebrow">Co nabízíme</p>
+      <h2 class="section-headline">Naše služby</h2>
+    </div>
+  </div>
+  <div class="services-rows">
+    <div class="service-row">
+      <span class="service-num">01</span>
+      <span class="service-category">Střihy</span>
+      <span class="service-items">Dámský střih · Pánský střih · Dětský střih · Foukaná</span>
+      <span class="service-price">od 350 Kč</span>
+    </div>
+    <div class="service-row">
+      <span class="service-num">02</span>
+      <span class="service-category">Barvení</span>
+      <span class="service-items">Celkové barvení · Melír · Balayage · Toning</span>
+      <span class="service-price">od 800 Kč</span>
+    </div>
+    <div class="service-row">
+      <span class="service-num">03</span>
+      <span class="service-category">Péče</span>
+      <span class="service-items">Keratinová kúra · Botox na vlasy · Hydratační zábal · Masáž hlavy</span>
+      <span class="service-price">od 500 Kč</span>
+    </div>
+    <div class="service-row">
+      <span class="service-num">04</span>
+      <span class="service-category">Styling</span>
+      <span class="service-items">Svatební účes · Společenský účes · Prodlužování · Trvalá ondulace</span>
+      <span class="service-price">od 600 Kč</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-tile">
+    <span class="gallery-tile-big-text">SK</span>
+    <span class="gallery-tile-label">Náš salon</span>
+  </div>
+  <div class="gallery-tile">
+    <span class="gallery-tile-label">Střihy</span>
+  </div>
+  <div class="gallery-tile">
+    <span class="gallery-tile-label">Péče</span>
+  </div>
+  <div class="gallery-tile">
+    <span class="gallery-tile-label">Barvení</span>
+  </div>
+  <div class="gallery-tile">
+    <span class="gallery-tile-label">Styling</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-intro">
+    <p class="eyebrow">Co říkají klientky</p>
+    <h2 class="section-headline">Reference</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">"</span>
+      <p class="testimonial-text">Absolutně nejlepší salon v Praze. Profesionální přístup, krásné prostředí a výsledky, které překonají očekávání.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-name">Markéta V.</p>
+    </div>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">"</span>
+      <p class="testimonial-text">Konečně salon, kde opravdu poslouchají. Dostala jsem přesně to, co jsem chtěla — a ještě o něco víc.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-name">Tereza M.</p>
+    </div>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark">"</span>
+      <p class="testimonial-text">Chodím sem rok a půl a nikdy jsem nebyla zklamaná. Vždy odcházím s úsměvem a krásnými vlasy.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-name">Jana K.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <p class="eyebrow">Přijďte k nám</p>
+    <h2 class="contact-headline">Rezervujte svůj termín</h2>
+    <p class="contact-body">Těšíme se na vás v našem salonu v Praha 6. Objednejte se telefonicky nebo e-mailem.</p>
+    <a href="tel:775887893" class="btn-primary">Zavolat nyní</a>
+  </div>
+  <div class="contact-right">
+    <div class="contact-info-block">
+      <p class="contact-info-label">Telefon</p>
+      <p class="contact-info-value"><a href="tel:775887893">775 887 893</a></p>
+    </div>
+    <div class="contact-info-block">
+      <p class="contact-info-label">E-mail</p>
+      <p class="contact-info-value"><a href="mailto:info@zujan.cz">salon@example.com</a></p>
+    </div>
+    <div class="contact-info-block">
+      <p class="contact-info-label">Adresa</p>
+      <p class="contact-info-value">Praha 6</p>
+    </div>
+    <div class="contact-info-block">
+      <p class="contact-info-label">Otevírací doba</p>
+      <div class="hours-grid">
+        <span class="hours-day">Pondělí – Pátek</span>
+        <span class="hours-time">9:00 – 19:00</span>
+        <span class="hours-day">Sobota</span>
+        <span class="hours-time">9:00 – 16:00</span>
+        <span class="hours-day">Neděle</span>
+        <span class="hours-time">Zavřeno</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Zujan</span>
+  <span class="footer-copy">© 2024 Zujan · Praha 6 · salon@example.com</span>
+  <a href="#" class="footer-back">↑ Zpět nahoru</a>
+</footer>
+
+</body>
+</html>

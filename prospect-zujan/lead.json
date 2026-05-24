@@ -1,0 +1,16 @@
+{
+  "salon_name": "Zujan",
+  "place_id": "ChIJX-4cUPuVC0cR-XQVLpwHTcY",
+  "address": "Eliášova 827/22, 160 00 Praha 6, Česko",
+  "rating": 5,
+  "reviews": 25,
+  "website": "https://www.zujan.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "775 887 893",
+  "email": "info@zujan.cz",
+  "maps_url": "https://maps.google.com/?cid=14289085560085902585",
+  "priority": "medium",
+  "folder_name": "prospect-zujan",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-zujan",
+  "template_used": "template-blanc-atelier"
+}
