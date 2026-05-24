@@ -1,0 +1,16 @@
+{
+  "salon_name": "Studio Fleur",
+  "place_id": "ChIJi_26sZCVC0cRKWPMzw6wgKA",
+  "address": "Senovážné nám. 5, Nové Město, 110 00 Praha-Praha 1, Česko",
+  "rating": 4.8,
+  "reviews": 51,
+  "website": "https://studiofleur.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "777 433 314",
+  "email": "studiofleurpraha@gmail.com",
+  "maps_url": "https://maps.google.com/?cid=11565437420749742889",
+  "priority": "medium",
+  "folder_name": "prospect-studio-fleur",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-studio-fleur",
+  "template_used": "template-midnight-luxe"
+}
