@@ -1,0 +1,16 @@
+{
+  "salon_name": "Salon Střižna",
+  "place_id": "ChIJU83qtZiUC0cRE6xI2Tbgl-E",
+  "address": "Cimburkova 403/26, 130 00 Praha 3-Žižkov, Česko",
+  "rating": 5,
+  "reviews": 25,
+  "website": "http://www.strizna.com/",
+  "website_quality": "má vlastní web",
+  "phone": "",
+  "email": "leona@strizna.com",
+  "maps_url": "https://maps.google.com/?cid=16255707906195368979",
+  "priority": "medium",
+  "folder_name": "prospect-salon-st-i-na",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-salon-st-i-na",
+  "template_used": "template-nordic-spa"
+}
