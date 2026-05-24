@@ -1,0 +1,16 @@
+{
+  "salon_name": "The salon Color BAR",
+  "place_id": "ChIJc7rBFoGVC0cR9XEJH9bxsUk",
+  "address": "Řipská 24, 130 00 Praha 3-Vinohrady, Česko",
+  "rating": 4.8,
+  "reviews": 78,
+  "website": "http://www.thesaloncolorbar.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "777 054 281",
+  "email": "info@thesaloncolorbar.cz",
+  "maps_url": "https://maps.google.com/?cid=5310291337592533493",
+  "priority": "medium",
+  "folder_name": "prospect-the-salon-color-bar",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-the-salon-color-bar",
+  "template_used": "template-creme-parisienne"
+}
