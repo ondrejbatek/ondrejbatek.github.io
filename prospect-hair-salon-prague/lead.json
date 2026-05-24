@@ -1,0 +1,16 @@
+{
+  "salon_name": "Hair salon Prague",
+  "place_id": "ChIJz7lDHu2UC0cRCoOZ0mBYosM",
+  "address": "Jindřišská 5, Nové Město, 110 00 Praha-Praha 1, Česko",
+  "rating": 4.2,
+  "reviews": 64,
+  "website": "http://www.kadernictvipraha-1.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "777 821 096",
+  "email": "hairprague@seznam.cz",
+  "maps_url": "https://maps.google.com/?cid=14096926956496454410",
+  "priority": "medium",
+  "folder_name": "prospect-hair-salon-prague",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-hair-salon-prague",
+  "template_used": "template-jewel-emerald"
+}
