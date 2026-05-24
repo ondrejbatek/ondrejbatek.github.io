@@ -1,0 +1,16 @@
+{
+  "salon_name": "MYFACE Cosmetics",
+  "place_id": "ChIJu8ejaq2VC0cRummBVo-rMJA",
+  "address": "Slezská 15, 120 00 Praha 2-Vinohrady, Česko",
+  "rating": 4.7,
+  "reviews": 570,
+  "website": "http://www.myface.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "778 880 660",
+  "email": "info@myface.cz",
+  "maps_url": "https://maps.google.com/?cid=10389992972463729082",
+  "priority": "medium",
+  "folder_name": "prospect-myface-cosmetics",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-myface-cosmetics",
+  "template_used": "template-slate-sand"
+}
