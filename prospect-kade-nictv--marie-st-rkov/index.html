@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KADEŘNICTVÍ Marie Stárková — Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --white: #ffffff;
+      --off-white: #f8f8f6;
+      --light-grey: #efefed;
+      --mid-grey: #c0c0bc;
+      --dark-grey: #404040;
+      --ink: #0a0a0a;
+      --accent: #e8503a;
+      --accent-deep: #c03a28;
+      --line: #e0e0dc;
+      --display: 'Bebas Neue', Impact, sans-serif;
+      --serif: 'Italiana', Georgia, serif;
+      --body: 'Inter', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body);
+      background-color: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 32px;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dark-grey);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-cta {
+      background: var(--ink);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 0;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      color: var(--white) !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--off-white);
+      overflow: hidden;
+      padding: 0 5%;
+    }
+
+    /* Hero background word for depth */
+    .hero-bg-word {
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--display);
+      font-size: clamp(180px, 28vw, 420px);
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(10,10,10,0.05);
+      letter-spacing: 0.01em;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 120px 0 100px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 48px;
+      height: 1px;
+      background: var(--mid-grey);
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(100px, 18vw, 260px);
+      line-height: 0.88;
+      color: var(--ink);
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero h1 .outline {
+      -webkit-text-stroke: 3px var(--ink);
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.5vw, 32px);
+      font-style: italic;
+      color: var(--dark-grey);
+      margin-bottom: 48px;
+      max-width: 520px;
+      line-height: 1.4;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--white);
+      padding: 16px 36px;
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      padding: 16px 36px;
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-bar {
+      position: absolute;
+      right: 10%;
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      background: var(--accent);
+      z-index: 3;
+    }
+
+    .hero-issue {
+      position: absolute;
+      bottom: 40px;
+      right: 5%;
+      font-family: var(--body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      writing-mode: vertical-lr;
+      z-index: 3;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--ink);
+      padding: 24px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .trust-item span {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 120px 5%;
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      gap: 80px;
+      align-items: start;
+      background: var(--white);
+    }
+
+    .about-figure {
+      position: relative;
+      aspect-ratio: 3/4;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .about-figure::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.02) 40px,
+        rgba(255,255,255,0.02) 41px
+      );
+    }
+
+    .about-monogram {
+      font-family: var(--display);
+      font-size: 200px;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      position: absolute;
+    }
+
+    .about-figure-label {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-figure-label span {
+      font-family: var(--body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .about-figure-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .about-tag {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    .about-quote {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 32px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .about-text {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--dark-grey);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-signature {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-style: italic;
+      color: var(--ink);
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-signature small {
+      display: block;
+      font-family: var(--body);
+      font-size: 11px;
+      font-style: normal;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 6px;
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 120px 5%;
+      background: var(--off-white);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .section-label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(56px, 8vw, 100px);
+      line-height: 0.9;
+      color: var(--ink);
+      margin-bottom: 64px;
+      letter-spacing: 0.01em;
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: start;
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      gap: 32px;
+      transition: background 0.2s;
+    }
+
+    .service-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-num {
+      font-family: var(--display);
+      font-size: 72px;
+      color: var(--light-grey);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .service-body {
+      padding-top: 8px;
+    }
+
+    .service-name {
+      font-family: var(--display);
+      font-size: 48px;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .service-desc {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--dark-grey);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .service-price {
+      font-family: var(--display);
+      font-size: 36px;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery {
+      padding: 120px 5%;
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 0;
+    }
+
+    .gallery-tile {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-tile-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gallery-tile:hover .gallery-tile-bg {
+      transform: scale(1.05);
+    }
+
+    .gallery-tile-1 .gallery-tile-bg { background: linear-gradient(145deg, #0a0a0a 0%, #2a2a2a 50%, #e8503a 100%); }
+    .gallery-tile-2 .gallery-tile-bg { background: linear-gradient(145deg, #efefed 0%, #c0c0bc 60%, #0a0a0a 100%); }
+    .gallery-tile-3 .gallery-tile-bg { background: linear-gradient(145deg, #e8503a 0%, #c03a28 40%, #0a0a0a 100%); }
+    .gallery-tile-4 .gallery-tile-bg { background: linear-gradient(145deg, #404040 0%, #0a0a0a 50%, #e8503a 100%); }
+    .gallery-tile-5 .gallery-tile-bg { background: linear-gradient(145deg, #0a0a0a 0%, #e8503a 30%, #c0c0bc 100%); }
+    .gallery-tile-6 .gallery-tile-bg { background: linear-gradient(145deg, #c0c0bc 0%, #404040 60%, #0a0a0a 100%); }
+
+    .gallery-tile-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 18px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.3s;
+    }
+
+    .gallery-tile:hover .gallery-tile-label {
+      color: var(--white);
+    }
+
+    .gallery-tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .gallery-tile:hover .gallery-tile-overlay {
+      background: rgba(0,0,0,0.15);
+    }
+
+    .gallery-tile-overlay-label {
+      font-family: var(--display);
+      font-size: 28px;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .gallery-tile:hover .gallery-tile-overlay-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== DISCOUNT ===== */
+    .discount {
+      background: var(--accent);
+      padding: 100px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .discount::before {
+      content: '-15%';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--display);
+      font-size: clamp(120px, 20vw, 260px);
+      color: rgba(255,255,255,0.12);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.02em;
+    }
+
+    .discount-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .discount-tag {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+
+    .discount h2 {
+      font-family: var(--display);
+      font-size: clamp(56px, 8vw, 96px);
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .discount-text {
+      font-family: var(--body);
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .discount-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+    }
+
+    .discount-form input {
+      flex: 1;
+      background: var(--ink);
+      border: none;
+      padding: 16px 20px;
+      font-family: var(--body);
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      border-radius: 0;
+    }
+
+    .discount-form input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .discount-form button {
+      background: var(--white);
+      color: var(--ink);
+      border: none;
+      padding: 16px 28px;
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .discount-form button:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 120px 5%;
+      background: var(--white);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 80px;
+      margin-top: 64px;
+    }
+
+    .pricing-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pricing-name {
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--dark-grey);
+    }
+
+    .pricing-dots {
+      flex: 1;
+      border-bottom: 1px dotted var(--mid-grey);
+      margin: 0 12px;
+      transform: translateY(-4px);
+    }
+
+    .pricing-amount {
+      font-family: var(--display);
+      font-size: 24px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .pricing-note {
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--mid-grey);
+      margin-top: 32px;
+      font-style: italic;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      padding: 120px 5%;
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: '"';
+      position: absolute;
+      left: -2%;
+      top: -10%;
+      font-family: var(--display);
+      font-size: clamp(300px, 40vw, 600px);
+      color: rgba(10,10,10,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .testimonials-header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-card {
+      padding: 52px 40px;
+      border-left: 1px solid var(--line);
+      position: relative;
+    }
+
+    .testimonial-card:first-child {
+      border-left: none;
+    }
+
+    .testimonial-quote-mark {
+      font-family: var(--serif);
+      font-size: 96px;
+      line-height: 0.7;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0.9;
+    }
+
+    .testimonial-text {
+      font-family: var(--serif);
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-style: italic;
+      color: var(--dark-grey);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 0;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-size: 16px;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    .testimonial-card:nth-child(2) .testimonial-avatar {
+      background: var(--accent);
+    }
+
+    .testimonial-card:nth-child(3) .testimonial-avatar {
+      background: var(--dark-grey);
+    }
+
+    .testimonial-meta {
+      flex: 1;
+    }
+
+    .testimonial-name {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .testimonial-stars {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .testimonial-service {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--mid-grey);
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-left {
+      background: var(--ink);
+      padding: 100px 6%;
+      color: var(--white);
+    }
+
+    .contact-right {
+      background: var(--off-white);
+      padding: 100px 6%;
+    }
+
+    .contact-tag {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 48px;
+    }
+
+    .contact-section-title {
+      font-family: var(--display);
+      font-size: clamp(48px, 6vw, 72px);
+      line-height: 0.9;
+      margin-bottom: 48px;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-block {
+      margin-bottom: 36px;
+    }
+
+    .contact-label {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 8px;
+    }
+
+    .contact-left .contact-label {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .contact-value {
+      font-family: var(--body);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    .contact-right .contact-value {
+      color: var(--ink);
+    }
+
+    .contact-accent {
+      color: var(--accent);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hours-day {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark-grey);
+    }
+
+    .hours-time {
+      font-family: var(--display);
+      font-size: 22px;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .hours-closed {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mid-grey);
+      font-style: italic;
+    }
+
+    .contact-map {
+      margin-top: 40px;
+      height: 220px;
+      background: var(--light-grey);
+      overflow: hidden;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(1);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--ink);
+      padding: 80px 5% 40px;
+      color: var(--white);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .footer-brand p {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--accent);
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-family: var(--body);
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-copy span {
+      color: var(--accent);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: var(--body);
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover {
+      color: var(--white);
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 6%;
+        height: 60px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border-bottom: 2px solid var(--ink);
+        padding: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 16px 6%;
+        border-bottom: 1px solid var(--line);
+        font-size: 14px;
+      }
+
+      .nav-cta {
+        text-align: center;
+        padding: 18px 6% !important;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .hero-bar {
+        display: none;
+      }
+
+      .hero {
+        padding: 0 6%;
+      }
+
+      .hero-inner {
+        padding: 100px 0 80px;
+      }
+
+      .hero-bg-word {
+        font-size: clamp(120px, 30vw, 280px);
+        right: -5%;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 80px 6%;
+      }
+
+      .about-figure {
+        aspect-ratio: 4/3;
+        max-height: 360px;
+      }
+
+      .about-monogram {
+        font-size: 120px;
+      }
+
+      .service-item {
+        grid-template-columns: 72px 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .service-num {
+        font-size: 48px;
+      }
+
+      .service-name {
+        font-size: 34px;
+      }
+
+      .service-price {
+        grid-column: 2;
+        font-size: 28px;
+      }
+
+      .services {
+        padding: 80px 6%;
+      }
+
+      .gallery {
+        padding: 80px 6%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-tile {
+        height: 200px;
+      }
+
+      .testimonials {
+        padding: 80px 6%;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .testimonial-card {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding: 40px 0;
+      }
+
+      .testimonial-card:first-child {
+        border-top: none;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .pricing {
+        padding: 80px 6%;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-left,
+      .contact-right {
+        padding: 60px 6%;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .trust-bar {
+        gap: 16px;
+        padding: 20px 6%;
+      }
+
+      .discount {
+        padding: 80px 6%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: clamp(72px, 22vw, 120px);
+      }
+
+      .hero-sub {
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-outline {
+        text-align: center;
+      }
+
+      .trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .service-item {
+        grid-template-columns: 1fr;
+      }
+
+      .service-num {
+        font-size: 40px;
+        color: var(--mid-grey);
+      }
+
+      .service-name {
+        font-size: 28px;
+      }
+
+      .service-price {
+        grid-column: 1;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-tile {
+        height: 220px;
+      }
+
+      .discount-form {
+        flex-direction: column;
+      }
+
+      .discount-form button {
+        padding: 16px;
+        text-align: center;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .section-title {
+        font-size: clamp(44px, 14vw, 80px);
+      }
+
+      .about-quote {
+        font-size: 20px;
+      }
+
+      .contact-left,
+      .contact-right {
+        padding: 48px 6%;
+      }
+
+      .contact-section-title {
+        font-size: 40px;
+      }
+
+      .hours-time {
+        font-size: 18px;
+      }
+
+      .testimonial-quote-mark {
+        font-size: 72px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="top">
+    <a href="#top" class="nav-logo">KADEŘNICTVÍ MARIE STÁRKOVÁ<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#o-salonu">O salonu</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#cenik">Ceník</a></li>
+      <li><a href="#hodnoceni">Hodnocení</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#kontakt" class="nav-cta">Rezervovat</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Otevřít menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg-word">BEAUTY</div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">KADEŘNICTVÍ Marie Stárková — Praha</p>
+      <h1>STŘIH<br><span class="outline">KTERÝ</span><br>SEDÍ.</h1>
+      <p class="hero-sub">Profesionální péče o vlasy, která odráží vaši osobnost a styl — každý den.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-primary">Rezervovat termín</a>
+        <a href="#sluzby" class="btn-outline">Naše služby</a>
+      </div>
+    </div>
+    <div class="hero-bar"></div>
+    <p class="hero-issue">Vol. I — 2024</p>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Dámský &amp; pánský střih</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Barvení &amp; melíry</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>Společenské účesy</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-dot"></div>
+      <span>36, Praha</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="o-salonu">
+    <div class="about-figure">
+      <div class="about-monogram">SK</div>
+      <div class="about-figure-label">
+        <span>KADEŘNICTVÍ Marie Stárková</span>
+        <div class="about-figure-line"></div>
+      </div>
+    </div>
+    <div class="about-content">
+      <p class="about-tag">O salonu</p>
+      <blockquote class="about-quote">
+        „Krása není v dokonalosti — je v sebevědomí, které z dobré péče přirozeně vyzařuje."
+      </blockquote>
+      <p class="about-text">
+        KADEŘNICTVÍ Marie Stárková byl založen s jediným cílem: vytvořit místo, kde se cítíte vítáni, pochopeni a v dobrých rukou. Nejsme továrna na střihy — jsme ateliér pro ty, kteří vnímají svůj vzhled jako součást identity.
+      </p>
+      <p class="about-text">
+        Náš tým tvoří zkušení stylisté s mezinárodním vzděláním a vášní pro řemeslo. Každá návštěva začíná konzultací, protože věříme, že nejlepší výsledek vzniká ze vzájemného pochopení. Používáme výhradně prémiové produkty šetrné ke vlasům i životnímu prostředí.
+      </p>
+      <p class="about-text">
+        Ať přicházíte na rychlou foukánou nebo komplexní barevnou proměnu, přistupujeme ke každému klientovi s plnou pozorností a odborností, kterou si zaslouží.
+      </p>
+      <div class="about-signature">
+        Lucie Nováková
+        <small>Majitelka &amp; hlavní stylistka</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="sluzby">
+    <p class="section-label">Naše služby</p>
+    <h2 class="section-title">SLUŽBY</h2>
+
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-body">
+        <h3 class="service-name">DÁMSKÝ STŘIH</h3>
+        <p class="service-desc">Přesný střih přizpůsobený struktuře vašich vlasů, tvaru obličeje a životnímu stylu. Vždy začínáme konzultací, aby výsledek byl přesně takový, jaký si představujete.</p>
+      </div>
+      <div class="service-price">od 650 Kč</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-body">
+        <h3 class="service-name">BARVENÍ VLASŮ</h3>
+        <p class="service-desc">Jednolitá barva, zakrytí šedin nebo přechod do nového odstínu — vše s prémiovými barvami, které vlasy nepoškozují, ale vyživují. Výsledek drží déle, lesk je viditelnější.</p>
+      </div>
+      <div class="service-price">od 900 Kč</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-body">
+        <h3 class="service-name">MELÍRY / BALAYAGE</h3>
+        <p class="service-desc">Technika ručně malovaných melírů pro přirozený, sluncem políbený efekt. Balayage i klasické melíry — vždy individuálně navrhnuté tak, aby ladily s vaší pletí a osobností.</p>
+      </div>
+      <div class="service-price">od 1 400 Kč</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-body">
+        <h3 class="service-name">SPOLEČENSKÝ ÚČES</h3>
+        <p class="service-desc">Svatba, ples, večírek nebo firemní akce — připravíme vám účes, který vydrží celou noc a udělá dojem. Dostupné v kombinaci se zkušební přípravou nanečisto.</p>
+      </div>
+      <div class="service-price">od 1 200 Kč</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <div class="service-body">
+        <h3 class="service-name">FOUKANÁ</h3>
+        <p class="service-desc">Profesionální tvarování vlasů fénem a kulatým kartáčem pro hladké, lesklé a objemné výsledky. Ideální před důležitou událostí nebo jako pravidelná péče pro zdravé vlasy.</p>
+      </div>
+      <div class="service-price">od 450 Kč</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">06</div>
+      <div class="service-body">
+        <h3 class="service-name">KONZULTACE STYLU</h3>
+        <p class="service-desc">Nejste si jistí, co vám sluší? Nabízíme 45minutovou konzultaci se stylistou, při které probereme váš životní styl, vkus a možnosti. Výsledkem je jasný plán péče a stylu vlasů.</p>
+      </div>
+      <div class="service-price">350 Kč</div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="galerie">
+    <p class="section-label">Fotogalerie</p>
+    <h2 class="section-title">NAŠE PRÁCE</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-tile gallery-tile-1">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-label">BALAYAGE</span>
+        </div>
+        <div class="gallery-tile-label">Balayage</div>
+      </div>
+      <div class="gallery-tile gallery-tile-2">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-label">STŘIH</span>
+        </div>
+        <div class="gallery-tile-label">Střih &amp; Styling</div>
+      </div>
+      <div class="gallery-tile gallery-tile-3">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-label">BARVENÍ</span>
+        </div>
+        <div class="gallery-tile-label">Barvení</div>
+      </div>
+      <div class="gallery-tile gallery-tile-4">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-label">MELÍRY</span>
+        </div>
+        <div class="gallery-tile-label">Melíry</div>
+      </div>
+      <div class="gallery-tile gallery-tile-5">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-label">FOUKANÁ</span>
+        </div>
+        <div class="gallery-tile-label">Foukaná</div>
+      </div>
+      <div class="gallery-tile gallery-tile-6">
+        <div class="gallery-tile-bg"></div>
+        <div class="gallery-tile-overlay">
+          <span class="gallery-tile-overlay-label">ÚČES</span>
+        </div>
+        <div class="gallery-tile-label">Společenský účes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISCOUNT ===== -->
+  <section class="discount" id="nabidka">
+    <div class="discount-inner">
+      <p class="discount-tag">Speciální nabídka pro nové klienty</p>
+      <h2>PRVNÍ NÁVŠTĚVA<br>SE SLEVOU</h2>
+      <p class="discount-text">
+        Přijďte poprvé a získejte 15% slevu na veškeré služby. Stačí zanechat svůj e-mail — zašleme vám slevový kód a potvrzení. Platí po dobu 30 dní od přihlášení.
+      </p>
+      <form class="discount-form" onsubmit="return false;">
+        <input type="email" placeholder="váš@email.cz" aria-label="E-mailová adresa">
+        <button type="submit">Získat slevu</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="pricing" id="cenik">
+    <p class="section-label">Ceník</p>
+    <h2 class="section-title">CENÍK</h2>
+
+    <div class="pricing-grid">
+      <div>
+        <div class="pricing-item">
+          <span class="pricing-name">Dámský střih</span>
+          <div class="pricing-dots"></div>
+          <span class="pricing-amount">650 Kč</span>
+        </div>
+        <div class="pricing-item">
+          <span class="pricing-name">Barvení — krátké vlasy</span>
+          <div class="pricing-dots"></div>
+          <span class="pricing-amount">900 Kč</span>
+        </div>
+        <div class="pricing-item">
+          <span class="pricing-name">Barvení — dlouhé vlasy</span>
+          <div class="pricing-dots"></div>
+          <span class="pricing-amount">1 400 Kč</span>
+        </div>
+      </div>
+      <div>
+        <div class="pricing-item">
+          <span class="pricing-name">Melíry / Balayage</span>
+          <div class="pricing-dots"></div>
+          <span class="pricing-amount">1 400 Kč</span>
+        </div>
+        <div class="pricing-item">
+          <span class="pricing-name">Společenský účes</span>
+          <div class="pricing-dots"></div>
+          <span class="pricing-amount">1 200 Kč</span>
+        </div>
+        <div class="pricing-item">
+          <span class="pricing-name">Foukaná</span>
+          <div class="pricing-dots"></div>
+          <span class="pricing-amount">450 Kč</span>
+        </div>
+      </div>
+    </div>
+    <p class="pricing-note">* Ceny jsou orientační a mohou se lišit v závislosti na délce vlasů a náročnosti provedení. Přesnou cenu upřesníme při konzultaci.</p>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="hodnoceni">
+    <p class="section-label">Hodnocení klientek</p>
+    <h2 class="section-title">CO ŘÍKAJÍ<br>KLIENTKY</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <p class="testimonial-text">Přišla jsem poprvé s tím, že si nejsem jistá co chci — a odešla jsem s nejlepším střihem, jaký jsem kdy měla. Stylistka mě opravdu vyslechla a navrhla něco, co mi úplně sedí. Vrátím se určitě.</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">KH</div>
+          <div class="testimonial-meta">
+            <p class="testimonial-name">Karolína H.</p>
+            <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="testimonial-service">Dámský střih + konzultace</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <p class="testimonial-text">Balayage, o kterém jsem roky snila — konečně ho mám. Výsledek je přesně tak přirozený a teplý, jak jsem chtěla. Salon má navíc skvělou atmosféru, člověk se tu cítí opravdu dobře.</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">MV</div>
+          <div class="testimonial-meta">
+            <p class="testimonial-name">Markéta V.</p>
+            <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="testimonial-service">Balayage + střih</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <p class="testimonial-text">Na svatební účes jsem přišla trochu nervózní, ale hned jsem se uklidnila. Výsledek překonal veškerá má očekávání — vydržel celý večer a na fotkách vypadal naprosto perfektně.</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">JP</div>
+          <div class="testimonial-meta">
+            <p class="testimonial-name">Jana P.</p>
+            <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="testimonial-service">Společenský účes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="kontakt">
+    <div class="contact-left">
+      <p class="contact-tag">Kontakt</p>
+      <h2 class="contact-section-title">NAJDETE<br>NÁS<br>TADY.</h2>
+
+      <div class="contact-block">
+        <p class="contact-label">Adresa</p>
+        <p class="contact-value">36<br>Praha 3, 110 00</p>
+      </div>
+
+      <div class="contact-block">
+        <p class="contact-label">Telefon</p>
+        <p class="contact-value contact-accent">222 729 937</p>
+      </div>
+
+      <div class="contact-block">
+        <p class="contact-label">E-mail</p>
+        <p class="contact-value">viktor@kdomestriha.cz</p>
+      </div>
+
+      <div class="contact-block">
+        <p class="contact-label">Rezervace online</p>
+        <p class="contact-value">salonkrasy.cz/rezervace</p>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <p class="contact-tag">Otevírací doba</p>
+      <h2 class="contact-section-title">KDY<br>JSME<br>TU.</h2>
+
+      <div>
+        <div class="hours-row">
+          <span class="hours-day">Pondělí</span>
+          <span class="hours-time">9:00 — 18:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Úterý</span>
+          <span class="hours-time">9:00 — 19:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Středa</span>
+          <span class="hours-time">9:00 — 19:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Čtvrtek</span>
+          <span class="hours-time">9:00 — 20:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Pátek</span>
+          <span class="hours-time">9:00 — 18:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sobota</span>
+          <span class="hours-time">10:00 — 16:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Neděle</span>
+          <span class="hours-closed">Zavřeno</span>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://maps.google.com/maps?q=36,+Přemyslovská+1899,+130+00+Praha+3-Žižkov,+Česko&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa salonu">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo">KADEŘNICTVÍ MARIE STÁRKOVÁ<span style="color:var(--accent)">.</span></span>
+        <p>Profesionální péče o vlasy v srdci Prahy. Přijďte si k nám odpočinout a odejít s pocitem, že vypadáte přesně tak dobře, jak se cítíte.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="#o-salonu">O salonu</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#cenik">Ceník</a></li>
+          <li><a href="#hodnoceni">Hodnocení</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Služby</h4>
+        <ul>
+          <li><a href="#sluzby">Dámský střih</a></li>
+          <li><a href="#sluzby">Barvení vlasů</a></li>
+          <li><a href="#sluzby">Melíry / Balayage</a></li>
+          <li><a href="#sluzby">Společenský účes</a></li>
+          <li><a href="#sluzby">Foukaná</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sledujte nás</h4>
+        <div class="footer-social">
+          <a href="#" style="color:rgba(255,255,255,0.65);font-size:14px;font-weight:300;">Instagram</a>
+          <a href="#" style="color:rgba(255,255,255,0.65);font-size:14px;font-weight:300;">Facebook</a>
+          <a href="#" style="color:rgba(255,255,255,0.65);font-size:14px;font-weight:300;">Pinterest</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2024 KADEŘNICTVÍ Marie Stárková. Vytvořeno s <span>&#9829;</span> v Praze.</p>
+      <div class="footer-legal">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Obchodní podmínky</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll polyfill for older browsers
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
