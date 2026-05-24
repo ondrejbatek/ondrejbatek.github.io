@@ -1,0 +1,16 @@
+{
+  "salon_name": "Highlight Salon",
+  "place_id": "ChIJXcwn0KAj0y8RGhW1M2Tl8eI",
+  "address": "Zubrnická 1, 190 00 Praha 9-Prosek, Česko",
+  "rating": 4.9,
+  "reviews": 30,
+  "website": "https://www.highlightsalon.cz/",
+  "website_quality": "má vlastní web",
+  "phone": "730 440 400",
+  "email": "info@highlightsalon.cz",
+  "maps_url": "https://maps.google.com/?cid=16353103940485977370",
+  "priority": "medium",
+  "folder_name": "prospect-highlight-salon",
+  "folder_path": "C:\\Users\\batek\\Documents\\Claude\\Projects\\Website building\\prospect-highlight-salon",
+  "template_used": "template-terra-rosa"
+}
