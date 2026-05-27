@@ -1,852 +1,1019 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Studio Nicole — Kadeřnictví, kosmetika, manikúra & pedikúra · Praha 4</title>
-    <meta name="description" content="Komplexní péče o krásu v Praze 4 – Podolí. Kadeřnictví, kosmetická péče, manikúra a pedikúra. Beauty Studio Nicole na Dvorecké 3.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-    <style>
-        /* ── VARIABLES ── */
-        :root {
-            --deep:   #4E2038;
-            --rose:   #8C5266;
-            --gold:   #C4A27A;
-            --cream:  #FBF7F4;
-            --blush:  #F4EAE6;
-            --ink:    #2A2020;
-            --text:   #3D2A30;
-            --muted:  #9A8080;
-            --border: #E5D6D0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Studio Nicole — Kadeřnictví, Kosmetika, Manikúra, Pedikúra | Dvorecká 3, Praha 4</title>
+<meta name="description" content="Beauty Studio Nicole v Praze 4 – Podolí. Kadeřnictví, kosmetická péče, manikúra a pedikúra. Dvorecká 3, Praha 4 – Podolí.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ee;
+    --cream-deep: #ede5d2;
+    --cream-warm: #f4ecdc;
+    --blue-soft: #c8d2dc;
+    --blue: #7d8a9e;
+    --blue-deep: #4a5468;
+    --blue-darker: #353c4d;
+    --rose-gold: #c89a78;
+    --rose-gold-deep: #a07050;
+    --gold-light: #ddc398;
+    --ink: #1c2030;
+    --slate: #6e7080;
+    --muted: #8a8898;
+    --line: #d8d0d8;
+    --line-warm: #e3d8c0;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --script: 'Pinyon Script', cursive;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 
-        /* ── RESET ── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--ink);
-            font-size: 16px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        img { max-width: 100%; display: block; }
-        a { color: inherit; text-decoration: none; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-        /* ── NAV ── */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(251, 247, 244, 0.96);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            letter-spacing: 0.04em;
-            color: var(--deep);
-        }
-        .nav-logo span { font-style: italic; }
-        .nav-links {
-            display: flex;
-            gap: 36px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            font-size: 0.78rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--text);
-            opacity: 0.65;
-            transition: opacity 0.2s;
-        }
-        .nav-links a:hover { opacity: 1; }
-        .nav-cta {
-            background: var(--deep) !important;
-            color: #fff !important;
-            opacity: 1 !important;
-            padding: 10px 24px;
-            border-radius: 2px;
-            font-size: 0.75rem !important;
-            letter-spacing: 0.15em !important;
-            transition: background 0.2s !important;
-        }
-        .nav-cta:hover { background: var(--rose) !important; }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 18% 82%, rgba(125, 138, 158, 0.05) 0%, transparent 42%),
+                      radial-gradient(circle at 82% 18%, rgba(200, 154, 120, 0.05) 0%, transparent 42%);
+    pointer-events: none;
+    z-index: 1;
+  }
 
-        /* ── HERO ── */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 140px 40px 100px;
-            background: linear-gradient(150deg, #f9ede9 0%, var(--cream) 55%, #f5f0f8 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        #hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 800px 600px at 50% 40%, rgba(196,162,122,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--rose);
-            margin-bottom: 32px;
-            opacity: 0.85;
-        }
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.6rem, 8vw, 7.5rem);
-            font-weight: 300;
-            line-height: 1.06;
-            color: var(--deep);
-            margin-bottom: 32px;
-            max-width: 860px;
-        }
-        .hero-title em {
-            font-style: italic;
-            color: var(--rose);
-        }
-        .hero-sub {
-            font-size: 1rem;
-            color: var(--text);
-            opacity: 0.7;
-            max-width: 500px;
-            margin: 0 auto 52px;
-            line-height: 1.85;
-        }
-        .hero-actions {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .btn-primary {
-            background: var(--deep);
-            color: #fff;
-            padding: 16px 38px;
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            border-radius: 2px;
-            transition: background 0.25s;
-            display: inline-block;
-        }
-        .btn-primary:hover { background: var(--rose); color: #fff; }
-        .btn-ghost {
-            border: 1px solid var(--deep);
-            color: var(--deep);
-            padding: 16px 38px;
-            font-size: 0.8rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            border-radius: 2px;
-            transition: all 0.25s;
-            display: inline-block;
-        }
-        .btn-ghost:hover { background: var(--deep); color: #fff; }
-        .hero-ornament {
-            margin-top: 64px;
-            font-size: 1.2rem;
-            opacity: 0.2;
-            color: var(--gold);
-            letter-spacing: 0.5em;
-        }
+  h1, h2, h3, .serif {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .script { font-family: var(--script); font-weight: 400; }
 
-        /* ── STATS BAR ── */
-        #stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-        .stat {
-            padding: 44px 40px;
-            text-align: center;
-            background: var(--deep);
-            border-right: 1px solid rgba(255,255,255,0.07);
-        }
-        .stat:last-child { border-right: none; }
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            font-weight: 300;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 10px;
-            letter-spacing: -0.02em;
-        }
-        .stat-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
-        }
+  a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.7; }
 
-        /* ── PHILOSOPHY QUOTE ── */
-        #quote {
-            padding: 110px 40px;
-            text-align: center;
-            background: var(--cream);
-        }
-        .quote-mark {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 7rem;
-            line-height: 0.4;
-            color: var(--gold);
-            opacity: 0.25;
-            display: block;
-            margin-bottom: 28px;
-        }
-        .quote-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.6rem, 3vw, 2.5rem);
-            font-style: italic;
-            font-weight: 300;
-            color: var(--deep);
-            max-width: 780px;
-            margin: 0 auto 36px;
-            line-height: 1.5;
-        }
-        .quote-text strong { font-style: normal; font-weight: 600; }
-        .quote-author {
-            font-size: 0.78rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-        .quote-rule {
-            width: 40px;
-            height: 1px;
-            background: var(--gold);
-            margin: 20px auto 0;
-        }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
 
-        /* ── SHARED LAYOUT ── */
-        .container {
-            max-width: 1160px;
-            margin: 0 auto;
-            padding: 0 48px;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 72px;
-        }
-        .section-tag {
-            display: inline-block;
-            font-size: 0.66rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--rose);
-            margin-bottom: 18px;
-        }
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            color: var(--deep);
-        }
-        .section-title em { font-style: italic; color: var(--rose); }
-        .section-divider {
-            width: 44px;
-            height: 1px;
-            background: var(--gold);
-            margin: 24px auto 0;
-        }
+  /* === ORNAMENT === */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--rose-gold);
+    margin: 24px 0;
+  }
+  .ornament-line {
+    width: 64px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  }
+  .ornament-symbol {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--rose-gold);
+    line-height: 1;
+  }
 
-        /* ── ABOUT ── */
-        #about {
-            padding: 110px 48px;
-            background: var(--blush);
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 90px;
-            align-items: start;
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-        .about-label {
-            font-size: 0.66rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--rose);
-            margin-bottom: 18px;
-            display: block;
-        }
-        .about-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            font-weight: 400;
-            color: var(--deep);
-            line-height: 1.2;
-            margin-bottom: 32px;
-        }
-        .about-title em { font-style: italic; }
-        .about-body {
-            color: var(--text);
-            opacity: 0.82;
-            line-height: 1.9;
-            font-size: 0.97rem;
-        }
-        .about-body p + p { margin-top: 18px; }
-        .about-body strong { color: var(--deep); opacity: 1; font-weight: 500; }
-        .about-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 44px;
-            padding: 20px 28px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.7);
-            border-radius: 2px;
-        }
-        .badge-initials {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--deep);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            flex-shrink: 0;
-        }
-        .badge-text { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
-        .badge-text strong { display: block; color: var(--ink); font-size: 0.92rem; margin-bottom: 2px; font-weight: 500; }
+  /* === NAV === */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250, 246, 238, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-warm);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--blue-deep);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--blue-deep);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--slate);
+  }
+  .nav-cta {
+    background: var(--blue-deep);
+    color: var(--cream);
+    padding: 11px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(74, 84, 104, 0.2);
+  }
+  .nav-cta:hover {
+    background: var(--blue-darker);
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(74, 84, 104, 0.3);
+  }
 
-        /* About features list */
-        .about-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            padding-top: 8px;
-        }
-        .feature-item {
-            display: flex;
-            gap: 22px;
-            align-items: flex-start;
-            padding: 28px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .feature-item:first-child { padding-top: 0; }
-        .feature-item:last-child { border-bottom: none; }
-        .feature-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: var(--gold);
-            line-height: 1;
-            min-width: 32px;
-            opacity: 0.55;
-            padding-top: 2px;
-        }
-        .feature-content h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.12rem;
-            font-weight: 400;
-            color: var(--deep);
-            margin-bottom: 6px;
-        }
-        .feature-content p {
-            font-size: 0.85rem;
-            color: var(--text);
-            opacity: 0.72;
-            line-height: 1.75;
-        }
+  /* === HERO === */
+  .hero {
+    padding: 200px 0 140px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(200, 210, 220, 0.35) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -200px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(200, 154, 120, 0.12) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--rose-gold);
+    margin-bottom: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--rose-gold);
+  }
+  .hero h1 {
+    font-size: clamp(46px, 8.2vw, 100px);
+    color: var(--ink);
+    margin-bottom: 36px;
+    max-width: 15ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue-deep);
+    font-weight: 400;
+  }
+  .hero-subhead {
+    font-size: 18px;
+    color: var(--slate);
+    max-width: 54ch;
+    margin-bottom: 56px;
+    line-height: 1.75;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 34px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--blue-deep);
+    color: var(--cream);
+    box-shadow: 0 6px 20px rgba(74, 84, 104, 0.22);
+  }
+  .btn-primary:hover {
+    background: var(--blue-darker);
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(74, 84, 104, 0.32);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--blue);
+  }
+  .btn-secondary:hover {
+    background: var(--blue-soft);
+    color: var(--blue-deep);
+    opacity: 1;
+    border-color: var(--blue);
+  }
 
-        /* ── SERVICES ── */
-        #services {
-            padding: 110px 48px;
-            background: var(--cream);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            max-width: 1120px;
-            margin: 0 auto;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-        .service-card {
-            background: var(--cream);
-            padding: 56px 52px;
-            position: relative;
-            transition: background 0.3s;
-        }
-        .service-card:hover { background: #f9f4f6; }
-        .service-roman {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            font-style: italic;
-            color: var(--gold);
-            letter-spacing: 0.15em;
-            margin-bottom: 22px;
-            display: block;
-            opacity: 0.7;
-        }
-        .service-price {
-            position: absolute;
-            top: 56px;
-            right: 52px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--muted);
-            font-style: italic;
-        }
-        .service-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.7rem;
-            font-weight: 400;
-            color: var(--deep);
-            margin-bottom: 18px;
-        }
-        .service-desc {
-            font-size: 0.87rem;
-            color: var(--text);
-            opacity: 0.72;
-            line-height: 1.9;
-            margin-bottom: 28px;
-        }
-        .service-brands {
-            font-size: 0.72rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--rose);
-            opacity: 0.75;
-        }
+  /* Decorative hero floral */
+  .hero-floral {
+    position: absolute;
+    top: 230px;
+    right: 7%;
+    width: 290px;
+    opacity: 0.65;
+    z-index: 1;
+    animation: float 9s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(2deg); }
+  }
 
-        /* ── TEAM ── */
-        #team {
-            padding: 110px 48px;
-            background: var(--deep);
-        }
-        #team .section-tag { color: rgba(196,162,122,0.8); }
-        #team .section-title { color: #fff; }
-        #team .section-title em { color: var(--gold); }
-        #team .section-divider { background: var(--gold); opacity: 0.5; }
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-        .team-card { text-align: center; }
-        .team-avatar {
-            width: 76px;
-            height: 76px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(196,162,122,0.3);
-            margin: 0 auto 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--gold);
-        }
-        .team-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: #fff;
-            font-weight: 400;
-            margin-bottom: 6px;
-        }
-        .team-role {
-            font-size: 0.7rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.38);
-            margin-bottom: 18px;
-        }
-        .team-desc {
-            font-size: 0.83rem;
-            color: rgba(255,255,255,0.52);
-            line-height: 1.85;
-            margin-bottom: 20px;
-        }
-        .team-phone {
-            font-size: 0.82rem;
-            color: var(--gold);
-            opacity: 0.75;
-            letter-spacing: 0.04em;
-        }
+  /* === TRUST BAR === */
+  .trust {
+    background: var(--cream-deep);
+    padding: 32px 0;
+    border-top: 1px solid var(--line-warm);
+    border-bottom: 1px solid var(--line-warm);
+    position: relative;
+    z-index: 2;
+  }
+  .trust-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--rose-gold);
+  }
 
-        /* ── CONTACT ── */
-        #contact {
-            padding: 110px 48px;
-            background: var(--blush);
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-        .contact-info { display: flex; flex-direction: column; gap: 40px; }
-        .contact-block h4 {
-            font-size: 0.68rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--rose);
-            margin-bottom: 14px;
-        }
-        .contact-block p,
-        .contact-block a {
-            font-size: 0.95rem;
-            color: var(--text);
-            line-height: 1.85;
-        }
-        .contact-block a:hover { color: var(--deep); }
-        .hours-table { width: 100%; border-collapse: collapse; }
-        .hours-table tr { border-bottom: 1px solid var(--border); }
-        .hours-table tr:last-child { border-bottom: none; }
-        .hours-table td { padding: 10px 0; font-size: 0.9rem; color: var(--text); }
-        .hours-table td:last-child { text-align: right; opacity: 0.7; }
-        .map-wrap {
-            border-radius: 3px;
-            overflow: hidden;
-            height: 360px;
-            border: 1px solid var(--border);
-        }
-        .map-wrap iframe { width: 100%; height: 100%; border: none; }
-        .contact-cta-box {
-            margin-top: 8px;
-            background: var(--deep);
-            border-radius: 2px;
-            padding: 32px 36px;
-        }
-        .contact-cta-box p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.55);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
+  /* === SECTIONS === */
+  section { padding: 130px 0; position: relative; }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--rose-gold);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--rose-gold);
+  }
+  .section-title {
+    font-size: clamp(38px, 5.2vw, 60px);
+    margin-bottom: 28px;
+    max-width: 18ch;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--blue-deep); font-weight: 400; }
+  .section-lead {
+    font-size: 18px;
+    color: var(--slate);
+    max-width: 56ch;
+    line-height: 1.75;
+  }
 
-        /* ── FOOTER ── */
-        footer {
-            background: var(--ink);
-            padding: 36px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.65);
-        }
-        .footer-copy {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 0.06em;
-        }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
-        .footer-links a {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 0.08em;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: rgba(255,255,255,0.7); }
+  /* === ABOUT === */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-figure {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+    border-radius: 200px 200px 8px 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(74, 84, 104, 0.25);
+  }
+  .about-figure::before {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    border: 1px solid rgba(250, 246, 238, 0.3);
+    border-radius: 180px 180px 4px 4px;
+    pointer-events: none;
+  }
+  .about-figure-monogram {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgba(250, 246, 238, 0.95);
+    text-align: center;
+  }
+  .about-figure-monogram .script {
+    font-size: 140px;
+    line-height: 0.85;
+    margin-bottom: 8px;
+    color: rgba(250, 246, 238, 0.85);
+  }
+  .about-figure-monogram .role {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(250, 246, 238, 0.65);
+  }
+  .about-figure-frame {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(250, 246, 238, 0.5);
+  }
+  .about-quote {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--blue-deep);
+    margin: 0 0 32px;
+    padding-left: 24px;
+    border-left: 2px solid var(--rose-gold);
+  }
+  .about-text p { margin-bottom: 22px; color: var(--ink); font-size: 16px; }
+  .about-signature {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .about-signature .script-name {
+    font-family: var(--script);
+    font-size: 42px;
+    color: var(--blue-deep);
+    line-height: 1;
+  }
+  .about-signature .signature-role {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-left: 1px solid var(--line-warm);
+    padding-left: 16px;
+  }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 960px) {
-            nav { padding: 18px 24px; }
-            .nav-links { display: none; }
-            #stats { grid-template-columns: repeat(2, 1fr); }
-            .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-            .about-grid { grid-template-columns: 1fr; gap: 56px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 56px; }
-            footer { flex-direction: column; text-align: center; padding: 32px 24px; }
-        }
-        @media (max-width: 560px) {
-            #about, #services, #team, #contact { padding-left: 24px; padding-right: 24px; }
-            .service-card { padding: 40px 28px; }
-            .service-price { top: 40px; right: 28px; }
-            .team-grid { grid-template-columns: 1fr; max-width: 320px; }
-        }
-    </style>
+  /* === SERVICES === */
+  .services {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-warm) 50%, var(--cream) 100%);
+  }
+  .services-header { text-align: center; margin-bottom: 80px; }
+  .services-header .section-eyebrow,
+  .services-header .section-title { margin-left: auto; margin-right: auto; }
+  .services-header .section-title { max-width: none; }
+  .services-header .section-lead { margin-left: auto; margin-right: auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    padding: 48px 36px 40px;
+    background: var(--cream);
+    border: 1px solid var(--line-warm);
+    border-radius: 4px 4px 80px 80px;
+    transition: all 0.4s ease;
+    position: relative;
+    text-align: center;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px rgba(74, 84, 104, 0.12);
+    border-color: var(--blue-soft);
+  }
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
+    color: var(--blue-deep);
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); }
+  .service-num {
+    font-family: var(--script);
+    font-size: 24px;
+    color: var(--rose-gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .service-desc {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .service-price {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-deep);
+    padding-top: 16px;
+    border-top: 1px solid var(--line-warm);
+  }
+
+  /* === DISCOUNT EMAIL === */
+  .discount {
+    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-darker) 100%);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .discount::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(221, 195, 152, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .discount::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(200, 210, 220, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .discount .container { max-width: 720px; position: relative; z-index: 2; }
+  .discount .section-eyebrow { color: var(--gold-light); justify-content: center; }
+  .discount .section-eyebrow::before,
+  .discount .section-eyebrow::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--gold-light);
+  }
+  .discount-header { display: flex; justify-content: center; margin-bottom: 28px; }
+  .discount h2 {
+    font-size: clamp(42px, 6.5vw, 68px);
+    margin-bottom: 28px;
+    color: var(--cream);
+  }
+  .discount h2 em {
+    color: var(--gold-light);
+    font-style: italic;
+    display: block;
+    font-family: var(--script);
+    font-size: 0.95em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .discount-lead {
+    color: rgba(250, 246, 238, 0.78);
+    font-size: 17px;
+    margin-bottom: 44px;
+    line-height: 1.7;
+  }
+  .email-form {
+    display: flex;
+    gap: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(250, 246, 238, 0.08);
+    border: 1px solid rgba(250, 246, 238, 0.18);
+    padding: 7px;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+  }
+  .email-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 22px;
+    color: var(--cream);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+  }
+  .email-form input::placeholder { color: rgba(250, 246, 238, 0.5); }
+  .email-form button {
+    background: var(--rose-gold);
+    color: var(--blue-darker);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 14px rgba(200, 154, 120, 0.4);
+  }
+  .email-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(200, 154, 120, 0.5);
+  }
+  .discount-fineprint {
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(250, 246, 238, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* === TEAM === */
+  .team {
+    background: var(--cream-warm);
+  }
+  .team-header { text-align: center; margin-bottom: 80px; }
+  .team-header .section-eyebrow { margin-left: auto; margin-right: auto; }
+  .team-header .section-title { max-width: none; }
+  .team-header .section-lead { margin-left: auto; margin-right: auto; }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .team-card {
+    background: var(--cream);
+    border: 1px solid var(--line-warm);
+    border-radius: 4px 80px 4px 4px;
+    padding: 40px 36px;
+    transition: all 0.4s ease;
+  }
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px rgba(74, 84, 104, 0.1);
+    border-color: var(--blue-soft);
+  }
+  .team-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--blue-deep);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(74, 84, 104, 0.22);
+  }
+  .team-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .team-role {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose-gold);
+    margin-bottom: 16px;
+  }
+  .team-desc {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .team-phone {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--blue-deep);
+    display: inline-block;
+  }
+  .team-phone:hover { opacity: 0.7; }
+
+  /* === CONTACT === */
+  .contact { background: var(--cream); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-top: 72px;
+  }
+  .contact-card {
+    background: var(--cream-deep);
+    padding: 48px 40px;
+    border-radius: 4px 80px 4px 80px;
+    border: 1px solid var(--line-warm);
+  }
+  .contact-block { margin-bottom: 36px; }
+  .contact-block:last-child { margin-bottom: 0; }
+  .contact-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--rose-gold);
+    margin-bottom: 14px;
+  }
+  .contact-value {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.4;
+    display: block;
+  }
+  .contact-extra { color: var(--muted); font-size: 14px; }
+  .hours-list { list-style: none; }
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line-warm);
+    font-size: 15px;
+  }
+  .hours-list li:last-child { border-bottom: none; }
+  .hours-day { color: var(--muted); font-family: var(--serif); font-size: 18px; }
+  .hours-time { color: var(--ink); font-weight: 500; }
+
+  /* === MAP === */
+  .map-wrap {
+    margin-top: 56px;
+    border-radius: 4px 80px 4px 80px;
+    overflow: hidden;
+    border: 1px solid var(--line-warm);
+    box-shadow: 0 20px 50px rgba(74, 84, 104, 0.12);
+  }
+  .map-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 380px;
+    border: 0;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--ink);
+    color: rgba(250, 246, 238, 0.6);
+    padding: 72px 0 36px;
+    font-size: 14px;
+    position: relative;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+  footer .logo { color: var(--cream); margin-bottom: 20px; }
+  footer .logo-mark { background: var(--cream); color: var(--ink); }
+  footer h4 {
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(250, 246, 238, 0.1);
+    padding-top: 32px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(250, 246, 238, 0.5);
+  }
+  .footer-bottom .script { color: var(--gold-light); font-size: 18px; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 0; }
+    .hero { padding: 140px 0 80px; }
+    .about { grid-template-columns: 1fr; gap: 56px; }
+    .about-figure { aspect-ratio: 4/5; max-width: 360px; margin: 0 auto; border-radius: 160px 160px 6px 6px; }
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .team-grid { grid-template-columns: 1fr; gap: 16px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-card { padding: 40px 28px; border-radius: 4px 60px 4px 60px; }
+    .map-wrap { border-radius: 4px 60px 4px 60px; }
+    .map-wrap iframe { height: 320px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .email-form { flex-direction: column; border-radius: 16px; padding: 12px; }
+    .email-form input { text-align: center; }
+    .email-form button { width: 100%; padding: 16px; }
+    .trust-inner { justify-content: center; gap: 16px 32px; }
+    .about-quote { font-size: 24px; padding-left: 16px; }
+    .hero-floral { display: none; }
+    .about-figure-monogram .script { font-size: 110px; }
+  }
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+    .about-signature .script-name { font-size: 36px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-    <div class="nav-logo">Beauty Studio <span>Nicole</span></div>
-    <ul class="nav-links">
-        <li><a href="#about">O studiu</a></li>
-        <li><a href="#services">Služby</a></li>
-        <li><a href="#team">Tým</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-        <li><a href="tel:+420731533504" class="nav-cta">Rezervovat</a></li>
-    </ul>
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">N</span>
+      Beauty Studio Nicole
+    </a>
+    <div class="nav-links">
+      <a href="#o-studiu">O studiu</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#tym">Tým</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a href="tel:+420731533504" class="nav-cta">Rezervovat</a>
+  </div>
 </nav>
 
-<!-- ── HERO ── -->
-<section id="hero">
-    <p class="hero-label">Kadeřnictví · Kosmetika · Manikúra · Pedikúra · Praha 4 – Podolí</p>
-    <h1 class="hero-title">Krása, která<br>přichází <em>od srdce.</em></h1>
-    <p class="hero-sub">Komplexní péče o váš vzhled i pohodu. Od vlasů po nehty — vše na jednom místě, se zkušenými specialistkami, které vědí, co dělají.</p>
+<!-- HERO -->
+<section class="hero">
+  <!-- Decorative botanical SVG -->
+  <svg class="hero-floral" viewBox="0 0 240 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#7d8a9e" stroke-width="1" stroke-linecap="round" fill="none">
+      <path d="M120 252 Q120 200 130 150 Q140 100 120 58"/>
+      <path d="M120 202 Q90 196 70 180 Q60 170 65 158" />
+      <path d="M120 202 Q150 196 170 180 Q180 170 175 158" />
+      <path d="M124 160 Q105 156 90 148 Q82 142 84 136" />
+      <path d="M126 160 Q145 156 160 148 Q168 142 166 136" />
+      <path d="M126 120 Q110 116 100 108" />
+      <path d="M128 120 Q144 116 154 108" />
+    </g>
+    <!-- Flower buds -->
+    <g fill="#c89a78" opacity="0.7">
+      <ellipse cx="62" cy="156" rx="6" ry="9" transform="rotate(-30 62 156)"/>
+      <ellipse cx="178" cy="156" rx="6" ry="9" transform="rotate(30 178 156)"/>
+      <ellipse cx="82" cy="134" rx="5" ry="7" transform="rotate(-20 82 134)"/>
+      <ellipse cx="168" cy="134" rx="5" ry="7" transform="rotate(20 168 134)"/>
+      <ellipse cx="98" cy="106" rx="4" ry="6" transform="rotate(-15 98 106)"/>
+      <ellipse cx="156" cy="106" rx="4" ry="6" transform="rotate(15 156 106)"/>
+    </g>
+    <!-- Top blossom -->
+    <g fill="#4a5468">
+      <circle cx="120" cy="58" r="8"/>
+      <circle cx="112" cy="62" r="6" opacity="0.7"/>
+      <circle cx="128" cy="62" r="6" opacity="0.7"/>
+      <circle cx="115" cy="50" r="6" opacity="0.7"/>
+      <circle cx="125" cy="50" r="6" opacity="0.7"/>
+      <circle cx="120" cy="58" r="3" fill="#ddc398"/>
+    </g>
+    <!-- Small leaves -->
+    <g fill="#c8d2dc" opacity="0.7">
+      <ellipse cx="75" cy="175" rx="8" ry="3" transform="rotate(-30 75 175)"/>
+      <ellipse cx="165" cy="175" rx="8" ry="3" transform="rotate(30 165 175)"/>
+    </g>
+  </svg>
+
+  <div class="container hero-content">
+    <div class="hero-eyebrow">Kadeřnictví · Kosmetika · Manikúra · Pedikúra · Praha 4</div>
+    <h1>Vaše krása, <em>naše vášeň.</em></h1>
+    <p class="hero-subhead">
+      Beauty Studio Nicole v srdci Podolí — čtyři odbornice, čtyři specializace, jedna adresa. Kadeřnictví, kosmetická péče, manikúra i pedikúra pod jednou střechou.
+    </p>
     <div class="hero-actions">
-        <a href="tel:+420731533504" class="btn-primary">Zavolat a rezervovat</a>
-        <a href="#services" class="btn-ghost">Co nabízíme →</a>
+      <a href="tel:+420731533504" class="btn btn-primary">Rezervovat termín →</a>
+      <a href="#sluzby" class="btn btn-secondary">Naše služby</a>
     </div>
-    <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  </div>
 </section>
 
-<!-- ── STATS ── -->
-<div id="stats">
-    <div class="stat">
-        <div class="stat-number">30+</div>
-        <div class="stat-label">Let zkušeností<br>v kosmetice</div>
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Komplexní péče
     </div>
-    <div class="stat">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Let praxe<br>v pedikúře</div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Dámské · Pánské · Dětské
     </div>
-    <div class="stat">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Specialistky<br>pod jednou střechou</div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Alcina · Wella · BisBis
     </div>
-    <div class="stat">
-        <div class="stat-number">P4</div>
-        <div class="stat-label">Praha 4<br>Podolí · Dvorecká</div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="7" r="3"/></svg>
+      Dvorecká 3, Praha 4 – Podolí
     </div>
+  </div>
 </div>
 
-<!-- ── PHILOSOPHY ── -->
-<section id="quote">
-    <span class="quote-mark">"</span>
-    <p class="quote-text">„Ke každé klientce přistupujeme <strong>individuálně</strong> — protože krása není o módních trendech, ale o pocitu, se kterým odcházíte domů."</p>
-    <p class="quote-author">— Beauty Studio Nicole · Dvorecká 3 · Praha 4 – Podolí</p>
-    <div class="quote-rule"></div>
-</section>
-
-<!-- ── ABOUT ── -->
-<section id="about">
-    <div class="about-grid">
-        <div>
-            <span class="about-label">O studiu</span>
-            <h2 class="about-title">Komplexní péče<br><em>na jednom místě.</em></h2>
-            <div class="about-body">
-                <p>Beauty Studio Nicole je místo, kde péče o vlasy, pleť, ruce a nohy jde ruku v ruce. Nejsme jen kadeřnictví — jsme studio, kde si každá klientka opravdu přijde na své.</p>
-                <p>Pracujeme výhradně s prověřenými profesionálními značkami. Ve vlasové péči s <strong>Wella Professionals, Previa a Milk Shake</strong>, v kosmetice s <strong>Alcinou</strong>, v manikúře a pedikúře s <strong>BisBis</strong>. Žádné kompromisy v kvalitě.</p>
-                <p>Naprostou samozřejmostí je individuální péče, čistota a klid příjemného prostředí, kde si lze opravdu odpočinout.</p>
-            </div>
-            <div class="about-badge">
-                <div class="badge-initials">BSN</div>
-                <div class="badge-text">
-                    <strong>Beauty Studio Nicole</strong>
-                    Dvorecká 3 · Praha 4 – Podolí
-                </div>
-            </div>
+<!-- ABOUT -->
+<section id="o-studiu">
+  <div class="container">
+    <div class="about">
+      <div class="about-figure">
+        <div class="about-figure-monogram">
+          <div class="script">BSN</div>
+          <div class="role">Praha 4 · Podolí</div>
         </div>
-        <div class="about-features">
-            <div class="feature-item">
-                <div class="feature-num">01</div>
-                <div class="feature-content">
-                    <h4>Profesionální materiály</h4>
-                    <p>Wella Professionals, Previa, Milk Shake, Alcina, BisBis — výběr bez kompromisů.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-num">02</div>
-                <div class="feature-content">
-                    <h4>Čtyři obory pod jednou střechou</h4>
-                    <p>Kadeřnictví, kosmetika, manikúra i pedikúra — vše domluvíte na jednom místě.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-num">03</div>
-                <div class="feature-content">
-                    <h4>Individuální přístup</h4>
-                    <p>Každý klient je pro nás jedinečný. Plná pozornost a péče přizpůsobená právě vám.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-num">04</div>
-                <div class="feature-content">
-                    <h4>Snadná dostupnost</h4>
-                    <p>Parkování bez problémů. Bus č. 118, zastávka „Za skalkou" — vždy se dostanete.</p>
-                </div>
-            </div>
+        <svg class="about-figure-frame" width="60" height="20" viewBox="0 0 60 20" fill="none">
+          <path d="M2 10 Q15 4 30 10 T58 10" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="30" cy="10" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">O studiu</div>
+        <h2 class="section-title">Studio pro <em>celou krásu.</em></h2>
+        <p class="about-quote">
+          „Věříme, že skutečná péče o vzhled je víc než výsledek — je to zážitek, při kterém se cítíte výjimečně od první minuty."
+        </p>
+        <p>
+          Beauty Studio Nicole je místem, kde se potkává kadeřnické umění, odborná kosmetická péče, péče o ruce i nohy. Naše čtyři specialistky vám nabídnou přesně to, co potřebujete — s letitými zkušenostmi, prémiovými produkty a individuálním přístupem.
+        </p>
+        <p>
+          Pracujeme s předními značkami jako Wella Professionals, Previa, Milk Shake, Itely Hairfashion, Alcina a BisBis Professional. Každá návštěva u nás začíná krátkou konzultací — vy mluvíte, my nasloucháme.
+        </p>
+        <div class="about-signature">
+          <div class="script-name">Beauty Studio Nicole</div>
+          <div class="signature-role">Praha 4 · Podolí</div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ── SERVICES ── -->
-<section id="services">
-    <div class="section-header">
-        <span class="section-tag">Nabídka služeb</span>
-        <h2 class="section-title">Co pro vás <em>uděláme.</em></h2>
-        <div class="section-divider"></div>
+<!-- SERVICES -->
+<section id="sluzby" class="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-eyebrow" style="justify-content: center;"><span>Naše služby</span></div>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-symbol">❀</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2 class="section-title">Vše pro vaši <em>krásu a pohodu.</em></h2>
+      <p class="section-lead">Čtyři specializace pod jednou střechou — kadeřnictví, kosmetika, manikúra i pedikúra. Vždy začínáme konzultací, vždy skončíme spokojeností.</p>
     </div>
     <div class="services-grid">
-        <div class="service-card">
-            <span class="service-roman">i. Kadeřnictví</span>
-            <span class="service-price">od 460 Kč</span>
-            <h3 class="service-title">Vlasy s péčí</h3>
-            <p class="service-desc">Dámské, pánské i dětské kadeřnictví. Střihy, barvení, melíry, ombre, balayage, foukaná, společenské a svatební účesy. Sledujeme trendy — a pomůžeme vám s jakýmkoli vlasovým problémem.</p>
-            <div class="service-brands">Wella Professionals · Previa · Milk Shake · Itely Hairfashion</div>
-        </div>
-        <div class="service-card">
-            <span class="service-roman">ii. Kosmetická péče</span>
-            <span class="service-price">od 600 Kč</span>
-            <h3 class="service-title">Pleť & relax</h3>
-            <p class="service-desc">Komplexní kosmetické ošetření, masáže obličeje a dekoltu, úprava a barvení obočí a řas, depilace teplým voskem, parafínové zábaly, trvalá na řasy. Relaxační prostředí pro vaši pleť i mysl.</p>
-            <div class="service-brands">Alcina Professional</div>
-        </div>
-        <div class="service-card">
-            <span class="service-roman">iii. Manikúra</span>
-            <span class="service-price">od 550 Kč</span>
-            <h3 class="service-title">Ruce v dobrých rukou</h3>
-            <p class="service-desc">Suchá i kombinovaná manikúra, gel lak, gelová modeláž, prodloužení pomocí šablon. Precizní péče s důrazem na hygienu a výsledek, který vydrží. Každý detail se počítá.</p>
-            <div class="service-brands">BisBis Professional</div>
-        </div>
-        <div class="service-card">
-            <span class="service-roman">iv. Pedikúra</span>
-            <span class="service-price">od 490 Kč</span>
-            <h3 class="service-title">Chodidla bez starostí</h3>
-            <p class="service-desc">Mokrá, suchá i kombinovaná pedikúra. Základní i kompletní péče, speciální ošetření zarostlých nehtů, rovnátka Podofix, gellak na nohy. Více než 20 let zkušeností s péčí o vaše chodidla.</p>
-            <div class="service-brands">BisBis Professional</div>
-        </div>
+
+      <div class="service-card">
+        <!-- Scissors icon -->
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="14" cy="42" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="42" cy="42" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="38" x2="48" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="36" y1="38" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M26 22 Q30 18 34 20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="service-num">i.</div>
+        <h3 class="service-name">Kadeřnictví</h3>
+        <p class="service-desc">Dámský, pánský i dětský střih, barvení, melíry, ombre, společenské účesy. Wella, Previa, Milk Shake, Itely.</p>
+        <div class="service-price">Od 460 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <!-- Face/beauty icon -->
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <ellipse cx="28" cy="28" rx="16" ry="18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M20 24 Q24 22 28 24 Q32 22 36 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M22 34 Q25 37 28 37 Q31 37 34 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="22" cy="29" r="2" fill="currentColor" opacity="0.6"/>
+          <circle cx="34" cy="29" r="2" fill="currentColor" opacity="0.6"/>
+          <path d="M28 10 L28 6 M21 12 L19 8 M35 12 L37 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="service-num">ii.</div>
+        <h3 class="service-name">Kosmetická péče</h3>
+        <p class="service-desc">Ošetření pleti, masáže, barvení řas a obočí, depilace, parafínové zábaly. Alcina Professional.</p>
+        <div class="service-price">Od 600 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <!-- Hand/manicure icon -->
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M28 44 Q18 44 16 36 L16 26 Q16 22 19 22 Q22 22 22 26 L22 20 Q22 16 25 16 Q28 16 28 20 L28 22 Q28 18 31 18 Q34 18 34 22 L34 24 Q34 20 37 20 Q40 20 40 24 L40 36 Q38 44 28 44 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M22 28 L22 36" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M28 24 L28 36" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M34 26 L34 36" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="service-num">iii.</div>
+        <h3 class="service-name">Manikúra</h3>
+        <p class="service-desc">Suchá i kombinovaná manikúra, gel lak, gelová modeláž, prodloužení. BisBis Professional.</p>
+        <div class="service-price">Od 550 Kč</div>
+      </div>
+
+      <div class="service-card">
+        <!-- Foot/pedicure icon -->
+        <svg class="service-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M18 38 Q14 36 14 30 Q14 22 20 18 Q24 15 28 16 Q36 16 40 22 Q44 28 40 36 Q36 44 28 46 Q20 46 18 38 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="22" cy="22" r="2.5" fill="currentColor" opacity="0.5"/>
+          <circle cx="28" cy="20" r="2.5" fill="currentColor" opacity="0.5"/>
+          <circle cx="34" cy="22" r="2.5" fill="currentColor" opacity="0.5"/>
+          <path d="M20 30 Q28 34 36 30" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="service-num">iv.</div>
+        <h3 class="service-name">Pedikúra</h3>
+        <p class="service-desc">Mokrá, suchá i kombinovaná pedikúra, Podofix rovnátka, gellak. 20+ let zkušeností. BisBis.</p>
+        <div class="service-price">Od 490 Kč</div>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<!-- ── TEAM ── -->
-<section id="team">
-    <div class="section-header container">
-        <span class="section-tag">Náš tým</span>
-        <h2 class="section-title">Čtyři <em>specialistky.</em></h2>
-        <div class="section-divider"></div>
+<!-- DISCOUNT EMAIL HOOK -->
+<section class="discount" id="discount">
+  <div class="container">
+    <div class="discount-header">
+      <div class="section-eyebrow">Pro nové klientky</div>
     </div>
-    <div class="team-grid container">
-        <div class="team-card">
-            <div class="team-avatar">PL</div>
-            <div class="team-name">Petra Lišková</div>
-            <div class="team-role">Kadeřnice</div>
-            <p class="team-desc">Dámské, pánské i dětské kadeřnictví. Pracuje s vlasovou kosmetikou Previa a Milk Shake.</p>
-            <div class="team-phone">731 533 504</div>
-        </div>
-        <div class="team-card">
-            <div class="team-avatar">RO</div>
-            <div class="team-name">Radka Odvárková</div>
-            <div class="team-role">Kosmetička</div>
-            <p class="team-desc">30 let v profesi. 15 let s Alcinou. Vaše spokojenost je jejím největším potěšením.</p>
-            <div class="team-phone">723 299 531</div>
-        </div>
-        <div class="team-card">
-            <div class="team-avatar">DS</div>
-            <div class="team-name">Donika Shala</div>
-            <div class="team-role">Kadeřnice</div>
-            <p class="team-desc">Moderní barevné trendy a přesné střihy. Pracuje s italskou značkou Itely Hairfashion.</p>
-            <div class="team-phone">778 000 900</div>
-        </div>
-        <div class="team-card">
-            <div class="team-avatar">LK</div>
-            <div class="team-name">Lea Kusiu</div>
-            <div class="team-role">Pedikérka & manikérka</div>
-            <p class="team-desc">20+ let praxe. Individuální přístup, preciznost a péče, na kterou se vždy spolehněte.</p>
-            <div class="team-phone">739 066 541</div>
-        </div>
-    </div>
+    <h2><em>Patnáct procent</em>na vaší první návštěvě.</h2>
+    <p class="discount-lead">
+      Zanechte nám e-mail a slevový kód vám pošleme do minuty. Žádný spam — jen občasná pozvánka, když budeme mít volný termín nebo novinku, o které byste měla vědět.
+    </p>
+    <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Odesláno ✓';">
+      <input type="email" placeholder="vase@email.cz" required>
+      <button type="submit">Získat slevu</button>
+    </form>
+    <div class="discount-fineprint">Vaše údaje neukládáme nikomu třetímu. Odhlášení kdykoliv jedním klikem.</div>
+  </div>
 </section>
 
-<!-- ── CONTACT ── -->
-<section id="contact">
-    <div class="section-header">
-        <span class="section-tag">Kde nás najdete</span>
-        <h2 class="section-title">Přijďte <em>do Podolí.</em></h2>
-        <div class="section-divider"></div>
-    </div>
-    <div class="contact-grid container">
-        <div class="contact-info">
-            <div class="contact-block">
-                <h4>Adresa</h4>
-                <p><strong style="color:var(--deep)">BEAUTY STUDIO NICOLE</strong><br>
-                Dvorecká 3<br>Praha 4 – Podolí</p>
-                <p style="margin-top: 10px; font-size: 0.83rem; opacity: 0.6;">Bus č. 118, zastávka „Za skalkou" · Parkování k dispozici</p>
-            </div>
-            <div class="contact-block">
-                <h4>Otevírací doba</h4>
-                <table class="hours-table">
-                    <tr><td>Pondělí – Pátek</td><td>9:00 – 18:00</td></tr>
-                    <tr><td>Sobota</td><td>Po domluvě</td></tr>
-                    <tr><td>Neděle</td><td>Po domluvě</td></tr>
-                </table>
-            </div>
-            <div class="contact-block">
-                <h4>Telefon</h4>
-                <p>
-                    <a href="tel:+420731533504">731 533 504</a> — Kadeřnictví (Petra)<br>
-                    <a href="tel:+420778000900">778 000 900</a> — Kadeřnictví (Donika)<br>
-                    <a href="tel:+420723299531">723 299 531</a> — Kosmetika (Radka)<br>
-                    <a href="tel:+420739066541">739 066 541</a> — Manikúra & Pedikúra (Lea)
-                </p>
-            </div>
-            <div class="contact-block">
-                <h4>E-mail</h4>
-                <p><a href="mailto:beauty.studio.nicole@gmail.com">beauty.studio.nicole@gmail.com</a></p>
-            </div>
-            <div class="contact-cta-box">
-                <p>Nemůžeme zvednout telefon? Napište SMS nebo e-mail se svým přáním, časovými možnostmi a kontaktem — ozveme se zpět co nejdříve.</p>
-                <a href="mailto:beauty.studio.nicole@gmail.com" class="btn-primary">Napsat e-mail</a>
-            </div>
-        </div>
-        <div>
-            <div class="map-wrap">
-                <iframe
-                    src="https://maps.google.com/maps?q=Dvoreck%C3%A1+3%2C+Praha+4&output=embed"
-                    loading="lazy"
-                    allowfullscreen
-                    title="Beauty Studio Nicole – mapa">
-                </iframe>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-    <div class="footer-logo">Beauty Studio <em style="font-style:italic">Nicole</em></div>
-    <div class="footer-copy">© 2026 Beauty Studio Nicole · Praha 4 – Podolí · Dvorecká 3</div>
-    <div class="footer-links">
-        <a href="#hero">Nahoru ↑</a>
-        <a href="https://www.facebook.com/beautystudionicole" target="_blank">Facebook</a>
-    </div>
-</footer>
-
-</body>
-</html>
+<!-- TEAM -->
+<section id="tym
