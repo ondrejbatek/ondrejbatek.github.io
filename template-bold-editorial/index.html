@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOIR SALON — Praha 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111111;
+      --white: #FFFFFF;
+      --accent: #CCFF00;
+      --gray: #888888;
+      --light-gray: #EEEEEE;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--accent);
+      padding: 10px 22px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 56px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-headline {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(72px, 10vw, 160px);
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    .hero-headline .line-1 { color: var(--white); display: block; }
+    .hero-headline .line-2 {
+      color: var(--accent);
+      font-style: italic;
+      display: block;
+    }
+    .hero-headline .line-3 { color: var(--white); display: block; }
+
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      max-width: 360px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: var(--black);
+      padding: 14px 32px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-ghost {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 14px 32px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg-number {
+      position: absolute;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 40vw;
+      color: var(--white);
+      opacity: 0.04;
+      line-height: 1;
+      right: -5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-vertical-line {
+      position: absolute;
+      left: 40px;
+      top: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      z-index: 2;
+    }
+
+    .hero-vertical-line::before {
+      content: '';
+      flex: 1;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(204,255,0,0.4), transparent);
+    }
+
+    .hero-vertical-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+
+    /* ── STATS STRIP ── */
+    #stats {
+      background: var(--black);
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 56px 80px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-item {
+      padding: 0 32px;
+      border-right: 1px solid #222;
+    }
+    .stat-item:first-child { padding-left: 0; }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 4vw, 64px);
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      padding: 120px 80px;
+    }
+
+    .about-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(42px, 5vw, 72px);
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 64px;
+      letter-spacing: -0.01em;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .about-quote-block {
+      border-left: 3px solid var(--accent);
+      padding-left: 24px;
+      margin-top: 32px;
+    }
+
+    .about-quote-block p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--black);
+      font-style: italic;
+    }
+
+    .about-pull-quote {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(56px, 6vw, 96px);
+      line-height: 0.95;
+      color: var(--accent);
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .about-pull-sub {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 24px;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--black);
+      padding: 120px 80px;
+    }
+
+    .services-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      border-bottom: 1px solid #222;
+      padding-bottom: 24px;
+    }
+
+    .services-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 3.5vw, 52px);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .services-count {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid #1e1e1e;
+      transition: background 0.25s, padding 0.25s;
+      cursor: default;
+      margin: 0 -32px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    .service-row:hover {
+      background: var(--accent);
+    }
+
+    .service-row:hover .service-num,
+    .service-row:hover .service-name,
+    .service-row:hover .service-desc,
+    .service-row:hover .service-price {
+      color: var(--black);
+    }
+
+    .service-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      transition: color 0.25s;
+    }
+
+    .service-info { flex: 1; }
+
+    .service-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(18px, 2.2vw, 28px);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      transition: color 0.25s;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.02em;
+      transition: color 0.25s;
+    }
+
+    .service-price {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(16px, 1.8vw, 22px);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      transition: color 0.25s;
+    }
+
+    /* ── TESTIMONIAL ── */
+    #testimonial {
+      background: var(--white);
+      padding: 120px 80px;
+      text-align: center;
+    }
+
+    .testimonial-mark {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 120px;
+      color: var(--accent);
+      line-height: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 3vw, 38px);
+      font-style: italic;
+      color: var(--black);
+      max-width: 800px;
+      margin: 0 auto 32px;
+      line-height: 1.3;
+    }
+
+    .testimonial-attr {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ── PROMO ── */
+    #promo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 420px;
+    }
+
+    .promo-left {
+      background: var(--black);
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .promo-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .promo-headline {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 4.5vw, 72px);
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .promo-right {
+      background: var(--accent);
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .promo-discount {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(80px, 10vw, 160px);
+      color: var(--black);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      margin-bottom: 32px;
+    }
+
+    .promo-form {
+      display: flex;
+      gap: 0;
+      max-width: 400px;
+    }
+
+    .promo-input {
+      flex: 1;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--black);
+      background: rgba(0,0,0,0.12);
+      border: 1.5px solid rgba(0,0,0,0.25);
+      border-right: none;
+      padding: 12px 16px;
+      outline: none;
+    }
+
+    .promo-input::placeholder { color: rgba(0,0,0,0.45); }
+
+    .promo-submit {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--accent);
+      border: none;
+      padding: 12px 22px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .promo-submit:hover { opacity: 0.8; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--white);
+      padding: 120px 80px;
+    }
+
+    .contact-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(42px, 5vw, 72px);
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 64px;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-blocks { display: flex; flex-direction: column; gap: 40px; }
+
+    .contact-block {}
+
+    .contact-block-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .contact-block-value {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(18px, 2.2vw, 28px);
+      color: var(--black);
+    }
+
+    .contact-block-value a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-block-value a:hover { color: var(--accent); }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      filter: grayscale(100%) contrast(1.1);
+      transition: filter 0.3s;
+    }
+    .contact-map iframe:hover { filter: grayscale(0%) contrast(1); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 80px 80px 40px;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 64px;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-tagline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-contact-item {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e1e1e;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #444;
+    }
+
+    .footer-credit {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      color: #333;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; }
+      .nav-links { gap: 28px; }
+
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 80px 40px; }
+
+      #stats { grid-template-columns: repeat(2, 1fr); padding: 48px 40px; gap: 40px; }
+      .stat-item { border-right: none; border-bottom: 1px solid #222; padding: 0 0 32px; }
+      .stat-item:nth-child(2n) { border-bottom: none; }
+
+      #about, #services, #contact { padding: 80px 40px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      #promo { grid-template-columns: 1fr; }
+      .promo-left, .promo-right { padding: 60px 40px; }
+
+      footer { padding: 60px 40px 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-left { padding: 64px 24px; }
+      #stats { padding: 40px 24px; }
+      #about, #services, #contact, #testimonial { padding: 64px 24px; }
+      .promo-left, .promo-right { padding: 48px 24px; }
+      footer { padding: 48px 24px 28px; }
+      .service-row { grid-template-columns: 48px 1fr auto; gap: 16px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+      .services-header { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">NOIR<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">O SALONU</a></li>
+    <li><a href="#services">SLUŽBY</a></li>
+    <li><a href="#testimonial">RECENZE</a></li>
+    <li><a href="#contact">KONTAKT</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Rezervace</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Praha 1 — Dlouhá 22</p>
+    <h1 class="hero-headline">
+      <span class="line-1">STYL</span>
+      <span class="line-2">KTERÝ</span>
+      <span class="line-3">ŘÍKÁ VŠE.</span>
+    </h1>
+    <p class="hero-sub">Prémiový salon v srdci Prahy. Precision střihy, barvení a péče pro ty, kteří si nechtějí kompromisy.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Rezervovat termín</a>
+      <a href="#services" class="btn-ghost">Naše služby</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-number">01</div>
+    <div class="hero-vertical-line">
+      <span class="hero-vertical-text">Noir Salon · Praha 2024</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stat-item">
+    <div class="stat-number">4.8</div>
+    <div class="stat-label">Google hodnocení</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">187</div>
+    <div class="stat-label">Spokojených recenzí</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">8</div>
+    <div class="stat-label">Let v profesi</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">01</div>
+    <div class="stat-label">Praha — Dlouhá</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="about-title">O SALONU</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>NOIR SALON vznikl z přesvědčení, že dobrý střih není luxus — je to investice. Každý klient přichází s příběhem a odchází s novou sebedůvěrou.</p>
+      <p>Simona Černá se věnuje vlasové tvorbě více než osm let. Studovala v Praze, Paříži a Londýně. Její práce kombinuje evropský minimalismus s precizností, která je vidět na každém detailu.</p>
+      <div class="about-quote-block">
+        <p>"Nejkrásnější účes je ten, který ráno nevyžaduje žádné přemýšlení. Prostě funguje."</p>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-pull-quote">Preciznost<br>v každém<br>detailu.</div>
+      <p class="about-pull-sub">— Simona Černá, zakladatelka</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <h2 class="services-title">NABÍDKA SLUŽEB</h2>
+    <span class="services-count">04 POLOŽKY</span>
+  </div>
+
+  <div class="service-row">
+    <span class="service-num">01</span>
+    <div class="service-info">
+      <div class="service-name">Střih &amp; Styling</div>
+      <div class="service-desc">Precision cut. Konzultace, střih, foukaná.</div>
+    </div>
+    <span class="service-price">550 Kč</span>
+  </div>
+
+  <div class="service-row">
+    <span class="service-num">02</span>
+    <div class="service-info">
+      <div class="service-name">Barvení</div>
+      <div class="service-desc">Balayage, ombre, melír. Wella Color Touch.</div>
+    </div>
+    <span class="service-price">od 700 Kč</span>
+  </div>
+
+  <div class="service-row">
+    <span class="service-num">03</span>
+    <div class="service-info">
+      <div class="service-name">Regenerace</div>
+      <div class="service-desc">Olaplex Bond Repair. Viditelný výsledek.</div>
+    </div>
+    <span class="service-price">od 450 Kč</span>
+  </div>
+
+  <div class="service-row">
+    <span class="service-num">04</span>
+    <div class="service-info">
+      <div class="service-name">Účes na míru</div>
+      <div class="service-desc">Svatba, fotografie, přehlídka.</div>
+    </div>
+    <span class="service-price">od 900 Kč</span>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+  <div class="testimonial-mark">"</div>
+  <p class="testimonial-text">U Simony jsem pochopila, že správný střih může změnit celý váš pocit z rána.</p>
+  <p class="testimonial-attr">— Veronika R. · Klientka salonu</p>
+</section>
+
+<!-- PROMO -->
+<section id="promo">
+  <div class="promo-left">
+    <p class="promo-label">Nabídka pro nové klienty</p>
+    <h2 class="promo-headline">PRVNÍ<br>NÁVŠTĚVA</h2>
+  </div>
+  <div class="promo-right">
+    <div class="promo-discount">−15 %</div>
+    <form class="promo-form" onsubmit="return false;">
+      <input type="email" class="promo-input" placeholder="váš@email.cz" />
+      <button type="submit" class="promo-submit">Chci slevu</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="contact-title">KONTAKT</h2>
+  <div class="contact-grid">
+    <div class="contact-blocks">
+      <div class="contact-block">
+        <p class="contact-block-label">Adresa</p>
+        <p class="contact-block-value">Dlouhá 22, Praha 1</p>
+      </div>
+      <div class="contact-block">
+        <p class="contact-block-label">Telefon</p>
+        <p class="contact-block-value"><a href="tel:724500600">724 500 600</a></p>
+      </div>
+      <div class="contact-block">
+        <p class="contact-block-label">E-mail</p>
+        <p class="contact-block-value"><a href="mailto:info@noirsalon.cz">info@noirsalon.cz</a></p>
+      </div>
+      <div class="contact-block">
+        <p class="contact-block-label">Otevírací doba</p>
+        <p class="contact-block-value">Po–Pá: 9:00–19:00<br>So: 9:00–15:00</p>
+      </div>
+    </div>
+    <div class="contact-map">
+      <iframe
+        src="https://maps.google.com/maps?q=Dlouhá+22+Praha+1&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">NOIR<span>.</span></div>
+      <p class="footer-tagline">Precision haircare<br>Praha 1 — Dlouhá 22</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigace</p>
+      <ul class="footer-links">
+        <li><a href="#about">O salonu</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#testimonial">Recenze</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Kontakt</p>
+      <div class="footer-contact-item">
+        Dlouhá 22, Praha 1<br>
+        724 500 600<br>
+        info@noirsalon.cz
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2024 NOIR SALON — Všechna práva vyhrazena</span>
+    <span class="footer-credit">Praha 1</span>
+  </div>
+</footer>
+
+</body>
+</html>
