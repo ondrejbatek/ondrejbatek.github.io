@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Studio Nicole — Kadeřnictví, kosmetika, manikúra & pedikúra · Praha 4</title>
+    <meta name="description" content="Komplexní péče o krásu v Praze 4 – Podolí. Kadeřnictví, kosmetická péče, manikúra a pedikúra. Beauty Studio Nicole na Dvorecké 3.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <style>
+        /* ── VARIABLES ── */
+        :root {
+            --deep:   #4E2038;
+            --rose:   #8C5266;
+            --gold:   #C4A27A;
+            --cream:  #FBF7F4;
+            --blush:  #F4EAE6;
+            --ink:    #2A2020;
+            --text:   #3D2A30;
+            --muted:  #9A8080;
+            --border: #E5D6D0;
+        }
+
+        /* ── RESET ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(251, 247, 244, 0.96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.04em;
+            color: var(--deep);
+        }
+        .nav-logo span { font-style: italic; }
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text);
+            opacity: 0.65;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .nav-cta {
+            background: var(--deep) !important;
+            color: #fff !important;
+            opacity: 1 !important;
+            padding: 10px 24px;
+            border-radius: 2px;
+            font-size: 0.75rem !important;
+            letter-spacing: 0.15em !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--rose) !important; }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 40px 100px;
+            background: linear-gradient(150deg, #f9ede9 0%, var(--cream) 55%, #f5f0f8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 800px 600px at 50% 40%, rgba(196,162,122,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 32px;
+            opacity: 0.85;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.6rem, 8vw, 7.5rem);
+            font-weight: 300;
+            line-height: 1.06;
+            color: var(--deep);
+            margin-bottom: 32px;
+            max-width: 860px;
+        }
+        .hero-title em {
+            font-style: italic;
+            color: var(--rose);
+        }
+        .hero-sub {
+            font-size: 1rem;
+            color: var(--text);
+            opacity: 0.7;
+            max-width: 500px;
+            margin: 0 auto 52px;
+            line-height: 1.85;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-primary {
+            background: var(--deep);
+            color: #fff;
+            padding: 16px 38px;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background 0.25s;
+            display: inline-block;
+        }
+        .btn-primary:hover { background: var(--rose); color: #fff; }
+        .btn-ghost {
+            border: 1px solid var(--deep);
+            color: var(--deep);
+            padding: 16px 38px;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.25s;
+            display: inline-block;
+        }
+        .btn-ghost:hover { background: var(--deep); color: #fff; }
+        .hero-ornament {
+            margin-top: 64px;
+            font-size: 1.2rem;
+            opacity: 0.2;
+            color: var(--gold);
+            letter-spacing: 0.5em;
+        }
+
+        /* ── STATS BAR ── */
+        #stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .stat {
+            padding: 44px 40px;
+            text-align: center;
+            background: var(--deep);
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .stat:last-child { border-right: none; }
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+        }
+
+        /* ── PHILOSOPHY QUOTE ── */
+        #quote {
+            padding: 110px 40px;
+            text-align: center;
+            background: var(--cream);
+        }
+        .quote-mark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 7rem;
+            line-height: 0.4;
+            color: var(--gold);
+            opacity: 0.25;
+            display: block;
+            margin-bottom: 28px;
+        }
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 3vw, 2.5rem);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--deep);
+            max-width: 780px;
+            margin: 0 auto 36px;
+            line-height: 1.5;
+        }
+        .quote-text strong { font-style: normal; font-weight: 600; }
+        .quote-author {
+            font-size: 0.78rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .quote-rule {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 20px auto 0;
+        }
+
+        /* ── SHARED LAYOUT ── */
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 0.66rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 18px;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--deep);
+        }
+        .section-title em { font-style: italic; color: var(--rose); }
+        .section-divider {
+            width: 44px;
+            height: 1px;
+            background: var(--gold);
+            margin: 24px auto 0;
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            padding: 110px 48px;
+            background: var(--blush);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 90px;
+            align-items: start;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        .about-label {
+            font-size: 0.66rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 18px;
+            display: block;
+        }
+        .about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 400;
+            color: var(--deep);
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+        .about-title em { font-style: italic; }
+        .about-body {
+            color: var(--text);
+            opacity: 0.82;
+            line-height: 1.9;
+            font-size: 0.97rem;
+        }
+        .about-body p + p { margin-top: 18px; }
+        .about-body strong { color: var(--deep); opacity: 1; font-weight: 500; }
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 44px;
+            padding: 20px 28px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.7);
+            border-radius: 2px;
+        }
+        .badge-initials {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--deep);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .badge-text { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+        .badge-text strong { display: block; color: var(--ink); font-size: 0.92rem; margin-bottom: 2px; font-weight: 500; }
+
+        /* About features list */
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding-top: 8px;
+        }
+        .feature-item {
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .feature-item:first-child { padding-top: 0; }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            min-width: 32px;
+            opacity: 0.55;
+            padding-top: 2px;
+        }
+        .feature-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.12rem;
+            font-weight: 400;
+            color: var(--deep);
+            margin-bottom: 6px;
+        }
+        .feature-content p {
+            font-size: 0.85rem;
+            color: var(--text);
+            opacity: 0.72;
+            line-height: 1.75;
+        }
+
+        /* ── SERVICES ── */
+        #services {
+            padding: 110px 48px;
+            background: var(--cream);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            max-width: 1120px;
+            margin: 0 auto;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+        .service-card {
+            background: var(--cream);
+            padding: 56px 52px;
+            position: relative;
+            transition: background 0.3s;
+        }
+        .service-card:hover { background: #f9f4f6; }
+        .service-roman {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            margin-bottom: 22px;
+            display: block;
+            opacity: 0.7;
+        }
+        .service-price {
+            position: absolute;
+            top: 56px;
+            right: 52px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--deep);
+            margin-bottom: 18px;
+        }
+        .service-desc {
+            font-size: 0.87rem;
+            color: var(--text);
+            opacity: 0.72;
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+        .service-brands {
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--rose);
+            opacity: 0.75;
+        }
+
+        /* ── TEAM ── */
+        #team {
+            padding: 110px 48px;
+            background: var(--deep);
+        }
+        #team .section-tag { color: rgba(196,162,122,0.8); }
+        #team .section-title { color: #fff; }
+        #team .section-title em { color: var(--gold); }
+        #team .section-divider { background: var(--gold); opacity: 0.5; }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        .team-card { text-align: center; }
+        .team-avatar {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(196,162,122,0.3);
+            margin: 0 auto 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        .team-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+        .team-role {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.38);
+            margin-bottom: 18px;
+        }
+        .team-desc {
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.52);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .team-phone {
+            font-size: 0.82rem;
+            color: var(--gold);
+            opacity: 0.75;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── CONTACT ── */
+        #contact {
+            padding: 110px 48px;
+            background: var(--blush);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        .contact-info { display: flex; flex-direction: column; gap: 40px; }
+        .contact-block h4 {
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 14px;
+        }
+        .contact-block p,
+        .contact-block a {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.85;
+        }
+        .contact-block a:hover { color: var(--deep); }
+        .hours-table { width: 100%; border-collapse: collapse; }
+        .hours-table tr { border-bottom: 1px solid var(--border); }
+        .hours-table tr:last-child { border-bottom: none; }
+        .hours-table td { padding: 10px 0; font-size: 0.9rem; color: var(--text); }
+        .hours-table td:last-child { text-align: right; opacity: 0.7; }
+        .map-wrap {
+            border-radius: 3px;
+            overflow: hidden;
+            height: 360px;
+            border: 1px solid var(--border);
+        }
+        .map-wrap iframe { width: 100%; height: 100%; border: none; }
+        .contact-cta-box {
+            margin-top: 8px;
+            background: var(--deep);
+            border-radius: 2px;
+            padding: 32px 36px;
+        }
+        .contact-cta-box p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            padding: 36px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.65);
+        }
+        .footer-copy {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.06em;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-links a {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.08em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            nav { padding: 18px 24px; }
+            .nav-links { display: none; }
+            #stats { grid-template-columns: repeat(2, 1fr); }
+            .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+            .about-grid { grid-template-columns: 1fr; gap: 56px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+            footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+        }
+        @media (max-width: 560px) {
+            #about, #services, #team, #contact { padding-left: 24px; padding-right: 24px; }
+            .service-card { padding: 40px 28px; }
+            .service-price { top: 40px; right: 28px; }
+            .team-grid { grid-template-columns: 1fr; max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-logo">Beauty Studio <span>Nicole</span></div>
+    <ul class="nav-links">
+        <li><a href="#about">O studiu</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#team">Tým</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="tel:+420731533504" class="nav-cta">Rezervovat</a></li>
+    </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+    <p class="hero-label">Kadeřnictví · Kosmetika · Manikúra · Pedikúra · Praha 4 – Podolí</p>
+    <h1 class="hero-title">Krása, která<br>přichází <em>od srdce.</em></h1>
+    <p class="hero-sub">Komplexní péče o váš vzhled i pohodu. Od vlasů po nehty — vše na jednom místě, se zkušenými specialistkami, které vědí, co dělají.</p>
+    <div class="hero-actions">
+        <a href="tel:+420731533504" class="btn-primary">Zavolat a rezervovat</a>
+        <a href="#services" class="btn-ghost">Co nabízíme →</a>
+    </div>
+    <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+</section>
+
+<!-- ── STATS ── -->
+<div id="stats">
+    <div class="stat">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Let zkušeností<br>v kosmetice</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Let praxe<br>v pedikúře</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Specialistky<br>pod jednou střechou</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">P4</div>
+        <div class="stat-label">Praha 4<br>Podolí · Dvorecká</div>
+    </div>
+</div>
+
+<!-- ── PHILOSOPHY ── -->
+<section id="quote">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">„Ke každé klientce přistupujeme <strong>individuálně</strong> — protože krása není o módních trendech, ale o pocitu, se kterým odcházíte domů."</p>
+    <p class="quote-author">— Beauty Studio Nicole · Dvorecká 3 · Praha 4 – Podolí</p>
+    <div class="quote-rule"></div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+    <div class="about-grid">
+        <div>
+            <span class="about-label">O studiu</span>
+            <h2 class="about-title">Komplexní péče<br><em>na jednom místě.</em></h2>
+            <div class="about-body">
+                <p>Beauty Studio Nicole je místo, kde péče o vlasy, pleť, ruce a nohy jde ruku v ruce. Nejsme jen kadeřnictví — jsme studio, kde si každá klientka opravdu přijde na své.</p>
+                <p>Pracujeme výhradně s prověřenými profesionálními značkami. Ve vlasové péči s <strong>Wella Professionals, Previa a Milk Shake</strong>, v kosmetice s <strong>Alcinou</strong>, v manikúře a pedikúře s <strong>BisBis</strong>. Žádné kompromisy v kvalitě.</p>
+                <p>Naprostou samozřejmostí je individuální péče, čistota a klid příjemného prostředí, kde si lze opravdu odpočinout.</p>
+            </div>
+            <div class="about-badge">
+                <div class="badge-initials">BSN</div>
+                <div class="badge-text">
+                    <strong>Beauty Studio Nicole</strong>
+                    Dvorecká 3 · Praha 4 – Podolí
+                </div>
+            </div>
+        </div>
+        <div class="about-features">
+            <div class="feature-item">
+                <div class="feature-num">01</div>
+                <div class="feature-content">
+                    <h4>Profesionální materiály</h4>
+                    <p>Wella Professionals, Previa, Milk Shake, Alcina, BisBis — výběr bez kompromisů.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-num">02</div>
+                <div class="feature-content">
+                    <h4>Čtyři obory pod jednou střechou</h4>
+                    <p>Kadeřnictví, kosmetika, manikúra i pedikúra — vše domluvíte na jednom místě.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-num">03</div>
+                <div class="feature-content">
+                    <h4>Individuální přístup</h4>
+                    <p>Každý klient je pro nás jedinečný. Plná pozornost a péče přizpůsobená právě vám.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-num">04</div>
+                <div class="feature-content">
+                    <h4>Snadná dostupnost</h4>
+                    <p>Parkování bez problémů. Bus č. 118, zastávka „Za skalkou" — vždy se dostanete.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+    <div class="section-header">
+        <span class="section-tag">Nabídka služeb</span>
+        <h2 class="section-title">Co pro vás <em>uděláme.</em></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <span class="service-roman">i. Kadeřnictví</span>
+            <span class="service-price">od 460 Kč</span>
+            <h3 class="service-title">Vlasy s péčí</h3>
+            <p class="service-desc">Dámské, pánské i dětské kadeřnictví. Střihy, barvení, melíry, ombre, balayage, foukaná, společenské a svatební účesy. Sledujeme trendy — a pomůžeme vám s jakýmkoli vlasovým problémem.</p>
+            <div class="service-brands">Wella Professionals · Previa · Milk Shake · Itely Hairfashion</div>
+        </div>
+        <div class="service-card">
+            <span class="service-roman">ii. Kosmetická péče</span>
+            <span class="service-price">od 600 Kč</span>
+            <h3 class="service-title">Pleť & relax</h3>
+            <p class="service-desc">Komplexní kosmetické ošetření, masáže obličeje a dekoltu, úprava a barvení obočí a řas, depilace teplým voskem, parafínové zábaly, trvalá na řasy. Relaxační prostředí pro vaši pleť i mysl.</p>
+            <div class="service-brands">Alcina Professional</div>
+        </div>
+        <div class="service-card">
+            <span class="service-roman">iii. Manikúra</span>
+            <span class="service-price">od 550 Kč</span>
+            <h3 class="service-title">Ruce v dobrých rukou</h3>
+            <p class="service-desc">Suchá i kombinovaná manikúra, gel lak, gelová modeláž, prodloužení pomocí šablon. Precizní péče s důrazem na hygienu a výsledek, který vydrží. Každý detail se počítá.</p>
+            <div class="service-brands">BisBis Professional</div>
+        </div>
+        <div class="service-card">
+            <span class="service-roman">iv. Pedikúra</span>
+            <span class="service-price">od 490 Kč</span>
+            <h3 class="service-title">Chodidla bez starostí</h3>
+            <p class="service-desc">Mokrá, suchá i kombinovaná pedikúra. Základní i kompletní péče, speciální ošetření zarostlých nehtů, rovnátka Podofix, gellak na nohy. Více než 20 let zkušeností s péčí o vaše chodidla.</p>
+            <div class="service-brands">BisBis Professional</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team">
+    <div class="section-header container">
+        <span class="section-tag">Náš tým</span>
+        <h2 class="section-title">Čtyři <em>specialistky.</em></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="team-grid container">
+        <div class="team-card">
+            <div class="team-avatar">PL</div>
+            <div class="team-name">Petra Lišková</div>
+            <div class="team-role">Kadeřnice</div>
+            <p class="team-desc">Dámské, pánské i dětské kadeřnictví. Pracuje s vlasovou kosmetikou Previa a Milk Shake.</p>
+            <div class="team-phone">731 533 504</div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">RO</div>
+            <div class="team-name">Radka Odvárková</div>
+            <div class="team-role">Kosmetička</div>
+            <p class="team-desc">30 let v profesi. 15 let s Alcinou. Vaše spokojenost je jejím největším potěšením.</p>
+            <div class="team-phone">723 299 531</div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">DS</div>
+            <div class="team-name">Donika Shala</div>
+            <div class="team-role">Kadeřnice</div>
+            <p class="team-desc">Moderní barevné trendy a přesné střihy. Pracuje s italskou značkou Itely Hairfashion.</p>
+            <div class="team-phone">778 000 900</div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar">LK</div>
+            <div class="team-name">Lea Kusiu</div>
+            <div class="team-role">Pedikérka & manikérka</div>
+            <p class="team-desc">20+ let praxe. Individuální přístup, preciznost a péče, na kterou se vždy spolehněte.</p>
+            <div class="team-phone">739 066 541</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+    <div class="section-header">
+        <span class="section-tag">Kde nás najdete</span>
+        <h2 class="section-title">Přijďte <em>do Podolí.</em></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid container">
+        <div class="contact-info">
+            <div class="contact-block">
+                <h4>Adresa</h4>
+                <p><strong style="color:var(--deep)">BEAUTY STUDIO NICOLE</strong><br>
+                Dvorecká 3<br>Praha 4 – Podolí</p>
+                <p style="margin-top: 10px; font-size: 0.83rem; opacity: 0.6;">Bus č. 118, zastávka „Za skalkou" · Parkování k dispozici</p>
+            </div>
+            <div class="contact-block">
+                <h4>Otevírací doba</h4>
+                <table class="hours-table">
+                    <tr><td>Pondělí – Pátek</td><td>9:00 – 18:00</td></tr>
+                    <tr><td>Sobota</td><td>Po domluvě</td></tr>
+                    <tr><td>Neděle</td><td>Po domluvě</td></tr>
+                </table>
+            </div>
+            <div class="contact-block">
+                <h4>Telefon</h4>
+                <p>
+                    <a href="tel:+420731533504">731 533 504</a> — Kadeřnictví (Petra)<br>
+                    <a href="tel:+420778000900">778 000 900</a> — Kadeřnictví (Donika)<br>
+                    <a href="tel:+420723299531">723 299 531</a> — Kosmetika (Radka)<br>
+                    <a href="tel:+420739066541">739 066 541</a> — Manikúra & Pedikúra (Lea)
+                </p>
+            </div>
+            <div class="contact-block">
+                <h4>E-mail</h4>
+                <p><a href="mailto:beauty.studio.nicole@gmail.com">beauty.studio.nicole@gmail.com</a></p>
+            </div>
+            <div class="contact-cta-box">
+                <p>Nemůžeme zvednout telefon? Napište SMS nebo e-mail se svým přáním, časovými možnostmi a kontaktem — ozveme se zpět co nejdříve.</p>
+                <a href="mailto:beauty.studio.nicole@gmail.com" class="btn-primary">Napsat e-mail</a>
+            </div>
+        </div>
+        <div>
+            <div class="map-wrap">
+                <iframe
+                    src="https://maps.google.com/maps?q=Dvoreck%C3%A1+3%2C+Praha+4&output=embed"
+                    loading="lazy"
+                    allowfullscreen
+                    title="Beauty Studio Nicole – mapa">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-logo">Beauty Studio <em style="font-style:italic">Nicole</em></div>
+    <div class="footer-copy">© 2026 Beauty Studio Nicole · Praha 4 – Podolí · Dvorecká 3</div>
+    <div class="footer-links">
+        <a href="#hero">Nahoru ↑</a>
+        <a href="https://www.facebook.com/beautystudionicole" target="_blank">Facebook</a>
+    </div>
+</footer>
+
+</body>
+</html>
